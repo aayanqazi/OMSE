@@ -1,0 +1,48 @@
+Ben Straub
+OMSE500 Fall 2006
+Homework #6
+
+1. What are 3 potential problems with inspections and reviews? Why are they problems?
+
+Focus
+
+Preparation
+
+Bruised egos
+
+2. Why are developers generally bad testers of their own code?
+
+They wrote it - if they were going to catch the bug, they would have already
+
+3. I have a product that has been tested completely, but I made a few bug fixes to the code after the test was over. What role does regression testing play at this point? Why is that important?
+
+The role of regression testing is to make sure code changes don’t break existing functionality.  Even in a fairly robust code base, it’s inevitable that code changes will introduce new problems.  This is especially important just before a milestone, where any delays cannot be absorbed later.  
+
+4. Brooks says, "The fuzzy milestone is the harder burden to live with." Harder than what? Why did he say that?
+
+(Note: You were ambivalent on whether you expected a new answer for this question.  Since I was pretty happy with my answer on the midterm, and as engineers we like to leverage what we’ve already written, I’ve just included that answer here.)
+
+A fuzzy milestone is in contrast to a sharp one.  His definition of "sharp" includes concreteness, measurability, specificity, and being well-defined.  
+
+A sharp milestone must be concrete.  Its definition must include a real item delivered to a real destination.  It must be a significant marker in the progress of the project in order to be meaningful to that project.  A "soft" milestone, such as "10,000 lines of code written," does not help the project, because meeting it does not materially advance the progress of the team.
+
+A good milestone must also be measurable; it should be possible to know when it is complete.  A Schrödinger milestone, such as "debugging 80% complete," is not only unhelpful, it is actually harmful, since it affords miscommunication between the engineer (to whom 80% complete means that 20% of the code is left to inspect) and the manager (to whom it means that 4/5 of the time needed has passed).
+
+Milestones should also be specific and well-defined.  An example is "demo delivered to customer," and a counterexample is "demo ready to be delivered to customer."  An ill-defined milestone presents the same opportunities for miscommunication as an immeasurable one, but is impossible to nail down even in retrospect.  The terms used when writing milestones should either have standard definitions, or be clearly defined in the schedule.
+
+Sharp milestones allow the team to target a milestone, work towards it, and afterward, move on.  Fuzzy milestones may be easier to write, but the team is then forced to work towards several goals at the same time, not knowing whether any of them have been met.  The constant miscommunication in status reports means that management doesn't have an accurate idea of how the project is progressing, and the schedule can then slip without anyone being aware of it until it is too late to prevent.  Constant schedule slippage is a sure-fire way to destroy morale; software engineers take a certain amount of pride in how smart they are, and a schedule slip is a reminder that they were wrong about something.
+
+
+5. Brooks rips on flow charts.  Were they ever useful? If so, when? If not, why not?
+
+Brooks says that flow charts are “suitable only for initiating beginners into algorithmic thinking.”  When they were introduced, they served the same function that UML-style diagrams do today: as a graphical overview of one aspect of a complex computer system.  The programs back then were small, and their every detail was significant; with the advent of higher-level languages and compilers, the programmer could think in larger ideas.  Today, a programmer can capture a 5-page flow chart in less than a page of code; the source itself is often more concise and easier to read than the chart.
+
+6. What is the difference between a demo and a test? What's the danger in failing to understand the difference?
+
+The difference is in intent.  A demo is meant to impress; it will use only those features that work, and will use them in carefully well-defined ways so that they appear to work well.  
+
+A test, on the other hand, is meant to discover problems.  It will use functions in ways not intended; corner cases will be explored; unexpected combinations will be tried.  A test will not stay within the lines
+
+7. Sommerville, Chapter 22, Exercise #22.2: Explain why it is not necessary for a program to be completely free of defects before it is delivered to its customers.  To what extent can testing be used to validate that the program is fit for its purpose?
+
+

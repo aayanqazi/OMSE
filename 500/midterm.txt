@@ -1,0 +1,178 @@
+1a. Explain the difference between errors, faults and failures. 
+
+Definitions in quotes are from Sommerville, page 53.  I use the following example to illustrate each term: a lightning bolt strikes a hardware component used by a software system, and the system fails to adapt to the non-functioning state of the component, which results in an unhandled exception, and the software system crashes.
+
+A fault is "a characteristic of a software system that can lead to a system error."  This is colloquially referred to as a bug or software defect, and is essentially a vulnerability, or a failure to deal with an unexpected event.  In our example, the fault is the failure to adapt to the non-functioning hardware component.  The ability of a system to cope with faults is called "fault-tolerance," and is highly valuable in critical or high-availability systems.
+
+An error is "an erroneous system state that can lead to system behaviour that is unexpected by system users."  This is an actual, physical state which occurs, rather than simply the possibility for such a state.  An error may be caught by the system, or if a fault is present, it may go on to cause a failure.  An error does not necessarily result in a failure, however; the system state may only exist for a few microseconds, or it may be corrected or allowed for by the system, and may have no ill effects.  The failure to correct for an error is a fault.  In our lightning bolt example, the error is the non-functioning hardware component.
+
+A failure is "an event that occurs at some point in time when the system does not deliver a service as expected by its users."  A failure is the visible effects of an uncorrected error.  A failure may not be the complete non-function of the system; it may be a simple graphical glitch, or a strange UI behavior; all that is required for a failure is unexpectedness, or deviation from the specification.  In our lightning bolt example, the failure is the system crash.  Another example would be if a web application fails to create a connection to a database server and cannot retrieve data for display; the failure is the "Unable to create database connection" message displayed to the users of the system.
+
+Note these terms may apply to any system, including the "system" of software development, or its subprocesses.  An error-fault-failure chain in the development process may result in a fault in the resulting system, which may then result in a later error-fault-failure chain in the actual software.
+
+1b. Give an example of a single error that results in a fault in each of the following as a consequence: i) the requirements; ii) the design; iii) the code.
+
+Here I'm taking a specific view of the question's grammar, such that the fault in Foo is a result of a single error, rather than a single error in Foo that results in a fault.
+
+i. The single error of missing or omitting a checklist item during system specification could result in the fault of a missing requirement.  For instance, if the customer doesn't specifically mention performance as a consideration in their statement of need, and the requirements engineer does not consider performance as part of the specification process and elicit performance needs from the customer, then a performance requirement may never be written.  This is a fault in the requirements, since the "error" of a high load on this component may produce a performance failure later in the development of the project.
+
+This error may be prevented by having a requirements checklist that includes items such as "what about performance?"  Here I'm inspired by the chart Sommerville provides on page 122; the list of items is complete enough to be useful, but sparse enough not to be cumbersome.  Each node on that chart should at least be considered when writing requirements.
+
+ii. The single error of an architect missing a performance requirement may result in the design fault of an incorrectly specified algorithm.  For example, if a system requires a sorting component and the architect doesn't make it clear that this component is performance-critical, then the designer may choose the sorting algorithm that most closely conforms to her ideas about the design for the rest of the component.  This could result in the entire system performing poorly if the data sets are larger than originally expected.
+
+This type of error can be prevented by having traceability between requirements and architecture, and between architecture and detailed design.  In our example, a cross-trace between the requirements and the architecture would have caught the missing performance information, and the fault would never have made it into the system.
+
+iii. The single error of ignoring the recent popularity of multi-core processors may result in the fault of insufficiently thread-safe code being written.  Certain errors that required several context switches on specific lines of code in the past are now becoming more likely to occur, since more threads are being concurrently executed.  This is especially important for library designers, whose code will be used by many programs on a wide variety of hardware; non-thread-safe code in a widely-used library can cause many failures, and is very expensive to correct once widely adopted.
+
+This particular error can be avoided by ensuring that both current and potential near-term future hardware are considered when eliciting requirements.  If the customer knows that eventually the system will be ported to multi-processing hardware (which is inevitable given the current direction of the CPU industry), multi-threading should be part of the architectural design and test cases.
+
+2a. Compare and contrast "Architectural Design" with "Detailed Design".
+
+Architectural design deals with breaking the system up into smaller pieces, such that their details may be designed independently of each other, and establishing a design strategy and style that will be used across the entire project.  The main activities are defining subsystems, detailing their interfaces, and outlining system-wide libraries.  Architectural design is said to be finished when all of the subsystems have a clearly defined purpose, it is conceptually obvious what subsystem component names should be, and the model produced fulfills the system requirements.
+
+Detailed design is concerned with outlining the implementation of each subsystem, independently of all other subsystems.  The main activities are defining classes and inheritance relationships, designing object interactions, and fulfilling the requirements for each subsystem independently of other subsystems.  Ideally, the subsystem interface specification acts as a set of requirements for the subsystem; detailed design is said to be finished when the designed model fulfills those requirements, and no major decisions are left to be made.
+
+Architecture profoundly affects detailed design; in fact, the architectural design document is used as the specification for a detailed design.  Detailed design documents, however, do not affect the architecture of a system unless a detailed design reveals an architectural flaw.  There is a feedback loop involved, but the detailed design flows from the architecture, and not vice-versa.
+
+Architectural design may include some detailed design; the interface specifications for subsystems, for example, may take the form of a class diagram, and libraries used across the entire system may be designed in detail so that their workings are well-understood by everyone working on the project.  Conversely, detailed design is self-contained, and should not include any architectural design; if a product of detailed design affects the detailed design of a different subsystem, the architecture is flawed.
+
+2b. Give at least one concrete example, not a general example, for each.
+
+I will use the diagram on this page for reference:
+http://msdn.microsoft.com/library/default.asp?url=/library/en-us/wcecomm/html/_wincesdk_Outline_of_NDIS.asp
+
+The diagram is an architectural model, which names subsystems, and describes on a high level the function of the system.  In this case, the purpose of the system is to pass packets between a networking protocol and the underlying network hardware on a single computer.  Note that there are two paths available: the NDIS wrapper may always be used as an interface between the protocol layer and the miniport driver, but is only available as an interface between the miniport driver and the actual hardware if it is a network interface card - NDIS only knows how to talk to actual networking hardware.  If the hardware in question is not specifically designed for networking, it may be adapted by writing an intermediate miniport driver which talks to the raw driver; even audio cables may be used for networking in this way.
+
+A related example of detailed design would be if an engineer were writing a miniport driver for use with NDIS.  The documentation provides the specification for the interfaces of such a driver, as well as instructions on how to integrate that driver into the networking system.  In this case, the interface specification acts as a set of requirements for the miniport driver, which may be designed and implemented independent of any of the other blocks on the architectural diagram.
+
+3a. Explain briefly the concept of "The Mythical Man-Month".
+
+The man-month as a unit is mathematically described as ((1 man) x (1 month)).  This assumes that a single task that takes 2 man-months can be expressed just as accurately as 
+
+     (1 man) x (2 months)
+     	or
+     (2 men) x (1 month)
+     	or
+     (4 men) x (0.5 months)
+
+Which implies that the time taken for a given task goes as 1/N (where N is the number of engineers assigned).  However, this is only true if the task at hand is perfectly partitionable; that is, it can be broken down into perfectly independent sub-tasks.  In software development, however, most tasks are NOT partitionable, because of technical interdependencies and communication overhead.  Thus, certain tasks will take however long they take, regardless of the manpower dedicated to it; in fact, with complex communication patterns, more manpower could make the task take longer.  In Brooks' words, "the bearing of a child takes nine months, no matter how many women are assigned."
+
+3b. Why is this notion so significant? You may cite Brooks, but explain in your own words please!
+
+In manufacturing, which is the basis for much of modern managerial theory, most tasks are very partitionable; it's more efficient for 100 workers to make one car in an assembly line than for the same 100 workers to make 100 cars.  Despite the 30-year popularity of Brooks' book, software managers still try to apply techniques from the realm of manufacturing management to software development.  The result is that conventional wisdom not only does not help, but actually hinders software projects - "dousing a fire with gasoline," as Brooks puts it.
+
+Brooks' statement is so significant not because it's true, which it is, but mostly because it is counter-intuitive for most people.  Adding people to a project makes it go slower, not faster.  Progress is not necessarily being made just because everyone is working.  The fact that the book is still applicable and resonant today speaks to the fact that software management is a relatively new and unique pursuit, and past lessons have not yet been codified into industry knowledge.
+
+4a. Brooks said, "More projects have gone awry for lack of calendar time than for all other causes combined." What does Brooks mean by this?
+
+The gist of his reasoning is that we start with the wrong numbers, we monitor poorly, and when the schedule slips (as it will), we respond in the wrong ways.
+
+Our estimation techniques have improved somewhat since Brooks penned his words, but they are not widely applied.  My personal experience from four separate software organizations is that most groups rely on gut feel, rather than any formal method.  Some research indicates a 10x difference in productivity between the best and average engineer; if true, how is this accounted for in our estimation techniques?  Moreover, the technology landscape is ever-shifting, and new tools with the promise of making hard things easier are released monthly.  With few large-scale studies done on any but the largest projects, it is difficult to know whether one's estimates are anywhere near correct.  Software engineers are, by and large, and optimistic lot, and most of their gut-feel estimates are imbued with the assumption that things will go well, that the unexpected will not occur, and that no major interferences will take place.  Obviously, this assumption does not survive scrutiny, and persists only because it is usually not scrutinized.
+
+Our monitoring apparatus is again drawn from manufacturing; the manager sees everyone typing furiously away, and assumes progress is being made.  Unless an effort is made to understand each task, and an atmosphere of honesty and openness is nurtured, management may be unaware that a slip is occurring until it has already happened.  With so many unpartitionable tasks, progress is difficult to measure in the first place - it said that coding is "90% complete" for half the duration of any project.  Most metrics available are not closely correlated to actual project progress, and indicate the wrong things.
+
+When manufacturing schedules slip, management simply adds more labor to make the problem go away.  Hiring more workers, or having the existing staff work longer hours results in the schedule being "reigned in."  This approach is harmful for a software team for two reasons.  First, the number of communication links between N people is on the order of N squared; adding people to a project increases the complexity of communication far more than it increases the amount of labor available.  Second, time must be spent bringing the additional people up to speed, which is time not originally scheduled for.  These two factors combined result in a greater cost for adding people to a project than it would initially seem.
+
+For all these reasons, software systems usually take longer than we think they will.  Given that most organizations are more concerned with schedule than any other single thing, this is why most projects "fail for lack of calendar time."
+
+4b. Do you agree or disagree? Explain why you agree or disagree.
+
+Brooks' credibility is good, having been around during IBM's heyday, and the fact that his book is considered a landmark, and is used as a college textbook, speaks to its resonance with engineers and management alike - indeed, I was predisposed to agree with him before I even read the book.  Given this, I struggle to form an objective opinion.
+
+It's impossible to know for certain which canceled projects would have succeeded given more time.  Some projects are known to fail for other reasons, such as the Mars Observer, but some high-profile projects do fail (at least partly) for schedule reasons, such as Virtual Case File.  I think that most engineers assigned to a failed project would say they could have made it work given more time.  Brooks' supporting points certainly make sense - estimation techniques aren't widely trusted or used, monitoring isn't easy or widely practiced, and schedule slips result in managerial panic.  To a cynical mind, it's obvious that mismanagement occurs, but hard data is not abundant on these issues.
+
+In the end, I agree with Brooks' assessment.  I've seen examples of extra manpower thrown at a late project (though it's hard to say if it was made later as a result), and I know first-hand the rarity of structured estimation, and organizational resistance to a project manager standing up for estimates.  Brooks' ideas are supported, at least in a minor way, by my experiences in my own short career, so I extrapolate to believe his essays on topics I have not experienced.
+
+5a. Brooks says, "The fuzzy milestone is the harder burden to live with." Harder than what?
+
+A fuzzy milestone is in contrast to a sharp one.  His definition of "sharp" includes concreteness, measureability, specificity, and being well-defined.  
+
+A sharp milestone must be concrete.  Its definition must include a real item delivered to a real destination.  It must be a significant marker in the progress of the project in order to be meaningful to that project.  A "soft" milestone, such as "10,000 lines of code written," does not help the project, because meeting it does not materially advance the progress of the team.
+
+A good milestone must also be measurable; it should be possible to know when it is complete.  A Schrodinger milestone, such as "debugging 80% complete," is not only unhelpful, it is actually harmful, since it affords miscommunication between the engineer (to whom 80% complete means that 20% of the code is left to inspect) and the manager (to whom it means that 4/5 of the time needed has passed).
+
+Milestones should also be specific and well-defined.  An example is "demo delivered to customer," and a counterexample is "demo ready to be delivered to customer."  An ill-defined milestone presents the same opportunities for miscommunication as an immeasureable one, but is impossible to nail down even in retrospect.  The terms used when writing milestones should either have standard definitions, or be clearly defined in the schedule.
+
+5b. Why did he say that?
+
+Sharp milestones allow the team to target a milestone, work towards it, and afterward, move on.  Fuzzy milestones may be easier to write, but the team is then forced to work towards several goals at the same time, not knowing whether any of them have been met.  The constant miscommunication in status reports means that management doesn't have an accurate idea of how the project is progressing, and the schedule can then slip without anyone being aware of it until it is too late to prevent.  Constant schedule slippage is a sure-fire way to destroy morale; software engineers take a certain amount of pride in how smart they are, and a schedule slip is a reminder that they were wrong about something.
+
+6a. Explain the key differences between a Risk Management Action Plan and a Risk Management Contingency Plan.
+
+Risk management is the process of mitigating risks.  Its intent is to reduce either the probability that a risk will occur, or the severity of the consequences if it does.  The actions outlined in an action plan are pro-active measures that the manager can take in order to reduce the impact of the highest priority risks to a project's success.  For instance, if a third-party component is identified as a project risk, a suitable action plan would be to do some prototyping with the component, or perhaps writing a suite of acceptance tests for the component.
+
+A contingency plan is an outlined course of action to take in the event of a risk occurring.  It's the Plan B which the manager turns to if her mitigating actions are not effective.  The actions outlined in a contingency plan are targeted towards damage control and allowing project progress after the risk has occurred.  Occasionally, the risk mitigation plan includes actions that provide resources for the contingency plan.  Using the same example, if the third-party component identified as a risk fails to perform to spec, the contingency plan might outline an alternative component whose use has minimal impact on the architecture of the system.
+
+6b. Identify 5 potential risks Sommerville does not discuss that could arise in a software development project.
+
+One potential risk is that the source-code control database will become irreparably corrupt.  Without mitigation or a contingency plan, this kind of event could set a project back months or years, as individual engineers try to restore a consistent code snapshot from the copies on their workstations.  A mitigation plan for this risk would probably include choosing a tool known to be reliable (Visual SourceSafe has been known to fail in just such a way) and making periodic off-site backups of the project source tree.  The contingency plan would include restoring from those backups, as well as a strategy for notifying all the project engineers.
+
+Yet another is that a certain employee, who is unfireable due to political forces, undermines the project.  It is generally assumed that the staff assigned to a project are competent and dedicated, but this may not always be the case; certain people are untrainable, and if the manager finds himself stuck with such a person due to political constraints, he must try to ensure that the person does no damage.  The mitigation plan for this situation may include assigning the employee to tasks with a small impact on the system as a whole, or possibly assigning another engineer to "babysit," acting as a partner.  The contingency plan may include having another engineer rewrite the offending code or design.
+
+Another is the difficulty of debugging concurrency errors.  The system may rely on a system library that was not designed for massive parallelism, and subtle errors that occur rarely on single- or dual-processor systems may be much more likely in an 8- or 16-core system.  These problems are very difficult to reproduce, and often exhibit Heisenbug behavior (i.e. attaching a debugger or enabling console output makes the problem go away).  Mitigation for this risk may include prototyping and test cases for the system library, and training for the relevant staff.  The contingency plan would most likely include bringing in an outside expert, or purchasing an expensive debugging tool that would not be justifiable under ordinary circumstances.
+
+Another risk is industrial espionage.  If the organization's security systems are breached by a competitor (whether electronically or physically), the in-progress system's market advantage may be eroded or destroyed, potentially leading to the cancellation of the project.  A mitigation plan for this risk might include ensuring that the organization's internal network is adequately protected, or instituting extra security procedures for the development team's machines if the system is high-value.  A contingency plan might include a re-assessment of the market landscape, so if the original product is rendered valueless, a change of direction can take place and allow the project to continue.
+
+Yet another risk is that of late or missing external dependencies.  If the software project is related to a hardware product, the schedule is necessarily tied to getting engineering samples of the hardware by the time the software team is ready to test on it.  If this condition fails, the schedule will most likely slip (unless all goes well, heh).  The mitigation plan for this risk is to call it out in advance, making sure that the hardware organization is aware of this dependency and can plan accordingly, and keeping a re-shuffled schedule at hand for contingency (note that the mitigation plan includes keeping this plan, and the contingency plan includes executing it).  The contingency plan would consist of informing stakeholders of the slip, and executing the backup schedule so the team can continue to make progress.
+
+7a. Discuss the benefits and disadvantages of the Spiral Model.  Provide between 3-5 benefits and disadvantages.
+
+The chief advantage of the spiral model over most others is that risk is recognized explicitly in the process model.  Risk analysis occurs at every iteration, and potential hazards are recognized as early as possible.  In this way, uncertainties in the system can be flushed out in a methodical fashion by the entire team
+
+The chief disadvantage of this model is its sequential nature.  Prototyping and benchmarking are placed before requirements analysis in each iteration, but we know that these tasks do not partition well, and a certain number of engineers will be left idle while a potentially small proportion is completing their prototype.  Even if parts of the system are able to continue on, if segments of the system get too far ahead of others, the advantages over the evolutionary approach are lost.
+
+An advantage of this model over an evolutionary process is visibility.  Deliverables happen on a somewhat less frequent basis, and measurement and goal setting occur at each iteration, so it is easier to see where the project is in relation to where it is going.  This model also follows a more methodical, big-rocks-first style of development, rather than the haphazard-feeling concurrency of evolutionary development.
+
+7b. Also, discuss the benefits and disadvantages of the Evolutionary Model.  Provide between 3-5 benefits and disadvantages.
+
+The book discusses two main disadvantages of this model, of which the first is a lack of visibility to management.  It is difficult to measure progress towards a goal when that goal is ill-defined; the milestones cannot help but be fuzzy when the customer changes requirements with every delivery.  Sommerville also notes that documentation for a system developed using this approach is almost never kept up-to-date; it becomes cost-prohibitive to keep complete documentation for the system when releases happen too often.
+
+The second disadvantage Sommerville notes is the poor system structure that results from a haphazard development process.  The frequency of change in the requirements leads to corruption of the original system architecture, and the cost of implementing changes increases with both the size and age of the system.  This model does not lend itself to loosely coupled, highly cohesive code; rather, each system change leads to more quick fixes and patches.
+
+The chief advantage of this approach is its responsiveness to change; the entire process is designed around the inevitability of shifting requirements.  To this end, releases are frequent, and small in delta from previous releases; customer feedback is elicited at every stage of development.  The end result is a system that converges rapidly with what the customer actually needed, rather than what they thought they wanted when the requirements were written.  Sommerville recommends this approach for small systems, as well as for isolated parts of larger systems, for exactly this reason.
+
+8a. What is the difference between a software process model and a software process?
+
+The model is simply a representation of how the process works.  It usually takes the form of boxes and lines on paper, along with a detailed description of the activities that take place during each phase of development.  It can be general (i.e. the RUP) or specific (i.e. how Jane writes code).  It is necessarily an approximation of how the process works in actuality - human interaction is complex and constantly changing, and documenting all the details would not be cost-effective.  Not all software teams use a process model to describe their process.  Changing a software model is as easy as modifying a document, but a useful model is internally consistent, so changes must be made carefully.
+
+A software process is the actual set of activities performed by a team when developing software.  Every software team has a process, whether it is written down or not.  Every process is unique to the team following it, and there are no "general" processes.  A process can flow from practice, with the team self-enforcing what works best for them, or from a model, with activities being specified by a general or specific method.  Changing a process is difficult, since every team member must be committed to the decision to change, and actually adopt the changes.
+
+8b. Give two examples of how a software process model might be helpful in identifying possible process improvements.
+
+If a process is not written down, the act of capturing it into a model may reveal unnecessary complexities, and suggest shortcuts and improvements to the process.  For example, say a manager is assigned to a software team with no formal process.  After spending some time understanding how the group works, he draws a box-and-line diagram to model the process, and notices that developers spend a lot of time talking to the customer.  It turns out that the software could be made faster and better if a better requirements elicitation phase were performed before design and coding begin.  He brings this suggestion to the team, the idea is well-received, and the process is improved.
+
+Another example is a team that has a formal process, but is looking to incorporate some ideas from the "Agile" movement.  They compare their model to the spiral method, and identify a few core practices that could be easily added to their own process, such as periodic risk analysis, and prototyping before every design phase to reduce uncertainty.  They adopt these practices, and schedule a retrospective meeting for three months later, at which time they will discuss whether the process changes should be kept.
+
+9a. What do you consider to be the 5 most challenging aspects of creating correct requirements?
+
+The most challenging aspect for me is understanding the customer's need.  A software system should solve an actual problem that the customer is experiencing, and sometimes that differs from what she thinks she wants.
+
+Another challenge is translating a business need into a set of technical requirements.  The languages spoken by business and engineers are very different, and interpreting in either direction is important, but non-trivial.
+
+Another difficulty is convincing the customer that the proposed system will solve their problem.  Often, the problem is not what the customer thought, and the solution invariably takes an unexpected form.  Nevertheless, for the product to actually be useful, the customer must understand and accept the solution, and use it correctly.
+
+Yet another challenging aspect is ensuring that nothing slips through the cracks.  The requirements specification must be a complete set of criteria for deciding that the project is finished.  The potential cost of a missing requirement is huge, so it is essential to be complete.
+
+Another difficulty is writing requirements for a user interface.  The terms "intuitiveness" and "friendliness" are often used in this context, but are not exact enough for use in a requirement.  But if such aspects are not required, they may not be present in the final product.
+
+9b. For each one, briefly discuss why it is challenging, and suggest one possible solution.
+
+Understanding the customer's need involves developing a real understanding of their business and situation.  The requirements engineer's task is to find inefficiencies in the customer's process, which means they need to know both the process model as well as the reality of the situation - often the best solutions exploit deltas between the two.  The best way to get through this difficulty is to spend time with the stake-holders, making sure all of them contribute.
+
+The translation of a business need into requirements is difficult because the two don't map cleanly.  A business need may break down into three functional and six non-functional requirements, simply due to the impreciseness of the language used.  For any statement of business need, there are a multitude of possible requirement specifications, and the goal is to find the "best" one.  This difficulty can be overcome with education, persistence, and empathy; the engineer must understand the customer's business, where the customer's pain is coming from, and narrow down the uncertainties by asking questions.  Most engineers jump right into thinking about implementation, so keeping an open mind is an essential skill for this process.
+
+In order for the customer to accept the solution to their problem, they must first understand how it will fit into their processes.  Again, this relies on human language, and the fuzziness of the idea being transmitted (this is where it fits in, this is what it will do) leaves many opportunities for miscommunication, with each party walking away from the conversation with a different idea of what was said.  Overcoming this challenge involves using speaking the customer's language, and really teaching them about the proposed system, rather than simply handing them a document and waiting for a response.  Again, it's communication with non-technical folk that is the difficulty, for me as I'm sure with many engineers.
+
+Writing complete requirements is a daunting task.  Sommerville's taxonomy on page 122 is intimidating, and still incomplete.  The sheer number of concerns is overwhelming, and the cost of a missing requirement can be very high.  The best way I can think of to overcome this difficulty is to have an exhaustive checklist of questions to ask yourself when writing requirements, such as "what other systems will this product interact with?" and "which is more scarce, memory or CPU?"  The right question can help the requirements engineer continue when he seems to be stuck.
+
+User interfaces can only be specified in requirements in the most general sense.  In a complex system where the UI is only one subsystem, this may be acceptable, but if the product is a UI-driven application, the quality of the interface design is of utmost importance, and must be specified in detail.  This would be easier if standard metrics were available for measuring aspects of user interface functionality, but they don't.  In the end, the only solution is to specify in requirements what services the UI must provide, and rely on good interface design to ensure a good experience to the end user.
+
+10a. Compare and contrast "Computer Programming" with "Software Engineering".
+
+Computer programming is the art of coercing a computer to perform a specific function.  It is a creative discipline, as Brooks put rather poetically, and its end product is code.  The primary tools used by computer programmers are computer languages, text editors and compilers, and its central activities are typing and thinking about the current problem.
+
+Software engineering is the art of developing quality software.  It is concerned with requirements, process, and project management, and its end product is a software system.  The primary tools are documentation (requirements, architecture, and design), process models, and schedules, and the central activity is project planning.  Software engineering consists of computer programming, as well as all the supporting activity around it, including design, documentation, and V/V.
+
+10b. Why is the distinction important?
+
+The distinction is important because in every other field, the term "engineer" carries connotations of dependability, certification, and accountability, standards to which software engineers are not held.  The reasons for this are many, but the end result is that the quality of commercial software is generally terrible.  It has been said that if automobiles acted like software, cars would weigh 10 pounds, carry 200 passengers, go a million miles on a tank of gas, and crash once a week, killing all aboard.  Our capabilities have expanded by orders of magnitude, but our discipline and quality have not kept pace.  It is for this reason that we are attempting to re-assert the value of the term "engineer" and our claim to it, striving towards the standards set by the other fields that carry this title.

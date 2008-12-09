@@ -1,0 +1,382 @@
+% --> eval-last-sexp (highlight-regexp "TODO" 'hi-yellow)
+
+
+%%% TODO %%% figure/table captions
+
+\documentclass[11pt]{wacomepd} \usepackage{amssymb} \usepackage{enumerate}
+
+\begin{document}
+
+
+%------------------------------------------------------------------------------- \date{Cascadia
+Project} \title{Software Test Plan} \maketitle
+
+\revisionlist{ 1 & Initial release & BES & 10/24/2008 \\ }
+
+
+\chapter{Table Of Contents}
+\tableofcontents
+\clearpage
+
+
+%-------------------------------------------------------------------------------
+\chapter{Introduction}
+\begin{itemize}
+\item Provide a brief overview of the project and the development process you are following
+  (waterfall, iterative, incremental, evolutionary, Agile, XP, etc.)
+\item Provide a brief overview of this plan including assumptions, priorities, and constraints
+\item Identify project work products and deliverables including work products specifically produced
+  by this plan. Distinguish between deliverables and internal work products.
+\item Identify standards, guidelines, procedures, evaluation checklists, tools referenced by this
+  plan
+\end{itemize}
+%--------------------
+
+%-------------------------------------------------------------------------------
+\chapter{Organization / Teams}
+\begin{itemize}
+\item Describe how you plan to organize your team to carry out the quality assurance and testing
+  activities and tasks identified in this plan.
+\item Include an organization chart showing your team member’s roles and responsibilities and how
+  they relate to each other, other groups they relate to, in particular, your customer, users (if
+  applicable), your “senior management”.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Configuration Management}
+\begin{itemize}
+\item Describe the configuration management standards, naming conventions and procedures you will
+  use to control requirements, designs, code (source and builds), and tests.
+\item Also provide an overview of the problem/defect/bug tracking procedures you will use to support
+  development, in particular, those that support inspections and testing.
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+\chapter{Audits and Corrective Action}
+\begin{itemize}
+\item Describe whether you will conduct audits, what processes you will audit, and how often, and
+  who will receive the reports
+\item Describe the criteria you will use to decide on when to escalate failures to correct
+  non-conformances and the procedures you will follow to escalate them
+\end{itemize}
+
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Software Quality Measurement}
+\begin{itemize}
+\item Identify the software quality metrics you plan to collect and analyze and why you plan to use
+  them, highlighting how you will use them to guide your assurance activities
+\item Include metrics that can be used to cover other “ilities” like reliability and safety.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Tools and Automation}
+\begin{itemize}
+\item Identify and briefly describe the tools and automation that you will use to support
+  inspections, testing, configuration management, problem tracking and software quality measurement.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{QA Reviews of Deliverable Documents}
+\begin{itemize}
+\item Briefly describe the QA procedures you will apply to review and baseline deliverables – that
+  is, after inspections and testing have been completed by the development teams but before they are
+  formally released to the customer.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Software Reviews, Inspections, Walkthroughs}
+\begin{itemize}
+\item Describe the requirements, design and code work products you plan to review
+\item Highlight the types of reviews, inspections, walkthroughs you plan to use on this project
+\item For each type of work product, identify the type of review / inspection and the nature of the
+  checklists that you plan to use
+\item Describe any special procedures or strategies you will follow to coordinate your reviews
+\item Describe if and how you will target and prioritize your review / inspection activities (will
+  you use defect trends? Fault tree analysis? Or some other approach?)
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Testing}
+(you may re-use elements of your previous work taking account of previous feedback)
+\begin{itemize}
+\item Describe your plan for testing including all functions and features to be tested, testing
+  techniques to be used, testing matrix, task descriptions, schedules, resources, etc
+  \begin{itemize}
+  \item Identify how you will decide on which testing technique to use and which aspects of your
+    implementation
+  \item Don’t forget to incorporate performance testing into your plan.
+  \end{itemize}
+\item Describe the templates you will use to identify test cases, procedures for setting up and
+  managing test cases, logging test cases, and reporting incidents and test results
+\item Provide a summary of the key status information to be provided to the project manager and
+  customer at major milestones (such as completion of project phases, iterations, system releases,
+  monthly status reports).
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Lessons Learned and Process Improvement}
+\begin{itemize}
+\item Describe the post mortem process you will follow at the end of each development phase or
+  iteration to make in-process improvements (within the current project) and to make improvements
+  for subsequent projects
+\item Identify the information you will leverage during the execution of this project to help you
+  achieve improvements
+\item Describe any in-process activities you will incorporate to facilitate process improvement.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Appendices}
+Appendices should include details that would clutter the main sections.  All items in the appendices
+should be references from somewhere in the main body of the document.
+
+
+%------------------------------------------------------------------------------- %%%%%%% Original
+%content follows
+\chapter{Introduction}
+
+\section{Purpose}
+
+
+The purpose of this document is to define the overall system test strategy, the activities performed
+to prepare and conduct system and acceptance testing, and the format of other testing documents.
+
+\section{Scope}
+This plan covers testing for the Cascadia system, including the application server, bridge
+components, and client applications.
+
+\section {Assumptions and Constraints}
+It is assumed that not all features are available from all UI platforms.  For instance, though it is
+not explicitly stated in the Terms of Reference, it is unlikely that a user is required to be able
+to post a new MLS listing over SMS.
+
+Although it is not specified, it is assumed that all non-client systems will require an
+administration interface.
+
+It is assumed that the product architecture will separate the main application server from the
+bridge components.  This assumption may be invalidated when the SADD becomes available.
+
+
+\chapter{Test Plan}
+
+\section {Items Tested}
+\begin{itemize}
+\item Identification -- Account database, credentials, and subscription-level access rights;
+  personal profiles and preferences access from all UI platforms.
+
+\item Property database integration -- Integration points with the existing database are subject to
+  rigorous testing.
+
+\item Posting -- Creation of new listings, including input validation.
+
+\item Searching -- On-demand searches from all relevant UI platforms.
+
+\item Notifications -- Delivery and options access from all relevant UI platforms.
+
+\item Service directory -- Access to MLS service referrals from all relevant UI platforms.
+
+\item Messaging -- User configuration, message delivery, and automatic selection of communications
+  channel.
+
+\item Calendaring -- Appointment scheduling, notification, and reminders on all relevant UI
+  platforms.
+
+\item Forms Management -- Interface and processing for all supported forms, on all relevant UI
+  platforms.
+
+\item Performance -- Response time of database and intranet queries on all relevant UI platforms.
+
+\item Fault Tolerance -- Single-failure response of CPU and storage systems, up-time, and live
+  upgrades.
+
+\item Scalability -- Load testing with 5 years of projected growth.
+\end{itemize}
+
+%%
+\section {Items Not Tested}
+\begin{itemize}
+\item Property database -- Oracle on a Red Hat environment is a well-known configuration of a
+  commercial product.  Since this subsystem has well-known performance and reliability
+  characteristics, and is not under the direct control of the development team, it will not be
+  tested.
+\end{itemize}
+
+%% \item Identify test deliverables (test cases, procedures, reports/results, defect logs, \ldots
+\section {Deliverables}
+The following items are required as part of this plan:
+
+\begin{itemize}
+\item Software Test Description (STD)
+\item Software Test Report (STR)
+\item Test/Requirements Matrix
+\end{itemize}
+
+%% \item Testing techniques to be used; for which functions; for which part of design \item Will
+%% test matrix / matrices be used?
+\section {Techniques}
+
+\textsc{Partitioning} will be used to construct test suites, and ensure that all requirements are
+covered by the test procedures.
+
+\textsc{Operational Profiling} will be used to prioritize test suites and partitions according to
+empirical and predicted feature demand.
+
+%% \item Describe the testing environment, required tools
+\section {Environment and tools}
+Three primary test environments are anticipated for system testing.
+
+\begin{enumerate}
+\item Mobile client environment -- Requires an application server and a mobile phone/PDA with
+  Internet, e-mail, IM, and SMS access.
+\item Desktop client environment -- Requires an application server and a desktop PC with Internet,
+  e-mail, IM, and fax access.
+\item Server environment -- Requires the application server and a workstation with access to the
+  administration interfaces.
+\end{enumerate}
+
+
+%% \item Identify test tasks [only identify types of tasks for assignment]
+\section {Tasks}
+\textsc{Structural testing} -- In accordance with industry best practices for this type of project,
+a set of automated unit tests will be produced and run regularly in order to maintain low-level code
+consistency.
+
+\textsc{Automated acceptance testing} -- A set of automated acceptance tests will be developed and
+used to guide both requirements elicitation and ongoing development.
+
+\textsc{Isolation testing} -- Each independent subsystem will be tested in isolation of other
+subsystems by constructing mocks for the system dependencies.
+
+\textsc{Integration testing} -- Two or more subsystems are tested in combination, using mocks for
+missing subsystems.
+
+
+%% \item How will testing be organized? (dev and/or test teams)
+\section {Organization}
+The development and test teams is organized into the following divisions:
+\begin{itemize}
+\item Server team -- develops/tests the primary application server which connects to the main
+  database.
+\item Bridge team -- develops/tests the systems which bridge SMS, IM, fax, and e-mail to the
+  application server.
+\item Client team -- Develops/tests the web and native applications for use on PCs, laptops, and
+  mobile phones.
+\item Integration team -- Develops mocks for integration testing, and tests the various subsystems
+  in combination with each other.
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Templates}
+
+The following sections are to be used as templates.  Text in \textit{italics} is to be replaced with
+information specific to the item being produced.
+
+\section{Test Case Template}
+\begin{enumerate}
+\item \textbf{\underline{\textit{Test Case Name}}}
+  \begin{itemize}
+  \item Requirements Tested
+    \begin{itemize} \item\textit{List requirements tested by this case.} \end{itemize}
+  \item Relevant Operational Profiles
+    \begin{itemize} \item\textit{List OPs used to construct this case.} \end{itemize}
+  \item Environment/Setup
+    \begin{itemize} \item\textit{List environment, setup and tools requirements.} \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+\section{Test Procedure Template}
+\begin{enumerate}
+\item \textbf{\underline{\textit{Procedure Name}}}
+  \begin{itemize}
+  \item Test Case: \textit{Index and name of test case.}
+  \item Expected outcomes:
+    \begin{itemize}
+    \item \textit{List expected outcomes.}
+    \end{itemize}
+  \item Notes
+    \begin{itemize}
+    \item \textit{List any special considerations.}
+    \end{itemize}
+  \item Test Steps
+    \begin{enumerate}[\ensuremath{\square}]
+    \item \textit{Step 1}
+    \item \textit{\ldots}
+    \end{enumerate}
+  \end{itemize}
+\end{enumerate}
+
+
+%-------------------------------------------------------------------------------
+\section{Test Log Template}
+
+\textbf{\underline{Test run dated \textit{date, time}}}
+
+\begin{itemize}
+\item Performed by \textit{Name}
+\item Procedures
+  \begin{itemize}
+  \item \textit{List all test procedures completed.}
+  \end{itemize}
+\item Notes
+  \begin{itemize}
+  \item \textit{List all deviations from standard environment, incidents logged, or other
+    anomalies.}
+  \end{itemize}
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+\section{Test Incident Report Template}
+\begin{itemize}
+\item \textbf{\textit{\underline{Defect summary (10 words or less)}}}
+  \begin{itemize}
+  \item Subsystem(s): \textit{Apparent location of failure}
+  \item Versions
+    \begin{itemize} \item \textit{Versions of all systems involved in test} \end{itemize}
+  \item Environment
+    \begin{itemize} \item \textit{Describe test environment.} \end{itemize}
+  \item Reproduction Steps
+    \begin{itemize} \item \textit{Steps} \item \ldots \end{itemize}
+  \item Expected: \textit{expected results}
+  \item Actual: \textit{actual results}
+  \end{itemize}
+\end{itemize}
+
+
+
+%-------------------------------------------------------------------------------
+\chapter{Test Summary Report}
+The project manager will be kept apprised of test team progress through the use of weekly status
+reports delivered via email.  As work items are completed, they will be delivered via email to the
+customer, and inserted into version control; monthly meetings with the customer will be held to
+review new work products and revisions to already-delivered items.
+
+Once testing activities have begun, weekly status reports from testers will include test logs.
+Incident reports are to be input into the defect tracking system, and their status is to be kept
+up-to-date as development progresses.  Automated testing results will be continuously available
+through the project portal hosted on the intranet.
+
+
+\end{document}
+
+% LocalWords: eval sexp UI ldots STR

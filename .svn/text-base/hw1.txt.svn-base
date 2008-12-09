@@ -1,0 +1,81 @@
+1a. Tell me what motivated you to take this course.
+
+My prime motivation for taking this course is to become a better engineer. My
+supervisor is big on postgraduate education, and directed me towards the OMSE
+program.
+
+1b. Tell me what you expect to get out of it.
+
+I consider this course to be the first step in a larger journey. I expect to
+learn a bit about software engineering as an art. Secondarily, I expect to
+(finally) get through the Brooks text, as I have meant to read it for some time.
+
+2a. Tell me what you disagree with [in chapter 1 of Sommerville].
+
+I disagree with the author's allocation of cost for iterative development
+methods (section 1.1.7, page 10).
+
+2b. Explain why you disagree with it.
+
+The author concludes that while specification, design and implementation are not
+strictly separated with iterative methods, final testing is still a separate
+process step. However, my exposure to these methods suggests that (a) testing is
+integrated into design/ development cycles, and (b) each iteration is treated as
+a release, with lightweight acceptance and integration testing by the customer
+at the end of every cycle. This suggests that the "system testing" segment at
+the end of the project is really only final acceptance testing.
+
+I would suggest that the "final testing" section be smaller; it should probably
+represent only 10-15% of the total development cost. The full cost for testing
+in general is spread through the iteration stage as well.
+
+3. Consider the following scenario: While in the employ of a previous company,
+you wrote a very flexible error-handling package for use in their product line.
+Recently, you became an employee of a competitor of your previous company, and
+discover that using this error-handling package would make your job
+significantly easier. Since you kept a copy of the source code, it shouldn't be
+too difficult to make a few modifications to adapt the package functionality to
+the new software. Would it be ethical for you to do so? Why or why not?
+
+If the copyright to the code belongs to me, then it is certainly ethical for me
+to reuse this package. In the more common case (the former employer owns the
+copyright), it is a breach of ethics to ship it with another company's product.
+A better solution would be to license the code from the former employer.
+
+4. Explain why it is appropriate to consider software to be more than the
+programs that can be executed by end-users of a system.
+
+"Software" can be defined as the deliverable product of a software engineering
+process - what the customer is paying for. This includes not only executable
+code, but also specifications, design documentation, end-user documentation, a
+build system, an installation program/procedure, and potentially many other
+things.
+
+5. For each of the clauses in the ACM/IEEE Code of Ethics, suggest an
+appropriate example to illustrate the clause.
+
+PUBLIC - If Bob is writing software for a traffic light control system, he has
+an obligation to ensure that crossing directions do not have green lights.
+
+CLIENT/EMPLOYER - If Suzy wrote a software package for a former employer, she
+must not use that package (without permission from the copyright holder) in code
+she writes for her current employer.
+
+PRODUCT - If Jim is designing the on-line registration feature for a product, he
+must not include functionality that will send personal information about the
+user without first asking permission.
+
+JUDGEMENT - Ann is a Windows engineer; she must not agree to design a component
+for a Macintosh product.
+
+MANAGEMENT - If Mark is posting an ad for an engineering position, he must not
+misrepresent the company by listing a higher salary than he has budget for.
+
+PROFESSION - If Ashley discovers a serious problem in her company's software
+product, she must report it to the development team.
+
+COLLEAGUES - If Bill is designing his first user interface, he should include
+Dan, who has designed several UIs, in the design review.
+
+SELF - Pat should not waste time "cleaning up" Joe's code just because she
+thinks he isn't very smart; that's what code reviews are for.

@@ -1,0 +1,52 @@
+Ben Straub
+OMSE500 Fall 2006
+Homework #3
+
+1.  Succinctly describe the differences between 1) Requirements Elicitation, 2) Requirements Definition, and 3) Requirements Specification.
+
+Sommerville describes requirements elicitation as "work[ing] with customers and system end=users to find out about the application domain, what services the system should provide...and so on." I like to think of elicitation as the "learning" phase - the designer is learning what the customer wants and needs, and is gathering information about the problem. 
+
+Requirements definition is the fleshing out of the general requirements gathered in the elicitation step. Once the designer knows generally what the problem is, she goes on to define a general solution framework, and fill in the details of what the system will do. The stakeholders must be involved in this step, since the requirements gathered in the elicitation step are not very precise, and most will be open to interpretation. 
+
+Specification is the act of translating requirements into a more precise form. A specification must be written such that (among other things) all requirements are testable, exact enough that other people can take the requirements and implement them while fitting into the rest of the system, and specific enough to be used in a legal contract. This implies the use of more formal language, and (at least most of the time) the customer doesn't write requests in this language. 
+
+2. Describe four types of non-functional requirements that may be placed on a system. Give examples of each of these types of requirement.
+
+- Performance requirements are concerned not with what the system does, but how quickly it does it.  Typically this takes the form of a velocity - some unit of work per unit of time - but may also be expressed as a time constraint to complete a certain amount of work. 
+  Example: the physics routines in a particular 3D video game system must complete positional updates for the benchmark scene in less than 30 milliseconds.
+
+- Delivery requirements concern when and how the system is conveyed to the customer. This is usually a deadline or time constraint, but may also specify how the system or its documentation is packaged, or require a particular installation. 
+  Example: the sailboat must be delivered by truck to the Port of Bandon by March 13, 2008.
+
+- Portability requirements specify which platforms the system must operate on. While this is a non-functional requirement itself, it may constrain the functional requirements - certain functions may not be available on all platforms. In some cases, the entire system need not run on a certain platform; maybe only a core code base needs to cross-compile, and platform-specific code may be written to support the main functions. 
+  Example: The system must operate on Windows Mobile 5, Red Hat Linux 10, and VxWorks systems.
+
+- Implementation requirements are constraints on the technology and design of the system. These may be in place because the organization wants to make use of its assets, plans for future versions of the system, or simple code re-use from earlier projects. 
+  Example: The system must make use of the organizations Oracle 9 server.
+
+3. According to Boehm and others, the cost of errors are cheaper earlier and get dramatically higher later in the product life cycle. Explain why and give one example from your experience. 
+
+The reason for this is wasted work. Consider that an error is made in the architecture of a system.  If the error is not caught until that portion of the system is nearing completion, much of the work will have to be thrown out to fix the problem, and a workaround introduces complexity and the potential for bugs. If the error had been caught in a design review, the cost to fix it may have been a few minutes or hours. Whenever a problem is discovered, redesign must occur at every level of the system; the more of the system design is completed, the more rework must take place. 
+
+An example from my experience: A coworker had written a utility to update the firmware of my company's embedded devices. When the utility was written, there was only one product to support, and the task was a simple data transfer. By the time I inherited the project, the product line had grown to 5 distinct devices, with many variables. The code had become spaghetti to accommodate the variations. I spent six months rewriting the application to be more flexible for the future; if the need for flexibility had been noted in the design phase, the rewrite may not have been necessary. 
+
+Another example, from the same project: the original author of the utility had gotten a few details in the communications protocol wrong on the client side. A code review would have caught these before release; as it was, we spent many days debugging transfers with older clients and adding 
+workarounds for these bugs.
+
+4. What are some of the significant problems that can arise when there is insufficient traceability between requirements and test cases?
+
+There are two directions to traceability: from requirement to test case, and from test case to requirement. 
+
+If a test case exists that does not trace to a requirement, it may be a sign that the test group's time is being wasted, or that there are holes in the engineering process. If the test is unnecessary, why are we performing it? If the test is necessary, then a requirement is missing from the specification - this may indicate a sloppy or incomplete requirements engineering process. 
+
+If a requirement exists that is not associated with any test cases, critical functionality may be missing or buggy when the system is delivered to the customer. This can cause otherwise successful projects to fail, on-time projects to slip, and damages the reputation and morale of the development organization. 
+
+In either case, the test plan and the requirements document should verify each other. This can be thought of as a testing phase for the requirements themselves, to verify that they are doing what they should. This helps catch errors earlier in the project's development, and (as we saw above) saves time and money. Traceability also aids in the change management process; when a change is proposed at any level of the system design, the scope of changes to other parts of the design are more readily apparent, and gauging the cost of the change becomes easier. Conversely, if traceability is poor, cost estimation for requirements changes becomes more difficult and error-prone. 
+
+5. Consider the Mars Orbiter's problem (see the OMSE 500 web page). If you feel that the issue was mostly a requirements issue, what would you have done specifically during the requirements phase to avoid this problem? If you disagree, then in which phase of the software life cycle would you have done something differently (and specifically what)? 
+
+Some additional context: http://en.wikipedia.org/wiki/Mars_Climate_Orbiter#The_metric_mixup
+
+The whole disaster started when a programmer omitted a factor from a thruster equation when he modified an older navigation software system to work with the new mission. The bug went undiscovered because full testing of the data flow and a backup navigation algorithm were both omitted from the project due to budget constraints. 
+
+So in the end, this was a combination of requirements and implementation issues. If a single measurement system had been mandated project-wide, the problem could have been avoided, but a code review could have achieved the same goal. This is a case of multiple cascading failures, and no single cause can be attributed. It also appears that processes were in place to catch such errors, but were not followed; this can hardly be called a "requirements issue." 

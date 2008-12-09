@@ -1,0 +1,37 @@
+Ben Straub
+OMSE500 Fall 2006
+Homework #4
+
+1.  Why is project failure ultimately the responsibility of management?
+
+Management is the act of instituting a suitable engineering process, and making sure that process is followed. Under this definition, the engineers on a project are partly responsible for the management of that project. Now, of course we have a tautology: everyone assigned to the project is responsible for management, therefore management is responsible if the project fails.
+
+2. Why is it that engineering months are suitable for budgeting, but not for scheduling?
+
+Because engineers are not interchangeable. Budgeting is either a simple calculation (schedule time x engineers' salaries), or an organizational requirement (CEO allocates N dollars for project).  Scheduling is much more complex, and ideally the tasks are suited to the engineer assigned; what Sue can do in two weeks might take Joe 3 months. Organizations are usually much more sensitive to schedule than to budget, so an accurate schedule is imperative, while an accurate budget is merely
+nice.
+
+3. What's wrong with lines of code (LOC) as a measure of programmer productivity? What's wrong with rewarding engineers based on any particular metric?
+
+The main problem is that LOC in no way equates to "stuff getting done." This is like paying construction workers by the nail, or lawyers by the word. A programmer can write many, many lines of code without actually making progress on the task, and often the best solution to a problem takes fewer lines of code than the first-instinct implementation. Sometimes, making progress actually involves reducing the line count.
+
+Humans are intelligent creatures, and offering a reward in exchange for increasing a number on a spreadsheet encourages gaming of the system, and artificial inflation of that number. You may have intended the project to get coded faster when incentivizing LOC count, but your engineers are busy figuring out how to write lots of meaningless lines of code without getting caught. Complex tasks cannot be improved by simply optimizing for one variable, especially when actual progress is only loosely approximated by that variable.
+
+4. Let's assume our class is creating the next great cost estimating tool. We believe that we have to start with some measure of how tough a given program is to write. It will generally involve size and/or complexity. Suggest 5 approaches to measuring the size or complexity of a program. (You don't have to cite the literature, just give me your ideas.)
+
+The estimation techniques used in Sommerville for costing actually seem to track fairly well here, so I'm working from analogy.
+
+a. We can estimate based on an analogy. If a similar project has been completed in the past, we can measure how large that project became; now the problem is reduced to estimating the size of the deltas between that project and this one. If the deltas are very small, the best course of action is to start with the previous system and adapt it to the new requirements. This technique is inaccurate if there is no data on a sufficiently similar project, but when it can be used, the inaccuracies are localized to smaller parts of the system.
+
+b. We can use an algorithmic model. For example, we can statistically correlate the number of words in the project specification to the size/complexity of the project, if we have data from a number of past projects. We can then apply the correlation to the current project's specification. This can be fairly accurate if the specifications are written in a consistent style, we have enough historical data, and the correlation is strong enough; if any of these conditions fail, the estimate produced may be less accurate than other techniques.
+
+c. We can rely on expert judgement. Given N subsystems, have N engineers each estimate the size and complexity of a single subsystem, as well as interface complexity with other subsystems. Give them time to do some prototyping and feasibility, and to sketch out an initial design, and have them meet to present, explain, and discuss their estimates.  This technique depends on having experts/engineers available to do estimation, the experience and expertise of the engineers (green engineers' estimates will be less accurate), and having budget for the estimating process. Other techniques may be just as accurate (depending on team experience), and much less expensive.
+
+d. (Hmm. Pricing to win doesn't work.) We can sum the parts. This is a variant of option c, where only the person responsible for the estimate is doing complexity analysis. Sketch a quick design, and do a gut-feel approximation of the size of each subsystem. Given the number of subsystems and the complexity of their interactions, do a gut-feel estimate of the interfacing complexity. Then pad the estimate for the inexperience of the estimator (for example, add 20%). This technique relies on the experience of the estimator, and their ability to admit how inaccurate their estimates will be. If the estimator doesn't have a technical background, this technique may do more harm than good.
+
+e. (Hmm. Parkinson's law doesn't apply.) Take a vote.  We can post an "Ask Slashdot" story, and cherry-pick the most highly-moderated replies. In order to make this work more than once, we can offer incentives of one sort or another - perhaps a free copy of the product once it's completed.  This technique depends on the story making the front page, the experience level of the Slashdot community (which is Schrödingeresque), the interesting-ness of the problem to the Slashdot audience, and enough comments to provide a few useful data points.
+
+5. Figure 5.15 sets out a number of activities, durations, and dependencies.  Draw an activity chart and a bar chart showing the project schedule.
+
+(See attachment.)
+

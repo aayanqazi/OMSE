@@ -1,0 +1,84 @@
+1. Is 50 lines of code per module a hard and fast and rule? When would it be appropriate to stretch that?
+
+I'm always leery of literal numbers in rules like this.  Why not 49, or 51?
+
+I've heard the anecdote that if you plot the number of bugs in a function against function length in lines, the graph elbows at the point where the function no longer fits on one or two screens.  This is an extension to the 5±2 rule - if an engineer can't fit the entire function in her head, things get missed.  Putting aside the variations in screen resolution and font size between engineers, this is a good guideline to use when writing code; if you can't see it all at once, bugs will ensue.
+
+However, some functions don't fit on two screens.  State machines are a good example; a function that receives input, changes the state accordingly, and kicks off output based on the new state only fits in 50 lines in the most trivial of cases.  Most state machines will run far over this.  This is a good time to stretch the length guidelines, as long as the logic is kept simple, and has few side-effects.
+
+In the end, the 50-line rule is a good baseline.  The Linux kernel coding style guidelines suggest that function length limits should be inversely proportional to function complexity; a long, simple switch statement is okay, but anything not readily graspable by the "average" engineer (a euphemism for "the dumbest code-monkey you can think of") should be kept very short, and commented well.
+
+2. What are some appropriate ways to measure complexity? Pick three and talk about the pros and cons of each.
+
+One simple measure of a program's complexity is line count.  This metric has several advantages: it is easy to measure, it is estimable at any point during development, and adapts to any language with plain-text source code.  However, this method suffers from a number of drawbacks.  The output is very sensitive to cosmetic code changes; an automated code formatter can drastically affect this metric without altering program functionality in any way.  This particular metric also does not track very closely with conceptual complexity; many complex programs can be written in a compact way (see question #3), and simple programs can be expressed in a long-winded fashion.
+
+The Halstead metric counts the number of operators and operands in the program.  This method has the advantage of being independent of source code format - long variable names and extraneous whitespace have no effect on this measure - and it is good at identifying dense formulas as targets of review and testing.  The principal disadvantage of the Halstead measure is that it doesn't help with improving the code - a module may be identified as "high-risk," but changing the code so the Halstead number is lower may not reduce actual complexity, or make the module any more reliable or bug-free.  
+
+Cyclomatic complexity measures the "number of linearly-independent paths through a program module."  This method is based on the decision structure of the code, and as such is independent of language level or code formatting differences.  Because research has shown this measure to be highly correlated with errors, its output can be used to target specific modules for improvement or additional testing.  The main disadvantage to this method is that it does not distinguish between accidental and essential complexity, so mandating a maximum level of cyclomatic complexity doesn't necessarily work.
+
+3. Check out http://www.ioccc.org/ for horrible (and humorous) programming style examples.  Find a favorite and insert the code into your answer.  Tell me why you find this humorous (or why it irritates you).
+
+I chose the "mikeash" entry, which won "Best use of parentheses."  The code is attached at the bottom of the homework.
+
+All of the IOCCC entries are impressive.  The abuse endured by the compiler and preprocessor by the contestants is astounding both in its cruelty and genius.  Most of the entries are incomprehensible by any but the most expert of C speakers, and even then they may rely on tolerant compilers.  One common tactic used in this contest is to make it appear that the program was written in a completely different language - this year's winners include Java and (my choice) Lisp.
+
+I knew I had to talk about this entry when I typed M-x lisp-mode, and I saw a completely different program.  I've seen an example that ran the same program in FORTRAN, COBOL, PASCAL, and a host of other languages, but the common program was very simple, a variation on Hello World.  This is a fairly incomprehensible implementation of the REPL along with some library functions, layered on top of a program that prints a mildly processed string.  It's not quite Common Lisp; running the code through SBCL results in slightly different output, though it's fairly impressive that it runs at all.  Plus, it reminded me of Greenspun's Tenth Rule.
+
+In the end, the IOCCC is very much a demonstration of what not to do when writing code for someone else.  But games like this hold a certain attraction for people in our line of work; it's a puzzle not only to write the code, but to read it as well.
+
+4. Why is build management important?
+
+An automated build system removes the engineer's workstation from the equation when building the software.  Each individual engineer will inevitably have enhancements and customizations in place on their development machines; these may inadvertently cause something to compile when it shouldn't, or vice-versa.  In order for the code to be "portable" between different machines, it must be ensured that the code will compile in a clean environment.
+
+A build script also removes the possibility of human error from the act of shipping the product.  If the formal production build process consists of a paper checklist which an engineer must follow, there is a chance that steps will be reordered, missed, or performed incorrectly, resulting in a wasted run through QA, or in the worst case, angry customers.  If the production build is a one-line shell command, it is much easier to be consistent.
+
+5. Construct a table showing the advantages and disadvantages of the structural models discussed in this chapter.
+
+Unfortunately, neither Gmail (my personal account) nor Outlook XP (the tool provided by my company) support inserting a table into an email.  I've attached a PDF copy of this.
+
+6. Giving reasons for your answer, suggest an appropriate structural model for the following systems:
+6a. An automated ticket-issuing system used by passengers at a railway station.
+
+This is a transaction-processing system, and as such lends itself to a client-server structure, with multiple public kiosks connecting through a network to a central DBMS.  It's important that the kiosks be independent from the rest of the system, so that no crucial components are relying on a public kiosk.  The kiosks take input from the user and translate them into a transaction request, which is sent to the database server (or servers, depending on the demand and availability requirements).  The database server's front end packages the request such that the database treats it as "transactional" - unless all the included operations succeed, all changes are rolled back.  The database server then responds to the request, the front end sends either the requested data or a success-fail message, and the kiosk either displays the information or prints tickets.
+
+6b. A computer controlled video conferencing system that allows video, audio and computer data to be visible to several participants at the same time.
+
+This system may need to encapsulate different formats of audio, video, and "computer data," so isolating those segments of the data stream is important.  As such, this system will probably use a layered approach.  One layer would provide basic transport functionality between locations (a central "mirror" server would need to be used to break through firewalls); a stream layer would break the data stream into segments based on the type of data contained, and the application layer would provide handlers for each type of data (audio, video, still graphics, etc.).
+
+6c. A robot floor-cleaner that is intended to clean relatively clear spaces such as corridors.  The cleaner must be able to sense walls and other obstructions.
+
+This system would probably be built on a repository model.  The system could process sensor data and apply heuristics to construct an internal map of the space being cleaned.  This map could then be used to ensure that maximum coverage is acheived, to anticipate future sensor data, and to dynamically improve the heuristics.
+
+7. What does Brooks mean by "scaffolding"? Give me one concrete example. 
+
+Brooks comes from a time when space was at a premium, and all shipping code (especially operating system code) had to be as small as possible, both when stored and when run.  When he talks about scaffolding, he's referring to the programs used to help write and debug the system code.  The modern-day analog is trace output strings, symbols, and the disuse of the compiler's optimizer, all of which make the end program larger and provide no direct benefit to the customer.  Some tools, such as Visual Studio, automatically configure Release and Debug builds when generating a project, including these features only in the development mode.
+
+A concrete example would be a loop which outputs every item in a table to the debugger's trace log.  This may be useful when testing database connectivity, but when the program ships, there is no need to fetch and loop through all this data.  The advances made in development tools since 1974 mean we don't have to throw this code away; we can simply surround it with "#ifdef DEBUG ... #endif", and the compiler will remove the "scaffolding" for us during an automated retail build.  
+
+
+--------------------------------------------------------------------------------
+// Code for "mikeash" entry to IOCCC follows. Try highlighting it with C and
+// Lisp rules.
+
+;typedef char n;typedef n*m;int C;n c[11];n y[]={37,100,0};n b[2048];int i
+;int A(void){return C=getchar();}int B(m s){return strlen(s)
+;}n w[2048];typedef m defvar;m R(void){do A();while(isblank(C) || C == '\n')
+;if(C<0) return 0;i=0;if(C==';'){for
+(defvar q=
+";typedef char n;typedef n*m;int C;n c[11];n y[]={37,100,0};n b[2048];int iY;int A(void){return C=getchar();}int B(m s){return strlen(s)Y;}n w[2048];typedef m defvar;m R(void){do A();while(isblank(C) || C == '\n')Y;if(C<0) return 0;i=0;if(C==';'){forY(defvar q=Y~sY;C!='\n';A()Y);R();}else if(C=='('||C==')')b[i++]=C;else if(C==34)do b[i++]=CY;while(A()!=34);else do b[i++]=C;while(!isblank(A())&&C!='\n')Y;b[i] = 0;return b;}typedef defvar*format;m E(void){Y;m a=R();if(!a) return 0;if(*a==34)return aY;if(*a=='#'){c[0]=a[2]=='N'?'\n':a[2];return c;}if(*a=='q')return wY;if(*a=='('){a=R();if(*a=='d'){R();strcpy(w,E());R();return wY;}else if(*a=='f'){R();m f = strdup(E());*strchr(f,126)=37Y;m s=E();s[B(s)+1]=0;s[B(s)]=34;printf(f+1,s);R()Y;}else if(*a=='s'){n p=*E();n o=*E();m r=strdup(E());a=r;forY(format t ;*a;a++)*a=*a==o?p:*aY;R();return r;}else if(*a=='c'){c[0]=*E()-32/*Y(substitute #\Newline (char-upcase #\y ) q= )q= );*/Y;R();return c;}else{n z=*a;int d=atoi(E()),e=atoi(E())Y;sprintf(c,y,z-'+'?z-'-'?z-'*'?d/e:d*e:d-e:d+e);R();return cY;}}return a;}int main(void){while(C+1)E();return 0;}Y"
+;C!='\n';A()
+);R();}else if(C=='('||C==')')b[i++]=C;else if(C==34)do b[i++]=C
+;while(A()!=34);else do b[i++]=C;while(!isblank(A())&&C!='\n')
+;b[i] = 0;return b;}typedef defvar*format;m E(void){
+;m a=R();if(!a) return 0;if(*a==34)return a
+;if(*a=='#'){c[0]=a[2]=='N'?'\n':a[2];return c;}if(*a=='q')return w
+;if(*a=='('){a=R();if(*a=='d'){R();strcpy(w,E());R();return w
+;}else if(*a=='f'){R();m f = strdup(E());*strchr(f,126)=37
+;m s=E();s[B(s)+1]=0;s[B(s)]=34;printf(f+1,s);R()
+;}else if(*a=='s'){n p=*E();n o=*E();m r=strdup(E());a=r;for
+(format t ;*a;a++)*a=*a==o?p:*a
+;R();return r;}else if(*a=='c'){c[0]=*E()-32/*
+(substitute #\Newline (char-upcase #\y ) q= )q= );*/
+;R();return c;}else{n z=*a;int d=atoi(E()),e=atoi(E())
+;sprintf(c,y,z-'+'?z-'-'?z-'*'?d/e:d*e:d-e:d+e);R();return c
+;}}return a;}int main(void){while(C+1)E();return 0;}

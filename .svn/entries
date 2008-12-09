@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="35"
+   name=""
+   committed-date="2006-11-10T03:50:29.333480Z"
+   url="file:///home/storage/svn/OMSEassignments"
+   last-author="ben"
+   kind="dir"
+   uuid="0383b8cd-1f0e-0410-aa12-ce15e61f3e5b"
+   revision="35"/>
+<entry
+   committed-rev="23"
+   name="hw3.txt"
+   text-time="2006-11-03T03:49:44.000000Z"
+   committed-date="2006-11-03T03:49:19.744622Z"
+   checksum="ac6d11b5abf489dda0fa234ac8ccbfef"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-03T03:49:44.000000Z"/>
+<entry
+   committed-rev="23"
+   name="midterm.txt"
+   text-time="2006-11-03T03:49:44.000000Z"
+   committed-date="2006-11-03T03:49:19.744622Z"
+   checksum="0b2c34a680c88d9df8a8ca60936631cb"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-03T03:49:44.000000Z"/>
+<entry
+   committed-rev="23"
+   name="hw4.txt"
+   text-time="2006-11-03T03:49:44.000000Z"
+   committed-date="2006-11-03T03:49:19.744622Z"
+   checksum="60357eede7307a194956f3cb4ea8adb0"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-03T03:49:44.000000Z"/>
+<entry
+   committed-rev="34"
+   name="hw5.txt"
+   text-time="2006-11-07T20:50:29.000000Z"
+   committed-date="2006-11-06T22:15:29.982493Z"
+   checksum="ca0820b3fd20e2715c068538050f3f29"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-07T20:50:29.000000Z"/>
+<entry
+   committed-rev="35"
+   name="hw6.txt"
+   text-time="2006-11-10T03:58:47.000000Z"
+   committed-date="2006-11-10T03:50:29.333480Z"
+   checksum="1345207808fc1621288fd467723ec17d"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-10T03:58:47.000000Z"/>
+<entry
+   committed-rev="34"
+   name="hw5table.pdf"
+   text-time="2006-11-07T20:50:29.000000Z"
+   committed-date="2006-11-06T22:15:29.982493Z"
+   checksum="ea841597a4b738ea1fb556be8a2a4b15"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-07T20:50:29.000000Z"/>
+<entry
+   committed-rev="35"
+   name="project.txt"
+   text-time="2006-11-10T03:58:47.000000Z"
+   committed-date="2006-11-10T03:50:29.333480Z"
+   checksum="b2341db4a93401cce4fd30a0195da3eb"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-10T03:58:47.000000Z"/>
+<entry
+   committed-rev="23"
+   name="hw1.txt"
+   text-time="2006-11-03T03:49:44.000000Z"
+   committed-date="2006-11-03T03:49:19.744622Z"
+   checksum="742c283b4dd9b2813b3e03a576c94322"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-03T03:49:44.000000Z"/>
+<entry
+   committed-rev="23"
+   name="hw2.txt"
+   text-time="2006-11-03T03:49:44.000000Z"
+   committed-date="2006-11-03T03:49:19.744622Z"
+   checksum="858448d041152a613bfc6f056bb19005"
+   last-author="ben"
+   kind="file"
+   prop-time="2006-11-03T03:49:44.000000Z"/>
+</wc-entries>

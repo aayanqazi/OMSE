@@ -1,0 +1,16 @@
+Ben Straub: My individual comments and basis of grade
+
+To All: Later this week I will be creating a new “Learning Module” and posting a sample response to Assignment A. You should compare your own submission to this sample. Please take note that the 12 page (2 + 10) soft limit for the assignment was set to encourage you to put together a well thought-out response while keeping you from going over-board. About 25% of you were within a page or two (+/-) of this target. However, others came in at less than 10 pages. This translated into responses that were less flushed out than I might have hoped which had material impact on results in several cases. Just to be clear, although quality is preferred over quantity, completeness of response factors into quality.
+
+Good job. Your submission was very well structured but you were very brief which meant that you lost several points you otherwise would have received. I’ve highlighted these aspects in the checklist below. Look at my sample test plan for some ideas for improving your product.
+
+Document Structure: followed template, OK title page (incl. name, date), rev history, TOC, #pages; but no page #s!
+Document Quality: very professionally laid out and formatted; figure/table captions? testing deliverables not detailed
+Context: functionality being tested; assumptions, constraints, development process - OK
+Traceability: describe how testing aligned with requirements … missing!
+Testing Process: how testing is organized and prioritized – but could have said more here
+Testing Methods: which testing methods used; where/when applied – somewhat OK – check approach used in sample
+Test Environment: good description of testing infrastructure including tools to be used but too few details - OK
+Test Team Org: how team will be organized; roles, responsibilities, coordination? Said nothing about this?
+Test Scheduling: no real visibility into test schedules (tables; visual charts) ??
+Test Documentation: tables and lists to manage test cases, procedures, testing progress - OK
