@@ -41,17 +41,41 @@
 
 \section{The Project}
 The goal of the Cascadia Project is to provide access to existing real estate databases over a
-variety of connection types and devices.  This system will be mission-critical for many real estate
-professionals, with an emphasis on reliability and availability.
+variety of connection types and devices, as well as integrated calendaring and appointment
+scheduling.  This system will be mission-critical for many real estate professionals, with an
+emphasis on reliability and availability.
 
-This project will follow a modified waterfall process, which is crappy but gets the job done.
+This project will follow a spiral-style iterative process, with risk assessment performed at regular
+intervals.  Automated unit testing will be performed continuously, and integration testing will be
+performed as components become available.
 
 
 \section{This Plan}
-The purpose of this plan is to define the overall system test strategy, the activities per
+The purpose of this document is to define the overall system test strategy, the activities performed
+to prepare and conduct system and acceptance testing, and the format of other testing documents.
 
-\section{References}
+\subsection{Scope}
+This plan covers testing for the Cascadia system, including the application server, bridge
+components, and client applications.
+
+\subsection{Assumptions and Constraints}
+It is assumed that not all features are available from all UI platforms.  For instance, though it is
+not explicitly stated in the Terms of Reference, it is unlikely that a user is required to be able
+to post a new MLS listing over SMS.
+
+Although it is not specified, it is assumed that all non-client systems will require an
+administration interface.
+
+It is assumed that the product architecture will separate the main application server from the
+bridge components.  This assumption may be invalidated when the SADD becomes available.
+
 %--------------------
+\section{References}
+\begin{enumerate}[(1)]
+\item Cascadia Terms of Reference
+\item Cascadia Project -- Software Requirements Specification
+\end{enumerate}
+
 
 %-------------------------------------------------------------------------------
 \chapter{Organization / Teams}
@@ -169,8 +193,8 @@ Appendices should include details that would clutter the main sections.  All ite
 should be references from somewhere in the main body of the document.
 
 
-%------------------------------------------------------------------------------- %%%%%%% Original
-%content follows
+%-------------------------------------------------------------------------------
+%%%%%%% Original content follows
 \chapter{Introduction}
 
 \section{Purpose}
