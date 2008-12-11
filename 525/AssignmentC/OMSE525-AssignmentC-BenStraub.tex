@@ -27,15 +27,15 @@
 
 %-------------------------------------------------------------------------------
 \chapter{Introduction}
-\begin{itemize}
-\item Provide a brief overview of the project and the development process you are following
-  (waterfall, iterative, incremental, evolutionary, Agile, XP, etc.)
-\item Provide a brief overview of this plan including assumptions, priorities, and constraints
-\item Identify project work products and deliverables including work products specifically produced
-  by this plan. Distinguish between deliverables and internal work products.
-\item Identify standards, guidelines, procedures, evaluation checklists, tools referenced by this
-  plan
-\end{itemize}
+%% \begin{itemize}
+%% \item Provide a brief overview of the project and the development process you are following
+%%   (waterfall, iterative, incremental, evolutionary, Agile, XP, etc.)
+%% \item Provide a brief overview of this plan including assumptions, priorities, and constraints
+%% \item Identify project work products and deliverables including work products specifically produced
+%%   by this plan. Distinguish between deliverables and internal work products.
+%% \item Identify standards, guidelines, procedures, evaluation checklists, tools referenced by this
+%%   plan
+%% \end{itemize}
 
 
 \section{The Project}
@@ -47,6 +47,7 @@ emphasis on reliability and availability.
 This project will follow a spiral-style iterative process, with risk assessment performed at regular
 intervals.  Automated unit testing will be performed continuously, and integration testing will be
 performed as components become available.
+% TODO: More here
 
 
 \section{This Plan}
@@ -68,34 +69,77 @@ administration interface.
 It is assumed that the product architecture will separate the main application server from the
 bridge components.  This assumption may be invalidated when the SADD becomes available.
 
-%--------------------
+
 \section{References}
 \begin{enumerate}[(1)]
 \item Cascadia Terms of Reference
 \item Cascadia Project -- Software Requirements Specification
+\item Cascadia Project -- Configuration Management Plan
+\item IEEE Std 828-1998 -- IEEE Standard for Software ConÞguration Management Plans
 \end{enumerate}
 
 
 %-------------------------------------------------------------------------------
 \chapter{Organization / Teams}
+%% \begin{itemize}
+%% \item Describe how you plan to organize your team to carry out the quality assurance and testing
+%%   activities and tasks identified in this plan.
+%% \item Include an organization chart showing your team member’s roles and responsibilities and how
+%%   they relate to each other, other groups they relate to, in particular, your customer, users (if
+%%   applicable), your “senior management”.
+%% \end{itemize}
+
+%% %TODO: Org chart
+
+The project team is organized into the following divisions.  Each division includes a development
+manager, a test manager, and developers and testers who report to them.  Wherever possible, each
+division is given a liaison inside the customer to tighten the feedback loop.
+
+Project status meetings are held weekly, and involve all divison managers, senior management, and
+representatives for the customer.  Each division holds meetings on a schedule determined internally.
+
 \begin{itemize}
-\item Describe how you plan to organize your team to carry out the quality assurance and testing
-  activities and tasks identified in this plan.
-\item Include an organization chart showing your team member’s roles and responsibilities and how
-  they relate to each other, other groups they relate to, in particular, your customer, users (if
-  applicable), your “senior management”.
+\item \textsc{Server team} -- responsible for the primary application server, which acts as a
+  gateway to the main database.
+\item \textsc{Bridge team} -- responsible for the systems which bridge SMS, IM, fax, and e-mail to
+  the application server.
+\item \textsc{Client team} -- responsible for the web and native applications for use on PCs,
+  laptops, and mobile phones.
+\item \textsc{Integration team} -- responsible for integration testing (both full and partial),
+  infrastructure, deployment, and miscellaneous components.
+\item {\sc Acceptance team} -- responsible for automating and running acceptance tests.
 \end{itemize}
 
 
 
 %-------------------------------------------------------------------------------
 \chapter{Configuration Management}
-\begin{itemize}
-\item Describe the configuration management standards, naming conventions and procedures you will
-  use to control requirements, designs, code (source and builds), and tests.
-\item Also provide an overview of the problem/defect/bug tracking procedures you will use to support
-  development, in particular, those that support inspections and testing.
-\end{itemize}
+%% \begin{itemize}
+%% \item Describe the configuration management standards, naming conventions and procedures you will
+%%   use to control requirements, designs, code (source and builds), and tests.
+%% \item Also provide an overview of the problem/defect/bug tracking procedures you will use to support
+%%   development, in particular, those that support inspections and testing.
+%% \end{itemize}
+
+Configuration management will proceed according to best practices as outlined in [4].  Full details
+may be found in [3]; only an overview is given here.
+
+\section{Naming Conventions}
+{\sc Subsystem Releases} -- Subsystem release bundles are to be named
+{\tt cascadia\_\textit{component}\_YYYYMMDD.zip}, where {\tt YYYYMMDD} is the date of release,
+and {\tt component} may be the name of any subsystem.
+
+{\sc Full Releases} -- Releases of the entire system are to be named \texttt{cascadia\_full\_YYYYMMDD.zip}.
+
+
+\section{Document Control}
+Requirements and design documents are to be kept in source control, with included revision tables
+for use with hard copies.  Source code is also to be kept in source control, in a separate
+repository to allow for separate release labels to be applied.
+
+
+\section{Defect Tracking}
+%TODO
 
 
 %-------------------------------------------------------------------------------

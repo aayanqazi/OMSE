@@ -675,8 +675,8 @@
     \begin{tikzpicture}
       \tikzstyle{every node}=[text=white, inner xsep=0pt, outer xsep=0pt]
       \node at (0,0) [fill=black,minimum height=1.5cm,minimum width=\hsize] (bar) {};
-      \draw (bar.west) +(1ex,0) node [right,scale=0.5] (wacom)%
-               {\includegraphics{wacombug}};
+      \draw (bar.west) +(1ex,0) node [right,scale=3] (wacom) {Cascadia Project};
+               %{\includegraphics{wacombug}};
 %       \draw (bar.west) +(1ex,0) node [right] (wacom)%
 %                {\Huge WACOM};
 %       \draw (wacom.east)  node[right]
@@ -710,7 +710,7 @@
 \chead{\color{gray}\@title}
 \rhead{\color{gray}Page \thepage{} of \pageref{LastPage}}
 \lfoot{\color{gray}}
-\cfoot{\color{gray}Wacom Confidential}
+\cfoot{\color{gray}Confidential}
 \rfoot{\color{gray}}
 \renewcommand{\contentsname}{}
 \setcounter{tocdepth}{3}
