@@ -675,7 +675,7 @@
     \begin{tikzpicture}
       \tikzstyle{every node}=[text=white, inner xsep=0pt, outer xsep=0pt]
       \node at (0,0) [fill=black,minimum height=1.5cm,minimum width=\hsize] (bar) {};
-      \draw (bar.west) +(1ex,0) node [right,scale=3] (wacom) {Cascadia Project};
+      \draw (bar.west) +(1ex,0) node [right,scale=2.5] (wacom) {\@date};
                %{\includegraphics{wacombug}};
 %       \draw (bar.west) +(1ex,0) node [right] (wacom)%
 %                {\Huge WACOM};
@@ -686,7 +686,7 @@
     \end{tikzpicture}
 
     \vskip 20\p@
-    {\LARGE\@date \\\vskip 10\p@ \@title}
+    {\LARGE\@title}
 
     \vskip 40\p@
     \begin{tabulary}{\textwidth}{lLl|lLl}
@@ -701,7 +701,7 @@
   \end{center}
 }
 \pagestyle{fancy}
-\setlength{\headheight}{12pt}
+\setlength{\headheight}{14pt}
 \setlength{\headsep}{20pt}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
@@ -712,7 +712,7 @@
 \lfoot{\color{gray}}
 \cfoot{\color{gray}Confidential}
 \rfoot{\color{gray}}
-\renewcommand{\contentsname}{}
+%\renewcommand{\contentsname}{}
 \setcounter{tocdepth}{3}
 
 \newcommand{\revisionlist}[1]{%
