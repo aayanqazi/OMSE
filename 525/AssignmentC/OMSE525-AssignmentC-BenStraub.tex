@@ -1,4 +1,4 @@
-% --> eval-last-sexp (highlight-regexp "TODO" 'hi-yellow)
+% --> C-x e (highlight-regexp "TODO" 'hi-yellow)
 
 
 %%% TODO %%% figure/table captions
@@ -44,10 +44,10 @@ variety of connection types and devices, as well as integrated calendaring and a
 scheduling.  This system will be mission-critical for many real estate professionals, with an
 emphasis on reliability and availability.
 
-This project will follow a spiral-style iterative process, with risk assessment performed at regular
-intervals.  Automated unit testing will be performed continuously, and integration testing will be
-performed as components become available.
-% TODO: More here
+This project will follow a spiral-style iterative process, with an iteration cycle of one month.
+Automated unit testing will be performed continuously, each component will be tested in isolation
+starting as early as possible, and integration testing will be performed as components become
+available.
 
 
 \section{This Plan}
@@ -91,12 +91,7 @@ bridge components.  This assumption may be invalidated when the SADD becomes ava
 
 %% %TODO: Org chart
 
-The project team is organized into the following divisions.  Each division includes a development
-manager, a test manager, and developers and testers who report to them.  Wherever possible, each
-division is given a liaison inside the customer to tighten the feedback loop.
-
-Project status meetings are held weekly, and involve all divison managers, senior management, and
-representatives for the customer.  Each division holds meetings on a schedule determined internally.
+The project staff is organized into several teams:
 
 \begin{itemize}
 \item \textsc{Server team} -- responsible for the primary application server, which acts as a
@@ -110,6 +105,12 @@ representatives for the customer.  Each division holds meetings on a schedule de
 \item {\sc Acceptance team} -- responsible for automating and running acceptance tests.
 \end{itemize}
 
+Each team includes a development lead, a test lead, and developers and testers who report to them.
+Wherever possible, each division is given a liaison inside the customer's organization to tighten
+the feedback loop.
+
+Project status meetings are held weekly, and involve all divison leads, project management, and
+representatives for senior management and the customer.
 
 
 %-------------------------------------------------------------------------------
@@ -134,15 +135,13 @@ and {\tt component} may be the name of any subsystem.
 
 
 \section{Document Control}
-Requirements and design documents are to be kept in source control, with included revision tables
-for use with hard copies.  Source code is also to be kept in source control, in a separate
-repository to allow for separate release labels to be applied.
+Pre-release documents are owned by the person developing them.  Once a document is released, a
+change order is required to update its contents.
 
 
 \section{Defect Tracking}
-Defect tracking will be performed with existing tools, and a new {\tt cascadia} database will be
-created for this project.  The customer will be provided with access to this database through the
-existing web interface; they will be able to both view and create tickets.
+Defect tracking tools will be used for any deviations from the requirements, as well as work that is
+not explicitly in the requirements.
 
 
 %-------------------------------------------------------------------------------
@@ -154,30 +153,76 @@ existing web interface; they will be able to both view and create tickets.
 %%   non-conformances and the procedures you will follow to escalate them
 %% \end{itemize}
 
-Audits will be performed on a regular basis to contain deviation from process.
-% TODO: Check Tian re: audits for more material
+Audits will be performed on a regular basis to control deviation from the established process.  The
+QA manager will be responsible for conducting audits.  A formal report, including recommendations
+for corrective action, is provided to team leads and project and senior management once the audit is
+complete.
 
 
 
 %-------------------------------------------------------------------------------
 \chapter{Software Quality Measurement}
-\begin{itemize}
-\item Identify the software quality metrics you plan to collect and analyze and why you plan to use
-  them, highlighting how you will use them to guide your assurance activities
-\item Include metrics that can be used to cover other “ilities” like reliability and safety.
-\end{itemize}
+%% \begin{itemize}
+%% \item Identify the software quality metrics you plan to collect and analyze and why you plan to use
+%%   them, highlighting how you will use them to guide your assurance activities
+%% \item Include metrics that can be used to cover other ``ilities'' like reliability and safety.
+%% \end{itemize}
 
+The following metrics will be used to continuously guage the health of the project.
+
+\begin{itemize}
+\item {\sc Automated Test Results} -- The suite of automated tests (including acceptance tests) will
+  be run on continuous-integration builds, and the results made available to every team member.
+\item {\sc Customer Satisfaction} -- Customer representatives will be polled at every meeting for a
+  satisfaction rating of the system as it progresses.  This metric also includes the number of
+  defects reported by the customer (weighted by severity).
+\item {\sc Availability} -- Weekly builds will be tested under a synthetic workload, and the uptime
+  as a percentage of running time will be monitored.
+\end{itemize}
 
 
 
 
 %-------------------------------------------------------------------------------
 \chapter{Tools and Automation}
-\begin{itemize}
-\item Identify and briefly describe the tools and automation that you will use to support
-  inspections, testing, configuration management, problem tracking and software quality measurement.
-\end{itemize}
+%% \begin{itemize}
+%% \item Identify and briefly describe the tools and automation that you will use to support
+%%   inspections, testing, configuration management, problem tracking and software quality measurement.
+%% \end{itemize}
 
+\section{Inspections}
+Code reviews are supported by an intranet application; any developer may request review of a
+piece of code at any time, and members of any team are eligible to inspect it.
+
+
+\section{Testing}
+Automated unit/regression testing is performed by each team, using standard frameworks.  Coverage of
+these tests is measured using COTS tools appropriate to that team's environment.
+
+Automated acceptance testing is supported using a unit test framework for organization.  These tests
+are much more complex, so much of the scaffolding will be custom.
+
+Manual testing is supported through the use of Test Case Management tools; wherever possible,
+reporting of test run results will use these same tools.
+
+\section{Configuration Management}
+Requirements and design documents are to be kept in source control, with included revision tables
+for use with hard copies.
+
+Releases are managed through a combination of source control policies and secure, backed-up,
+Internet-accessible storage.
+
+\section{Problem Tracking}
+Defect tracking will be performed with existing tools, and a new {\tt cascadia} database will be
+created for this project.  The customer will be provided with access to this database through the
+existing web interface; they will be able to both view and create tickets.
+
+
+\section{Quality Measurement}
+The automated testing frameworks report statistics on coverage and pass percentage; this data is
+made public on the project dashboard page, which is visible to the customer as well as the
+development teams. Other key metrics are collected manually and entered into this system, so they
+may be displayed on the dashboard.
 
 
 %-------------------------------------------------------------------------------
@@ -202,6 +247,14 @@ Audits will be performed on a regular basis to contain deviation from process.
   you use defect trends? Fault tree analysis? Or some other approach?)
 \end{itemize}
 
+Requirements and design reviews are to be performed before these work items are released to the
+customer.  Requirements review meetings include project management; design reviews are internal to
+teams, and may involve part or all of the team.
+
+Formal reliability inspections are performed on architecture and design as gating processes, and
+involve all team leads.  These follow appropriate best practices for formal inspections.  Formal
+code inspections focusing on reliability will be conducted later in the development cycle; segments
+of code are prioritized based on operational profiling and fault-tree analysis.
 
 
 %-------------------------------------------------------------------------------
