@@ -443,7 +443,7 @@
   {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@equation}
 \newcounter{figure}[chapter]
 \renewcommand \thefigure
-     {\ifnum \c@chapter>\z@ \thechapter.\fi \@arabic\c@figure}
+     {\@arabic\c@figure}
 \def\fps@figure{tbp}
 \def\ftype@figure{1}
 \def\ext@figure{lof}

@@ -1,10 +1,9 @@
-% --> C-x C-e (highlight-regexp "TODO" 'hi-yellow)
-
-
 \documentclass[11pt]{wacomepd}
 \usepackage{amssymb}
 \usepackage{enumerate}
 \usepackage{todonotes}
+
+\usetikzlibrary{trees}
 
 \begin{document}
 
@@ -71,7 +70,8 @@ bridge components.  This assumption may be invalidated when the SADD becomes ava
 
 
 \section{References}
-\begin{enumerate}[(1)]
+\todo{Replace with bibliography?}
+\begin{enumerate}[1:]
 \item Cascadia Terms of Reference
 \item Cascadia Project -- Software Requirements Specification
 \item Cascadia Project -- Configuration Management Plan
@@ -104,7 +104,27 @@ The project staff is organized into several teams:
   and otherwise.
 \end{itemize}
 
-\missingfigure{Org Chart -- don't forget the caption}
+\begin{figure}[h]
+  \begin{tikzpicture}
+    \tikzstyle{every node}=[rectangle, minimum width=1.5in, draw, thick]
+    \tikzstyle{level 1}=[level distance=2in]
+    \tikzstyle{level 2}=[level distance=1.75in]
+    \node {QA Manager}[edge from parent fork right, grow=right]
+    child {node {Server QA Lead}
+      child {node {Testers}}}
+    child {node {Bridge QA Lead}
+      child {node {Testers}}}
+    child {node {Client QA Lead}
+      child {node {Testers}}}
+    child {node {Integration QA Lead}
+      child {node {Testers}}}
+    child {node {Acceptance QA Lead}
+      child {node {Testers}}};
+  \end{tikzpicture}
+  \caption{QA organization chart}
+\end{figure}
+\todo{``Many'' layered boxes for testers?}
+\todo{Center this figure}
 
 Each team includes a development lead, a test lead, and developers and testers who report to them.
 Wherever possible, each team is given a liaison inside the customer's organization to tighten
@@ -129,7 +149,7 @@ may be found in [3]; only an overview is given here.
 \section{Naming Conventions}
 {\sc Subsystem Releases} -- Subsystem release bundles are to be named
 {\tt cascadia\_\textit{component}\_YYYYMMDD.zip}, where {\tt YYYYMMDD} is the date of release,
-and {\tt component} may be the name of any subsystem.
+and {\tt \textit{component}} may be the name of any subsystem.
 
 {\sc Full Releases} -- Releases of the entire system are to be named
 \texttt{cascadia\_full\_YYYYMMDD.zip}.
@@ -202,7 +222,7 @@ Code reviews are supported by an intranet application; any developer may request
 piece of code at any time, and members of any team are eligible to inspect it.
 
 Other inspections and reviews are held as face-to-face meetings, with projectors made available.  If
-a meeting must include remote personnel, videoconferencing equipment will be used.
+a meeting must include remote personnel, teleconferencing equipment will be used.
 
 
 \section{Testing}
@@ -219,19 +239,19 @@ reporting of test run results will use these same tools.
 Requirements and design documents will be kept in source control, with embedded revision tables for
 use with hard copies.
 
-Releases will be managed through a combination of source control policies and secure, backed-up,
-Internet-accessible storage.
+Releases will be managed through a combination of source control policies (such as tagging with a
+specified naming convention) and secure, backed-up, Internet-accessible storage.
 
 \section{Defect Tracking}
-Defect tracking will be performed with existing tools, and a new {\tt cascadia} database will be
-created for this project.  The customer will be provided with access to this database through the
-existing web interface; they will be able to both view and create tickets.
+Defect tracking will be performed with the existing defect tracking tool; a new {\tt cascadia}
+database will be created for this project.  The customer will be provided with access to this
+database through the existing web interface; they will be able to both view and create tickets.
 
 
 \section{Quality Measurement}
 The automated testing frameworks report statistics on coverage and pass percentage.  The
-requirements coverage metric is also collected automatically from the TCM tool.  Other key metrics
-are collected manually.  Every metric listed on page \pageref{metrics} is displayed as a trend on the
+requirements coverage metric is collected automatically from the TCM tool.  Other key metrics are
+collected manually.  Every metric listed on page \pageref{metrics} is displayed as a trend on the
 project dashboard, which is visible to the customer as well as the project team.
 
 
@@ -371,11 +391,11 @@ missing subsystems.
 
 
 \section{Templates}
-See Appendix \ref{appA} for detailed templates.
+Appendix \ref{appA} contains detailed templates for test-related documentation.
 
 %-------------------------------------------------------------------------------
 \chapter{Lessons Learned and Process Improvement}
-\todo[inline, caption={Section}]{
+\todo[inline, caption={Lessons Learned and Process Improvement}]{
 \begin{itemize}
 \item Describe the post mortem process you will follow at the end of each development phase or
   iteration to make in-process improvements (within the current project) and to make improvements
