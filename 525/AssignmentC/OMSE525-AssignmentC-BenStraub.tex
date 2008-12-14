@@ -105,26 +105,27 @@ The project staff is organized into several teams:
 \end{itemize}
 
 \begin{figure}[h]
-  \begin{tikzpicture}
-    \tikzstyle{every node}=[rectangle, minimum width=1.5in, draw, thick]
-    \tikzstyle{level 1}=[level distance=2in]
-    \tikzstyle{level 2}=[level distance=1.75in]
-    \node {QA Manager}[edge from parent fork right, grow=right]
-    child {node {Server QA Lead}
-      child {node {Testers}}}
-    child {node {Bridge QA Lead}
-      child {node {Testers}}}
-    child {node {Client QA Lead}
-      child {node {Testers}}}
-    child {node {Integration QA Lead}
-      child {node {Testers}}}
-    child {node {Acceptance QA Lead}
-      child {node {Testers}}};
-  \end{tikzpicture}
-  \caption{QA organization chart}
+  \begin{center}
+    \begin{tikzpicture}
+      \tikzstyle{every node}=[rectangle, minimum width=1.5in, draw, thick]
+      \tikzstyle{level 1}=[level distance=2in]
+      \tikzstyle{level 2}=[level distance=1.75in]
+      \node {QA Manager}[edge from parent fork right, grow=right]
+      child {node {Server QA Lead}
+        child {node {Testers}}}
+      child {node {Bridge QA Lead}
+        child {node {Testers}}}
+      child {node {Client QA Lead}
+        child {node {Testers}}}
+      child {node {Integration QA Lead}
+        child {node {Testers}}}
+      child {node {Acceptance QA Lead}
+        child {node {Testers}}};
+    \end{tikzpicture}
+    \caption{QA organization chart}
+  \end{center}
 \end{figure}
 \todo{``Many'' layered boxes for testers?}
-\todo{Center this figure}
 
 Each team includes a development lead, a test lead, and developers and testers who report to them.
 Wherever possible, each team is given a liaison inside the customer's organization to tighten
