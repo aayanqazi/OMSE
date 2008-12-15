@@ -1,7 +1,8 @@
 \documentclass[11pt]{wacomepd}
 \usepackage{amssymb}
 \usepackage{enumerate}
-\usepackage{todonotes}
+\usepackage[disable]{todonotes}
+\usepackage{appendix}
 
 \usetikzlibrary{trees}
 
@@ -9,13 +10,13 @@
 
 
 %------------------------------------------------------------------------------- 
-\date{Cascadia} 
+\date{Cascadia Project}
 \title{Software Test Plan} 
 \maketitle
 
 \revisionlist{
   1 & Initial release (Assignment A)       & BES & 10/24/2008 \\ 
-  2 & Revised with feedback (Assignment C) & BES & 12/11/2008 \\
+  2 & Revised with feedback (Assignment C) & BES & 12/14/2008 \\
 }
 
 \chapter{Table Of Contents}
@@ -317,12 +318,12 @@ of code are prioritized based on operational profiling and fault-tree analysis.
 \begin{itemize}
 \item Identification -- Account database, credentials, and subscription-level access rights;
   personal profiles and preferences access from all UI platforms.
-\item Property database integration -- Integration points with the existing database are subject to
+\item Property Database Integration -- Integration points with the existing database are subject to
   rigorous testing.
 \item Posting -- Creation of new listings, including input validation.
 \item Searching -- On-demand searches from all relevant UI platforms.
 \item Notifications -- Delivery and options access from all relevant UI platforms.
-\item Service directory -- Access to MLS service referrals from all relevant UI platforms.
+\item Service Directory -- Access to MLS service referrals from all relevant UI platforms.
 \item Messaging -- User configuration, message delivery, and automatic selection of communications
   channel.
 \item Calendaring -- Appointment scheduling, notification, and reminders on all relevant UI
@@ -365,7 +366,7 @@ covered by the test procedures.
 empirical and predicted feature demand.
 
 %% \item Describe the testing environment, required tools
-\section {Environment and tools}
+\section {Environment and Tools}
 Three primary test environments are anticipated for system testing.
 
 \begin{enumerate}
@@ -395,7 +396,7 @@ missing subsystems.
 
 
 \section{Templates}
-Appendix \ref{appA} contains detailed templates for test-related documentation.
+Appendix A contains detailed templates for test-related documentation.
 
 %-------------------------------------------------------------------------------
 \chapter{Lessons Learned and Process Improvement}
@@ -409,12 +410,24 @@ Appendix \ref{appA} contains detailed templates for test-related documentation.
 \item Describe any in-process activities you will incorporate to facilitate process improvement.
 \end{itemize}}
 
+A retrospective will be held at the end of each iteration, with all project team members attending.
+Best practices will be followed with regards to software retrospectives, including producing an
+action plan with specific actions assigned to specific people to improve the process.  This practice
+extends to the last iteration as well, when a full-project retrospective is held.  It is thought
+that the customer would benefit from attending retrospectives as well, by learning lessons that may
+be applied to future projects, whether those projects are contracted to Initech or not.
+
+The key metrics listed on page \pageref{metrics} will be used to adjust course during development.
+These items are continuously gathered and made available, so they can be used to make decisions
+without waiting till the end of the iteration.
+
 
 %-------------------------------------------------------------------------------
+\addappheadtotoc
+
 \clearpage
 \appendix
-\chapter{Templates}
-\label{appA}
+\chapter{Appendix A -- Templates}
 The following sections are to be used as templates.  Text in \textit{italics} is to be replaced with
 information specific to the item being produced.
 

@@ -429,7 +429,7 @@
   \setcounter{chapter}{0}%
   \setcounter{section}{0}%
   \gdef\@chapapp{\appendixname}%
-  \gdef\thechapter{\@Alph\c@chapter}}
+  \gdef\thechapter{}}
 \setlength\arraycolsep{5\p@}
 \setlength\tabcolsep{6\p@}
 \setlength\arrayrulewidth{.4\p@}
@@ -675,7 +675,7 @@
     \begin{tikzpicture}
       \tikzstyle{every node}=[text=white, inner xsep=0pt, outer xsep=0pt]
       \node at (0,0) [fill=black,minimum height=1.5cm,minimum width=\hsize] (bar) {};
-      \draw (bar.west) +(1ex,0) node [right,scale=2.5] (wacom) {\@date};
+      \draw (bar.west) +(1ex,0) node [right,scale=2.5] (wacom) {Initech Corporation};
                %{\includegraphics{wacombug}};
 %       \draw (bar.west) +(1ex,0) node [right] (wacom)%
 %                {\Huge WACOM};
@@ -686,7 +686,7 @@
     \end{tikzpicture}
 
     \vskip 20\p@
-    {\LARGE\@title}
+    {\LARGE\@date \vskip 10\@title}
 
     \vskip 40\p@
     \begin{tabulary}{\textwidth}{lLl|lLl}
