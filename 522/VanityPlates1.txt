@@ -1,0 +1,37 @@
+Assignment:
+Imagine that you have been charged with implementing the GUI and input checking associated with step 1 of the attached application form for an Oregon Vanity Plate.
+
+Is the description as given suitable as a software specification? If not, what kinds of changes need to be made?
+
+If you find it easier to just rewrite the specification, feel free. 
+
+--------------------------------------------------------------------------------
+
+Rules:
+>0 numbers
+>0 letters
+At most one half-space or half-hyphen checked
+reject:
+        \d{3}\w{3}
+        \w{3}\d{3}
+        [^ -\w\d]
+
+
+--------------------
+"Clear writing"?
+Space/half-hyphen positioning: before/after all positions? Only internal?
+Not clear whether spaces or full hyphens are valid characters (rules e and f collide)
+Is this a UI for an end user, or the guy doing data entry for the form?
+
+
+--------------------------------------------------------------------------------
+
+Leaving aside the inherent ambiguity of using English for specifications, there are several issues with this text as a specification:
+
+* It's not clear which are valid positions for half-spaces or half-hyphens. Can you place a half-hyphen before the first character? A space after the last?
+
+* Are spaces and (full) hyphens valid characters to put in a box? Depending on the answer to this question, either (e) or (f) is erroneous.
+
+* There is no way for a machine to validate the quality of the applicant's handwriting.
+
+Rules (a), (b), and (c), on the other hand, are actually fairly well-written requirements, although they all depend on the allowable set of characters (i.e. is lower-case allowed?).
