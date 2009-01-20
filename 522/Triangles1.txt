@@ -1,0 +1,9 @@
+A classic problem in software testing, due to Myers, is to write and then test a program that accepts x and y coordinates of three vertices as input and outputs the area of the triangle with these vertices.
+
+In this assignment, I instead want you to construct an English-language specification for such a
+program. (By program, here, I basically mean a function. Specify any reasonable interface you want.)
+Try to make it as non-mathematical as reasonably possible. Be prepared for the case where the input
+vertices don't form a triangle, or form a degenerate triangle. 
+
+--------------------------------------------------------------------------------
+
