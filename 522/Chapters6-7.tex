@@ -8,6 +8,7 @@
 \documentclass[11pt]{article}
 \usepackage{zed-csp}
 \usepackage{times}
+\usepackage{fullpage}
 \begin{document}
 
 
@@ -27,6 +28,61 @@ There's no initial state. (Aside: this is given in Appendix F of the book.)
   \textit{Define the total operations T\_Backward and T\_Delete.  You may use any functions or
     operators defined in Appendix D. }
 \end{quote}
+
+Following the pattern for $T\_Forward$, we must first define the left arrow key:
+
+\begin{axdef}
+  left\_arrow : CHAR
+  \where
+  left\_arrow \notin printing
+\end{axdef}
+
+Thus left\_arrow is a character, but not the kind that prints.  Now for some schemas that we can
+combine later.
+
+\begin{schema}{BOF}
+  Editor
+  \where
+  left = \langle \rangle
+\end{schema}
+
+This defines the ``beginning-of-file'' condition, where the $left$ list is empty.
+
+\begin{schema}{LeftArrow}
+  ch? : CHAR
+  \where
+  ch? = left\_arrow
+\end{schema}
+
+$LeftArrow$ is fulfilled when an input character is the $\leftarrow$ key.  
+
+\begin{schema}{Backward}
+  \Delta Editor \\
+  ch? : CHAR
+  \where
+  ch? = left\_arrow \\
+  left' = front(left) \\
+  right' = \langle last(left) \rangle \cat right
+\end{schema}
+
+Backward means that we move the last character in $left$ to $right$.  Now we're ready to define
+$T\_Backward$:
+
+\begin{zed}
+  T\_Backward \defs Backward \lor (BOF \land LeftArrow \land \Xi Editor)
+\end{zed}
+
+Here is the fast-forward for $T\_Delete$:
+
+\begin{axdef}{}
+  delete : CHAR
+  \where
+  delete \notin printing
+\end{axdef}
+
+\begin{schema}{}
+  
+\end{schema}
 
 \section{Problem 7.8.2}
 
