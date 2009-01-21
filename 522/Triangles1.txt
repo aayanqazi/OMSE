@@ -1,9 +1,21 @@
-A classic problem in software testing, due to Myers, is to write and then test a program that accepts x and y coordinates of three vertices as input and outputs the area of the triangle with these vertices.
+A classic problem in software testing, due to Myers, is to write and then test a program that
+accepts x and y coordinates of three vertices as input and outputs the area of the triangle with
+these vertices.
 
 In this assignment, I instead want you to construct an English-language specification for such a
 program. (By program, here, I basically mean a function. Specify any reasonable interface you want.)
 Try to make it as non-mathematical as reasonably possible. Be prepared for the case where the input
-vertices don't form a triangle, or form a degenerate triangle. 
+vertices don't form a triangle, or form a degenerate triangle.
 
 --------------------------------------------------------------------------------
 
+- The signature of the function is (in C):
+  double triangle_area(float x1, float y1, float x2, float y2, float x3, float y3);
+- If the points fall in a straight line, the result is 0.
+- If two or three (x,y) pairs are identical, the result is 0.
+- Otherwise, the result is the area of the triangle whose vertices are at (x1,y1), (x2,y2), and (x3,y3).  This is given by:
+  0.5 * fabs((x1*y3) - (x1*y2) + (x2*y1) - (x2*y3) + (x3*y2) - (x3*y1))
+  (from http://en.wikipedia.org/wiki/Triangle#Using_coordinates)
+
+Due to the limitations of the computer's representation of floating-point numbers, the results of this function will be less accurate the more difference there is between the multiplied numbers.  For example, multiplying 0.0000000001 by 1000000000 may not result in an answer of 1.0.  Also, some numbers (such as 0.1) cannot be exactly represented, so calculations using these numbers may be off.
+ 

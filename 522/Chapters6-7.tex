@@ -6,13 +6,19 @@
 % standard ASCII Z notation.
 
 \documentclass[11pt]{article}
+
+% TODO: combine these into a class or style
+\usepackage{amsmath}
 \usepackage{zed-csp}
 \usepackage{times}
 \usepackage{fullpage}
+\setlength{\parindent}{0pt}
+
 \begin{document}
 
-
-
+\title{Chapters 6 \& 7 Problems}
+\author{Ben Straub}
+\maketitle
 
 \section{Problem 6.5.1}
 \begin{quote} \textit{
@@ -29,7 +35,12 @@ There's no initial state. (Aside: this is given in Appendix F of the book.)
     operators defined in Appendix D. }
 \end{quote}
 
-Following the pattern for $T\_Forward$, we must first define the left arrow key:
+\subsection{$T\_Backward$}
+
+I'll save some space and re-use all of the definitions given in Chapter 7.
+
+Following the pattern for $T\_Forward$, we must first define the left arrow key; it is a
+non-printing character.
 
 \begin{axdef}
   left\_arrow : CHAR
@@ -37,8 +48,8 @@ Following the pattern for $T\_Forward$, we must first define the left arrow key:
   left\_arrow \notin printing
 \end{axdef}
 
-Thus left\_arrow is a character, but not the kind that prints.  Now for some schemas that we can
-combine later.
+Next we need a similar concept to EOF, so we won't crash if the user hits the left-arrow key at the
+beginning of the file.
 
 \begin{schema}{BOF}
   Editor
@@ -46,7 +57,8 @@ combine later.
   left = \langle \rangle
 \end{schema}
 
-This defines the ``beginning-of-file'' condition, where the $left$ list is empty.
+Now we build up the schemas we'll combine later. First, the operation when the user enters the
+$\leftarrow$ key.
 
 \begin{schema}{LeftArrow}
   ch? : CHAR
@@ -54,7 +66,8 @@ This defines the ``beginning-of-file'' condition, where the $left$ list is empty
   ch? = left\_arrow
 \end{schema}
 
-$LeftArrow$ is fulfilled when an input character is the $\leftarrow$ key.  
+Next is what happens when we want to move backward through the buffer.  We simply move the last
+character from $left$ to the beginning of $right$.
 
 \begin{schema}{Backward}
   \Delta Editor \\
@@ -65,24 +78,36 @@ $LeftArrow$ is fulfilled when an input character is the $\leftarrow$ key.
   right' = \langle last(left) \rangle \cat right
 \end{schema}
 
-Backward means that we move the last character in $left$ to $right$.  Now we're ready to define
-$T\_Backward$:
+Now we're ready to define $T\_Backward$ as the combination of the last three schemas:
 
-\begin{zed}
-  T\_Backward \defs Backward \lor (BOF \land LeftArrow \land \Xi Editor)
-\end{zed}
+\[ T\_Backward \defs Backward \lor (BOF \land LeftArrow \land \Xi Editor) \]
 
-Here is the fast-forward for $T\_Delete$:
+\subsection{$T\_Delete$}
 
-\begin{axdef}{}
-  delete : CHAR
+Let's start with the axiomatic definition for the delete character, which is yet another
+non-printing character.
+
+\begin{axdef}
+  del : CHAR
   \where
-  delete \notin printing
+  del \notin printing
 \end{axdef}
 
-\begin{schema}{}
-  
+Now we can say what happens when it is entered; we remove the last character from $left$.
+
+\begin{schema}{Delete}
+  \Delta Editor \\
+  ch? : CHAR
+  \where
+  ch? = del \\
+  left' = front(left) \\
+  right' = right
 \end{schema}
+
+Unless, of course, the cursor is at the start of the file.  But we've already defined $BOF$, so it
+looks like we have everything we need.
+
+\[ T\_Delete \defs Delete \lor (BOF \land Del \land \Xi Editor) \]
 
 \section{Problem 7.8.2}
 
@@ -90,6 +115,21 @@ Here is the fast-forward for $T\_Delete$:
   \textit{Define the operation that handles input characters that are not handled by Insert,
     Forward, Backward, and Delete.}
 \end{quote}
+
+We'll define this operation to do nothing; if a character isn't $Insert$able, and isn't $del$ or the
+left- or right-arrow keys, we'll ignore it.  
+
+\begin{schema}{Ignore}
+  Editor \\
+  ch? : CHAR
+  \where
+  ch? \notin printing
+\end{schema}
+
+From here, it's straightforward to define the total version of our editor.  It's no Emacs, but
+that's probably for the best---it's only week 3.
+
+\[ T\_Editor \defs T\_Insert \lor T\_Delete \lor T\_Backward \lor T\_Forward \lor Ignore \]
 
 
 \section{Problem 7.8.4}
@@ -99,6 +139,33 @@ Here is the fast-forward for $T\_Delete$:
     CHAR is implemented by the ASCII character set.}
 \end{quote}
 
+\subsection{Editor}
+Editor allows for any text of length up to $maxsize$, which is bounded at $2^{16}$.  $CHAR$ is
+implemented as ASCII, which provides 94 printable characters\footnotemark.  In the largest case, the
+number of states in $Editor$ is given by:
 
+\footnotetext{Source: http://en.wikipedia.org/wiki/ASCII\#ASCII\_printable\_characters}
+
+\begin{equation*}
+  \sum_{n=0}^{2^{16}} 94^n
+\end{equation*}
+
+I believe this number is colloquially known as a \textit{metric shit-ton}.  Even our circa-1990
+16-bit text editor has vastly more states than the number of atoms in the known
+universe\footnotemark.  
+
+\footnotetext{Source: http://en.wikipedia.org/wiki/Shannon\_number}
+
+\subsection{EOF}
+
+I can think of two answers to this question.  My first instinct is to answer ``2''; either $right$
+is empty, or it is not.  However, this schema includes $Editor$, and according to Mr. Jacky:
+
+\begin{quote}
+  \textit{This indicates that all the declarations and predicates in $Editor$ apply to [this schema] as well...}
+\end{quote}
+
+This implies that $EOF$ is really an extension of $Editor$, so their state counts are similar.  I
+hope to attain enlightenment during our class discussion of this problem.
 
 \end{document}

@@ -6,3 +6,4 @@ _region_.*
 prv_*
 *.dvi
 *.out
+auto/*
