@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+
+\usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
+\usepackage{zed-csp}                   % for zed macros
+\usepackage{times}                     % for nice-looking text
+\usepackage[usenames]{color}           % for color names
+\usepackage{fullpage}                  % for smaller margins
+\setlength{\parindent}{0pt}            % for less indentation
+
+\usepackage{verbatim}
+
+\begin{document}
+
+\title{A Quick Intro to \LaTeX}
+\author{Ben Straub}
+\maketitle
+
+\section{WTF?}
+
+It's a lot like writing source code for your documents.
+
+\section{Toolchain}
+
+In order to use this system, you'll need a toolchain, or \textit{distribution}.  There are lots of
+these.
+
+\subsection{Windows}
+I'll recommend MiKTeX on Windows, for a reason we'll see later.  To get MiKTeX, go to the
+{\color{blue} \href{http://miktex.org/2.7/setup}{MiKTeX download page}}.  Download the 80MB ``Basic
+Installer'' and run it.
+
+\subsection{OS X}
+I use {\color{blue} \href{http://www.tug.org/mactex/}{MacTeX}} on OS X.
+
+
+\section{First Steps}
+Now you're ready to typeset something.  Here's some Z:
+
+\begin{schema}{Ignore}
+  \Xi Editor \\
+  ch ? : CHAR
+  \where
+  ch? \notin printing \union {backspace, forward, delete ...}
+\end{schema}
+
+Copy the {\color{blue} \href{http://www.straubnet.net/LatexIntro.tex}{source of this document}} into
+a text editor, and save it as \texttt{test.tex}. Now open up a command prompt, and type
+\texttt{pdftex test.tex}.
+
+MiKTeX doesn't come with all the ``packages'' (read: third-party libraries) this document needs, so
+it'll have to stop in the middle and download them.  It also can't install more than one package at
+a time, so you'll probably have to run it several times. When you see a line like \texttt{LaTeX
+  finished at Fri Jan 23 06:34:13}, you know you're done.
+
+
+\section{Making it Easy}
+Copy this into a file called \texttt{my-zed.sty}, and keep it with your homework for this class:
+
+\begin{verbatim}
+\usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
+\usepackage{zed-csp}                   % for zed macros
+\usepackage{times}                     % for nice-looking text
+\usepackage[usenames]{color}           % for color names
+\usepackage{fullpage}                  % for smaller margins
+\setlength{\parindent}{0pt}            % for less indentation
+\end{verbatim}
+
+Then setting up for a new homework becomes easy:
+
+\begin{verbatim}
+\documentclass[11pt]{article}
+\usepackage{my-zed}
+\begin{document}
+
+% ... Content goes here ...
+
+\end{document}
+\end{verbatim}
+
+\section{\LaTeX and Z}
+The \texttt{zed-csp} package we're using provides commands for all the Z symbols, but it's not
+always obvious what they are.  There's a handy reference at {\color{blue}
+  \href{http://www.ctan.org/tex-archive/macros/latex/contrib/zed-csp/}{CTAN}} (look for
+\texttt{zed2e.pdf}), though you should ignore the first two sections, they're pretty outdated.
