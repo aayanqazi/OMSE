@@ -20,7 +20,7 @@
     expressed in terms of the states and events we already defined.)
   } \end{quote}
 
-There's no initial state. (Aside: this is given in Appendix F of the book.)
+There's no initial state\footnote{This is given in Appendix F of the book.}.
 
 \section{Problem 7.8.1}
 
@@ -113,6 +113,18 @@ looks like we have everything we need.
 We'll define this operation to do nothing; if a character isn't $Insert$able, and isn't $del$ or the
 left- or right-arrow keys, we'll ignore it.  
 
+{\color{orange}
+  We really need to specify that the editor doesn't change, and which characters we're NOT talking
+  about.
+
+  \begin{schema}{Ignore}
+    \Xi Editor \\
+    ch ? : CHAR
+    \where
+    ch? \notin printing \union {backspace, forward, delete ...}
+  \end{schema}
+}
+
 \begin{schema}{Ignore}
   Editor \\
   ch? : CHAR
@@ -143,6 +155,14 @@ number of states in $Editor$ is given by:
 \begin{equation*}
   \sum_{n=0}^{2^{16}} 94^n
 \end{equation*}
+
+{\color{orange}
+  94 is debatable. Also, this is only true if the cursor doesn't move. If we add in a mobile cursor:
+
+  \begin{equation*}
+    \sum_{n=0}^{65,535} (n+1)94^n
+  \end{equation*}
+}
 
 I believe this number is colloquially known as a \textit{metric shit-ton}.  Even our circa-1990
 16-bit text editor has vastly more states than the number of atoms in the known
