@@ -1,5 +1,5 @@
-\documentclass[11pt]{article}
-
+\documentclass[10pt]{article}
+% Way of Z problems 8.2.4.1, 9.3.3.1, 9.3.4.1, 9.4.1.
 \usepackage{bs-zed}
 
 \begin{document}
@@ -12,13 +12,13 @@
 \section{Problem 8.2.4.1}
 \begin{quote}
   {\it
-    Is this an erroneous expression? Why or why not?
+    Is this an erroneous expression?  Why or why not?
     \[ \{red, green\} \union yellow \]
   }
 \end{quote}
 % 8.2.4.1 1 min
-It depends on the definition of $red$, $green$, and $yellow$.  With the book's definitions, this is
-certainly an error, since the $\union$ operator must have sets on both sides, and $yellow$ is not a set.
+With the book's definitions, this is certainly an error, since the $\union$ operator must have sets
+on both sides, and $yellow$ is not a set.
 
 
 
@@ -27,8 +27,41 @@ certainly an error, since the $\union$ operator must have sets on both sides, an
   {\it Write a fully formal defintiion of the} dept {\it relation that does not use the three dots.}
 \end{quote}
 % 9.3.3.1 3 min [hint: doing it "the long way" would be silly]
-\todo{Solve}
 
+First we need to define some schemas that handle the cases for the individual departments.
+
+\begin{schema}{AdminPhone}
+  PHONE \\
+  DEPARTMENT \\
+  num?  : PHONE 
+  \where
+  num?  \in \{0000 ..  0999\} \\
+  num?  \mapsto administration
+\end{schema}
+
+\begin{schema}{ResearchPhone}
+  PHONE \\
+  DEPARTMENT \\
+  num?  : PHONE 
+  \where
+  num?  \in \{4000 ..  4999\} \\
+  num?  \mapsto research
+\end{schema}
+
+\begin{schema}{ManufacturingPhone}
+  PHONE \\
+  DEPARTMENT \\
+  num?  : PHONE 
+  \where
+  num?  \in \{6000 ..  6999\} \\
+  num?  \mapsto manufacturing
+\end{schema}
+
+Now we're ready to define $dept$ by combining all these schemas:
+
+\[ dept \defs AdminPhone \lor ResearchPhone \lor ManufacturingPhone \]
+
+Note that $dept$ is only a partial function; for example, $dept(1000)$ is undefined.
 
 
 \section{Problem 9.3.4.1}
@@ -42,11 +75,11 @@ certainly an error, since the $\union$ operator must have sets on both sides, an
 \section{Problem 9.4.1}
 \begin{quote}
   {\it The second elevator leaves the first floor and stops at the third floor while all the other
-    elevators remain in place. This new configuration is named $floor'$.  Define $floor'$ in terms
+    elevators remain in place.  This new configuration is named $floor'$.  Define $floor'$ in terms
     of $floor$.}
 
 \end{quote}
 \todo{Solve}
-% 9.4.1 3 min [see previous hint]. 
+% 9.4.1 3 min [see previous hint].  
 
 \end{document}
