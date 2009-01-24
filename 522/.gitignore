@@ -2,8 +2,6 @@
 *.log
 *.pdf
 *.prv
-_region_.*
 prv_*
 *.dvi
 *.out
-auto/*
