@@ -4,7 +4,7 @@
 
 \begin{document}
 
-\title{Chapters 8 \& 9 Problems}
+\title{the way of Z \\ Chapters 8 \& 9 Problems}
 \author{Ben Straub}
 \maketitle
 
@@ -28,40 +28,16 @@ on both sides, and $yellow$ is not a set.
 \end{quote}
 % 9.3.3.1 3 min [hint: doing it "the long way" would be silly]
 
-First we need to define some schemas that handle the cases for the individual departments.
+I'm not sure how I would have solved this before reading Chapter 10.  The function $dept$ can be
+defined thus:
 
-\begin{schema}{AdminPhone}
-  PHONE \\
-  DEPARTMENT \\
-  num?  : PHONE 
+\begin{axdef}
+  dept \_ : PHONE \rel DEPARTMENT
   \where
-  num?  \in \{0000 ..  0999\} \\
-  num?  \mapsto administration
-\end{schema}
-
-\begin{schema}{ResearchPhone}
-  PHONE \\
-  DEPARTMENT \\
-  num?  : PHONE 
-  \where
-  num?  \in \{4000 ..  4999\} \\
-  num?  \mapsto research
-\end{schema}
-
-\begin{schema}{ManufacturingPhone}
-  PHONE \\
-  DEPARTMENT \\
-  num?  : PHONE 
-  \where
-  num?  \in \{6000 ..  6999\} \\
-  num?  \mapsto manufacturing
-\end{schema}
-
-Now we're ready to define $dept$ by combining all these schemas:
-
-\[ dept \defs AdminPhone \lor ResearchPhone \lor ManufacturingPhone \]
-
-Note that $dept$ is only a partial function; for example, $dept(1000)$ is undefined.
+  (0000 \leq \_ \leq 0999 \land \_ \mapsto administration) \lor \\
+  (4000 \leq \_ \leq 4999 \land \_ \mapsto research) \lor \\
+  (6000 \leq \_ \leq 6999 \land \_ \mapsto manufacturing)
+\end{axdef}
 
 
 \section{Problem 9.3.4.1}
@@ -69,8 +45,21 @@ Note that $dept$ is only a partial function; for example, $dept(1000)$ is undefi
   {\it Define the} parent {\it relation: Abraham and Sarah are the parents of Isaac, etc.}
 
 \end{quote}
-\todo{Solve}
 % 9.3.4.1 10 min
+
+There doesn't seem to be a way to generically specify this, so I fell back on just listing the
+members of the set:
+
+\begin{axdef}
+  parent : PERSON \rel PERSON \cross PERSON
+  \where
+  parent = \{ \\
+  ishmael \mapsto (hagar, abraham), \\
+  isaac \mapsto (abraham, sarah), \\
+  esau \mapsto (isaac, rebekah), \\
+  jacob \mapsto (isaac, rebekah) \\
+  \}
+\end{axdef}
 
 \section{Problem 9.4.1}
 \begin{quote}
