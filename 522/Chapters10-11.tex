@@ -1,0 +1,83 @@
+\documentclass[10pt]{article}
+% Way of Z exercises 10.4.4.2, 10.4.5.1, 10.6.1, 10.8.1, 11.1.2, 11.3.1, 11.5.1
+\usepackage{bs-zed}
+
+\begin{document}
+
+\title{the way of Z \\ Chapters 10 \& 11 Problems}
+\author{Ben Straub}
+\maketitle
+
+
+\section{Exercise 10.4.4.2}
+% 10.4.4.2 15min
+\begin{quote}
+  {\it Consider expressing case analyses using equivalence.  Compare this efinition of temperature
+    and phase to the previous one.  Which logical connective is used to separate cases? What happens
+    at $temp = 0$? At $temp = 100$?
+    \begin{axdef}
+      temp : TEMP \\
+      phase : PHASE
+      \where
+      temp \leq 0 \iff phase = solid \\
+      0 \leq temp < 100 \iff phase = liquid \\
+      temp > 100 \iff phase = gas
+    \end{axdef}
+  }
+\end{quote}
+
+\section{Exercise 10.4.5.1}
+% 10.4.5.1 15min
+\begin{quote}
+  {\it Write the table of situations that satisfies each of these predicates.  Would these make
+    reasonable saety requirements?
+
+    \[ beam = on \iff door = closed \also
+     beam = on \land door = closed \also
+     beam = on \lor door = open \also
+     beam = off \lor door = closed \]
+  }
+\end{quote}
+
+
+\section{Exercise 10.6.1}
+% 10.6.1 10min
+\begin{quote}
+  {\it Define the relation $phase_R$ from temperature to phase, consistent with the definitions of
+    $temp$ and $phase$ in section 10.4.2. }
+\end{quote}
+
+
+\section{Exercise 10.8.1}
+% 10.8.1 5min
+\begin{quote}
+  {\it What is the meaning of this predicate when $f x$ is undefined? When $f x$ is defined?
+  \[ x \in \dom f \implies f  x = y \] }
+\end{quote}
+
+
+\section{Exercise 11.1.2}
+% 11.1.2 20min
+\begin{quote}
+  {\it Define the set of points within the rectangular $window$ whose lower left and upper right
+    corners are points modelled by pairs of integers $(x_l, y_l)$ and $(x_u, y_u)$, respectively.
+    Then define $segment$, the portion of the previously defined $line$ that lies within $window$. }
+\end{quote}
+
+
+\section{Exercise 11.3.1}
+% 11.3.1 5min
+\begin{quote}
+  {\it Is our second definition of $PRIME$ a constructive definition?  Could this definition be
+    translated to an executable program in some suitable language? }
+\end{quote}
+
+
+\section{Exercise 11.5.1}
+% 11.5.1 5-45min 
+\begin{quote}
+  {\it Define the function $month$ that extracts the $MONTH$ component from a $DATE$. }
+\end{quote}
+
+
+\end{document}
