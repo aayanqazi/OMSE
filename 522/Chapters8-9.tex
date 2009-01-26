@@ -11,14 +11,13 @@
 
 \section{Problem 8.2.4.1}
 \begin{quote}
-  {\it
-    Is this an erroneous expression?  Why or why not?
-    \[ \{red, green\} \union yellow \]
-  }
+  {\it Is this an erroneous expression?  Why or why not?
+    \[ \{red, green\} \union yellow \]}
 \end{quote}
+
 % 8.2.4.1 1 min
-With the book's definitions, this is certainly an error, since the $\union$ operator must have sets
-on both sides, and $yellow$ is not a set.
+With Jacky's definitions, this is certainly an error, since $\union$ operates only on sets, and
+$yellow$ is not a set.
 
 
 
@@ -26,49 +25,69 @@ on both sides, and $yellow$ is not a set.
 \begin{quote}
   {\it Write a fully formal defintiion of the} dept {\it relation that does not use the three dots.}
 \end{quote}
-% 9.3.3.1 3 min [hint: doing it "the long way" would be silly]
 
-I'm not sure how I would have solved this before reading Chapter 10.  The function $dept$ can be
-defined thus:
+% 9.3.3.1 3 min [hint: doing it "the long way" would be silly]
+I'm not sure how I would have solved this without reading past chapter 9.  Chapter 10 gives us more
+information on combining predicates, which suggests the following form.
 
 \begin{axdef}
   dept \_ : PHONE \rel DEPARTMENT
   \where
-  (0000 \leq \_ \leq 0999 \land \_ \mapsto administration) \lor \\
-  (4000 \leq \_ \leq 4999 \land \_ \mapsto research) \lor \\
-  (6000 \leq \_ \leq 6999 \land \_ \mapsto manufacturing)
+  (0000 \leq \_ \leq 0999 \land dept \_ = administration) \lor \\
+  (4000 \leq \_ \leq 4999 \land dept \_ = research) \lor       \\
+  (6000 \leq \_ \leq 6999 \land dept \_ = manufacturing)
 \end{axdef}
+
+We split the problem into three predicates, and combine them to provide an implied set definition.
+This isn't really satisfactory, though; we're not defining a set \textit{per se}, we're just
+defining a predicate for membership of a set.  Also, with my limited experience, I'm not quite sure
+this even qualifies as a function definition; it doesn't seem exact enough.
+
+Chapter 11 gives us another solution: set comprehensions with filters.
+
+\begin{syntax}
+  dept & == & \{ i : PHONE | 0000 \leq i < 1000 @ i \mapsto administration \} \union \\
+       &    & \{ i : PHONE | 4000 \leq i < 5000 @ i \mapsto research \} \union       \\
+       &    & \{ i : PHONE | 6000 \leq i < 7000 @ i \mapsto manufacturing \}
+\end{syntax}
+
+Now we actually define three sets of type $PHONE \cross DEPARTMENT$, and define $dept$ to be their
+union.
+
 
 
 \section{Problem 9.3.4.1}
 \begin{quote}
   {\it Define the} parent {\it relation: Abraham and Sarah are the parents of Isaac, etc.}
-
 \end{quote}
+
 % 9.3.4.1 10 min
+Since this isn't a numeric relationship, it seems like the only way to define this relation is
+explicitly.
 
-There doesn't seem to be a way to generically specify this, so I fell back on just listing the
-members of the set:
+\begin{syntax}
+  parent == & \{ & ishmael \mapsto hagar,   \\
+            &    & ishmael \mapsto abraham, \\
+            &    & isaac \mapsto abraham,   \\
+            &    & isaac \mapsto sarah,     \\
+            &    & esau \mapsto isaac,      \\
+            &    & esau \mapsto rebekah,    \\
+            &    & jacob \mapsto isaac,     \\
+            &    & jacob \mapsto rebekah \}
+\end{syntax}
 
-\begin{axdef}
-  parent : PERSON \rel PERSON \cross PERSON
-  \where
-  parent = \{ \\
-  \t1 ishmael \mapsto (hagar, abraham), \\
-  \t1 isaac \mapsto (abraham, sarah), \\
-  \t1 esau \mapsto (isaac, rebekah), \\
-  \t1 jacob \mapsto (isaac, rebekah) \\
-  \}
-\end{axdef}
+
 
 \section{Problem 9.4.1}
 \begin{quote}
   {\it The second elevator leaves the first floor and stops at the third floor while all the other
     elevators remain in place.  This new configuration is named $floor'$.  Define $floor'$ in terms
     of $floor$.}
-
 \end{quote}
-\todo{Solve}
-% 9.4.1 3 min [see previous hint].  
+
+% 9.4.1 3 min [see previous hint].
+$floor'(x)$ is equal to $floor(x)$ except where $x = 2$.
+
+\[ floor' == floor \oplus \{ 2 \mapsto 3 \} \]
 
 \end{document}
