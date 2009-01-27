@@ -40,15 +40,15 @@ information on combining predicates, which suggests the following form.
 
 We split the problem into three predicates, and combine them to provide an implied set definition.
 This isn't really satisfactory, though; we're not defining a set \textit{per se}, we're just
-defining a predicate for membership of a set.  Also, with my limited experience, I'm not quite sure
+defining a predicate for membership of a set.  With my limited experience, I'm not quite sure
 this even qualifies as a function definition; it doesn't seem exact enough.
 
-Chapter 11 gives us another solution: set comprehensions with filters.
+Chapter 11 gives us another solution: the almighty lambda.
 
 \begin{syntax}
-  dept & == & \{ i : PHONE | 0000 \leq i < 1000 @ i \mapsto administration \} \union \\
-       &    & \{ i : PHONE | 4000 \leq i < 5000 @ i \mapsto research \} \union       \\
-       &    & \{ i : PHONE | 6000 \leq i < 7000 @ i \mapsto manufacturing \}
+  dept & == & \{ \lambda i : PHONE | 0000 \leq i < 1000 @  administration \} \union \\
+       &    & \{ \lambda i : PHONE | 4000 \leq i < 5000 @ research \} \union       \\
+       &    & \{ \lambda i : PHONE | 6000 \leq i < 7000 @  manufacturing \}
 \end{syntax}
 
 Now we actually define three sets of type $PHONE \cross DEPARTMENT$, and define $dept$ to be their
