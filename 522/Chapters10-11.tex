@@ -67,6 +67,7 @@ none apply when $temp = 100$.
   would argue that the original is better at conveying intent.
 \end{enumerate}
 
+As an aside, the solution to this exercise is given in Appendix F.
 
 
 \section{Exercise 10.6.1}
@@ -76,18 +77,32 @@ none apply when $temp = 100$.
     $temp$ and $phase$ in section 10.4.2.  }
 \end{quote}
 
-\todo{Solve}
+This is really just reorganizing the predicates in the original axiomatic definition so that they
+define a set.  I'll follow the union-of-lambdas pattern I used in the last homework:
+
+\begin{syntax}
+  phase_R ==                                                         \\
+  \t2 \{ \lambda t : TEMP | t < 0             & @ & solid \} \union  \\
+  \t2 \{ \lambda t : TEMP | 0 \leq t \leq 100 & @ & liquid \} \union \\
+  \t2 \{ \lambda t : TEMP | t > 100           & @ & gas \}
+\end{syntax}
+
 
 
 \section{Exercise 10.8.1}
 % 10.8.1 5min
 \begin{quote}
-  {\it What is the meaning of this predicate when $f x$ is undefined?  When $f x$ is defined?
-  \[ x \in \dom f \implies f  x = y \] }
+  {\it What is the meaning of this predicate when $f\ x$ is undefined?  When $f\ x$ is defined? }
+  \[ x \in \dom f \implies f\ x = y \]
 \end{quote}
 
-\todo{Solve}
+The $\implies$ relation holds either when both sides are true, or the left side is false.  So when
+$x$ is in the domain of $f$, the truth of this statement is equal to the truth of $f\ x = y$.
 
+The other case is when $x \notin \dom f$, in which case the statement is true regardless of the
+values of $f\ x$ or $y$.
+
+Aside: again, the solution to this exercise is given in Appendix F of the book.
 
 \section{Exercise 11.1.2}
 % 11.1.2 20min
