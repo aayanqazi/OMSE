@@ -3,7 +3,6 @@
 \usepackage{bs-zed}
 
 \begin{document}
-
 \title{the way of Z \\ Chapters 10 \& 11 Problems}
 \author{Ben Straub}
 \maketitle
@@ -12,7 +11,7 @@
 \section{Exercise 10.4.4.2}
 % 10.4.4.2 15min
 \begin{quote}
-  {\it Consider expressing case analyses using equivalence.  Compare this efinition of temperature
+  {\it Consider expressing case analyses using equivalence.  Compare this definition of temperature
     and phase to the previous one.  Which logical connective is used to separate cases? What happens
     at $temp = 0$? At $temp = 100$?
     \begin{axdef}
@@ -26,18 +25,38 @@
   }
 \end{quote}
 
+There are two areas of concern with this definition.  The first concerns the use of equivalence in
+the definition, which appears to be correct.  Take the first line:
+\[ temp \leq 0 \iff phase = solid \]
+which expands to:
+\[ (temp \leq 0 \implies phase = solid) \land (temp > 0 \implies phase \neq solid) \land \also
+   (phase = solid \implies temp \leq 0) \land (phase \neq solid \implies temp > 0)\]
+This is correct, but since the other statements cover the cases where $temp > 0$, the additional
+restrictions provided by $\iff$ aren't really necessary.
+
+The second area of concern is the coverage of $temp$.  It appears that two of the statements apply
+at $temp = 0$ ($(phase = solid) \land (phase = liquid)$, which is mathematically impossible), and
+none apply when $temp = 100$.
+
 \section{Exercise 10.4.5.1}
 % 10.4.5.1 15min
 \begin{quote}
   {\it Write the table of situations that satisfies each of these predicates.  Would these make
     reasonable saety requirements?
 
-    \[ beam = on \iff door = closed \also
-     beam = on \land door = closed \also
-     beam = on \lor door = open \also
-     beam = off \lor door = closed \]
+    \begin{eqnarray}
+      beam = on  & \iff  & door = closed \\
+      beam = on  & \land & door = closed \\
+      beam = on  & \lor  & door = open   \\
+      beam = off & \lor  & door = closed
+    \end{eqnarray}
   }
 \end{quote}
+
+\todo{Solve}
+
+(1) -- This is the condition where the beam turns on as soon as the
+door closes.  This is the opposite of a good safety requirement.
 
 
 \section{Exercise 10.6.1}
@@ -47,6 +66,8 @@
     $temp$ and $phase$ in section 10.4.2. }
 \end{quote}
 
+\todo{Solve}
+
 
 \section{Exercise 10.8.1}
 % 10.8.1 5min
@@ -54,6 +75,8 @@
   {\it What is the meaning of this predicate when $f x$ is undefined? When $f x$ is defined?
   \[ x \in \dom f \implies f  x = y \] }
 \end{quote}
+
+\todo{Solve}
 
 
 \section{Exercise 11.1.2}
@@ -64,6 +87,8 @@
     Then define $segment$, the portion of the previously defined $line$ that lies within $window$. }
 \end{quote}
 
+\todo{Solve}
+
 
 \section{Exercise 11.3.1}
 % 11.3.1 5min
@@ -72,12 +97,16 @@
     translated to an executable program in some suitable language? }
 \end{quote}
 
+\todo{Solve}
+
 
 \section{Exercise 11.5.1}
 % 11.5.1 5-45min 
 \begin{quote}
   {\it Define the function $month$ that extracts the $MONTH$ component from a $DATE$. }
 \end{quote}
+
+\todo{Solve}
 
 
 \end{document}
