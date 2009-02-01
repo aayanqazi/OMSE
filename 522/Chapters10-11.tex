@@ -12,8 +12,8 @@
 % 10.4.4.2 15min
 \begin{quote}
   {\it Consider expressing case analyses using equivalence.  Compare this definition of temperature
-    and phase to the previous one.  Which logical connective is used to separate cases? What happens
-    at $temp = 0$? At $temp = 100$?
+    and phase to the previous one.  Which logical connective is used to separate cases?  What happens
+    at $temp = 0$?  At $temp = 100$?
     \begin{axdef}
       temp : TEMP \\
       phase : PHASE
@@ -42,28 +42,37 @@ none apply when $temp = 100$.
 % 10.4.5.1 15min
 \begin{quote}
   {\it Write the table of situations that satisfies each of these predicates.  Would these make
-    reasonable saety requirements?
-
+    reasonable saety requirements?}
     \begin{eqnarray}
       beam = on  & \iff  & door = closed \\
       beam = on  & \land & door = closed \\
       beam = on  & \lor  & door = open   \\
       beam = off & \lor  & door = closed
     \end{eqnarray}
-  }
 \end{quote}
+\begin{enumerate}
+\item There are only two conditions where this predicate is satisfied: $beam=on/door=closed$ and
+  $beam=off/door=open$.  This implies that the beam turns on as soon as the door is closed.  This is
+  the opposite of a good safety requirement.
 
-\todo{Solve}
+\item The only situation that makes this predicate true is $beam=on/door=closed$.  It says nothing
+  about when the door is open, so it's not complete enough to be a safety requirement.
 
-(1) -- This is the condition where the beam turns on as soon as the
-door closes.  This is the opposite of a good safety requirement.
+\item This predicate is satisfied with the situation $beam=on/door=open$, so it's not restrictive
+  enough to be a safety requirement.
+
+\item By De Morgan, this is equivalent to $\lnot (beam=on \land door=open)$, and is thus equivalent
+  to $beam=on \implies door=closed$, which brings us back to our original safety requirement.  I
+  would argue that the original is better at conveying intent.
+\end{enumerate}
+
 
 
 \section{Exercise 10.6.1}
 % 10.6.1 10min
 \begin{quote}
   {\it Define the relation $phase_R$ from temperature to phase, consistent with the definitions of
-    $temp$ and $phase$ in section 10.4.2. }
+    $temp$ and $phase$ in section 10.4.2.  }
 \end{quote}
 
 \todo{Solve}
@@ -72,7 +81,7 @@ door closes.  This is the opposite of a good safety requirement.
 \section{Exercise 10.8.1}
 % 10.8.1 5min
 \begin{quote}
-  {\it What is the meaning of this predicate when $f x$ is undefined? When $f x$ is defined?
+  {\it What is the meaning of this predicate when $f x$ is undefined?  When $f x$ is defined?
   \[ x \in \dom f \implies f  x = y \] }
 \end{quote}
 
@@ -84,7 +93,7 @@ door closes.  This is the opposite of a good safety requirement.
 \begin{quote}
   {\it Define the set of points within the rectangular $window$ whose lower left and upper right
     corners are points modelled by pairs of integers $(x_l, y_l)$ and $(x_u, y_u)$, respectively.
-    Then define $segment$, the portion of the previously defined $line$ that lies within $window$. }
+    Then define $segment$, the portion of the previously defined $line$ that lies within $window$.  }
 \end{quote}
 
 \todo{Solve}
@@ -94,7 +103,7 @@ door closes.  This is the opposite of a good safety requirement.
 % 11.3.1 5min
 \begin{quote}
   {\it Is our second definition of $PRIME$ a constructive definition?  Could this definition be
-    translated to an executable program in some suitable language? }
+    translated to an executable program in some suitable language?  }
 \end{quote}
 
 \todo{Solve}
@@ -103,7 +112,7 @@ door closes.  This is the opposite of a good safety requirement.
 \section{Exercise 11.5.1}
 % 11.5.1 5-45min 
 \begin{quote}
-  {\it Define the function $month$ that extracts the $MONTH$ component from a $DATE$. }
+  {\it Define the function $month$ that extracts the $MONTH$ component from a $DATE$.  }
 \end{quote}
 
 \todo{Solve}
