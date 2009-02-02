@@ -27,23 +27,25 @@
 \end{quote}
 
 There are two areas of concern with this definition.  The first concerns the use of equivalence in
-the definition, which appears to be correct.  Take the first line:
+the definition, which appears to be correct, though perhaps inappropriate.  Take the first line:
 \[ temp \leq 0 \iff phase = solid \]
 which expands to:
-\[ (temp \leq 0 \implies phase = solid) \land (temp > 0 \implies phase \neq solid) \land \also
-   (phase = solid \implies temp \leq 0) \land (phase \neq solid \implies temp > 0)\]
+\[ (temp \leq 0 \implies phase = solid) \land (phase = solid \implies temp \leq 0) \land \also
+   (temp > 0 \implies phase \neq solid) \land (phase \neq solid \implies temp > 0)\]
 This is correct, but since the other statements cover the cases where $temp > 0$, the additional
-restrictions provided by $\iff$ aren't really necessary.
+restrictions provided by $\iff$ aren't really necessary.  This is like making a garden shed out of
+foot-thick steel-reinforced concrete.
 
 The second area of concern is the coverage of $temp$.  It appears that two of the statements apply
-at $temp = 0$ ($(phase = solid) \land (phase = liquid)$, which is mathematically impossible), and
+at $temp = 0$ ($phase = solid \land phase = liquid$, which is mathematically impossible), and
 none apply when $temp = 100$.
 
 \section{Exercise 10.4.5.1}
 % 10.4.5.1 15min
 \begin{quote}
   {\it Write the table of situations that satisfies each of these predicates.  Would these make
-    reasonable saety requirements?}
+    reasonable saety requirements?\footnote{The solution to this exercise is given in Appendix F of
+      the book.} }
     \begin{eqnarray}
       beam = on  & \iff  & door = closed \\
       beam = on  & \land & door = closed \\
@@ -52,22 +54,46 @@ none apply when $temp = 100$.
     \end{eqnarray}
 \end{quote}
 \begin{enumerate}
-\item There are only two conditions where this predicate is satisfied: $beam=on/door=closed$ and
-  $beam=off/door=open$.  This implies that the beam turns on as soon as the door is closed.  This is
-  the opposite of a good safety requirement.
+\item
+  \begin{tabular}{l||l|l}
+    $beam$ & $on$     & $off$ \\
+    \hline
+    $door$ & $closed$ & $open$
+  \end{tabular}
 
-\item The only situation that makes this predicate true is $beam=on/door=closed$.  It says nothing
-  about when the door is open, so it's not complete enough to be a safety requirement.
+  This implies that the beam turns on as soon as the door is closed, which is not a particularly
+  good safety requirement.
 
-\item This predicate is satisfied with the situation $beam=on/door=open$, so it's not restrictive
-  enough to be a safety requirement.
+\item
+  \begin{tabular}{l||l}
+    $beam$ & $on$ \\
+    \hline
+    $door$ & $closed$
+  \end{tabular}
 
-\item By De Morgan, this is equivalent to $\lnot (beam=on \land door=open)$, and is thus equivalent
-  to $beam=on \implies door=closed$, which brings us back to our original safety requirement.  I
-  would argue that the original is better at conveying intent.
+  This predicate says nothing about when the door is open, nor when the beam is off, so it's not
+  complete enough to be a safety requirement.
+
+\item
+  \begin{tabular}{l||l|l|l}
+    $beam$ & \textcolor{red}{$on$}   & $on$     & $off$ \\
+    \hline
+    $door$ & \textcolor{red}{$open$} & $closed$ & $open$
+  \end{tabular}
+
+  The situation in red worries me.
+
+\item
+  \begin{tabular}{l||l|l|l}
+    $beam$ & $off$  & $off$    & $on$ \\
+    \hline
+    $door$ & $open$ & $closed$ & $closed$
+  \end{tabular}
+
+  This is actually equivalent to $beam=on \implies door=closed$, which is our original safety
+  requirement, and which I would argue is better at conveying intent.
 \end{enumerate}
 
-As an aside, the solution to this exercise is given in Appendix F.
 
 
 \section{Exercise 10.6.1}
@@ -92,37 +118,60 @@ define a set.  I'll follow the union-of-lambdas pattern I used in the last homew
 \section{Exercise 10.8.1}
 % 10.8.1 5min
 \begin{quote}
-  {\it What is the meaning of this predicate when $f\ x$ is undefined?  When $f\ x$ is defined? }
+  {\it What is the meaning of this predicate when $f\ x$ is undefined?  When $f\ x$ is
+    defined?\footnote{The solution to this exercise is given in Appendix F of the book.} }
   \[ x \in \dom f \implies f\ x = y \]
 \end{quote}
 
 The $\implies$ relation holds either when both sides are true, or the left side is false.  So when
-$x$ is in the domain of $f$, the truth of this statement is equal to the truth of $f\ x = y$.
+$x$ is in the domain of $f$ (``$f\ x$ is defined''), the truth of this statement is equal to the
+truth of $f\ x = y$.
 
-The other case is when $x \notin \dom f$, in which case the statement is true regardless of the
-values of $f\ x$ or $y$.
+The other case is when $x \notin \dom f$ (``$f\ x$ is not defined''), in which case the statement is
+true.  Lovely that $\implies$ lets us bypass the whole function-not-defined problem.
 
-Aside: again, the solution to this exercise is given in Appendix F of the book.
+
 
 \section{Exercise 11.1.2}
 % 11.1.2 20min
 \begin{quote}
   {\it Define the set of points within the rectangular $window$ whose lower left and upper right
     corners are points modelled by pairs of integers $(x_l, y_l)$ and $(x_u, y_u)$, respectively.
-    Then define $segment$, the portion of the previously defined $line$ that lies within $window$.  }
+    Then define $segment$, the portion of the previously defined $line$ that lies within $window$.
+  }
 \end{quote}
 
-\todo{Solve}
+For $window$, we comprehend the set of points within that window; that is, the points whose $x$
+coordinates are between $x_l$ and $x_u$, and likewise for $y$.
+
+\begin{syntax}
+  window == \{ x,y : \num | (x_l \leq x \leq x_u) \land (y_l \leq y \leq y_u) \}
+\end{syntax}
+To define $segment$, we simply find all the points common to both sets.
+
+\begin{syntax}
+  segment == line \cap window
+\end{syntax}
+
 
 
 \section{Exercise 11.3.1}
 % 11.3.1 5min
 \begin{quote}
   {\it Is our second definition of $PRIME$ a constructive definition?  Could this definition be
-    translated to an executable program in some suitable language?  }
+    translated to an executable program in some suitable language? 
+  \[ \nat_2 == \nat \setminus \{ 0,1 \} \\
+  PRIME == \nat_2 \setminus \{n,m : \nat_2 @ n*m\}\] }
 \end{quote}
 
-\todo{Solve}
+Jacky says a constructive definition is one that has ``the quantity of interest [...] by itself on
+one side of the equation, and the other side only uses operators we have available in our
+programming language [...]''  The only hangup we have here is the use of infinite sets, but these
+can be represented at runtime by a set that is always finite, but grows with time.  The Sieve
+program I wrote (a long time ago) worked like this; it could only deal with a subset of natural
+numbers at a time, but it kept a list of the primes it found, and it could deal with arbitrarily
+large integers.  Given infinite time, it could generate all the primes, so my answer is yes.
+
 
 
 \section{Exercise 11.5.1}
@@ -131,7 +180,13 @@ Aside: again, the solution to this exercise is given in Appendix F of the book.
   {\it Define the function $month$ that extracts the $MONTH$ component from a $DATE$.  }
 \end{quote}
 
-\todo{Solve}
+This is a simple pattern match; for any given $(d,m,y)$ tuple, we just want $m$.
+
+\begin{axdef}
+  month : DATE \fun MONTH 
+  \where
+  \forall d : DAY, m : MONTH, y: YEAR @ (d,m,y) \mapsto m
+\end{axdef}
 
 
 \end{document}
