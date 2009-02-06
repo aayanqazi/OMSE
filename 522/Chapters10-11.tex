@@ -157,6 +157,15 @@ truth of $f\ x = y$.
 The other case is when $x \notin \dom f$ (``$f\ x$ is not defined''), in which case the statement is
 true.  Lovely that $\implies$ lets us bypass the whole function-not-defined problem.
 
+{\color{orange}
+  \begin{tabular}{lll}
+    \textbf{LHS} & \textbf{RHS} & \textbf{constraint} \\
+    $x \notin \dom f$ & --- & holds \\
+    $x \in \dom f$ & $f\ x = y$ & holds \\
+    $x \in \dom f$ & $f\ x \ne y$ & fail
+  \end{tabular}
+}
+
 
 
 \section{Exercise 11.1.2}
@@ -181,6 +190,22 @@ To define $segment$, we simply find all the points common to both sets.
 \end{syntax}
 
 
+{\color{orange}
+  It's nice to define what types these things are.
+  \[ POINT == \num \cross \num \]
+  \begin{axdef}
+    window : \power POINT
+    \where
+    window = {x,y : \num | x_l \leq x \leq x_u \land y_l \leq y \leq y_u}
+  \end{axdef}
+  Or:
+  \begin{axdef}
+    window : \power POINT
+    \where
+    window = x_l .. x_u \cross y_l .. y_u
+  \end{axdef}
+}
+
 
 \section{Exercise 11.3.1}
 % 11.3.1 5min
@@ -199,6 +224,15 @@ program I wrote (a long time ago) worked like this; it could only deal with a su
 numbers at a time, but it kept a list of the primes it found, and it could deal with arbitrarily
 large integers.  Given infinite time, it could generate all the primes, so my answer is yes.
 
+{\color{orange}
+  To make it constructive, you simply introduce an upper bound:
+  \begin{axdef}
+    primes\_upto : \nat_2 \fun \power \nat_2
+    \where
+    \forall max : \nat_2 @ primes\_upto\ max = \\
+    \t1 2..max \hide \{n,m : 2..max | n < max \land m < max @ n*m\}
+  \end{axdef}
+}
 
 
 \section{Exercise 11.5.1}
@@ -215,5 +249,13 @@ This is a simple pattern match; for any given $(d,m,y)$ tuple, we just want $m$.
   \forall d : DAY, m : MONTH, y: YEAR @ (d,m,y) \mapsto m
 \end{axdef}
 
+{\color{orange}
+  Or:
+  \begin{axdef}
+    month : DATE \fun MONTH
+    \where
+    month = \{ d: DAY; m : MONTH; y : YEAR @ ((d,m,y), m) \}
+  \end{axdef}
+}
 
 \end{document}
