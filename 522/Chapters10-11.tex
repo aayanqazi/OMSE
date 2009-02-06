@@ -40,6 +40,11 @@ The second area of concern is the coverage of $temp$.  It appears that two of th
 at $temp = 0$ ($phase = solid \land phase = liquid$, which is mathematically impossible), and
 none apply when $temp = 100$.
 
+\textcolor{orange}
+{
+  At $temp = 0$, the specification is \textit{inconsistent}, at $temp = 100$, it's \textit{incomplete}
+}
+
 \section{Exercise 10.4.5.1}
 % 10.4.5.1 15min
 \begin{quote}
@@ -113,6 +118,28 @@ define a set.  I'll follow the union-of-lambdas pattern I used in the last homew
   \t2 \{ \lambda t : TEMP | t > 100           & @ & gas \}
 \end{syntax}
 
+{\color{orange}
+  [Note the surjection arrows.]
+
+  Or:
+  \begin{axdef}
+    phase_R : TEMP \surj PHASE
+    \where
+    \forall t : TEMP; p : PHASE | phase_R t = p @ \\
+    \t1 (t < 0 \land p = solid) \lor \\
+    \t1 (0 \leq t \leq 100 \land p = liquid) \lor \\
+    \t1 (t > 100 \land p = gas)
+  \end{axdef}
+
+  Or:
+  \begin{axdef}
+    phase_R : TEMP \surj PHASE
+    \where
+    phase_R == (\num \cross \{solid\}) \oplus (\nat \cross \{gas\}) \oplus (0..100 \cross
+    \{liquid\})
+  \end{axdef}
+
+}
 
 
 \section{Exercise 10.8.1}
