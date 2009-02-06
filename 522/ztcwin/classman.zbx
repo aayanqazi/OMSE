@@ -1,0 +1,137 @@
+
+	specification
+	
+	[ Student ]
+	
+	|  size : N
+	|--------------------------------
+	|  size = 6
+	
+	Response	::= success
+		 |  notenrolled
+		 |  nocert
+		 |  cert
+		 |  alreadyenrolled
+		 |  alreadytested
+		 |  noroom
+	
+	%% state-schema Class
+	
+	--- Class -------------------------------------------------
+	|  enrolled, tested : P Student
+	|--------------------------------
+	|  # enrolled <= size;
+	|  tested subseteq enrolled
+	-----------------------------------------------------------
+	
+	%% init-schema ClassInit
+	
+	--- ClassInit ---------------------------------------------
+	|  Class'
+	|--------------------------------
+	|  enrolled' = {};
+	|  tested' = {}
+	-----------------------------------------------------------
+	
+	--- Enrolok -----------------------------------------------
+	|  Delta Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  s? notin enrolled;
+	|  # enrolled < size;
+	|  enrolled' = enrolled || { s? };
+	|  tested' = tested;
+	|  r! = success
+	-----------------------------------------------------------
+	
+	--- Testok ------------------------------------------------
+	|  Delta Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  s? in enrolled;
+	|  s? notin tested;
+	|  tested' = tested || { s? };
+	|  enrolled' = enrolled;
+	|  r! = success
+	-----------------------------------------------------------
+	
+	--- Leaveok -----------------------------------------------
+	|  Delta Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  s? in enrolled;
+	|  enrolled' = enrolled \ { s? };
+	|  ((s? in tested /\
+	|    tested' = tested \ { s? } /\
+	|    r! = cert) \/
+	|    (s? notin tested /\
+	|      tested' = tested /\
+	|      r! = cert))
+	-----------------------------------------------------------
+	
+	%% operation Enquire
+	
+	--- Enquire -----------------------------------------------
+	|  Xi Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  ((s? notin enrolled /\
+	|    r! = notenrolled) \/
+	|    (s? in enrolled \ tested /\
+	|      r! = alreadyenrolled) \/
+	|    (s? in tested /\
+	|      r! = alreadytested))
+	-----------------------------------------------------------
+	
+	--- AlreadyEnrolled ---------------------------------------
+	|  Xi Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  s? in enrolled;
+	|  r! = alreadyenrolled
+	-----------------------------------------------------------
+	
+	--- NoRoom ------------------------------------------------
+	|  Xi Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  # enrolled = size;
+	|  r! = noroom
+	-----------------------------------------------------------
+	
+	--- AlreadyTested -----------------------------------------
+	|  Xi Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  s? in tested;
+	|  r! = alreadytested
+	-----------------------------------------------------------
+	
+	--- NotEnrolled -------------------------------------------
+	|  Xi Class;
+	|  s? : Student;
+	|  r! : Response
+	|--------------------------------
+	|  s? notin enrolled;
+	|  r! = notenrolled
+	-----------------------------------------------------------
+	
+	%% operation Enrol
+	%% operation Test
+	%% operation Leave
+	
+	Enrol =^= Enrolok \/ NoRoom \/ AlreadyEnrolled
+	
+	Test =^= Testok \/ NotEnrolled \/ AlreadyTested
+	
+	Leave =^= Leaveok \/ NotEnrolled
+	
+	end specification
+	

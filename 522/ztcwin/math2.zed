@@ -1,0 +1,55 @@
+
+\begin{spec}
+
+\include{math0.zed}
+
+\begin{zed}
+	[ Char ] 
+\also
+	String == \seq Char
+\end{zed}
+
+\begin{axdef}
+	ascii\_of : Char \pfun \nat \\
+	unicode\_of : Char \pfun \nat \\
+	ascii\_char : \nat \pfun Char \\
+	unicode\_char : \nat \pfun Char 
+\end{axdef}
+
+\begin{zed}
+	[ \float ]
+\end{zed}
+
+\begin{axdef}
+	\ceiling{\_} : \float \fun \num \\
+	\floor{\_}   : \float \fun \num \\
+	\modf{\_}    : \float \fun \float \\
+	\tofloat{\_} : \num \fun \float 
+\end{axdef}
+
+%% infunl3 \fplus
+%% infunl3 \fminus
+%% infunl4 \ftimes
+%% infunl4 \fdiv
+
+\begin{axdef}
+	\_ \fplus \_  : \float \cross \float \fun \float \\
+	\_ \fminus \_ : \float \cross \float \fun \float \\
+	\_ \ftimes \_ : \float \cross \float \fun \float \\
+	\_ \fdiv \_   : \float \cross \float \fun \float \\
+	\fneg         : \float \fun \float 
+\end{axdef}
+
+\begin{axdef}
+	\abs{\_} : \float \fun \float \\
+	\powerof{\_}{\_} : \float \cross \num \pfun \float \\
+	\sqrt{\_} : \float \pfun \float \\
+	\ln, \lg : \float \pfun \float \\
+	\sin, \cos, \tan : \float \pfun \float \\
+	\arcsin, \arccos, \arctan : \float \pfun \float \\
+	\sinh, \cosh, \tanh : \float \pfun \float 
+\end{axdef}
+
+\end{spec}
+
+

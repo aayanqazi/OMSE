@@ -1,0 +1,67 @@
+
+\begin{spec}
+
+\begin{zed}
+	\natone == \nat_1
+\also
+	\integer == \num
+\end{zed}
+
+\begin{gendef}[X]
+	\_ \mem \_ : X \rel \pset X \\
+	\_ \nem \_ : X \rel \pset X
+\end{gendef}
+
+\begin{zed}
+	\emptyset [X] == \{ x : X | false \}
+\end{zed}
+
+\begin{gendef}[X]
+	\_ \psubs \_, \_ \subs \_ : \pset X \rel \pset X
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \uni \_, \_ \int \_ : (\pset X \cross \pset X)
+	   \tfun \pset X
+\end{gendef}
+
+\begin{gendef}[X]
+	\duni, \dint : \pset (\pset X) \tfun \pset X
+\end{gendef}
+
+\begin{gendef}[X, Y]
+	\_ \map \_ : (X \cross Y) \tfun (X \cross Y)
+\end{gendef}
+
+\begin{gendef}[X, Y, Z]
+	\_ \fcmp \_ : ((X \rel Y) \cross (Y \rel Z)) \tfun (X \rel Z) \\
+	\_ \cmp \_ : ((Y \rel Z) \cross (X \rel Y)) \tfun (X \rel Z)
+\end{gendef}
+
+\begin{gendef}[X, Y]
+	\_ \dsub \_ : (\pset X \cross (X \rel Y)) \tfun (X \rel Y) \\
+	\_ \rsub \_ : ((X \rel Y) \cross \pset Y) \tfun (X \rel Y)
+\end{gendef}
+
+\begin{gendef}[X, Y]
+	\_ \fovr \_ : ((X \rel Y) \cross (X \rel Y)) \tfun (X \rel Y)
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \tcl, \_ \rtcl : (X \rel X) \tfun (X \rel X)
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \ires \_ : (\pset \natone \cross \seq X) \tfun \seq X \\
+	\_ \sres \_ : (\seq X \cross \pset X) \tfun \seq X 
+\end{gendef}
+
+\begin{gendef}[X]
+ 	\_ \inseq \_ : \seq X \rel \seq X
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \buni \_ : (\bag X \cross \bag X) \tfun \bag X
+\end{gendef}
+
+\end{spec}

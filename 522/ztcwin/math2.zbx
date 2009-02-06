@@ -1,0 +1,43 @@
+
+	specification
+
+	include math0.zbx
+	
+	[ Char ]
+	
+	String == seq Char
+	
+	|  ascii_of : Char +-> N;
+	|  unicode_of : Char +-> N;
+	|  ascii_char : N +-> Char;
+	|  unicode_char : N +-> Char
+	
+	[ Float ]
+	
+	|  ceiling : Float --> Z;
+	|  floor : Float --> Z;
+	|  modf : Float --> Float;
+	|  tofloat : Z --> Float
+	
+	%% infunl3 fplus
+	%% infunl3 fminus
+	%% infunl4 ftimes
+	%% infunl4 fdiv
+	
+	|  _ fplus _ : Float & Float --> Float;
+	|  _ fminus _ : Float & Float --> Float;
+	|  _ ftimes _ : Float & Float --> Float;
+	|  _ fdiv _ : Float & Float --> Float;
+	|  fneg : Float --> Float
+	
+	|  abs : Float --> Float;
+	|  powerof : Float & Z +-> Float;
+	|  sqrt : Float +-> Float;
+	|  ln, lg : Float +-> Float;
+	|  sin, cos, tan : Float +-> Float;
+	|  arcsin, arccos, arctan : Float +-> Float;
+	|  sinh, cosh, tanh : Float +-> Float
+	
+	end specification
+	
+

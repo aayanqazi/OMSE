@@ -1,0 +1,169 @@
+
+% mathematical toolkit of Z, based on ZRM 2/ed
+
+\begin{document}
+
+% Sets (4.1)
+
+\begin{zed}
+	\num == INTEGER
+\end{zed}
+
+\begin{axdef}
+	\nat, \nat_1 : \power \num
+\end{axdef}
+
+\begin{gendef}[X]
+	\_ \neq \_ : X \rel X \\
+	\_ \in \_ : X \rel \power X \\
+	\_ \notin \_ : X \rel \power X 
+\end{gendef}
+
+\begin{zed}
+	\empty [X] == \{ x : X  | false \} 
+\end{zed}
+
+\begin{gendef}[X]
+	\_ \subset \_ , \_ \subseteq \_ :  \power X \rel \power X 
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \cup \_ , \_ \cap \_, \_ \setminus \_ :  
+		\power X \cross \power X \fun \power X  
+\end{gendef}
+
+\begin{gendef}[X]
+	\bigcup , \bigcap :
+		\power (\power X) \fun \power X  
+\end{gendef}
+
+\begin{gendef}[X,Y]
+	first: X \cross Y \fun X \\
+	second: X \cross Y \fun Y 
+\end{gendef}
+
+
+% Relations (4.2)
+
+\begin{gendef}[X,Y]
+	\_ \mapsto \_ : X \cross Y \fun X \cross Y
+\end{gendef}
+
+\begin{gendef}[X,Y]
+	\dom : (X \rel Y) \fun \power X \\
+	\ran : (X \rel Y) \fun \power Y
+\end{gendef}
+
+\begin{gendef}[X,Y,Z]
+	\_ \comp \_ : (X \rel Y) \cross (Y \rel Z) \fun (X \rel Z) \\
+	\_ \circ \_ : (Y \rel Z) \cross (X \rel Y) \fun (X \rel Z)
+\end{gendef}
+
+\begin{gendef}[X,Y]
+	\_ \dres \_ : \power X \cross (X \rel Y) \fun (X \rel Y) \\
+	\_ \rres \_ : (X \rel Y) \cross \power Y \fun (X \rel Y) \\
+	\_ \ndres \_ : \power X \cross (X \rel Y) \fun (X \rel Y) \\
+	\_ \nrres \_ : (X \rel Y) \cross \power Y \fun (X \rel Y) 
+\end{gendef}
+
+\begin{gendef}[X,Y]
+	\_ \inv : (X \rel Y) \fun (Y \rel X) 
+\end{gendef}
+
+\begin{gendef}[X,Y]
+	\_ \limg \_ \rimg : (X \rel Y) \cross \power X \fun \power Y  
+\end{gendef}
+
+\begin{gendef}[X,Y]
+	\_ \oplus \_ : (X \rel Y) \cross (X \rel Y) \fun (X \rel Y) 
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \plus , \_ \star : (X \rel X) \fun (X \rel X) 
+\end{gendef}
+
+
+% Numbers (4.4)
+
+\begin{axdef}
+	\_ + \_ , \_ - \_ , \_ * \_ : \num \cross \num \fun \num \\
+	\_ \div \_ , \_ \mod \_ : \num \cross \num \fun \num \\
+	- : \num \fun \num \\
+	\_ < \_ , \_ > \_ , \_ \leq \_ , \_ \geq \_ : \num \rel \num
+\end{axdef}
+
+\begin{axdef}
+	succ: \nat \fun \nat \\
+	\_ \upto \_ : \num \cross \num \fun \power \num 
+\end{axdef}
+
+\begin{gendef}[X]
+	iter: \num \fun ( X \rel X ) \fun ( X \rel X )
+\end{gendef}
+
+\begin{gendef}[X]
+	\#: \finset X \fun \nat
+\end{gendef}
+
+\begin{axdef}
+	min: \power_1 \num \pfun \num \\
+	max: \power_1 \num \pfun \num 
+\end{axdef}
+
+
+% Sequences (4.5) 
+
+\begin{gendef}[X]
+	\_ \cat \_ : \seq X \cross \seq X \fun \seq X \\
+	rev: \seq X \fun \seq X 
+\end{gendef}
+
+\begin{gendef}[X]
+	head, last: \seq_1 X \fun X \\
+	tail, front: \seq_1 X \fun \seq X 
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \extract \_ : \power \nat_1 \cross \seq X \fun \seq X \\
+	\_ \filter \_ : \seq X \cross \power X \fun \seq X \\
+	squash: (\nat_1 \ffun X) \fun \seq X 
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \prefix \_ , \_ \suffix \_ , \_ \subseq \_ : \seq X \rel \seq X 
+\end{gendef}
+
+
+\begin{gendef}[X]
+	\dcat : \seq (\seq X) \rel \seq X 
+\end{gendef}
+
+\begin{gendef}[I,X]
+	\disjoint \_ : \power (I \pfun \power X) \\
+	\_ \partition \_ : (I \pfun \power X) \rel \power X
+\end{gendef}
+
+
+% Bags (4.6)
+
+\begin{gendef}[X]
+	count: \bag X \bij ( X \fun \nat ) \\
+	\_ \bagcount \_ : \bag X \cross X \fun \nat \\
+	\_ \bagscale \_ : \nat \cross \bag X \fun \bag X 
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \inbag \_ : X \rel \bag X \\
+	\_ \subbag \_ : \bag X \rel \bag X 
+\end{gendef}
+
+\begin{gendef}[X]
+	\_ \uplus \_ , \_ \bagdiff \_ : \bag X \cross \bag X \fun \bag X
+\end{gendef}
+
+\begin{gendef}[X]
+	items: \seq X \fun \bag X 
+\end{gendef}
+
+\end{document}
+

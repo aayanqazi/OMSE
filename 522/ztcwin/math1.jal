@@ -1,0 +1,33 @@
+
+	specification
+
+	include math0.jal
+	
+	[ Char ]
+	
+	String == seq Char
+	
+	|  ascii_of : Char +-> N;
+	|  unicode_of : Char +-> N;
+	|  ascii_char : N +-> Char;
+	|  unicode_char : N +-> Char
+	
+	[ Float ]
+	
+	|  ceiling : Float --> Z;
+	|  floor : Float --> Z;
+	|  modf : Float --> Float;
+	|  tofloat : Z --> Float
+	
+
+	%%prerel isnull
+
+	
+	end specification
+	
+
+
+
+
+
+

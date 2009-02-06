@@ -1,0 +1,95 @@
+
+\begin{spec}
+
+\include{math0.zed}
+
+\begin{zed}
+	Bool == \{ 0, 1 \} 
+\end{zed}
+
+\begin{zed}
+	[ Char ] 
+\also
+	String == \seq Char
+\end{zed}
+
+\begin{axdef}
+	ascii\_of : Char \pfun \nat \\
+	unicode\_of : Char \pfun \nat \\
+	ascii\_char : \nat \pfun Char \\
+	unicode\_char : \nat \pfun Char 
+\end{axdef}
+
+\begin{zed}
+	[ \float ]
+\end{zed}
+
+\begin{axdef}
+	\ceiling{\_} : \float \fun \num \\
+	\floor{\_}   : \float \fun \num \\
+	\modf{\_}    : \float \fun \float \\
+	\tofloat{\_} : \num \fun \float 
+\end{axdef}
+
+%% infunl3 \fplus
+%% infunl3 \fminus
+%% infunl4 \ftimes
+%% infunl4 \fdiv
+
+%% inrel \fleq 
+%% inrel \fgeq 
+%% inrel \fle 
+%% inrel \fge 
+
+\begin{axdef}
+	\_ \fplus \_  : \float \cross \float \fun \float \\
+	\_ \fminus \_ : \float \cross \float \fun \float \\
+	\_ \ftimes \_ : \float \cross \float \fun \float \\
+	\_ \fdiv \_   : \float \cross \float \fun \float \\
+	\fneg         : \float \fun \float \\
+	\_ \fleq \_   : \float \rel \float \\
+	\_ \fgeq \_   : \float \rel \float \\
+	\_ \fle \_    : \float \rel \float \\
+	\_ \fge \_    : \float \rel \float 
+\end{axdef}
+
+
+
+\begin{axdef}
+	\abs{\_} : \float \fun \float \\
+	\powerof{\_}{\_} : \float \cross \num \pfun \float \\
+	\sqrt{\_} : \float \pfun \float \\
+	\ln, \lg : \float \pfun \float \\
+	\sin, \cos, \tan : \float \pfun \float \\
+	\arcsin, \arccos, \arctan : \float \pfun \float \\
+	\sinh, \cosh, \tanh : \float \pfun \float 
+\end{axdef}
+
+\begin{zed}
+	[ CLOCK ] 
+\end{zed}
+
+\begin{syntax} 
+	Month ::= January | February | March | April | May | June \\
+	    & | & July | August | September | October | November | December 
+\end{syntax}
+
+\begin{axdef} 
+	current\_time : CLOCK \fun String \\
+	current\_date : CLOCK \fun String 
+\end{axdef}
+
+\begin{axdef} 
+	current\_time\_h : CLOCK \fun \nat \\
+	current\_time\_m : CLOCK \fun \nat \\
+	current\_time\_s : CLOCK \fun \nat \\
+	current\_date\_y : CLOCK \fun \nat \\  
+	current\_date\_m : CLOCK \fun Month \\ 
+	current\_date\_d : CLOCK \fun \nat  
+\end{axdef}
+
+
+
+\end{spec}
+
+

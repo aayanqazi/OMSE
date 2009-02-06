@@ -1,0 +1,139 @@
+
+	specification
+	
+	[ Student ]
+	
+	global
+	  size : N
+	axiom
+	  size = 6
+	end axiom
+	
+	Response	::= success
+		 |  notenrolled
+		 |  nocert
+		 |  cert
+		 |  alreadyenrolled
+		 |  alreadytested
+		 |  noroom
+	
+	%% state-schema Class
+	
+	schema Class
+	  enrolled, tested : P Student
+	where
+	  # enrolled <= size;
+	  tested subseteq enrolled
+	end schema
+	
+	%% init-schema ClassInit
+	
+	schema ClassInit
+	  Class'
+	where
+	  enrolled' = {};
+	  tested' = {}
+	end schema
+	
+	schema Enrolok
+	  Delta Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  s? notin enrolled;
+	  # enrolled < size;
+	  enrolled' = enrolled || { s? };
+	  tested' = tested;
+	  r! = success
+	end schema
+	
+	schema Testok
+	  Delta Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  s? in enrolled;
+	  s? notin tested;
+	  tested' = tested || { s? };
+	  enrolled' = enrolled;
+	  r! = success
+	end schema
+	
+	schema Leaveok
+	  Delta Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  s? in enrolled;
+	  enrolled' = enrolled \ { s? };
+	  ((s? in tested /\
+	    tested' = tested \ { s? } /\
+	    r! = cert) \/
+	    (s? notin tested /\
+	      tested' = tested /\
+	      r! = cert))
+	end schema
+	
+	%% operation Enquire
+	
+	schema Enquire
+	  Xi Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  ((s? notin enrolled /\
+	    r! = notenrolled) \/
+	    (s? in enrolled \ tested /\
+	      r! = alreadyenrolled) \/
+	    (s? in tested /\
+	      r! = alreadytested))
+	end schema
+	
+	schema AlreadyEnrolled
+	  Xi Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  s? in enrolled;
+	  r! = alreadyenrolled
+	end schema
+	
+	schema NoRoom
+	  Xi Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  # enrolled = size;
+	  r! = noroom
+	end schema
+	
+	schema AlreadyTested
+	  Xi Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  s? in tested;
+	  r! = alreadytested
+	end schema
+	
+	schema NotEnrolled
+	  Xi Class;
+	  s? : Student;
+	  r! : Response
+	where
+	  s? notin enrolled;
+	  r! = notenrolled
+	end schema
+	
+	%% operation Enrol
+	%% operation Test
+	%% operation Leave
+	
+	Enrol =^= Enrolok \/ NoRoom \/ AlreadyEnrolled
+	
+	Test =^= Testok \/ NotEnrolled \/ AlreadyTested
+	
+	Leave =^= Leaveok \/ NotEnrolled
+	
+	end specification
+	
