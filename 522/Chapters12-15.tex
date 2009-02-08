@@ -25,8 +25,15 @@ this, we just need to expand out $Init \land EOF$ and see if there are any contr
 
 For reference (and to make this typechecker-friendly), here are the $Editor$, $Init$, and $EOF$
 schemas in raw form:
-\[ [CHAR] \]
-\[ TEXT == \seq CHAR \]
+\begin{syntax}
+  [CHAR] \also
+  TEXT == \seq CHAR
+\end{syntax}
+\begin{axdef}
+  maxsize : \nat
+  \where
+  maxsize \leq 65535
+\end{axdef}
 \begin{schema}{Editor}
   left, right : TEXT
   \where
