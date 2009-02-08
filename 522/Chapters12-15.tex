@@ -19,8 +19,31 @@
     Expand $\forall Editor | Init @ EOF$.
   }
 \end{quote}
-\todo{Solve}
+\tofinish{}
+Read aloud, this says that for all Editor states, when Init holds, EOF holds as well. To verify
+this, we just need to expand out $Init \land EOF$ and see if there are any contradictions.
 
+For reference (and to make this typechecker-friendly), here are the $Editor$, $Init$, and $EOF$
+schemas in raw form:
+\[ [CHAR] \]
+\[ TEXT == \seq CHAR \]
+\begin{schema}{Editor}
+  left, right : TEXT
+  \where
+  \#(left \cat right) \leq maxsize
+\end{schema}
+\begin{schema}{Init}
+  Editor
+  \where
+  left = right = \langle \rangle
+\end{schema}
+\begin{schema}{EOF}
+  Editor
+  \where
+  right = \langle \rangle  
+\end{schema}
+
+Combining these, we get
 
 
 \section{Exercise 12.3.2}
