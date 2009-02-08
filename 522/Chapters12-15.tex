@@ -13,27 +13,17 @@
 \author{Ben Straub}
 \maketitle
 
-\section{Exercise 12.3.1 (?)}
+\section{Exercise 12.3.1}
 \begin{quote}
   {\it
     Expand $\forall Editor | Init @ EOF$.
   }
 \end{quote}
-\tofinish{}
-Read aloud, this says that for all Editor states, when Init holds, EOF holds as well. To verify
-this, we just need to expand out $Init \land EOF$ and see if there are any contradictions.
+Read aloud, this says that for all Editor states where Init holds, EOF holds as well. To verify
+this, we just need to expand out $Init \land EOF$ in the $Editor$ context and see if there are any
+contradictions.
 
-For reference (and to make this typechecker-friendly), here are the $Editor$, $Init$, and $EOF$
-schemas in raw form:
-\begin{syntax}
-  [CHAR] \also
-  TEXT == \seq CHAR
-\end{syntax}
-\begin{axdef}
-  maxsize : \nat
-  \where
-  maxsize \leq 65535
-\end{axdef}
+For reference:
 \begin{schema}{Editor}
   left, right : TEXT
   \where
@@ -50,7 +40,14 @@ schemas in raw form:
   right = \langle \rangle  
 \end{schema}
 
-Combining these, we get
+Given these, the expression expands to:
+
+\begin{syntax}
+  \forall left,right : TEXT | (\#(left \cat right) \leq maxsize) \land (left = right = \langle \rangle) @ \\
+  \t1 right = \langle \rangle
+\end{syntax}
+\tocheck
+
 
 
 \section{Exercise 12.3.2}
@@ -59,7 +56,13 @@ Combining these, we get
     What does $S\_Division$ say about $status$ when the $DivideByZero$ condition does not occur?
   }
 \end{quote}
-\todo{Solve}
+
+The expression $a \iff b$ implies $(a \land b) \lor (\lnot a \land \lnot b)$.  So when $S\_Division$
+says that $DivideByZero \iff status = error$, this means 
+\[ (DivideByZero \land status = error) \lor
+   (\lnot DivideByZero \land status \neq error) \]
+which, since $STATUS$ has only two values, really says that $status = ok$.
+\tocheck
 
 
 \section{Exercise 12.4.1.1}
@@ -68,7 +71,34 @@ Combining these, we get
    What is the precondition of $ForwardTwo$? 
   }
 \end{quote}
-\todo{Solve}
+
+We could expand out $ForwardTwo$ explicitly using primes and double primes:
+
+\begin{schema}{ForwardTwo}
+  left, right, left', right', left'', right'' : TEXT \\
+  ch?, ch?' : CHAR
+  \where
+  \#(left \cat right) \leq maxsize\\
+  \#(left' \cat right') \leq maxsize\\
+  \#(left'' \cat right'') \leq maxsize\\
+  ch? = ch?' = right\_arrow \\
+  right \neq \langle \rangle \\
+  \textcolor{blue}{right' \neq \langle \rangle} \\
+  left' = left \cat \langle head(right)\rangle \\
+  right' = tail(right) \\
+  left'' = left' \cat \langle head(right')\rangle \\
+  right'' = tail(right') \\
+\end{schema}
+
+The most restrictive precondition is highlighted in blue: $right' \neq \langle \rangle$.  This means
+that $\#right \geq 2$ or our editor will crash.
+
+As a side note, the $ch? = ch?' = right\_arrow$ restriction is a bit confusing.  It almost seems as
+if Z is encouraging us to separate input classification (recognizing which key was pressed) from
+actual state transitions (moving the cursor); combining the two gives you this wierd predicate where
+a transition with no middle state requires that the same key be pressed twice.
+
+\tocheck
 
 
 
@@ -78,7 +108,7 @@ Combining these, we get
     Define the operation $Next$ that advances a $Date$ by one day.
   }
 \end{quote}
-\todo{Solve}
+\tostart
 
 
 
@@ -89,7 +119,7 @@ Combining these, we get
     transitive as well?
   }
 \end{quote}
-\todo{Solve}
+\tostart
 
 
 
