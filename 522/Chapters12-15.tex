@@ -23,29 +23,34 @@ Read aloud, this says that for all Editor states where Init holds, EOF holds as 
 this, we just need to expand out $Init \land EOF$ in the $Editor$ context and see if there are any
 contradictions.
 
-For reference:
-\begin{schema}{Editor}
-  left, right : TEXT
-  \where
-  \#(left \cat right) \leq maxsize
-\end{schema}
-\begin{schema}{Init}
-  Editor
-  \where
-  left = right = \langle \rangle
-\end{schema}
-\begin{schema}{EOF}
-  Editor
-  \where
-  right = \langle \rangle  
-\end{schema}
+For reference (and to make this typechecker-friendly):
+\begin{spec}
+  \begin{zed}
+    [CHAR] \also
+    TEXT == \seq CHAR
+  \end{zed}
+  \begin{axdef}
+    maxsize : \num
+    \where
+    maxsize \leq 65535
+  \end{axdef}
+  \begin{schema}{Editor}
+    left, right : TEXT \where \#(left \cat right) \leq maxsize
+  \end{schema}
+  \begin{schema}{Init}
+    Editor \where left = right = \langle \rangle
+  \end{schema}
+  \begin{schema}{EOF}
+    Editor \where right = \langle \rangle
+  \end{schema}
 
-Given these, the expression expands to:
+  Given these, the expression expands to:
 
-\begin{syntax}
-  \forall left,right : TEXT | (\#(left \cat right) \leq maxsize) \land (left = right = \langle \rangle) @ \\
-  \t1 right = \langle \rangle
-\end{syntax}
+  \begin{zed}
+    \forall left,right : TEXT | (\#(left \cat right) \leq maxsize) \land (left = right = \langle \rangle) @ \\
+    \t1 right = \langle \rangle
+  \end{zed}
+\end{spec}
 \tocheck
 
 
@@ -74,24 +79,32 @@ which, since $STATUS$ has only two values, really says that $status = ok$.
 
 We could expand out $ForwardTwo$ explicitly using primes and double primes:
 
-\begin{schema}{ForwardTwo}
-  left, right, left', right', left'', right'' : TEXT \\
-  ch?, ch?' : CHAR
-  \where
-  \#(left \cat right) \leq maxsize\\
-  \#(left' \cat right') \leq maxsize\\
-  \#(left'' \cat right'') \leq maxsize\\
-  ch? = ch?' = right\_arrow \\
-  right \neq \langle \rangle \\
-  \textcolor{blue}{right' \neq \langle \rangle} \\
-  left' = left \cat \langle head(right)\rangle \\
-  right' = tail(right) \\
-  left'' = left' \cat \langle head(right')\rangle \\
-  right'' = tail(right') \\
-\end{schema}
-
-The most restrictive precondition is highlighted in blue: $right' \neq \langle \rangle$.  This means
-that $\#right \geq 2$ or our editor will crash.
+\begin{spec}
+  \begin{axdef}
+    printing : \power CHAR
+  \end{axdef}
+  \begin{axdef}
+    right\_arrow : CHAR
+    \where
+    right\_arrow \notin printing
+  \end{axdef}
+  \begin{schema}{ForwardTwo}
+    left, right, left', right', left'', right'' : TEXT \\
+    ch?, ch?' : CHAR \where
+    \#(left \cat right) \leq maxsize\\
+    \#(left' \cat right') \leq maxsize\\
+    \#(left'' \cat right'') \leq maxsize\\
+    ch? = ch?' = right\_arrow \\
+    right \neq \langle \rangle \\
+    right' \neq \langle \rangle \\
+    left' = left \cat \langle head(right)\rangle \\
+    right' = tail(right) \\
+    left'' = left' \cat \langle head(right')\rangle \\
+    right'' = tail(right') \\
+  \end{schema}
+\end{spec}
+The most restrictive precondition is $right' \neq \langle \rangle$.  This means that $\#right \geq
+2$ or our editor will crash.
 
 As a side note, the $ch? = ch?' = right\_arrow$ restriction is a bit confusing.  It almost seems as
 if Z is encouraging us to separate input classification (recognizing which key was pressed) from
@@ -111,12 +124,12 @@ a transition with no middle state requires that the same key be pressed twice.
 
 \todo[inline]{(descriptive text here)}
 
-\begin{schema}{Next}
-  \Delta Date
-  \where
-  (Feb29 \land \Theta Date'
-\end{schema}
-
+\begin{spec}
+  \begin{schema}{Next}
+    \Delta Date\\
+    \where
+  \end{schema}
+\end{spec}
 \tofinish
 
 
