@@ -108,7 +108,7 @@ The most restrictive precondition is $right' \neq \langle \rangle$.  This means 
 
 As a side note, the $ch? = ch?' = right\_arrow$ restriction is a bit confusing.  It almost seems as
 if Z is encouraging us to separate input classification (recognizing which key was pressed) from
-actual state transitions (moving the cursor); combining the two gives you this wierd predicate where
+actual state transitions (moving the cursor).  Combining the two gives you this wierd predicate where
 a transition with no middle state requires that the same key be pressed twice.
 
 \tocheck
@@ -122,12 +122,23 @@ a transition with no middle state requires that the same key be pressed twice.
   }
 \end{quote}
 
-\todo[inline]{(descriptive text here)}
+\todo[inline]{(witty descriptive text here)}
 
 \begin{spec}
-  \begin{schema}{Next}
-    \Delta Date\\
+  \begin{zed}
+    (leap \_) == \{ y:\num @ 4 * y \} \hide (\{y:\num @ 100 * y\} \hide \{ y:\num @ 400*y \})
+  \end{zed}
+
+  \begin{schema}{Date}
+    day,month,year : \num
     \where
+    (day \in 1..31 \land day \leq days month \land month \in 1..12) \lor \\
+    (day = 29 \land month = 2 \land leap\ year)
+  \end{schema}
+  \begin{schema}{Next}
+    \Delta Date
+    \where
+    (day = days month \land day' = 1 \land month' = month + 1 \land year' = year)
   \end{schema}
 \end{spec}
 \tofinish
