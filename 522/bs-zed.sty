@@ -10,3 +10,10 @@
 
 \newcommand{\tostart}[1]{\todo{#1}}
 \newcommand{\tofinish}[1]{\todo[color=blue!40]{#1}}
+
+%%% Use this to make the typechecker run, but not print junk.
+%% \iftypechecker
+%% ... (this stuff won't show up in the document)
+%% \fi
+\newif\iftypechecker
+\typecheckerfalse
