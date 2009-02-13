@@ -1,15 +1,16 @@
 % My packages for writing Zed in LaTeX. Note that order is important.
 \usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
 \usepackage{amsmath}                   % for equation* environment
-\usepackage{zed-csp}                   % for zed macros
+\usepackage{oz,ztc}                    % for zed macros
 \usepackage{times}                     % for nice-looking text
-%\usepackage{fullpage}                  % for smaller margins
-\usepackage[]{todonotes}                 % for todo notes: ( \usepackage[disable]{todonotes}
+\usepackage[]{todonotes}               % for todo notes: ( \usepackage[disable]{todonotes}
 \setlength{\parindent}{0pt}            % for less indentation
-\setlength{\parskip}{1em}
+\setlength{\parskip}{1em}              % for less whitespace
+%\usepackage{fullpage}                  % for smaller margins
 
-\newcommand{\tostart}[1]{\todo{#1}}
-\newcommand{\tofinish}[1]{\todo[color=blue!40]{#1}}
+\newcommand{\tostart}{\todo{}}
+\newcommand{\tofinish}{\todo[color=blue!40]{}}
+\newcommand{\tocheck}{\todo[color=green!40]{}}
 
 %%% Use this to make the typechecker run, but not print junk.
 %% \iftypechecker
@@ -17,3 +18,4 @@
 %% \fi
 \newif\iftypechecker
 \typecheckerfalse
+

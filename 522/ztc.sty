@@ -1,0 +1,47 @@
+
+% LaTeX macros to print ZTC 2.0 documents
+% Xiaoping Jia, jia@cs.depaul.edu
+% This file must be used with oz.sty or zed.sty
+
+% operators 
+
+\def \subseq    {\mathrel{\sf in}} 
+\def \disjoint  {{\sf disjoint}\;}
+\def \partition {\mathrel{\sf partition}}
+\def \bagdiff   {\mathbin{\rlap{$\cup$}\kern0.4ex\raisebox{0.3ex}{-}\kern0.3ex}}
+\def \subbag    {\sqsubseteq}
+\def \inbag     {\mathrel{\rlap{$-$}\kern-0.67ex\sqsubset}}
+\def \pipe      {\gg}
+\def \bagscale  {\otimes}
+\def \bagcount  {\sharp}
+\def \prefix    {\mathrel{\sf prefix}} 
+\def \suffix    {\mathrel{\sf suffix}}
+\def \extract   {\ires}
+\def \iseq      {\mbox{\rm iseq}}
+
+\def \inrel#1   {\mathrel{\underline{#1}}}
+
+% keywords 
+
+\def \zlet      {\mbox{\bf let~}}
+\def \zif       {\mbox{\bf if~}}
+\def \zthen     {\mbox{\bf ~then~}}
+\def \zelse     {\mbox{\bf ~else~}}
+
+% environments
+
+\newenvironment{spec}{\relax}{\relax}
+\newenvironment{nocheck}{\relax}{\relax}
+\renewenvironment{comment}{\relax}{\relax}
+
+% comments
+
+\def \comm#1    {\quad\hbox{#1}\quad}
+\def \remark#1  {\quad\hbox{#1}\quad}
+\def \typeof#1  {#1}
+
+% zed.sty compatible mode
+\def \zedcompatible {\let \empty \emptyset \let \defs \sdef 
+\def \plus {^+} \def \star {^*} \def \bsup {^\bgroup} \def \esup {\egroup}}
+
+

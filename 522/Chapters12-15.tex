@@ -13,42 +13,142 @@
 \author{Ben Straub}
 \maketitle
 
-\section{Exercise 12.3.1 (?)}
+\section{Exercise 12.3.1}
 \begin{quote}
-  {\it \todo{This one may not be real.} }
+  {\it
+    Expand $\forall Editor | Init @ EOF$.
+  }
 \end{quote}
+Read aloud, this says that for all Editor states where Init holds, EOF holds as well. To verify
+this, we just need to expand out $Init \land EOF$ in the $Editor$ context and see if there are any
+contradictions.
+
+For reference:
+\begin{spec}
+%   \begin{zed}
+%     [CHAR] \also
+%     TEXT == \seq CHAR
+%   \end{zed}
+%   \begin{axdef}
+%     maxsize : \num
+%     \where
+%     maxsize \leq 65535
+%   \end{axdef}
+  \begin{schema}{Editor}
+    left, right : TEXT \where \#(left \cat right) \leq maxsize
+  \end{schema}
+  \begin{schema}{Init}
+    Editor \where left = right = \langle \rangle
+  \end{schema}
+  \begin{schema}{EOF}
+    Editor \where right = \langle \rangle
+  \end{schema}
+
+  Given these, the expression expands to:
+
+  \begin{zed}
+    \forall left,right : TEXT | (\#(left \cat right) \leq maxsize) \land (left = right = \langle \rangle) @ \\
+    \t1 right = \langle \rangle
+  \end{zed}
+\end{spec}
 
 
 
 \section{Exercise 12.3.2}
 \begin{quote}
-  {\it  }
+  {\it
+    What does $S\_Division$ say about $status$ when the $DivideByZero$ condition does not occur?
+  }
 \end{quote}
-\todo{Enter/Solve}
+
+\begin{spec}
+  \begin{schema}{S\_Division}
+    T\_Division \\
+    status : STATUS
+    \where
+    DivideByZero \iff status = error
+  \end{schema}
+\end{spec}
+The expression $a \iff b$ means $(a \land b) \lor (\lnot a \land \lnot b)$.  So when $S\_Division$
+says that $DivideByZero \iff status = error$, this means
+\[ (DivideByZero \land status = error) \lor
+   (\lnot DivideByZero \land status \neq error) \]
+That second clause, since $STATUS$ has only two values, really says that $status = ok$.
 
 
-\section{Exercise 12.3.2}
+\section{Exercise 12.4.1.1}
 \begin{quote}
-  {\it }
+  {\it
+   What is the precondition of $ForwardTwo$? 
+  }
 \end{quote}
-\todo{Enter/Solve}
+
+We could expand out $ForwardTwo$ explicitly using primes and double primes:
+
+\begin{spec}
+  \begin{schema}{ForwardTwo}
+    left, right, left', right', left'', right'' : TEXT \\
+    ch?, ch?' : CHAR \where
+    \#(left \cat right) \leq maxsize\\
+    \#(left' \cat right') \leq maxsize\\
+    \#(left'' \cat right'') \leq maxsize\\
+    ch? = ch?' = right\_arrow \\
+    right \neq \langle \rangle \\
+    right' \neq \langle \rangle \\
+    left' = left \cat \langle head(right)\rangle \\
+    right' = tail(right) \\
+    left'' = left' \cat \langle head(right')\rangle \\
+    right'' = tail(right') \\
+  \end{schema}
+\end{spec}
+The most interesting precondition is $right' \neq \langle \rangle$.  This means that $\#right \geq
+2$, or our editor will crash.
+
+As a side note, the $ch? = ch?' = right\_arrow$ restriction is a bit confusing.  It almost seems as
+if Z is encouraging us to separate input classification (recognizing which key was pressed) from
+state transitions (moving the cursor).  Combining the two gives you this wierd predicate where a
+transition with no middle state requires that the same key be pressed twice.
 
 
 
-\section{Exercise 12.3.2}
+\section{Exercise 13.2.1}
 \begin{quote}
-  {\it }
+  {\it
+    Define the operation $Next$ that advances a $Date$ by one day.
+  }
 \end{quote}
-\todo{Enter/Solve}
+
+I'm sure there's a more succinct way to write it.
+
+\begin{spec}
+  \begin{schema}{Next}
+    \Delta Date
+    \where
+    (month = 12 \land day = 31 \land \\
+    \t1 day' = 1 \land month' = 1 \land year' = year + 1) \lor \\
+    (leap\ year \land day = 28 \land month = 2 \land \\
+    \t1 day' = 29 \land month' = month \land year' = year) \lor \\
+    (Feb29 \land \\
+    \t1 day' = 1 \land month' = 3 \land year' = year) \lor \\
+    (day = days\ month \land \\
+    \t1 day' = 1 \land month' = month + 1 \land year' = year) \lor \\
+    (day' = day + 1 \land month' = month \land year' = year)
+  \end{schema}
+\end{spec}
+This covers the year-end, entry and exit for February 29, every other month-end, and finally all the
+other days.  I'm not very happy with it, though.
 
 
 
-\section{Exercise 12.3.2}
+\section{Exercise 15.1.1}
 \begin{quote}
-  {\it }
+  {\it
+    Equality $=$, greater than $>$, and less than $<$ are all transitive. Is inequality $\neq$
+    transitive as well?
+  }
 \end{quote}
-\todo{Enter/Solve}
 
+No.  If it were, $2 \neq 5 \neq 2$ would imply $2 \neq 2$.
 
 
 \end{document}
