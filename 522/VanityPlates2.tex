@@ -4,6 +4,11 @@
 
 \begin{document}
 
+\title{Vanity Plates II}
+\author{Ben Straub}
+\maketitle
+
+\iftypechecker
 Consider the situation from our earlier assignment on Oregon Vanity Plates. Again imagine that you
 have been charged with implementing the GUI and input checking associated with step 1 of the
 attached application form for an Oregon Vanity Plate.
@@ -24,5 +29,159 @@ I would guess that this project will take 2-8 hours, depending on how comfortabl
 this point. But that's pretty much a wild guess.
 
 (see plateapp.pdf)
+\fi
 
+\section{English}
+The instructions on the form can be interpreted as a set of high-level requirements.  Assuming that
+the input system resolves issues of handwriting quality, it boils down to the following:
+
+\begin{enumerate}
+\item \label{e:len} There are at most six regular characters, which may include a space or
+  full-hyphen.
+\item \label{e:chr} If all six regular characters are used, an additional character may be
+  inserted.  The only valid characters for this rule are the space and half-hyphen.
+\item \label{e:pat} Plates of the forms \textit{\#\#\#-AAA} and \textit{AAA-\#\#\#} are prohibited
+  (where \textit{A} is any letter and \textit{\#} is any number).
+\end{enumerate}
+
+\section{Z Types}
+\begin{spec}
+  The basic unit of though here is the character, for which we'll need a Z type:
+
+  \begin{zed}
+    [CHAR]
+  \end{zed}
+
+  Before we can talk about valid plate strings, we need to talk about what kind of characters are
+  valid.  
+
+  \begin{axdef}
+    space, fullhyphen, halfhyphen : CHAR
+  \end{axdef}
+
+  \begin{zed}
+    PUNCTALPHA == \{ space, fullhyphen \} \also
+    PUNCTDEMI == \{ space, halfhyphen \} \also
+    PUNCT == PUNCTALPHA \cup PUNCTDEMI
+  \end{zed}
+
+  $PUNCTALPHA$ and $PUNCTDEMI$ define the punctuation characters that are valid in various
+  conditions, where $PUNCT$ defines the entire set of punctuation characters.
+
+  \begin{axdef}
+    ALPHACHAR : \power CHAR
+  \end{axdef}
+
+  $ALPHACHAR$ is the set of acceptable capital letters and numbers.  This type is what we'll use to
+  validate rule \#\ref{e:len}.  Rule \#\ref{e:pat} requires that we split this type into two
+  distinct types:
+
+  \begin{axdef}
+    ALPHA : \power CHAR \also
+    NUMERIC : \power CHAR \also
+    \where
+    ALPHACHAR = ALPHA \cup NUMERIC
+  \end{axdef}
+
+  In order to describe a valid plate string, we need to give it a type.  The element type is easily
+  defined in terms of the subtypes above.
+
+  \begin{zed}
+    PLATECHAR == ALPHACHAR \cup PUNCT
+  \end{zed}
+
+  The string as a whole, has some restrictions, but at least know what type it is:
+
+  \begin{zed}
+    PLATESTR == \seq PLATECHAR
+  \end{zed}
+
+  In order to handle punctuation, we define functions to separate a $PLATESTR$s into $ALPHACHAR$s
+  and punctuation.  
+
+  \begin{axdef}
+    punct : PLATESTR \fun PLATESTR
+    \where
+    \forall r : PLATESTR; p : PUNCT; a : ALPHACHAR @ \\
+    \t1 punct~\langle \rangle = \langle \rangle \land \\
+    \t1 punct~(\langle p \rangle \cat r) = \langle p \rangle \cat punct~r \land \\
+    \t1 punct~(\langle a \rangle \cat r) = punct~r
+  \end{axdef}
+
+  \begin{axdef}
+    nopunct : PLATESTR \fun PLATESTR
+    \where
+    \forall r : PLATESTR; p : PUNCT; a : ALPHACHAR  @ \\
+    \t1 nopunct~\langle \rangle = \langle \rangle \land \\
+    \t1 nopunct~(\langle p \rangle \cat r) = nopunct~r \land \\
+    \t1 nopunct~(\langle a \rangle \cat r) = \langle a \rangle \cat nopunct~r
+  \end{axdef}
+  
+
+
+  \section{Z Schemas}
+
+  Let's first define our validator's program state.  I'm choosing to do this as a full-string
+  validation-checker, rather than a per-character valid-string-producer, so we'll need an output
+  status.  Our validator has only two possible status values: it can either output a valid string,
+  or indicate an error; if I were getting paid for this, I'd probably give more helpful error
+  messages.
+
+  \begin{zed}
+    STATUS ::= ok | error
+  \end{zed}
+
+  \begin{schema}{ValidatorState}
+    str?, str! : PLATESTR \also
+    status! : STATUS
+  \end{schema}
+
+  Now we define the catch-all error state, which we'll fall through into if none of our valid cases
+  apply.
+
+  \begin{schema}{ValidatorError}
+    ValidatorState
+    \where
+    status! = error
+  \end{schema}
+
+  Now for the Rule \#\ref{e:len} validation: total length is at most 7, with at most one punctuation
+  character.
+
+  \begin{schema}{LengthIsValid}
+    ValidatorState
+    \where
+    \#(nopunct~str?) \leq 6 \\
+    \#(punct~str?) \leq 1 \\
+    str! = str? \\
+    status! = ok
+  \end{schema}
+
+  According to \#\ref{e:chr}, the kinds of punctuation that are allowed depend on the length of the
+  string: only one punctuation character is allowed, the half-hyphen can only be used when the rest
+  of the string is full.
+
+  \begin{schema}{FullStringPunctuationIsValid}
+    ValidatorState
+    \where
+    \#(nopunct~str?) = 6 \\
+    (punct~str?)(1) \in PUNCTDEMI
+  \end{schema}
+    
+  \begin{schema}{SparseStringPunctuationIsValid}
+    ValidatorState
+    \where
+    \#(nopunct~str?) < 6 \\
+    (punct~str?)(1) \in PUNCTALPHA
+  \end{schema}
+
+  Our last rule to validate is \#\ref{e:pat}, which is fairly straightforward \tofinish.
+
+  \begin{schema}{PatternIsValid}
+    ValidatorState
+    \where
+    1 = 1
+  \end{schema}
+  
+\end{spec}
 \end{document}
