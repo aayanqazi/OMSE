@@ -28,7 +28,7 @@ Please discuss as desired on the course discussion list: this is not a competiti
 I would guess that this project will take 2-8 hours, depending on how comfortable you are with Z at
 this point. But that's pretty much a wild guess.
 
-(see plateapp.pdf)
+(see plateapp.pdf; due 2/24)
 \fi
 
 \section{English}
@@ -36,17 +36,17 @@ The instructions on the form can be interpreted as a set of high-level requireme
 the input system resolves issues of handwriting quality, it boils down to the following:
 
 \begin{enumerate}
-\item \label{e:len} There are at most six regular characters, which may include a space or
+\item \label{e:len} There are at most six ``regular'' characters, which may include a space or
   full-hyphen.
 \item \label{e:chr} If all six regular characters are used, an additional character may be
   inserted.  The only valid characters for this rule are the space and half-hyphen.
-\item \label{e:pat} Plates of the forms \textit{\#\#\#-AAA} and \textit{AAA-\#\#\#} are prohibited
-  (where \textit{A} is any letter and \textit{\#} is any number).
+\item \label{e:pat} Plates of the forms \textit{\#\#\#-AAA} and \textit{AAA-\#\#\#} are prohibited,
+  where \textit{A} is any letter and \textit{\#} is any number.
 \end{enumerate}
 
 \section{Z Types}
 \begin{spec}
-  The basic unit of though here is the character, for which we'll need a Z type:
+  The basic unit of thought here is the character, for which we'll need a Z type:
 
   \begin{zed}
     [CHAR]
@@ -72,9 +72,10 @@ the input system resolves issues of handwriting quality, it boils down to the fo
     ALPHACHAR : \power CHAR
   \end{axdef}
 
-  $ALPHACHAR$ is the set of acceptable capital letters and numbers.  This type is what we'll use to
-  validate rule \#\ref{e:len}.  Rule \#\ref{e:pat} requires that we split this type into two
-  distinct types:
+  $ALPHACHAR$ is the set of acceptable capital letters and numbers; a full enumeration of its values
+  is left as an exercise for the reader.  This type is what we'll use to validate rule
+  \#\ref{e:len}.  Rule \#\ref{e:pat} requires that we split this type into two distinct types,
+  alphabetic and numeric characters.
 
   \begin{axdef}
     ALPHA : \power CHAR \also
@@ -96,47 +97,49 @@ the input system resolves issues of handwriting quality, it boils down to the fo
     PLATESTR == \seq PLATECHAR
   \end{zed}
 
+
+
+  \section{Z Schemas}
+
   In order to handle punctuation, we define functions to separate a $PLATESTR$s into $ALPHACHAR$s
   and punctuation.  
 
   \begin{axdef}
     punct : PLATESTR \fun PLATESTR
     \where
-    \forall r : PLATESTR; p : PUNCT; a : ALPHACHAR @ \\
+    \forall str : PLATESTR; p : PUNCT; a : ALPHACHAR @ \\
     \t1 punct~\langle \rangle = \langle \rangle \land \\
-    \t1 punct~(\langle p \rangle \cat r) = \langle p \rangle \cat punct~r \land \\
-    \t1 punct~(\langle a \rangle \cat r) = punct~r
+    \t1 punct~(\langle p \rangle \cat str) = \langle p \rangle \cat punct~str \land \\
+    \t1 punct~(\langle a \rangle \cat str) = punct~str
   \end{axdef}
 
   \begin{axdef}
     nopunct : PLATESTR \fun PLATESTR
     \where
-    \forall r : PLATESTR; p : PUNCT; a : ALPHACHAR  @ \\
+    \forall str : PLATESTR; p : PUNCT; a : ALPHACHAR  @ \\
     \t1 nopunct~\langle \rangle = \langle \rangle \land \\
-    \t1 nopunct~(\langle p \rangle \cat r) = nopunct~r \land \\
-    \t1 nopunct~(\langle a \rangle \cat r) = \langle a \rangle \cat nopunct~r
+    \t1 nopunct~(\langle p \rangle \cat str) = nopunct~str \land \\
+    \t1 nopunct~(\langle a \rangle \cat str) = \langle a \rangle \cat nopunct~str
   \end{axdef}
   
-
-
-  \section{Z Schemas}
-
-  Let's first define our validator's program state.  I'm choosing to do this as a full-string
-  validation-checker, rather than a per-character valid-string-producer, so we'll need an output
-  status.  Our validator has only two possible status values: it can either output a valid string,
-  or indicate an error; if I were getting paid for this, I'd probably give more helpful error
-  messages.
+  I'm choosing to do this as a full-string validation-checker, rather than a per-character
+  valid-string-producer, so I'll need an output status.  If I were getting paid for this, I'd
+  probably give more helpful error messages; \textit{this} validator has only two possible status
+  values.
 
   \begin{zed}
     STATUS ::= ok | error
   \end{zed}
+
+  Now we can define our validator's program state; input and output strings, and the validator
+  status.
 
   \begin{schema}{ValidatorState}
     str?, str! : PLATESTR \also
     status! : STATUS
   \end{schema}
 
-  Now we define the catch-all error state, which we'll fall through into if none of our valid cases
+  Next we define the catch-all error state, which we'll fall through into if none of our valid cases
   apply.
 
   \begin{schema}{ValidatorError}
@@ -175,13 +178,26 @@ the input system resolves issues of handwriting quality, it boils down to the fo
     (punct~str?)(1) \in PUNCTALPHA
   \end{schema}
 
-  Our last rule to validate is \#\ref{e:pat}, which is fairly straightforward \tofinish.
+  Our last rule to validate is \#\ref{e:pat}, which is fairly straightforward.
+  \todo[inline]{Is it?!?!}
 
   \begin{schema}{PatternIsValid}
     ValidatorState
     \where
     1 = 1
   \end{schema}
+
+  \section{The End}
+
+  All that's left is to define the system in total.
+
+  \begin{zed}
+    Validator \defs \\
+    \t1(LengthIsValid \land FullStringPunctuationIsValid \land \\
+    \t2 SparseStringPunctuationIsValid \land PatternIsValid) \lor \\
+    \t1 ValidatorError
+  \end{zed}
+  
   
 \end{spec}
 \end{document}
