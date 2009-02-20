@@ -56,17 +56,22 @@ the input system resolves issues of handwriting quality, it boils down to the fo
   valid.  
 
   \begin{axdef}
-    space, fullhyphen, halfhyphen : CHAR
+    space, halfspace, fullhyphen, halfhyphen : CHAR
   \end{axdef}
 
   \begin{zed}
     PUNCTALPHA == \{ space, fullhyphen \} \also
-    PUNCTDEMI == \{ space, halfhyphen \} \also
+    PUNCTDEMI == \{ halfspace, halfhyphen \} \also
     PUNCT == PUNCTALPHA \cup PUNCTDEMI
   \end{zed}
 
   $PUNCTALPHA$ and $PUNCTDEMI$ define the punctuation characters that are valid in various
   conditions, where $PUNCT$ defines the entire set of punctuation characters.
+
+  \todo[inline]{
+    Make a note that this spec doesn't including recentering of the string.  Or include it, probably
+    in the form of a $blank$ character.
+  }
 
   \begin{axdef}
     ALPHACHAR : \power CHAR
@@ -77,9 +82,22 @@ the input system resolves issues of handwriting quality, it boils down to the fo
   \#\ref{e:len}.  Rule \#\ref{e:pat} requires that we split this type into two distinct types,
   alphabetic and numeric characters.
 
+  \todo[inline, caption={}]{
+    \begin{minipage}{\linewidth}
+      \begin{math}
+        CHAR ::= hyphen | halfspace | ... | letter \ldata 1..26 \rdata | digit \ldata 0..9 \rdata \\
+        DIGIT == \ran digit \\
+        LETTER == \ran letter
+      \end{math}
+
+      So you can do things like $letter~3$ and $digit~7$.  Also, this means the sets are defined as
+      distinct.  Note this section isn't typechecked; apparently ZTC can't handle it.
+    \end{minipage}
+  }
+
   \begin{axdef}
     ALPHA : \power CHAR \also
-    NUMERIC : \power CHAR \also
+    NUMERIC : \power CHAR
     \where
     ALPHACHAR = ALPHA \cup NUMERIC
   \end{axdef}
