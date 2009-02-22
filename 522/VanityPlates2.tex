@@ -50,68 +50,61 @@ Before we can talk about valid plate strings, we need to talk about what kind of
 valid.  
 
 \begin{zed}
-  CHAR  ::=  space | hyphen | halfspace | halfhyphen |      \\
+  CHAR  ::= space | hyphen | halfhyphen | blank |           \\
   \t3 letter \ldata 1..26 \rdata | digit \ldata 0..9 \rdata \\
   DIGIT == \ran digit                                       \\
   LETTER == \ran letter                                     \\
   PUNCTALPHA == \{ space, hyphen \}                         \\
   PUNCTDEMI == \{ space, halfhyphen \}                      \\
-  PUNCT == PUNCTALPHA \cup PUNCTDEMI
-\end{zed}
-The $CHAR$ type represents all valid characters for a plate.  We divide them into subsets to
-facilitate rule validation later; rule \#\ref{e:pat} requires that we split this type into
-alphabetic and numeric characters.
-
-$PUNCTALPHA$ and $PUNCTDEMI$ define the punctuation characters that are valid in various
-conditions, and $PUNCT$ defines the entire set of punctuation characters.
-
-\todo[inline]{
-  Make a note that this spec doesn't including recentering of the string.  Or include it, probably
-  in the form of a $blank$ character.
-}
-
-And here's the type we'll use for input; a sequence of elements of type $CHAR$.
-
-\begin{zed}
+  PUNCT == PUNCTALPHA \cup PUNCTDEMI                        \\
   STR == \seq CHAR
 \end{zed}
 
+The $CHAR$ type represents all valid characters for a plate.  We divide them into subsets to
+facilitate rule validation later.  Note the presence of the $blank$ character, which is used for
+recentering the printable characters, but does not participate in validation.
 
-\section{Z Schemas}
+$PUNCTALPHA$ and $PUNCTDEMI$ define the punctuation characters that are valid in various conditions,
+and $PUNCT$ defines the entire set of punctuation.  The type we'll use for input is a sequence of
+elements of type $CHAR$.
 
-In order to handle punctuation, we define functions to separate a $STR$ into $CHAR$s and
-punctuation.
-
-\begin{axdef}
-  punct : STR \fun STR
-  \where
-  \forall str : STR; p : PUNCT; a : CHAR @ \\
-  \t1 punct~\langle \rangle = \langle \rangle \land \\
-  \t1 punct~(\langle p \rangle \cat str) = \langle p \rangle \cat punct~str \land \\
-  \t1 punct~(\langle a \rangle \cat str) = punct~str
-\end{axdef}
-
-\begin{axdef}
-  nopunct : STR \fun STR
-  \where
-  \forall str : STR; p : PUNCT; a : CHAR  @ \\
-  \t1 nopunct~\langle \rangle = \langle \rangle \land \\
-  \t1 nopunct~(\langle p \rangle \cat str) = nopunct~str \land \\
-  \t1 nopunct~(\langle a \rangle \cat str) = \langle a \rangle \cat nopunct~str
-\end{axdef}
-
-I'm choosing to do this as a full-string validation-checker, rather than a per-character
-valid-string-producer, so I'll need an output status.  If I were getting paid for this, I'd probably
-give more helpful error messages; \textit{this} validator has only two possible status values.
+If I were getting paid for this, I'd probably give helpful error messages; \textit{this} validator
+has only two possible status values.
 
 \begin{zed}
   STATUS ::= ok | error
 \end{zed}
 
-Now we can define our validator's program state; the input is a string, and the validator status.
+
+
+\section{Z Schemas}
+
+In order to handle punctuation, we define functions to separate a $STR$ into $CHAR$s and
+$PUNCT$s.
+
+\begin{axdef}
+  punct : STR \fun STR
+  \where
+  \forall str : STR; p : PUNCT; c : CHAR @                                        \\
+  \t1 punct~\langle \rangle = \langle \rangle \land                               \\
+  \t1 punct~(\langle p \rangle \cat str) = \langle p \rangle \cat punct~str \land \\
+  \t1 punct~(\langle c \rangle \cat str) = punct~str
+\end{axdef}
+
+\begin{axdef}
+  nopunct : STR \fun STR
+  \where
+  \forall str : STR; p : PUNCT; c : CHAR  @                    \\
+  \t1 nopunct~\langle \rangle = \langle \rangle \land          \\
+  \t1 nopunct~(\langle p \rangle \cat str) = nopunct~str \land \\
+  \t1 nopunct~(\langle c \rangle \cat str) = \langle c \rangle \cat nopunct~str
+\end{axdef}
+
+Now we can define our validator's program state; the input is a string, and the output is a status
+code.
 
 \begin{schema}{ValidatorState}
-  str? : STR \also
+  str? : STR \\
   status! : STATUS
 \end{schema}
 
@@ -135,40 +128,44 @@ character.
   status! = ok
 \end{schema}
 
-According to \#\ref{e:chr}, the kinds of punctuation that are allowed depend on the length of the
-string: only one punctuation character is allowed, the half-hyphen can only be used when the rest
-of the string is full.
+According to rule \#\ref{e:chr}, the kinds of punctuation that are allowed depend on the length of
+the string.  Full strings of six characters can only have one character from the $PUNCTDEMI$ set,
+while shorter strings can have a single punctuation characters from the $PUNCTALPHA$ set.
 
 \begin{schema}{FullStringPunctuationIsValid}
   ValidatorState
   \where
   \#(nopunct~str?) = 6 \\
-  (punct~str?)(1) \in PUNCTDEMI
+  \#(punct~str?) = 1 \implies (punct~str?)(1) \in PUNCTDEMI
 \end{schema}
 
 \begin{schema}{SparseStringPunctuationIsValid}
   ValidatorState
   \where
-  \#(nopunct~str?) < 6 \\
-  (punct~str?)(1) \in PUNCTALPHA
+  \#(nopunct~str?) < 6  \\
+  \#(punct~str?) \leq 1 \\
+  \#(punct~str?) = 1 \implies (punct~str?)(1) \in PUNCTALPHA
 \end{schema}
 
-Our last rule to validate is \#\ref{e:pat}, which is fairly straightforward.
-\todo[inline]{Is it?!?!}
+Our last rule to validate is \#\ref{e:pat}, which is fairly straightforward; we simply assert that
+the input string doesn't match the invalid patterns.
 
 \begin{schema}{PatternIsValid}
   ValidatorState
   \where
-  1 = 1
+  \forall a,b,c : LETTER; i,j,k : DIGIT @           \\
+  \t1 (str? \neq \langle a,b,c,i,j,k \rangle) \land \\
+  \t1 (str? \neq \langle i,j,k,a,b,c \rangle)
 \end{schema}
 
 \section{The End}
 
-All that's left is to define the system in total.
+All that's left is to define the system in total.  Either all the validation rules pass, or the
+output status is an error.
 
 \begin{zed}
-  Validator \defs \\
-  \t1(LengthIsValid \land FullStringPunctuationIsValid \land \\
+  Validator ==                                                  \\
+  \t1(LengthIsValid \land FullStringPunctuationIsValid \land    \\
   \t2 SparseStringPunctuationIsValid \land PatternIsValid) \lor \\
   \t1 ValidatorError
 \end{zed}
