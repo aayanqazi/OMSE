@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{bs-zed}
+\usepackage{fullpage}
+
+\title{Vanity Plates in Z}
+\author{Bart Massey et al}
+\date{26 February 2008}
+
+\begin{document}
+\maketitle
+
+Some prose goes here.  A plate consists of a sequence of characters, etc. etc. etc.
+
+\begin{zed}
+  [ALPHA, DIGIT] \also
+  CHAR ::= alpha\ldata ALPHA \rdata | digit\ldata DIGIT \rdata | hyphen | half\_hyphen | space |
+  half\_space \also
+  ALPHAS == \ran alpha \also
+  DIGITS == \ran digit
+\end{zed}
+
+A candidate is a sequence of characters that passes a couple of syntactic checks.  All plates have
+between 1 and 7 characters, and at most 6 of them can be alphanumeric.  At most one can be
+punctuation.
+
+\begin{axdef}
+  syntactic\_plates : \power (\seq CHAR)
+  \where
+  \forall p : syntactic\_plates @ \\
+  \t1 1 \leq \#p \leq 7 \land \\
+  \t1 1 \leq \#(p \rres (ALPHAS \cup DIGITS)) \leq 6 \land \\
+  \t1 0 \leq \#(p \rres \{ half\_space, half\_hyphen \}) \leq 1
+\end{axdef}
+
+Plates with three letters followed by three numbers, or vice versa, are also illegal, presumably
+because they are deceptive.  Note that plates with punctuation (spaces, hyphens, etc) are implicitly
+not deceptive by this definition.
+
+\begin{zed}
+  three\_numbers == \{ tn : \seq DIGITS | \#tn = 3 \} \also
+  three\_letters == \{ tl : \seq ALPHAS | \#tl = 3 \} \also
+  letter\_number\_plates == \\
+  \t1 \{ n : three\_numbers; l : three\_letters @ n \cat l \}
+  \also
+  number\_letter\_plates == \\
+  \t1 \{ n : three\_numbers; l : three\_letters @ l \cat n \}
+  \also
+  deceptive\_plates == number\_letter\_plates \cup letter\_number\_plates
+\end{zed}
+p
+A candidate plate is a syntactically valid plate that is not deceptive.
+
+\begin{zed}
+  candidate\_plates == syntactic\_plates \setminus deceptive\_plates
+\end{zed}
+
+\end{document}
