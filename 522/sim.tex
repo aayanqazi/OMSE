@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{bs-zed}
+
+\title{State-Space Tracking Simulator}
+\author{Bart Massey et al}
+\date{26 February 2009}
+
+\begin{document}
+\maketitle
+
+We describe a simple simulator for a robot receiving and reporting signals as it moves up and down a
+hallway.
+
+The hallway has a fixed number of locations along it at which the robot can be.
+
+\begin{axdef}
+  hallway\_size : \nat
+\end{axdef}
+\begin{zed}
+  POSN == 1 \upto hallway\_size
+\end{zed}
+
+The robot receives an arbitrary set of signals.
+
+\begin{zed}
+  [SIGNAL, STRENGTH]
+\end{zed}
+
+Each of the robot's signals has a known (mapped) strength and variance at each point in the hallway.
+
+\begin{schema}{SignalParameters}
+  strength : STRENGTH \also
+  variance : \num
+\end{schema}
+\begin{axdef}
+  map : SIGNAL \fun POSN \fun SignalParameters
+\end{axdef}
+
+The simulation runs for some amount of time.
+\begin{axdef}
+  t\_end : \nat
+\end{axdef}
+
+At any given time $t$, the robot is at some specific $x$ position.
+\begin{schema}{Robot}
+  x : POSN \also
+  t : \nat
+  \where
+  t \leq t\_end
+\end{schema}
+
+The robot starts at time 0.
+
+\begin{schema}{InitMove}
+  Robot
+  \where
+  t = 0
+\end{schema}
+
+For the simulated measurements, we assume a Gaussian-distributed pseudo-random number generator,
+with mean and variance according to the actual measurements.  Note that the PRNG is not a function;
+it can return any of a number of values for a given signal and variance.
+
+\begin{axdef}
+  gaussian\_prng : SignalParameters \rel STRENGTH
+\end{axdef}
+
+At each time step, the robot randomly moves left, right, or stays still, measures and reports the
+signal strength and position.  The time then steps forward.  The signal strength is obtained from
+the gaussian PRNG.
+
+\begin{schema}{Move}
+  \Delta Robot \also
+  strengths! : SIGNAL \fun STRENGTH \also
+  x! : POSN \also
+  t! : \nat
+  \where
+  \forall s : SIGNAL @ strengths!~s \in gaussian\_prng \limg \{ map~s~x \} \rimg \also
+  (x' - x) \in ( -1 \upto 1 ) \also
+  t' = t + 1 \also
+  x! = x \also
+  t! = t
+\end{schema}
+
+\begin{zed}
+  Simulation \defs InitMove \semi Move
+\end{zed}
+
+\end{document}
