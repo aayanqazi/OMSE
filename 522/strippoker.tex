@@ -1,0 +1,139 @@
+\documentclass[11pt]{article}
+
+\usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
+\usepackage{amsmath} % for equation* environment
+\usepackage{oz} % for zed macros
+\usepackage{times} % for nice-looking text
+\setlength{\parindent}{0pt} % for less indentation
+\setlength{\parskip}{1em} % for less whitespace
+\usepackage{fullpage} % for smaller margins
+
+
+\begin{document}
+
+\title{Strip Poker in Z}
+\author{Mike Bagdanoff \& Ben Straub}
+\maketitle
+
+In the early days of man, fruits and grains were fermented to produce an beverage that produces
+euphoria and a lack of inhibitions in its consumer.  This gave rise to the drinking game, and
+eventually (when sex was invented) strip poker became a favorite drinking game of those who like
+looking at other naked people.  Througout its history, the game has been plagued by a simple, yet
+insidious flaw; once a group of people are drunk enough to play, they are usually too drunk to agree
+on rules that level the playing field and produce the outcome desired by the males in the group.
+This is why we have decided to encode a simple set of rules for the reward\/penalty portion of the
+game.  These rules can be applied to any strip game, including Strip Blackjack, Strip Arm-Wrestling,
+and Strip Yelling.
+
+First off, we need to define valid clothing types.  The general rule is that if you buy it in a
+pair, it comes off in a pair, hence the plural forms of $shoe$ and $sock$.  Also there is only a
+notion of $top$ and $bottoms$; regardless of how many layers you are wearing, all the top pieces of
+the outfit come off at once, and skirt, pants, whatever -- it all comes off together.  Since guys
+don't wear bras, underwear is one piece of clothes; bras come off along with panties.
+
+A $HANDRANK$ is simply a ranking of the value of the relative hands.  The assignment of a handrank
+is done outside the scope of this definition; we just care who has the highest ranking hand, or is
+the loudest, depending on the game.
+
+Finally we declare what the penalties may be after each round: take a drink, dance around, or
+\textit{\tiny (ahem)} service the winner (if the game has progressed that far).
+
+\begin{zed}
+  ARTICLE ::= top | bottoms | socks | shoes | underwear \also
+  CLOTHES == \power ARTICLE \also
+  HANDRANK == \nat \also
+  PENALTY ::= drink | dance | servicewinner | none
+\end{zed}
+
+We want to know who has the highest HANDRANK and since in some versions of Poker or other games
+there can be a tie, we need to allow for multiple winners to be identified.
+\begin{axdef}
+  Winners : \seq HANDRANK \rel \{ \nat \}
+  \where
+  \forall r : \seq HANDRANK @ \\
+  \t1 Winners~r = \dom (r \rres \{max (\ran r) \})
+\end{axdef}
+
+A player comes into the game with an original set of clothes that he or she never actually parts
+with, regardless of the clothes that they are currently wearing.  Removed clothes are placed in a
+pile by the player and saved for later.  A player also can be penalized in certain situations.
+\begin{schema}{Player}
+  wearing : CLOTHES \\
+  original : CLOTHES \\
+  penalty : PENALTY
+\end{schema}
+
+This game can only be played with 2 or more players and once the game has started, no new players
+can be added as that would just be lame.  If you couldn't get the nerve to play when everyone else
+started, go clean up some of the bottles and cans lying around or just watch.  Jerk.
+\begin{axdef}
+  NumPlayers : \nat
+  \where
+  NumPlayers \geq 2
+\end{axdef}
+
+\begin{schema}{Game}
+  players : \seq Player
+  \where
+  1 < \# players <= NumPlayers
+\end{schema}
+
+At the beginning of the game everyone is wearing the standard set of articles.  If a player is not
+wearing socks, they can pretend they are, or borrow socks from someone wearing two pairs.
+\begin{schema}{GameInit}
+  Game
+  \where
+  \forall p : \ran players @ \\
+  \t1 p.wearing = p.original = \{top, bottoms, socks, shoes, underwear\}
+\end{schema}
+
+Now we get to the meat of the game.  When a player is commanded to strip, they must remove one piece
+of clothing and take a drink.  If they are already completely nude, then they must still take a
+drink and then choose either to dance about in the manner of their choosing, or (if the party has
+progressed to a certain point) do something awesome to/for the winner(s) of the hand.
+\begin{axdef}
+  Strip : Player \rel Player
+  \where
+  \forall p,p' : Player | p' = Strip~p @ \\
+  \t1 p'.original = p.original \land \\
+  \t1 p'.wearing \subseteq p.wearing \land \\
+  \t1 ((\#(p.wearing) > 0 \land \#(p'.wearing) = \#(p.wearing)-1 \land \\
+  \t2 p'.penalty = drink) \lor \\
+  \t1  (p'.wearing = p.wearing = \{ \} \land \\
+  \t2 (p'.penalty \in \{ drink, dance\} \lor \\
+  \t2 p'.penalty \in \{ drink, servicewinner \})))
+\end{axdef}
+
+A winning player gets to put a piece of clothing back on, as long as it is a piece of their own
+clothing.  Switching clothes around is a different game, and usually leads to stretched out dresses.
+\begin{axdef}
+  Dress : Player \rel Player
+  \where
+  \forall p,p' : Player | p' = Dress~p @ \\
+  \t1 p'.penalty = none \land \\
+  \t1 p'.original = p.original \land \\
+  \t1 p'.wearing \subseteq p.original \land \\
+  \t1 ((p.wearing = p.original \land Dress~p = p) \lor \\
+  \t2  (\#(p'.wearing) = \#(p.wearing)+1))
+\end{axdef}
+
+Once the hand has been dealt and the game has been played, someone calls, and the hands are ranked.
+There is a set of winners who get to put a piece of clothing on, and a bunch of people who now have
+to take a piece of clothing off.  Poor dears.
+\begin{schema}{Call}
+  \Delta Game \\
+  hands?  : \seq HANDRANK
+  \where
+  \forall i : \dom players; p,p' : Player | p = players~i; p' = players'~i @ \\
+  \t1 (i \notin Winners~hands?  \land p' = Strip~p) \lor \\
+  \t1 (i \in Winners~hands?  \land p' = Dress~p)
+\end{schema}
+
+It all boils down to making sure that everyone has the right amount and type of clothing on, and
+then playing each hand until people start getting bored of being naked, pass out, or \ldots
+whatever.
+\begin{zed}
+  T\_Game == GameInit \semi Call
+\end{zed}
+
+\end{document}
