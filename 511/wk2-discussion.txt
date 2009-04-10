@@ -1,0 +1,7 @@
+The waterfall model is almost never applicable unless it's mandated by law.  This project doesn't have schedule for doing ALL requirements before ANY design.
+
+On the other end of the spectrum, a purely agile approach doesn't seem warranted either.  These are most applicable in exploratory work, when almost none of the requirements are known up front.
+
+So we're looking for sometihng in between.  The spiral model is a candidate because of its treatment of risk, and this project has a fair amount of that.  An iterative approach would be well-suited as well, because there are areas that have fuzzy requirements.
+
+So let's take some of both of those.  Have two development teams make prototypes in the areas we know we lack experience (mobile apps and legacy integration), while the requirements team develops the spec for a core system that does 80% of what the customer is asking for - the 80% that is well-understood now.  We'll then proceed with an iterative process, with iterations of 4-6 weeks, fleshing out the missing requirements as we go.  I think this will give us the best balance of what the customer says they want ("waterfall") with what they really want ("discover requirements during the project").
