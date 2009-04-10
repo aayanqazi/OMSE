@@ -1,0 +1,42 @@
+1a
+--
+
+Healthcare is a regulated industry.  This means that there are additional requirements, and possibly certifications and audits that need to fit into the schedule.
+
+The bid and staffing are fixed for this project, which means the earlier it is done, the better.  This implies that risky items should be front-loaded so as to get maximum opportunity to adjust for the unexpected.  Also, the given staff is rather light on testers, which might be a challenge.
+
+This project also integrates with a legacy database, to which our team will have limited access.  The interoperation with this equipment is both a major requirement and a feedback bottleneck, so this will have to be prioritized properly.
+
+As far as core compentencies, I'd choose these to be the most important:
+
+Managing requirements
+Scheduling
+Managing risks
+Interaction and communication
+Teambuilding
+
+The contract states that we should be at CMM level 2 whether we're certified as such or not.  This implies the following set of core processes:
+
+Requirements management
+Project planning
+Project monitoring and control
+Supplier agreement management
+Measurement and analysis
+Process adn product quality assurance
+Configuration management
+
+
+1b
+--
+
+The initial team seems fine for now, but it's probably about time to start staffing up.  I wouldn't replace any of the existing staff, but immediately bring in more requirements analysts.
+
+For the project architect position I'd try to bring along the most experienced person from my last team, unless someone with more domain knowledge were available.  
+
+For the development team I'd want to change the plan a bit: 3 teams of 5 developers, with one Columbia engineer on each team, all of which report to the SDM.  If they are available, I'd bring some of the 4-years-of-experience people from my last group to lead the teams, though probably not too many - I don't want an old boys' club to form. I'd want to bring in one of these teams immediately to start familiarizing themselves with the legacy system we'll be integrating with.
+
+The staffing plan didn't include any test personnel, which makes me wonder if the last manager was planning on having the development team do all the testing.  Generally a bad idea, especially since we now want to productize the system we're making.  I'd want a QA manager with at least 5 testers, ideally an already-jelled test team.
+
+JDI has limited domain knowledge, so I'd look to hire or contract the already-planned-for two specialists.  Again, since we're looking to productize this system, a permanent hire would be preferable.  These people could be lured from contracting firms that specialize in healthcare, or from the healthcare industry itself.
+
+The most difficult positions to fill are the specialists and the architect, since domain knowledge is critical for those roles.
