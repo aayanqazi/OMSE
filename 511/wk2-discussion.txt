@@ -5,3 +5,15 @@ On the other end of the spectrum, a purely agile approach doesn't seem warranted
 So we're looking for sometihng in between.  The spiral model is a candidate because of its treatment of risk, and this project has a fair amount of that.  An iterative approach would be well-suited as well, because there are areas that have fuzzy requirements.
 
 So let's take some of both of those.  Have two development teams make prototypes in the areas we know we lack experience (mobile apps and legacy integration), while the requirements team develops the spec for a core system that does 80% of what the customer is asking for - the 80% that is well-understood now.  We'll then proceed with an iterative process, with iterations of 4-6 weeks, fleshing out the missing requirements as we go.  I think this will give us the best balance of what the customer says they want ("waterfall") with what they really want ("discover requirements during the project").
+
+
+--------------------------------------------------------------------------------
+
+
+We all seem to agree that orthodox waterfall is the wrong process for this project, regardless of what the customer says they want.  The requirements are not fixed enough, there isn't enough domain knowledge in our organization, and there simply isn't schedule or budget.
+
+In the end, we decided to recommend to the customer that we use a different model that is more suited to the project.  This is a change of contract, but we feel that it would be well worth it for both organizations.
+
+We recommend a tailored combination of iterative and evolutionary models.  In order to mitigate the main development-related project risks, we'd recommend doing some prototyping and exploratory work during the first few months of the project.  This would allow us to discover many of the requirements that are unclear at this point, and allow us to develop  some domain knowledge.
+
+We would follow this introductory period with an iterative style of development, with integrated builds every 2-4 weeks - the actual iteration length will be decided by the customer, but the shorter the better.  This kind of development strategy would tighten the customer-development feedback loop, allow us to reduce wasted effort in the event of a course correction, and give the customer's organization visibility into progress and confidence that the end result will work for them.
