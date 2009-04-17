@@ -1,0 +1,54 @@
+<!--
+To develop a reasonable plan we first need to understand how we will manage project scope. This implies that we need to begin to consider organizational and process details to do with engineering and managing the requirements – including the relationship with the customer, and the customer’s users. Let’s discuss the following project dimensions to help both the team and the SPM tackle this part of the problem: 
+
+a.	Which requirements do you believe are the most important to the customer and users? (guess if you have to). Can you prioritize them (high, medium and low)? 
+b.	For this project, how would you engineer and then manage the requirements? 
+c.	Do you see any technical, management, and interpersonal issues that should addressed? 
+
+See Case Study Learning Module for: StaffingLevel(Feb 28)
+
+
+------------------------------
+-->
+
+
+
+<h1>Most Important Requirements</h1>
+
+<p>The customer doesn't prioritize their requirements in the Terms of Reference, so much of this is supposition.</p>  
+
+<h2>High Priority</h2>
+<ul>
+<li><b>HIPAA Compliance</b> - This is make or break; the system cannot be allowed to deploy without it.
+<li><b>Service Profiles</b> - Interfaces for the various categories of users.
+<li><b>Records</b> - Patient, clinician, and billing records
+<li><b>Credentials and Mediation</b> - Controlling access to sensitive information is paramount.
+<li><b>Ilities</b> - Availability, reliability, security, and performance were important enough to warrant their own sections.
+</ul>
+
+<h2>Medium Priority</h2>
+<ul>
+<li><b>Claims Processing</b> - Including integration with legacy CPS.
+<li><b>Forms</b> - Paperless processing of HIPAA and other forms.
+<li><b>Longevity</b> - The system must still be workable 5-10 years down the road.
+<li><b>Ilities</b> - Maintainability and scalability.
+</ul>
+
+<h2>Low Priority</h2>
+<ul>
+<li><b>Knowledge Base</b> - A (presumably) community-populated wiki-esque repository of information for clinicians.
+<li><b>Appointments</b> - Calendaring, etc.
+<li><b>Personal Storage</b> - Secure transfer of files to local storage.
+</ul>
+
+<h1>Requirements Engineering &amp; Management</h1>
+
+<p>The initial requirements work should result in a ConOps document and a baseline version of the system requirements.  This baseline can then be tracked and managed over time.  Vague and "design goal" requirements can be refined into specific operational requirements, traceability can be established, and requirements that come from prototyping and evolutionary exploratory activities can be incorporated.  In addition, a change control board should be established to deal with problem reports and change requests.</p>
+
+<h1>Issues</h1>
+
+<p>The first issue I'd like to point out is that we still need to hire our domain specialists.  Their expertise will be more valuable the earlier in the project they are available.</p>
+
+<p>Another issue is that the process we're following for this project is rather complex, and unless most of the staff has worked this way before, there may be confusion and disorder, at least in the beginning.</p>
+
+<p>Yet another issue is the "new" technology platform we're adopting.  The tone of the comment suggests that our company has primarily worked with C in the past, and that we're unlikely to have any significant Java expertise.  Switching to Java doesn't mean just learning a new language; it means learning a new class library, new development tools, and making lots of new mistakes.  <em>(The assigment is showing its age here - I can't imagine anyone considering writing this type of system in C today.)</em></p>
