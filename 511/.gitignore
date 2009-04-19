@@ -1,0 +1,11 @@
+auto/*
+*.log
+*.aux
+*.out
+*.tdo
+*.aux 
+*.dvi
+*.toc
+~$*
+
+ass1.pdf
