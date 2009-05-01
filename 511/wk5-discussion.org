@@ -1,0 +1,79 @@
+#+OPTIONS: toc:nil author:nil date:nil
+
+
+# The SPM and the SDM have decided to augment the initial team organization by hiring two consultants
+# – a healthcare domain specialist and a technology specialist who has good experience with personal
+# storage devices and handheld mobile devices (PDAs and smart cell phones). These specialists are to
+# work with the team to produce a new and accurate project schedule and staffing profile. After this
+# they will begin to pro-actively guide project efforts to implement the software that will support
+# these domain and technology requirements.
+
+# The SPM, with the assistance of project leads and consultants/specialists, was able to develop a
+# representative WBS for the project. Admittedly, it was expressed at a fairly high level, but it was
+# a good start. After reviewing this with the entire team, everyone agreed that it was good enough to
+# guide requirements and software development activities; and detailed enough to define work packages
+# to be allocated to team members. The WBS was composed partly of: level-of-effort activities like SPM
+# and project support roles (e.g. SCM, SQA); partly of distinct requirements / application domain
+# tasks; and partly of component-centric tasks, that is, tasks focused on building, integrating and
+# testing user interfaces, foundation software components, application modules, and COTS software
+# products.
+
+# Discussion 5: Developing a Suitable Work Breakdown Structure, April
+
+# Work breakdown structures are driven by the breakdown of software process, requirements,
+# modules/components composing the design, and the organization structure for the project.
+
+# a. Given what you now know after completing the various assigned readings, suggest and justify
+# activities and tasks that you think should appear at the first and second levels of the WBS.
+
+# b. Use the indented list style and ensure that each task is descriptive enough for others to
+# understand the general nature of the task.
+
+# c. Check that project team roles can be mapped to cover at least one branch of the WBS. If any WBS
+# elements can’t be covered properly, suggest changes in the organization that you feel are warranted.
+
+
+* Work Breakdown Structure
+  Following Fairley's template, I'd start with something like this, though the absence of an actual
+  ADV will make this harder.
+
+  1. Manage Project
+     1. Initiate project
+     2. Conduct project
+     3. Closeout project
+  2. Do System Analysis
+     1. Develop ConOps document
+     2. Develop SRS
+  3. Develop Software
+     1. Develop system architecture
+     3. Build CMS interop system
+     4. Build web UI
+     5. Build extended client systems (personal storage, PDA/smartphone UI)
+     6. Build data storage system
+  4. Verify System
+     1. Develop test plan
+     2. Develop test procedures
+     3. Perform test procedures
+     4. Maintain defect tracking system
+  5. Validate System
+     1. Perform traceability analysis
+  6. Perform CM
+     1. Keep documents in version control
+     2. Manage changes to baselined documents
+  7. Prepare Technical Publications
+     1. Write system manual
+     2. Write training materials
+  8. Deliver System
+     1. Perform user training
+     2. Deploy system into customer's environment
+
+* Team/WBS Mapping
+  So far, our team is staffed to complete activities 1 and 2, with seemingly adequate plans to cover
+  3 and 8.
+
+  QA personnel are never mentioned in any of the case study documents.  I'd normally assume they
+  will be provided by the JDI organization, but they aren't in the budget, either.  This leads me to
+  believe that activities 4, 5, and 6 are unaccounted for.
+
+  The other obvious gap is our technical documentation.  There is no staff plan for a technical
+  writer, and this project is of suitable scope to warrant a full-time staff member for this task.
