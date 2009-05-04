@@ -77,3 +77,38 @@
 
   The other obvious gap is our technical documentation.  There is no staff plan for a technical
   writer, and this project is of suitable scope to warrant a full-time staff member for this task.
+
+* Dan Pankani
+  I honestly don't think developers make good testers, and vice versa.  It's a difference in
+  mindset; the developer is trying to make something work, where the tester is trying to break it.
+  These are totally different skillsets, and it would be *very* difficult to be good at both.
+
+  Likewise with support staff performing the technical writing.  The skillset of general support
+  staff doesn't generally include technical writing.  I'm sure they could do a credible job, but I
+  wouldn't expect excellence.
+
+  Cutting corners on something like this is a warning sign that JDI is willing to cut them on other
+  things as well.  Having your admin assistants to write the manual just doesn't seem like something
+  that you do if you're serious about making good software.
+
+* John Waterbrook
+  Yeah, we're definitely on the same page about the missing QA team.
+
+  Regarding CM, I'm not sure what you mean.  Maintaining the source control database is clearly a
+  software development activity, but that's not really CM the way I understand it.  The purpose of
+  CM is to control the changing of requirements and design documents, and to provide information
+  about the ripple effects of changes to a document.  *That* is clearly very different than software
+  development, so it should probably be separated.
+
+  The hardware for this project isn't terribly complicated; it sounds like just a few commodity
+  servers.  However, since longevity is a requirement, it makes sense to track requirements and
+  performance alongside the developing software product, so we know how it will scale.  From there,
+  it's a short leap to make it part of the project.
+
+* James -> Ayellet -> James
+  I /almost/ agree with you.  Architecture and design are clearly a different activity than most
+  other development, but we don't want to go too far in separating them.  My feeling is that we
+  should do just enough design up front that we can sort of draw bounds around what's left.  Then we
+  can split out and parallelize the detailed design of the individual components to save time.
+
+  
