@@ -1,0 +1,62 @@
+# BECAUSE AN ASSIGNMENT IS DUE SUNDAY, REBUTTALS TO MAIN POSTS ARE OPTIONAL THIS WEEK.
+
+# The SPM recognized that developing a visual schedule with inputs from most everyone on the team
+# would achieve a high level of buy-in from everyone involved and thereby “jell” the team and keep
+# everyone focused on project goals. A shared schedule would help everyone understand coordination
+# signals, project hand-offs, and pressure points which in turn would motivate team members to help
+# each other and achieve project success together.
+
+# Upon completion of the WBS, the tasks and activities were estimated, a schedule developed and the
+# staffing levels were updated. The general approach they took was as follows:
+
+# a) Reviewed, validated and modified the WBS to ensure that all tasks, in particular, the healthcare
+# and personal device elements, were duly allocated in the WBS
+
+# b) Estimated all WBS elements (tasks) (size and effort as appropriate) and clearly identified all
+# critical dependencies
+
+# c) Developed a feasible schedule of tasks and a rationalized (“smooth”) staffing profile.
+
+# With inputs from the requirements and development teams, they developed estimates of the total
+# software size from the preliminary requirements gathered to date and the partially completed
+# software design. Using the COCOMO model with the size estimates as input, a new schedule was
+# produced by the end of the month in the form of a Gantt chart representing the main tasks
+# distributed over the remaining time to complete the project. They were able to find a way to
+# allocate tasks and resources to meet the original (next year’s) July 1st delivery date.
+
+# This detailed planning and scheduling spread the original staffing profile out into later months
+# allowing a larger peak staffing level later (by end of August) than earlier contemplated. The
+# project would be staffed up to the maximum profile of 30 full-time JDI employees, including
+# contracted consultants and specialists, plus the customer’s 4 programmers, for a total project
+# staffing of 34. The software development team would be led by the SDM lead and deputy SDM.
+
+# See Case Study Learning Module: GanttChart(April 30) and OrgChart(Aug 31st)
+
+# Discussion 6: Dependencies, Estimating, Scheduling, and Staffing, April
+
+# This week you are tasked to review the schedule (see below) and look for opportunities to improve
+# it. Discuss possibilities with your classmates and support your opinions with valid rationale.
+
+
+
+* Missing/Vague Items
+# a. Can you identify any tasks and dependencies that you think are missing or vague?
+
+
+  
+* Scheduling
+# b. Are there any development tasks (e.g. requirements, design, construction, testing, etc.) that
+# could be conducted concurrently, started early, or delayed to smooth staffing levels on this
+# project?
+
+
+
+* Critical Path
+# c. Although few task dependencies are actually shown, are there any tasks that you think may be on
+# the critical path?
+
+
+
+* Management Tools
+# d. What tools would you consider using to support WBS capture, estimating, and scheduling?
+
