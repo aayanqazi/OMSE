@@ -42,6 +42,15 @@
 * Missing/Vague Items
 # a. Can you identify any tasks and dependencies that you think are missing or vague?
 
+  Without seeing the ADV, it's not very clear how the tasks map to parts of the finished system.
+  For example, the "Foundation SW" task; I have no idea what goes into that, so it's not clear what
+  depends on it.
+
+  There may be a dependency between the UI prototyping tasks and the COTS calendaring components.
+  If we don't do this carefully, it will feel to the user like two systems, rather than just one.
+
+  None of the tasks have a finish-to-start dependency on complete requirements.  For some
+  components, this may be okay (UI, for instance), but for others it might mean a lot of rework.
 
   
 * Scheduling
@@ -49,14 +58,40 @@
 # could be conducted concurrently, started early, or delayed to smooth staffing levels on this
 # project?
 
+  The UI prototyping activities are easy to split off, and should be as soon as possible to provide
+  good requirements.  Selection of COTS components, such as the calendaring module, can also be done
+  in parallel, though some performance profiling might be in order first to ensure that the system
+  will function for the specified 5-10 years.
+
+  Selection and acquisition of the calendaring module is another task that has few dependencies,
+  though it's important that the look and feel of the rest of the system match well with the
+  calendar and appointment UI.
+  
 
 
 * Critical Path
 # c. Although few task dependencies are actually shown, are there any tasks that you think may be on
 # the critical path?
 
+  Without explicit annotations it's hard to say, but it looks like the critical path will run
+  through all of these tasks:
+
+  - Dev. Applic Serv Functions
+  - System Integration & Test
+  - Install & Checkout Site HW
+  - Install & Deploy SW at Sites
 
 
 * Management Tools
 # d. What tools would you consider using to support WBS capture, estimating, and scheduling?
 
+  Following Fairley's WBS guidelines is a good place to start with WBS.  If a traceability tool like
+  DOORS is available, I'd try to plug into that; otherwise, Word documents will probably suffice.
+
+  Given that JDI has never done this type of project before, we can't use a historical model for
+  estimation.  I'd probably use COCOMO as the primary estimation technique, though I'd use
+  work-package estimates done in-house as a way to double-check.
+
+  For scheduling, I'd be tempted to start with a tool that does auto-leveling, such as Project.  The
+  schedule produced by this method is only as good as the information provided to it, so
+  significatnt attention would have to be paid to inter-task dependencies.
