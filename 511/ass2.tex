@@ -1,0 +1,407 @@
+\documentclass[11pt]{article}
+
+\usepackage[disable]{todonotes}
+\usepackage{times}
+\usepackage{fullpage}
+\usepackage{tabulary}
+\usepackage[pdfborder=false]{hyperref}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{11pt plus 3pt minus 2pt}
+
+\begin{document}
+
+
+%------------------------------------------------------------------------------- 
+
+\title{Columbia AEHS\\Software Project Management Plan}
+\author{Ben Straub\\Initech Corporation}
+\date{Version 1.0\\4/19/2009}
+\maketitle
+\thispagestyle{empty}
+
+The Advanced E-Healthcare System (AEHS) is the next step in Columbia Healthcare Group's (CHG)
+technology strategy.  The system is to support healthcare provisioning, authorized access and
+maintenance of patient records, orders, bills and other healthcare data, and integration among
+Columbia's healthcare provider services including Columbia's recently deployed Claims Processing
+System (CPS).
+
+\vskip 1cm
+{\Large \bf Revision History}
+
+\begin{center}
+  \begin{tabulary}{\textwidth}{c|L|l|l}
+    \bf{Version} & \bf{Description}                   & \bf{Responsible Party} & \bf{Date} \\
+    \hline \hline
+    1.0          & Initial version of SPMP for review & Ben Straub             & 4/19/2009
+  \end{tabulary}
+\end{center}
+
+\vskip 1cm
+{\Large \bf Approval History}
+
+\begin{center}
+  \begin{tabulary}{\textwidth}{c|L|l|l}
+    \bf{Version} & \bf{Description} & \bf{Responsible Party} & \bf{Date} \\
+    \hline \hline
+                 &                  &                        & 
+  \end{tabulary}
+\end{center}
+\clearpage
+
+%-------------------------------------------------------------------------------
+\tableofcontents
+\clearpage
+
+
+%-------------------------------------------------------------------------------
+\section{Overview and Project Summary}
+
+The AEHS project will provide Columbia Healthcare Group with a state-of-the-art information
+management system.  AEHS will provide instant access to patient and clinician records from a variety
+of environments, and will do so in a secure, user-friendly way.
+
+
+\subsection{Purpose, Context, Scope of Requirements, and Objectives}
+
+\textbf{Purpose:} The primary purpose for this project is to develop and deliver the AEHS system as
+specified by CHG.
+
+\textbf{Context:} The key stakeholders for this project are:
+\begin{itemize}
+\item CHG management
+\item Initech management
+\item CHG IT staff, including CPS-specific staff
+\item CHG users
+\end{itemize}
+
+\textbf{Scope:} The primary top-level requirements for this project are:
+\begin{itemize}
+\item Provide user interfaces for several categories of service:
+  \begin{itemize}
+  \item User workstations for healthcare workers
+  \item External services and transactions
+  \item Claims services, integrating with CPS
+  \item System administration
+  \end{itemize}
+\item Securely store and provide access to several categories of information:
+  \begin{itemize}
+  \item Patient records
+  \item Clinician information
+  \item Healthcare knowledge base
+  \item Billing records
+  \end{itemize}
+\end{itemize}
+
+
+\textbf{Objectives:} The primary objectives of this project are:
+\begin{itemize}
+\item To deliver the AEHS system as specified and on schedule.
+\item To allow the resulting system to be productized.
+\end{itemize}
+
+
+\subsection{Assumptions, Constraints and Dependencies}
+\todo[inline]{What are your known and/or assumed project priorities, constraints and dependencies?
+  Briefly address factors such as schedule, budget, requirements, tools, infrastructure and human
+  resources available as well as systems, interfaces, software, and technology to be used.  Use a
+  flexibility matrix to illustrate how you will balance the various project priorities.  }
+\todo{Flexibility matrix?}
+
+Assumptions that underlie this plan include:
+
+\begin{itemize}
+\item Staff members of the appropriate skill set will be available when they are needed, and turnover
+  will be no higher than 10\% per year.
+\item It is possible to hire specialists with domain knowledge within time and budget constraints,
+  and they will stay on this project until no longer needed.
+\item Some of the experienced Initech staff will be available to act as development team leads.
+\end{itemize}
+
+The major constraints on this project are:
+
+\begin{itemize}
+\item The schedule and budget for this project are contractually fixed.
+\item AEHS will integrate with an existing system for which no substitution is possible.
+\end{itemize}
+
+This plan has several external dependencies:
+
+\begin{itemize}
+\item CHG engineers are scheduled to be included in the development team for part of the project.
+  There is a risk that these engineers won't be available, or will not be competent.
+\item Access to the existing CPS is limited, and there is a risk that this access will be
+  unavailable when it is needed.
+\end{itemize}
+
+\subsection{Project Deliverables}
+This project's deliverables are:
+
+\begin{itemize}
+\item Plans
+  \begin{itemize}
+  \item Software Project Management Plan (SPMP)
+  \item Software Requirements Plan (SRP)
+  \item Software Development Plan (SDP)
+  \item Software Test Plan (STP)
+  \item Software Quality Assurance Plan (SQAP)
+  \item Software Configuration Management Plan (SCMP)
+  \end{itemize}
+\item Technical Documents and Software
+  \begin{itemize}
+  \item Software Requirements Specification (SRS)
+  \item Software Architecture and Design Document (SADD)
+  \item Software Test Description(s) (STD)
+  \item Software Test Report(s) (STR)
+  \item Software User Manual(s) (SUM)
+  \item Source Code
+  \item Master and Backup CDs with Run-time, install, and read-me instructions
+  \end{itemize}
+\item Regular reports and progress documentation
+  \begin{itemize}
+  \item Progress reports and burn-down charts as dictated by development process
+  \item Manual test run reports
+  \item Weekly metrics: Source code, automated tests, and static analysis
+  \end{itemize}
+\end{itemize}
+
+
+\subsection{Summary of Schedule and Budget}
+The project budget includes 360 staff-months at \$10,000 per staff-month, for a total of
+\$3,600,000.  Not included in the budget is the cost of additional equipment necessary for the
+project, such as servers -- these items are billed directly to the customer.
+
+The project schedule is 18 months, with the following milestones:
+
+\begin{center}
+  \begin{tabulary}{\textwidth}{L|l}
+    \bf{Item}                    & \bf{Date}             \\
+    \hline \hline
+    Specification delivery       & 3/31/2009             \\
+    Plan delivery                & 4/30/2009             \\
+    Architecture/design delivery & 5/30/2009             \\
+    Incremental builds           & every other Wednesday \\
+    Final delivery deadline      & 7/1/2010
+  \end{tabulary}
+\end{center}
+
+
+\subsection{Evolution of this SPMP}
+This document will be revised periodically over the course of the project to record progress, such
+as actual dates for deliverables, and to distribute information about changes in projected schedule
+and plan.  In this case, ``periodically'' means at every major milestone.  These changes will be
+managed by requiring each release to be approved by the change control board.
+
+
+
+%-------------------------------------------------------------------------------
+\section{References}
+\begin{itemize}
+\item AEHS Terms of Reference
+\item AEHS Project Contract
+\item IEEE 1058 -- Standard for Software Project Management Plans
+\item Initech Acceptance Procedure
+\end{itemize}
+
+
+%-------------------------------------------------------------------------------
+\section{Definitions}
+\begin{description}
+\item[CHG] Columbia Healthcare Group
+\item[AEHS] Advanced E-Healthcare System
+\item[CPS] Claims Processing System
+\end{description}
+
+
+
+%-------------------------------------------------------------------------------
+\section{Project Organization}
+\subsection{Organizational Interfaces (Internal and External)}
+The project organization chart looks something like this:
+
+\begin{center}
+  \begin{tikzpicture}
+    \tikzstyle{every node}=[rectangle, minimum width=1.25in, draw, thick, font=\footnotesize]
+    \tikzstyle{level 1}=[level distance=1.75in]
+    \tikzstyle{level 2}=[level distance=1.5in, sibling distance=20pt]
+
+    \node {Project Manager}[edge from parent fork right, grow=right]
+    child {node {QA Manager}
+      child {node {Testers}}
+      child {node {Config Mgmt}}}
+    child {node {Requirements Mgr}
+      child {node {Analysts (4)}}}
+    child {node {Specialists (2)}}
+    child {node {Support (2)}}
+    child {node {Development Mgrs (2)}
+      child {node {Team D}}
+      child {node {Team C}}
+      child {node {Team B}}
+      child {node {Team A}}};
+  \end{tikzpicture}
+\end{center}
+
+The SPM acts as a bridging node for all the functional teams in the project, and is also the primary
+point of contact for the customer at a project level.  
+
+
+
+
+
+\subsection{Project Roles and Responsibilities}
+\textbf{Project Management} -- The SPM is responsible for the maintenance of this plan, as well as
+monitoring the rest of the team for project health and progress.
+
+\textbf{Support} -- Two general support staff and two domain specialists, all of whom report to the SPM.
+These staff act as shared resources, and are available to any of the other sub-teams as necessary.
+
+\textbf{Requirements} -- Four analysts, who report to a single manager.  The manager reports directly to
+the SPM.
+
+\textbf{Architecture} -- The architecture and design of the system will be developed by the development
+team.  The designated architect is responsible for maintaining conceptual integrity and the product
+vision, but is otherwise just another member of the development team.
+
+\textbf{Development} -- The development organization consists of four teams of 4-5 developers.  Each
+team consists of a lead, a CHG engineer, and several other staff engineers to fill out the team.
+The development team as a whole is supported by two managers, who are responsible for smoothing
+communication and other issues, and aggregating information for the SPM.
+
+\textbf{QA/Test/CM} -- A single QA manager oversees several \textbf{(TBD)} full-time testers, as
+well as a dedicated configuration management engineer.  The QA manager is also responsible for
+ensuring the project team follows specified procedures and processes.
+
+
+
+%-------------------------------------------------------------------------------
+\section{Managerial Process}
+\textit{TBD}
+% \subsection{Work Breakdown and Tasks}
+% Your SPMP should clearly show the assignment of team members to activities and tasks.  To do this, you need to identify all the activities and tasks for the project, in other words, develop a “work breakdown structure”.  You should also describe what the typical work package will contain (provide one representative example).  
+% A straight forward approach is to list the activities and tasks you have already identified and add to these general effort tasks like project planning, project tracking, documentation, development environment support, and quality assurance.  
+% \subsection{Dependencies}
+% Show critical dependencies that will affect the ordering of tasks.
+% \subsection{Resources}
+% You should construct a table that identifies all of the key activities and tasks listing the team roles supporting each.  
+% \subsection{Budget and Resource Allocation}
+% Show the individual team member(s) allocated to each activity / task.  You should estimate the number of person days in the last column and find the total estimated resources to complete all project tasks.  You can use a nominal loaded salary to estimate the cost of all activities and tasks and produce a total labor cost for the project.  
+% \subsection{Schedule}
+% Create a schedule, preferably in the form of a Gantt chart.  This should show a bar for every activity and task identified above over the project time line.  Annotate the chart with all major milestones as well as weekly progress reviews.  
+% \subsection{Monitoring, Reporting, and Control Mechanisms}
+% Describe what progress and control metrics you will use to report progress across your teams, to senior management and to the customer.  What will be included in your reports?  How often will you deliver them and brief various stakeholders?  
+% \subsection{Requirements Management and Control}
+% One key risk is that the scope of the work may be larger than originally anticipated.  Briefly describe your approach for monitoring possible “scope creep” and negotiating required changes with the customer and your senior management.  
+% \subsection{Risk Management}
+% For each project risk, what do you plan to do to mitigate the risk?  For example, what if your customer does not deliver certain documents or tools?  What if your sponsor drops out or does not provide as much guidance as you were hoping?  What if a key member of your team drops out, how will you cover this loss?  What if after some initial work you discover that there is more work than you thought?  How will you deal with this but still achieve a reasonable outcome?  What can you do to prepare for such eventualities?  
+
+
+
+
+%-------------------------------------------------------------------------------
+\section{Technical Processes}
+\subsection{Process Model}
+This project will make use of several process models during various phases of the project.
+
+An evolutionary model will be used for feasibility and exploration of requirements in
+lesser-understood areas of functionality.  As the requirements for these areas firm up, evolutionary
+and prototyping activities will phase out.  The endpoint of these activities is the Specification
+Delivery milestone, which consists of the SRS v1.0 baseline.
+
+Most of the requirements elicitation and architecture phases of the project will follow something
+like a waterfall model.  These activities must be mostly complete before detailed design and
+implementation can proceed.  The Plan Delivery milestone is the endpoint of these activities, and
+includes delivery of v1.0 baselines of the SPMP, SRP, SDP, STP, SQAP, and SCMP, as well as an
+updated version of the SRS.
+
+The architecture, design, and implementation of the system will be delivered in an incremental
+fashion, with deliveries every other Wednesday.  Four increments (starting with the Specification
+Delivery milestone) will be dedicated to the overall architecture of the system, as well as some
+high-level design, culminating in the Architecture/Design Delivery milestone.  Detailed design and
+implementation will be performed during the remaining increments.
+
+Once the architecture and detailed design are mostly complete, most of the development effort will
+follow an incremental model, with testable requirements-subset releases available every two weeks.
+Full integration and acceptance testing will be performed on most of these releases in order to
+prevent a test-fix-release crunch late in the project schedule.
+
+
+\subsection{Methods, Tools and Techniques}
+Architecture and design specification will make use of UML for diagrams, though most of the
+specification will be in prose.  Some portions may make use of a formal mathematical notation to
+avoid ambiguity and prevent defects.
+
+Source code will be stored in source control, and will follow coding style guidelines.  A continuous
+integration build system will be used, with a dashboard visible to all team members.  Release
+building and deployment will be automated as much as possible, to facilitate semiweekly releases and
+testing.  A defect tracking tool will be used, and the customer will have full access.
+
+Automated unit testing will be used extensively, especially on components which are relied upon by
+other software modules.  Wherever possible, the acceptance tests will be automated as well, to
+ensure that they are run as often as possible.
+
+
+
+\subsection{Development Environment and Infrastructure}
+Each developer is free to choose his or her own OS and tools, but project management will ensure
+that reasonable commercial tools are available for use if they are significantly better than free
+alternatives.  Each developer will have exclusive use of at least one workstation and two test
+machines.  Developers working on mobile interfaces will also have exclusive use of two targeted
+mobile devices.
+
+The primary platform for the server-side subsystems will be the JVM.  Development teams are free to
+use any language that runs on that platform, so long as the selection of tools does not adversely
+affect the architecture or design of the system as a whole, or interaction with other subsystems.
+
+The system is required to integrate with the existing CPS system, so it will be necessary to
+replicate that system's behavior for development.  This will be accomplished by doing a local
+deployment of that system with a dummy database.  If that approach is not feasible, the behavior of
+that system will need to be replicated with a mock-up.
+
+Source code management, issue tracking, and documents will be managed using the tools already in
+place at Initech.
+
+
+\subsection{Acceptance Process}
+\todo[inline]{Describe the process you will use to accept deliverables including software and documentation.  }
+
+All hardware and software purchased for the purposes of this project will be run through the
+standard Initech Acceptance Procedure.
+
+
+
+%-------------------------------------------------------------------------------
+\section{Support Processes}
+\textit{TBD}
+% \todo[inline]{Describe support processes for the following:}
+% \subsection{Software Configuration Management}n
+% What will you do to ensure that you control versions of your documents and code?
+% \subsection{Software Quality Assurance}n
+% How will you ensure that your documents and code have been independently reviewed by someone on your team?
+% \subsection{Documentation Management}n
+% Describe how you will manage the key software documents produced by the project, in particular the SPMP, SRS, SAD, user documentation and other key customer deliverables.  How will you review, approve, and release these documents (what, who, how, when)?
+% \subsection{Subcontractor Management}n
+% Describe the work that will be contracted out, if any, deliverables, schedules for delivery, and subcontractor control mechanisms to be used to ensure timeliness and quality of deliverables.  
+
+
+
+
+%-------------------------------------------------------------------------------
+% \section{Additional Supporting Plans}
+% \textit{TBD}
+% \todo[inline]{If required, additional plans can be inserted here.}
+
+
+
+
+%-------------------------------------------------------------------------------
+% \section{Annexes}
+% \textit{TBD}
+% \todo[inline]{These should include details that would clutter the main sections.  All items herein should be references from somewhere in the main body of the document.  }
+
+
+
+\end{document}
