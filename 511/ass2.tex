@@ -3,8 +3,10 @@
 \usepackage[disable]{todonotes}
 \usepackage{times}
 \usepackage{fullpage}
-\usepackage{tabulary}
 \usepackage[pdfborder=false]{hyperref}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{amssymb}
 
 \usepackage{tikz}
 \usetikzlibrary{trees}
@@ -70,10 +72,11 @@ of environments, and will do so in a secure, user-friendly way.
 
 \subsection{Purpose, Context, Scope of Requirements, and Objectives}
 
-\textbf{Purpose:} The primary purpose for this project is to develop and deliver the AEHS system as
-specified by CHG.
+\subsubsection{Purpose}
+The primary purpose for this project is to develop and deliver the AEHS system as specified by CHG.
 
-\textbf{Context:} The key stakeholders for this project are:
+\subsubsection{Context}
+The key stakeholders for this project are:
 \begin{itemize}
 \item CHG management
 \item Initech management
@@ -81,7 +84,8 @@ specified by CHG.
 \item CHG users
 \end{itemize}
 
-\textbf{Scope:} The primary top-level requirements for this project are:
+\subsubsection{Scope}
+The primary top-level requirements for this project are:
 \begin{itemize}
 \item Provide user interfaces for several categories of service:
   \begin{itemize}
@@ -100,11 +104,30 @@ specified by CHG.
 \end{itemize}
 
 
-\textbf{Objectives:} The primary objectives of this project are:
+\subsubsection{Objectives}
+The primary objectives of this project are:
 \begin{itemize}
 \item To deliver the AEHS system as specified and on schedule.
 \item To allow the resulting system to be productized.
 \end{itemize}
+
+
+\subsubsection{Flexibility Matrix}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\begin{center}
+  \begin{tabularx}{0.95\textwidth}{|l@{\hspace{0.5cm}}|Y|Y|Y|}
+    \hline
+    \bf Dimension                      & \bf Fixed  & \bf Constrained & \bf Flexible \\
+    \hline \hline
+    Delivery Schedule                  &            &                 & \checkmark   \\ \hline
+    Project Cost                       & \checkmark &                 &              \\ \hline
+    Requirements: Web UI               &            & \checkmark      &              \\ \hline
+    Requirements: Mobile UI            &            & \checkmark      &              \\ \hline
+    Requirements: Integration with CPS & \checkmark &                 &              \\ \hline
+    Requirements: HIPAA compliance     & \checkmark &                 &              \\ \hline
+    Requirements: Knowledge Base       &            &                 & \checkmark   \\ \hline
+  \end{tabularx}
+\end{center}
 
 
 \subsection{Assumptions, Constraints and Dependencies}
@@ -227,23 +250,55 @@ The project organization chart looks something like this:
 
 \begin{center}
   \begin{tikzpicture}
-    \tikzstyle{every node}=[rectangle, minimum width=1.25in, draw, thick, font=\footnotesize]
-    \tikzstyle{level 1}=[level distance=1.75in]
-    \tikzstyle{level 2}=[level distance=1.5in, sibling distance=20pt]
+    \tikzstyle{box}=[draw, rectangle, thick, font=\footnotesize, text centered, text width=2.25cm];
+    \tikzstyle{empty}=[inner sep=0];
 
-    \node {Project Manager}[edge from parent fork right, grow=right]
-    child {node {QA Manager}
-      child {node {Testers}}
-      child {node {Config Mgmt}}}
-    child {node {Requirements Mgr}
-      child {node {Analysts (4)}}}
-    child {node {Specialists (2)}}
-    child {node {Support (2)}}
-    child {node {Development Mgrs (2)}
-      child {node {Team D}}
-      child {node {Team C}}
-      child {node {Team B}}
-      child {node {Team A}}};
+    \node[box,dashed] at (0,0) (mgmt)  {JDI Senior Management};
+    \node[box,dashed] at (-3,-1.5) (cust)  {Customer};
+    \node[box] at (0,-1.5) (spm)   {Software Project Manager};
+    \node[box] at (3, -2.25) (spec) { Specialists (2) };
+    \node[empty] at (1.5,-3.5) (junct) {};
+    \node[box] at (3, -3.5) (des) {Software Designers (4)};
+    \node[box] at (-3, -3.5) (sup) {Support Services (2)};
+    \node[empty] at (0, -4.5) (junct2) {};
+    \node[box] at (-3, -5.5) (rqm) {Requirements Manager};
+    \node[box] at (-3, -7) (rqa) {Requirements Analysts (4)};
+    \node[box] at (3, -5.5) (sdm) {Software Development Managers (2)};
+    \node[empty] at (3, -6.35) (junct3) {};
+    \node[box] at (1.5, -7) (dev) {Software Developers (14)};
+    \node[box] at (4.5, -7) (cus) {Customer Developers (4)};
+
+    \draw [dashed] (cust) -- (spm);
+    \draw (mgmt) -- (spm)
+          (spm) |- (junct)
+          (junct) |- (spec)
+          (junct) -- (des)
+          (junct) -- (sup)
+          (spm) -- (junct2)
+          (junct2) -| (rqm)
+          (junct2) -| (sdm)
+          (rqm) -- (rqa)
+          (sdm) -- (junct3)
+          (junct3) -| (dev)
+          (junct3) -| (cus);
+
+    % \tikzstyle{every node}=[rectangle, minimum width=1.25in, draw, thick, font=\footnotesize]
+    % \tikzstyle{level 1}=[level distance=1.75in]
+    % \tikzstyle{level 2}=[level distance=1.5in, sibling distance=20pt]
+
+    % \node {Project Manager}[edge from parent fork right, grow=right]
+    % child {node {QA Manager}
+    %   child {node {Testers}}
+    %   child {node {Config Mgmt}}}
+    % child {node {Requirements Mgr}
+    %   child {node {Analysts (4)}}}
+    % child {node {Specialists (2)}}
+    % child {node {Support (2)}}
+    % child {node {Development Mgrs (2)}
+    %   child {node {Team D}}
+    %   child {node {Team C}}
+    %   child {node {Team B}}
+    %   child {node {Team A}}};
   \end{tikzpicture}
 \end{center}
 
