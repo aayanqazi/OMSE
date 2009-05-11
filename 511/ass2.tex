@@ -11,6 +11,13 @@
 \usepackage{tikz}
 \usetikzlibrary{trees}
 
+% Enumeration environment: 1 -> 1.1 -> 1.1.1, etc
+\makeatletter
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\theenumiii}{\arabic{enumiii}}
+\renewcommand{\p@enumiii}{\arabic{enumi}.\arabic{enumii}.}
+\makeatother
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{11pt plus 3pt minus 2pt}
@@ -131,11 +138,6 @@ The primary objectives of this project are:
 
 
 \subsection{Assumptions, Constraints and Dependencies}
-\todo[inline]{What are your known and/or assumed project priorities, constraints and dependencies?
-  Briefly address factors such as schedule, budget, requirements, tools, infrastructure and human
-  resources available as well as systems, interfaces, software, and technology to be used.  Use a
-  flexibility matrix to illustrate how you will balance the various project priorities.  }
-\todo{Flexibility matrix?}
 
 Assumptions that underlie this plan include:
 
@@ -310,65 +312,199 @@ point of contact for the customer at a project level.
 
 
 \subsection{Project Roles and Responsibilities}
-\textbf{Project Management} -- The SPM is responsible for the maintenance of this plan, as well as
+
+{\bf Project Management} -- The SPM is responsible for the maintenance of this plan, as well as
 monitoring the rest of the team for project health and progress.
 
-\textbf{Support} -- Two general support staff and two domain specialists, all of whom report to the SPM.
-These staff act as shared resources, and are available to any of the other sub-teams as necessary.
+{\bf Support} -- Two general support staff and two domain specialists, all of whom report to the
+SPM.  These staff act as shared resources, and are available to any of the other sub-teams as
+necessary.
 
-\textbf{Requirements} -- Four analysts, who report to a single manager.  The manager reports directly to
-the SPM.
+{\bf Requirements} -- Four analysts, who report to a single manager.  The manager reports directly
+to the SPM.
 
-\textbf{Architecture} -- The architecture and design of the system will be developed by the development
+{\bf Architecture} -- The architecture and design of the system will be developed by the development
 team.  The designated architect is responsible for maintaining conceptual integrity and the product
 vision, but is otherwise just another member of the development team.
 
-\textbf{Development} -- The development organization consists of four teams of 4-5 developers.  Each
+{\bf Development} -- The development organization consists of four teams of 4-5 developers.  Each
 team consists of a lead, a CHG engineer, and several other staff engineers to fill out the team.
 The development team as a whole is supported by two managers, who are responsible for smoothing
 communication and other issues, and aggregating information for the SPM.
 
-\textbf{QA/Test/CM} -- A single QA manager oversees several \textbf{(TBD)} full-time testers, as
-well as a dedicated configuration management engineer.  The QA manager is also responsible for
-ensuring the project team follows specified procedures and processes.
+{\bf QA/Test/CM} -- A single QA manager oversees several {\bf (TBD)} full-time testers, as well as a
+dedicated configuration management engineer.  The QA manager is also responsible for ensuring the
+project team follows specified procedures and processes.
 
 
 
 %-------------------------------------------------------------------------------
 \section{Managerial Process}
+
 \subsection{Work Breakdown and Tasks}
-{\it Your SPMP should clearly show the assignment of team members to activities and tasks.  To do this,
-you need to identify all the activities and tasks for the project, in other words, develop a “work
-breakdown structure”.  You should also describe what the typical work package will contain (provide
-one representative example).  A straight forward approach is to list the activities and tasks you
-have already identified and add to these general effort tasks like project planning, project
-tracking, documentation, development environment support, and quality assurance.}
+
+\subsubsection{Work Breakdown}
+
+\begin{enumerate}
+\item Manage Project
+  \begin{enumerate}
+  \item Initiate project
+  \item Conduct project
+  \item Closeout project
+  \end{enumerate}
+\item Do System Analysis
+  \begin{enumerate}
+  \item Develop Requirements
+  \end{enumerate}
+\item Develop Software
+  \begin{enumerate}
+  \item Prototype Application Service UIs
+    \begin{enumerate}
+    \item \label{wbs:pre1} Develop UI concept
+    \item \label{wbs:task} Develop working UI prototype
+    \item \label{wbs:post1} Refinement I
+    \item Refinement II
+    \item Produce requirements specification
+    \end{enumerate}
+  \item Prototype Technology UIs
+  \item Develop System Architecture and High-Level Design
+  \item Develop Foundation Software
+  \item Develop Application Server Functions
+  \item Acquire Appointments/Forms Components
+  \end{enumerate}
+\item Verify System
+  \begin{enumerate}
+  \item Develop test plan
+  \item Develop test procedures
+  \item Perform Integration Testing
+  \end{enumerate}
+\item Validate System
+  \begin{enumerate}
+  \item Perform traceability analysis
+  \end{enumerate}
+\item Perform CM
+  \begin{enumerate}
+  \item Keep documents in version control
+  \item Manage changes to baselined documents
+  \end{enumerate}
+\item Prepare Technical Publications
+  \begin{enumerate}
+  \item Develop user documentation
+  \item Develop training materials
+  \end{enumerate}
+\item Deliver System
+  \begin{enumerate}
+  \item Select and Evaluate Site Hardware
+  \item Install Site Hardware
+  \item Deploy Software at Sites
+  \item Perform user training
+  \end{enumerate}
+\end{enumerate}
+
+
+\subsubsection{Work Packages}
+
+\begin{tabular*}{\textwidth}{l@{\hspace{1cm}}l}
+  \hline
+  Task identifier:        & \ref{wbs:task} Develop working UI prototype                              \\
+  Task description:       & Design and implement a mock-up of the UI concept.                        \\
+  Estimated duration:     & 2 weeks                                                                  \\
+  Resources needed:       &                                                                          \\
+  \hspace{1em} Personnel: & 3 developers, 1 customer engineer                                        \\
+  \hspace{1em} Skills:    & HTML/CSS/JavaScript development                                          \\
+  \hspace{1em} Tools:     & Workstations, source control                                             \\
+  \hspace{1em} Travel:    & None                                                                     \\
+  Predecessor tasks:      & \ref{wbs:pre1}                                                           \\
+  Successor tasks:        & \ref{wbs:post1}                                                          \\
+  Work products:          & Functional UI prototype                                                  \\
+  Baselines created:      & None                                                                     \\
+  Risk factors:           & Prototyping activities are inconclusive.                                 \\
+  Acceptance criteria:    & Concept is implemented, prototype is functional enough to show to users. \\
+  \hline
+\end{tabular*}
+
 \subsection{Dependencies}
-{\it Show critical dependencies that will affect the ordering of tasks. }
+
+\begin{enumerate}
+\item The prototyping tasks need to be done before the requirements can be finalized, and thus
+  before the final implementation can be performed.
+\item Server implementation for a particular function must be complete before integration testing
+  for that function can commence.
+\item Development must be complete before acceptance testing can start.
+\end{enumerate}
+
+
 \subsection{Resources}
-{\it You should construct a table that identifies all of the key activities and tasks listing the team
-roles supporting each.}
+
+\begin{center}
+  \begin{tabular}{l@{\hspace{1cm}}|l|l}
+    \bf Task                             & \bf Resource          & \bf Months \\
+    \hline \hline
+    1. Manage Project                    & SPM                   & 1-18       \\
+    2. Do System Analysis                & Requirements Analysts & 1-8        \\
+    3.1 Prototype Application Service UI & Dev. Team A           & 3-6        \\
+    3.2 Prototype Technical UI           & Dev. Team A           & 7-10       \\
+    3.3 Develop System Architecture      & Software Designers    & 3-6        \\
+    3.4 Develop Foundation Software      & Dev. Team B           & 3-6        \\
+    3.5 Develop Server Functions         & Dev. Team C           & 5-11       \\
+    3.6 Acquire Appointments/Forms COTS  & Dev. Team A           & 9-12       \\
+    4. Verify System                     & QA Team               & 12-15      \\
+    5. Validate System                   & QA Manager            & 1-18       \\
+    6. Perform CM                        & Configuration Manager & 1-18       \\
+    7. Prepare Technical Publications    & Dev. Managers         & 1-18       \\
+    8.1 Select and Evaluate Site HW      & Dev. Team C           & 3-4        \\
+    8.2 Install Site HW                  & Dev. Team C           & 16-17      \\
+    8.3 Deploy SW at Sites               & Dev. Team C           & 18         \\
+    8.4 Perform User Training            & Dev. Team A           & 15-18      \\
+  \end{tabular}
+\end{center}
+
 \subsection{Budget and Resource Allocation}
-{\it Show the individual team member(s) allocated to each activity / task.  You should estimate the
-number of person days in the last column and find the total estimated resources to complete all
-project tasks.  You can use a nominal loaded salary to estimate the cost of all activities and tasks
-and produce a total labor cost for the project.}
+
+\begin{center}
+  \begin{tabular}{l@{\hspace{1cm}}l@{\hspace{1cm}}r}
+    \bf Task                             & \bf Assignment          & \bf Person-weeks \\
+    \hline \hline
+    1. Manage Project                    & 1 SPM                   & 72               \\
+    2. Do System Analysis                & 4 Rq. Analysts, 1 Mgr   & 120              \\
+    3.1 Prototype Application Service UI & Dev. Team A (3)         & 48               \\
+    3.2 Prototype Technical UI           & Dev. Team A (3)         & 48               \\
+    3.3 Develop System Architecture      & 4 SW Designers          & 64               \\
+    3.4 Develop Foundation Software      & Dev. Team B (6)         & 96               \\
+    3.5 Develop Server Functions         & Dev. Team C (5)         & 140              \\
+    3.6 Acquire Appointments/Forms COTS  & Dev. Team A (3)         & 48               \\
+    4. Verify System                     & 4 Testers               & 140              \\
+    5. Validate System                   & 1 QA Manager            & 8                \\
+    6. Perform CM                        & 1 Configuration Manager & 64               \\
+    7. Prepare Technical Publications    & 2 Dev. Managers         & 128              \\
+    8.1 Select and Evaluate Site HW      & Dev. Team C (5)         & 40               \\
+    8.2 Install Site HW                  & Dev. Team C (5)         & 40               \\
+    8.3 Deploy SW at Sites               & Dev. Team C (5)         & 20               \\
+    8.4 Perform User Training            & Dev. Team A (3)         & 48               \\
+    \hline
+                                         &                         & \bf 1,124        \\
+    \cline{3-3}
+  \end{tabular}
+\end{center}
+
+With an average loaded cost of \$2,400, this gives a total cost estimate of \$3,021,312.
+
+
 \subsection{Schedule}
-{\it Create a schedule, preferably in the form of a Gantt chart.  This should show a bar for every
-activity and task identified above over the project time line.  Annotate the chart with all major
-milestones as well as weekly progress reviews.}
+\includegraphics[width=\textwidth]{gantt.png}
+
 
 
 %% \subsection{Monitoring, Reporting, and Control Mechanisms}
-%% {\it Describe what progress and control metrics you will use to report progress across your teams, to
+%% \todo[inline]{Describe what progress and control metrics you will use to report progress across your teams, to
 %% senior management and to the customer.  What will be included in your reports?  How often will you
 %% deliver them and brief various stakeholders?}
 %% \subsection{Requirements Management and Control}
-%% {\it One key risk is that the scope of the work may be larger than originally anticipated.  Briefly
+%% \todo[inline]{One key risk is that the scope of the work may be larger than originally anticipated.  Briefly
 %% describe your approach for monitoring possible “scope creep” and negotiating required changes with
 %% the customer and your senior management.}
 %% \subsection{Risk Management}
-%% {\it For each project risk, what do you plan to do to mitigate the risk?  For example, what if your
+%% \todo[inline]{For each project risk, what do you plan to do to mitigate the risk?  For example, what if your
 %% customer does not deliver certain documents or tools?  What if your sponsor drops out or does not
 %% provide as much guidance as you were hoping?  What if a key member of your team drops out, how will
 %% you cover this loss?  What if after some initial work you discover that there is more work than you
@@ -404,6 +540,8 @@ Once the architecture and detailed design are mostly complete, most of the devel
 follow an incremental model, with testable requirements-subset releases available every two weeks.
 Full integration and acceptance testing will be performed on most of these releases in order to
 prevent a test-fix-release crunch late in the project schedule.
+
+\todo{Draw a picture?}
 
 
 \subsection{Methods, Tools and Techniques}
@@ -443,8 +581,6 @@ place at Initech.
 
 
 \subsection{Acceptance Process}
-\todo[inline]{Describe the process you will use to accept deliverables including software and documentation.  }
-
 All hardware and software purchased for the purposes of this project will be run through the
 standard Initech Acceptance Procedure.
 
