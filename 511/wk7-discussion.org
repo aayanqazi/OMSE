@@ -1,61 +1,90 @@
 #+OPTIONS: toc:nil
 
-* Problem Statement                                                :noexport:
+* Problem Statement                                               :noexport:
 
   Although development has been fairly nimble and adaptive to customer needs, it has also been more
-fairly ad hoc in a few respects.  The following problems have been observed by the SPM and SDMs:
+  fairly ad hoc in a few respects.  The following problems have been observed by the SPM and SDMs:
 
-- Integration builds rarely compile the first few times and when they do they are already breaking
-   under fairly light testing
-- Developers are doing a lot of debugging and rework rather than new development
-- There is growing concern that there will not be enough time to do solid integration testing before
-  the final acceptance testing and deployment phases of the project
-- Because of time pressure, developers are devoting less time to desk-checking and performing little
-  or weak unit testing before releasing software components into integration and system test
-- The SDM's are becoming bottlenecks because they are doing the integration work having come from a
-  "chief-programmer" mind-set
-- The overall concern is that the above problems will lead to missing delivery dates and
-  compromising software quality.
+  - Integration builds rarely compile the first few times and when they do they are already breaking
+    under fairly light testing
+  - Developers are doing a lot of debugging and rework rather than new development
+  - There is growing concern that there will not be enough time to do solid integration testing
+    before the final acceptance testing and deployment phases of the project
+  - Because of time pressure, developers are devoting less time to desk-checking and performing
+    little or weak unit testing before releasing software components into integration and system
+    test
+  - The SDM's are becoming bottlenecks because they are doing the integration work having come from
+    a "chief-programmer" mind-set
+  - The overall concern is that the above problems will lead to missing delivery dates and
+    compromising software quality.
 
-Both the SPM and the SDMs want to adopt more repeatable processes while avoiding excessive process
-ceremony that would unnecessarily burden the team.  It has decided to separate software development
-onto two fairly independent but closely coordinated software development groups.  One team will be
-led by the existing ("lead") Software Development Manager, and the other will be led by the SDM's
-"deputy".  The two SDMs will share resources as required – fairly evenly for the most part.  The
-lead SDM and her team will focus on all the healthcare application subsystems and services including
-the underlying healthcare database.  The deputy SDM and his team will finalize the foundation
-software elements (O.S., DBMS, and web services) and lead the effort to develop appointment
-scheduling and forms management applications as well as mobile communications development and
-personal device applications.  The teams are using Subversion to control software revisions and
-JDI's coding standards.  The design is being documented using UML templates in Visio.  The designers
-have been providing technical specs to the two software development managers who have been assigning
-tasks to individual developers on each team.
+  Both the SPM and the SDMs want to adopt more repeatable processes while avoiding excessive process
+  ceremony that would unnecessarily burden the team.  It has decided to separate software
+  development onto two fairly independent but closely coordinated software development groups.  One
+  team will be led by the existing ("lead") Software Development Manager, and the other will be led
+  by the SDM's "deputy".  The two SDMs will share resources as required – fairly evenly for the most
+  part.  The lead SDM and her team will focus on all the healthcare application subsystems and
+  services including the underlying healthcare database.  The deputy SDM and his team will finalize
+  the foundation software elements (O.S., DBMS, and web services) and lead the effort to develop
+  appointment scheduling and forms management applications as well as mobile communications
+  development and personal device applications.  The teams are using Subversion to control software
+  revisions and JDI's coding standards.  The design is being documented using UML templates in
+  Visio.  The designers have been providing technical specs to the two software development managers
+  who have been assigning tasks to individual developers on each team.
 
-They also established an independent integration and test team by reallocating some developers with
-integration and testing experience from the software development teams.  This independent testing
-team will initially consist of a test lead plus 3 test engineers.  Once the requirements have been
-baselined, the plan is to move three of the requirements analysts onto the test team to increase the
-test team to 7 in all.
+  They also established an independent integration and test team by reallocating some developers
+  with integration and testing experience from the software development teams.  This independent
+  testing team will initially consist of a test lead plus 3 test engineers.  Once the requirements
+  have been baselined, the plan is to move three of the requirements analysts onto the test team to
+  increase the test team to 7 in all.
 
-See Case Study Learning Module, OrgChart(Sept), which illustrates the organizational changes.
+  See Case Study Learning Module, OrgChart(Sept), which illustrates the organizational changes.
 
-Discussion 7.2: Improvements to the Development Process, September
+  Discussion 7.2: Improvements to the Development Process, September
 
-This discussion focuses on processes that you would consider injecting into the project to address
-the problems addressed above, and any others that may occur to you.  Bring your own experiences into
-the discussion.
+  This discussion focuses on processes that you would consider injecting into the project to address
+  the problems addressed above, and any others that may occur to you.  Bring your own experiences
+  into the discussion.
 
 
 * Separate Integration/Test Team
-# a.  What do you think of the above strategy of creating a separate integration and test team (both
-# benefits and challenges)?
+  /a. What do you think of the above strategy of creating a separate integration and test team (both
+  benefits and challenges)?/
+
+  Adding a test/integration team to the project seems like a good idea, though 
+
+  The most obvious benefit is that we have a test group at all, which is something I was concerned
+  about from the first personnel plan.  I also believe that starting to test this early in the
+  development process will be good in several ways, including higher end-product quality.  Having
+  that kind of test support will also help the confidence of the engineers, who seem to need it.
+
+  On the negative side, filling out the test group with requirements engineers may be convenient
+  from a personnel standpoint, but these people may not have the skills or mindset to be really
+  great testers.  For the same reason, I'm concerned about mixing development (integration) and test
+  responsibilities in the same group.
 
 * Processes and Tools for I/T Team
-# b.  What integration and testing processes and tools would you introduce into this team?
+  /b.  What integration and testing processes and tools would you introduce into this team?/
+
+  It almost goes without saying that this team needs access to a defect-tracking system.  They'll
+  also need a hardware setup equivalent to the intended installation for the customer.
+
+  I'd also recommend the use of metrics for this group, since all the other software work products
+  flow through them.  We should focus on those metrics that relate to the 'ilities' required by the
+  customer, such as throughput, response time, and trends in the defect database.
 
 * Processes at Large
-# c.  What processes would you integrate into the software development teams and the project team at
-# large to increase software quality and counter some of the problems outlined above?
+  /c.  What processes would you integrate into the software development teams and the project team
+  at large to increase software quality and counter some of the problems outlined above?/
 
-* Introducing Changes
-# d.  In what order would you introduce changes and how quickly would you introduce them?
+  I'd recommend starting a continuous-integration system that will perform builds on every checkin.
+  This tightens the feedback loop for build problems; the engineers can know within minutes, rather
+  than waiting until it's time to provide a build for the customer.
+
+  Removing the SDM bottleneck for integration will relieve some of the time pressure from the
+  developers, but it should be made clear that sending a feature to integration without making sure
+  it works is not good practice.
+** TODO What metric works here?
+
+* TODO Introducing Changes
+  /d.  In what order would you introduce changes and how quickly would you introduce them?/
