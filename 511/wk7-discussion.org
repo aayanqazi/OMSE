@@ -1,6 +1,6 @@
 #+OPTIONS: toc:nil
 
-* Problem Statement                                               :noexport:
+* Problem Statement                                                :noexport:
 
   Although development has been fairly nimble and adaptive to customer needs, it has also been more
   fairly ad hoc in a few respects.  The following problems have been observed by the SPM and SDMs:
@@ -51,12 +51,11 @@
   /a. What do you think of the above strategy of creating a separate integration and test team (both
   benefits and challenges)?/
 
-  Adding a test/integration team to the project seems like a good idea, though 
-
-  The most obvious benefit is that we have a test group at all, which is something I was concerned
-  about from the first personnel plan.  I also believe that starting to test this early in the
-  development process will be good in several ways, including higher end-product quality.  Having
-  that kind of test support will also help the confidence of the engineers, who seem to need it.
+  The most obvious and immediate benefit is that we have a test group at all, which is something I
+  was concerned about from the first personnel plan.  I also believe that starting to test this
+  early in the development process will be good in several ways, including higher end-product
+  quality.  Having that kind of test support will also help the confidence of the engineers, who
+  seem to need it.
 
   On the negative side, filling out the test group with requirements engineers may be convenient
   from a personnel standpoint, but these people may not have the skills or mindset to be really
@@ -67,24 +66,43 @@
   /b.  What integration and testing processes and tools would you introduce into this team?/
 
   It almost goes without saying that this team needs access to a defect-tracking system.  They'll
-  also need a hardware setup equivalent to the intended installation for the customer.
+  also need a hardware setup equivalent to the intended installation for the customer.  
 
   I'd also recommend the use of metrics for this group, since all the other software work products
   flow through them.  We should focus on those metrics that relate to the 'ilities' required by the
-  customer, such as throughput, response time, and trends in the defect database.
+  customer, such as throughput, response time, and trends in the defect database.  These should be
+  gathered as much as possible by automation, both to minimize the cost of collection and the level
+  of error.
 
 * Processes at Large
   /c.  What processes would you integrate into the software development teams and the project team
   at large to increase software quality and counter some of the problems outlined above?/
 
   I'd recommend starting a continuous-integration system that will perform builds on every checkin.
-  This tightens the feedback loop for build problems; the engineers can know within minutes, rather
+  This tightens the feedback loop; the engineers can know of build problems within minutes, rather
   than waiting until it's time to provide a build for the customer.
 
   Removing the SDM bottleneck for integration will relieve some of the time pressure from the
-  developers, but it should be made clear that sending a feature to integration without making sure
-  it works is not good practice.
-** TODO What metric works here?
+  developers, which will hopefully help curb the practice of sending code to integration without
+  adequate preparation.  However, it might be nice to integrate code reviews into JDI's culture.
 
-* TODO Introducing Changes
+  I can think of two things we can do right now to start it.  First, let the company sponsor
+  code-review lunches twice a week, where each team of 8 sits down and inspects some new chunk of
+  code.  Second, we can reduce the impedance for reviewing incremental changes by hosting something
+  like [[http://code.google.com/p/reviewboard/][Review Board]] and encouraging its use.
+
+* Introducing Changes
   /d.  In what order would you introduce changes and how quickly would you introduce them?/
+
+  I would first make sure the I/T team got off the ground with whatever process and equipment
+  support they required.  This is a critical, core function of this organization, and I want to make
+  it clear that they are not second-class citizens.
+
+  Second, I would kick off the continuous integration practice.  The initial time investment is
+  fairly minimal, say two days per team to get the build running.  After the painful first few
+  builds, the build will start gradually stabilizing, and then the time overhead for running the
+  system is minimal.
+
+  The third thing I would do is find an opinion leader to help introduce code reviews.  While the
+  SPM can introduce processes and mandate their use, cultural change can only happen from within, so
+  it's key that the push for sometihng like this come from someone the engineers trust.
