@@ -47,62 +47,322 @@
   into the discussion.
 
 
-* Separate Integration/Test Team
-  /a. What do you think of the above strategy of creating a separate integration and test team (both
-  benefits and challenges)?/
+** Separate Integration/Test Team
+   /a. What do you think of the above strategy of creating a separate integration and test team (both
+   benefits and challenges)?/
 
-  The most obvious and immediate benefit is that we have a test group at all, which is something I
-  was concerned about from the first personnel plan.  I also believe that starting to test this
-  early in the development process will be good in several ways, including higher end-product
-  quality.  Having that kind of test support will also help the confidence of the engineers, who
-  seem to need it.
+   The most obvious and immediate benefit is that we have a test group at all, which is something I
+   was concerned about from the first personnel plan.  I also believe that starting to test this
+   early in the development process will be good in several ways, including higher end-product
+   quality.  Having that kind of test support will also help the confidence of the engineers, who
+   seem to need it.
 
-  On the negative side, filling out the test group with requirements engineers may be convenient
-  from a personnel standpoint, but these people may not have the skills or mindset to be really
-  great testers.  For the same reason, I'm concerned about mixing development (integration) and test
-  responsibilities in the same group.
+   On the negative side, filling out the test group with requirements engineers may be convenient
+   from a personnel standpoint, but these people may not have the skills or mindset to be really
+   great testers.  For the same reason, I'm concerned about mixing development (integration) and test
+   responsibilities in the same group.
 
-* Processes and Tools for I/T Team
-  /b.  What integration and testing processes and tools would you introduce into this team?/
+** Processes and Tools for I/T Team
+   /b.  What integration and testing processes and tools would you introduce into this team?/
 
-  It almost goes without saying that this team needs access to a defect-tracking system.  They'll
-  also need a hardware setup equivalent to the intended installation for the customer.  
+   It almost goes without saying that this team needs access to a defect-tracking system.  They'll
+   also need a hardware setup equivalent to the intended installation for the customer.  
 
-  I'd also recommend the use of metrics for this group, since all the other software work products
-  flow through them.  We should focus on those metrics that relate to the 'ilities' required by the
-  customer, such as throughput, response time, and trends in the defect database.  These should be
-  gathered as much as possible by automation, both to minimize the cost of collection and the level
-  of error.
+   I'd also recommend the use of metrics for this group, since all the other software work products
+   flow through them.  We should focus on those metrics that relate to the 'ilities' required by the
+   customer, such as throughput, response time, and trends in the defect database.  These should be
+   gathered as much as possible by automation, both to minimize the cost of collection and the level
+   of error.
 
-* Processes at Large
-  /c.  What processes would you integrate into the software development teams and the project team
-  at large to increase software quality and counter some of the problems outlined above?/
+** Processes at Large
+   /c.  What processes would you integrate into the software development teams and the project team
+   at large to increase software quality and counter some of the problems outlined above?/
 
-  I'd recommend starting a continuous-integration system that will perform builds on every checkin.
-  This tightens the feedback loop; the engineers can know of build problems within minutes, rather
-  than waiting until it's time to provide a build for the customer.
+   I'd recommend starting a continuous-integration system that will perform builds on every checkin.
+   This tightens the feedback loop; the engineers can know of build problems within minutes, rather
+   than waiting until it's time to provide a build for the customer.
 
-  Removing the SDM bottleneck for integration will relieve some of the time pressure from the
-  developers, which will hopefully help curb the practice of sending code to integration without
-  adequate preparation.  However, it might be nice to integrate code reviews into JDI's culture.
+   Removing the SDM bottleneck for integration will relieve some of the time pressure from the
+   developers, which will hopefully help curb the practice of sending code to integration without
+   adequate preparation.  However, it might be nice to integrate code reviews into JDI's culture.
 
-  I can think of two things we can do right now to start it.  First, let the company sponsor
-  code-review lunches twice a week, where each team of 8 sits down and inspects some new chunk of
-  code.  Second, we can reduce the impedance for reviewing incremental changes by hosting something
-  like [[http://code.google.com/p/reviewboard/][Review Board]] and encouraging its use.
+   I can think of two things we can do right now to start it.  First, let the company sponsor
+   code-review lunches twice a week, where each team of 8 sits down and inspects some new chunk of
+   code.  Second, we can reduce the impedance for reviewing incremental changes by hosting something
+   like [[http://code.google.com/p/reviewboard/][Review Board]] and encouraging its use.
 
-* Introducing Changes
-  /d.  In what order would you introduce changes and how quickly would you introduce them?/
+** Introducing Changes
+   /d.  In what order would you introduce changes and how quickly would you introduce them?/
 
-  I would first make sure the I/T team got off the ground with whatever process and equipment
-  support they required.  This is a critical, core function of this organization, and I want to make
-  it clear that they are not second-class citizens.
+   I would first make sure the I/T team got off the ground with whatever process and equipment
+   support they required.  This is a critical, core function of this organization, and I want to make
+   it clear that they are not second-class citizens.
 
-  Second, I would kick off the continuous integration practice.  The initial time investment is
-  fairly minimal, say two days per team to get the build running.  After the painful first few
-  builds, the build will start gradually stabilizing, and then the time overhead for running the
-  system is minimal.
+   Second, I would kick off the continuous integration practice.  The initial time investment is
+   fairly minimal, say two days per team to get the build running.  After the painful first few
+   builds, the build will start gradually stabilizing, and then the time overhead for running the
+   system is minimal.
 
-  The third thing I would do is find an opinion leader to help introduce code reviews.  While the
-  SPM can introduce processes and mandate their use, cultural change can only happen from within, so
-  it's key that the push for sometihng like this come from someone the engineers trust.
+   The third thing I would do is find an opinion leader to help introduce code reviews.  While the
+   SPM can introduce processes and mandate their use, cultural change can only happen from within, so
+   it's key that the push for sometihng like this come from someone the engineers trust.
+
+
+
+* Responses to me
+** Ayellet
+*** Her :noexport:
+    Ben, 
+
+    Good answer, one thing regarding the challenges for the new I/T team, do you think that the
+    creation of this team could cause some tensions in the overall SW development team (the SW
+    developers might think that they are creating a new team because we didn’t do our job well
+    enough) so the SPM must make sure that the new team gets all the support it needs - what do you
+    think?
+
+    -Ayellet
+
+*** Me
+    I hadn't thought of that, but I think you're right.  Since we didn't have a test team to begin
+   with, I assumed the addition of one would be welcomed, but your point is well taken.  We should
+   approach this transition delicately, and make sure the two teams know each other, so everybody
+   feels like they are on the same team.
+
+** James Thompson   
+*** Him :noexport:
+    >On the negative side, filling out the test group with requirements engineers
+    >may be convenient from a personnel standpoint, but these people may not
+    >have the skills or mindset to be really great testers. For the same reason,
+    >I'm concerned about mixing development (integration) and test
+    >responsibilities in the same group.
+
+    Very well put. I tried to be politically correct and overlook the fact that "requirements
+    management" does not equal being good at "software test." There seems to be this lingering idea
+    that anyone can test. I believe it comes from the fact that many managers find software bugs and
+    therfore anyone can do it.
+
+    Another possible negative consequence is how the developers may be viewed after taking the
+    software test role. I have filled in "lesser" roles before because no one would code, test,
+    integrate, etc and been viewed by people as not being a "big idea" guy but only a coder. FYI not
+    being a "big idea" person is detrimental to the career at a national lab. The possiblility of
+    career destruction for the developers and requirements analysts is a negative.
+
+    >It almost goes without saying that this team needs access to a
+    >defect-tracking system. They'll also need a hardware setup equivalent to
+    >the intended installation for the customer. 
+
+    Excellent, we need to make sure the hardware setup gets captured in the final submission!
+
+    >I'd also recommend the use of metrics for this group, since all the other
+    >software work products flow through them. We should focus on those metrics
+    >that relate to the 'ilities' required by the customer, such as throughput,
+    >response time, and trends in the defect database. These should be gathered
+    >as much as possible by automation, both to minimize the cost of collection
+    >and the level of error.
+
+    Great idea! I suggested bug tracking metrics and more management metrics in my post, adding the
+    actual software performance metrics would be awesome.
+
+    > ... First, let the company sponsor code-review lunches ...
+
+    I remember having to work weekends on a project. Practically every weekend for almost two
+    years. When the boss would come in on the weekend with a bag o' bagels it made a lot of doubts
+    go away about the project importance. Making sure management stays engaged and is willing to
+    sacrafice along with the rest of the team needs to be emphasised. I don't advocate pressuring
+    people to work insane hours, or treating people who do any better than a 9-5er, but it would be
+    good to make the gesture when people are putting in the time and effort.
+
+    >Second, I would kick off the continuous integration practice. The initial time
+    >investment is fairly minimal, say two days per team to get the build running.
+    >After the painful first few builds, the build will start gradually stabilizing,
+    >and then the time overhead for running the system is minimal.
+
+    Great job on providing an estimated impact! My first thought at this stage is what impact will
+    new processes, tools and procedures have on the development. This estimation seems reasonable
+    and should provide a positive impact.
+
+*** Me
+
+/The possiblility of career destruction for the developers and requirements analysts is a negative./
+
+It's interesting -- I've run into this sort of prejudice as well, and it seems unfounded.  A great
+tester is every bit as creative and technically gifted as the person who wrote the code they're
+testing.  The main difference is in mindset; developers are looking to make sure something works,
+while testers are always on the lookout for how something will break.
+
+I've heard of places where test as a career track is on equal footing with software development.
+Microsoft is the prime example, with the SDET title.  However, most places I've worked are just too
+cheap to hire testers that can write code.
+
+/I remember having to work weekends on a project./
+
+Hah! I wasn't looking to extend hours by making people work through lunch.  I'd expect that lunch
+hour to be billable, and people to feel free to go home early that day.  Really, I was just looking
+for an excuse to buy something for the team that wouldn't disrupt their sense of purpose or insult
+their intelligence, and it's generally frowned upon to buy beer. :)
+
+
+** John Waterbrook
+*** Him :noexport:
+    Ben,
+
+    I was also initially concerned about having a test group initially, just having one is
+    definitely a good step in my opinion also. I didn't think about time line in the project too
+    much, but also agree that starting to test at this time is also a good head start, thanks for
+    recognizing that.
+
+    Like you, I also believe a defect tracking system is essential. I'm glad you brought up metrics
+    as a point of processes, they may even be able to use the defect tracking system to do this
+    (partially). I don't believe quantity of defects is necessarily a good metric, but I think if
+    done right, may be useful.
+
+    I think we are thinking of the same approach when it comes to builds and commit time. A system
+    that performs builds every check-in sounds like the solution to the build problems mentioned.
+
+    Code reviews are also a great way to get quality out of developers, I'm wondering if this is the
+    approach to take though. We've had trouble with anything that's not extemely light-weight when
+    it comes to code reviews, most of the time, they can't be justified for the amount of time they
+    take.
+
+    Great write-up, thanks for the good suggestions.
+
+    Johnny
+
+*** Me
+
+    /I don't believe quantity of defects is necessarily a good metric, but I think if done right,
+    may be useful./
+
+    Raw defect count isn't particularly useful, but /trends/ are.  Whatever the defect count may be,
+    when you see a 10% spike in the open defect count in one week, you know something major just
+    happened.  It's also useful to categorize them; a downward-trending line of critical defects is
+    a good thing even if the total defect count is going up -- the testers are nitpicking, which
+    means there aren't many big things to complain about. 
+
+    /...most of the time, [code reviews] can't be justified for the amount of time they take./
+
+    Actually, reviews and inspections (when performed properly) are generally considered to be one
+    of the most effective defect-reduction techniques.  The main problem is the way they're usually
+    run; a bunch of people sit around a table, reading the code for the first time.  There's no
+    agenda, no focus for the meeting.  There's lots of literature on how to properly run a formal
+    inspection, and they can be very effective.
+
+    I also understand that the cost is hard to swallow for management, but you can always make this
+    argument: we can spend $2,000 to find 10 bugs now, or $10,000 to find two of them in test.
+
+
+* Responses to others
+** John Waterbrook
+*** Him :noexport:
+    a. What do you think of the above strategy of creating a separate integration and test team
+    (both benefits and challenges)?
+
+    I think that a separate integration and test team is essential. However, there are a few things
+    to watch out for. For example, the developers should be very aware so they don't “throw things
+    over the fence” to the testers and hope that they are the ones finding the bugs. The developers
+    need to pay close attention to doing their own testing while they are coding and let the testers
+    be the QA aspect.
+
+    Another hurdle is so the testers write good bugs or communicate the problems clearly. In my
+    experience, developers usually don't make very good testers and this is because they are very
+    short and to the point about the problems, they don't usually take the time to create a step by
+    step repeatable scenario. Overall, communication will be the key to success here.
+
+    But, having this team will greatly benefit the team now. Developers can concentrate on getting
+    requirements met and they have a person to verify all of their changes and new features. Also,
+    as the integration team gets their environment all set up, they will be able to coordinate
+    demonstrations and catch more problems before it's too late.
+
+    b. What integration and testing processes and tools would you introduce into this team?
+
+    I would definitely have bug tracking software and use the bug tracking processes that fit that
+    software. It will be worth while to integrate that bug tracking software into the software
+    versioning system (Subversion) as well.
+
+    I might place into the mix some automated testing as well. Hopefully, there are hooks in place
+    already to do this, but the testers may need to coordinate with the developers on this.
+
+    c. What processes would you integrate into the software development teams and the project team
+    at large to increase software quality and counter some of the problems outlined above?
+
+    Ultimately, the reason for the trouble mentioned above is because the developers are having a
+    hard time checking out their own work, or the requirements are too vague.
+
+    The builds breaking all the time is a problem we have hit in our organization. We still haven't
+    completely solved it because it's a very slow moving process to make changes, but if I were to
+    solve something like this, I would be building constantly and with all software check-ins. In
+    other words, automate the build process and be sure that it gets priority to fix it when
+    problems arise. In fact, there may be a way to reject commits that fail to build successfully.
+
+    Another process to put in place may be automated build verification testing. On the development
+    side, we would want to know that the basic functionality isn't broken after a build, not that it
+    just builds. So something like this in place may help.
+
+    Unit testing is another aspect of this that probably needs more attention. It was mentioned that
+    they are not doing it very much, but this may be for a couple reasons. Maybe it's too
+    cumbersome. In this case, automate it. Use unit testing software to do this (Junit, CuTest,
+    etc). The other aspect is physical process oriented. If they have too much pressure to rush
+    something out without testing it themselves, this may be a source of a bad product. Be sure
+    there is not management pressure in this area. Also, make it part of the code delivery process
+    so it must be checked off the list before the delivery is considered “complete”.
+
+    d. In what order would you introduce changes and how quickly would you introduce them?
+
+    I would start by introducing the automation tasks first. This will give us regression testing
+    capabilities and will be a foundation for the next changes.
+
+    I would then introduce the process guidelines for bug tracking and communication layer between
+    the groups. What is expected of everyone should be clearly defined.
+
+    Then the rest and I would do this as soon as possible, this should be very high on the priority
+    scale for project management. There's obviously a problem identified here, and there doesn't
+    seem to be any reason we can't solve this starting now.
+
+*** Me
+    I'm with Dan on this one.  Your focus on automation in building and testing is great, but
+    automation isn't a silver bullet.  As software developers, we tend to assume most problems can
+    be solved with just a bit more code.
+
+    There are some problems that humans solve best, and finding bugs is one of them.  Automation can
+    make sure an old bug doesn't resurface in the same way, but the test code can have bugs too.
+    Who watches the watchmen?
+
+    Again, I think automation is great!  But it's important to know it can't solve all the problems.
+
+** Dan / John
+*** Him :noexport:
+    Dan,
+
+    I also agree that having an IQA team is a great idea.  The team will increase the quality of the
+    product, but I do believe there will be some difficulties.  For example, because there's an IQA
+    team, developers may be encouraged to do more thorough testing like you mentioned, but in my
+    experience, it actually works in reverse.  The developers feel that someone else is testing their
+    code, so they don't have to.  We'll just have to keep an eye on this behavior, and I think clear
+    expectations is ultimately the best thing to combat this problem.
+
+    Another thing I've noticed is the testers working in parallel with developers is usually a very
+    good thing, as long as communication is maintained and daily meetings or pairing on a regular
+    basis is done.
+
+    I'm glad you brought up unit testing and a defect tracking system, these I believe are essential
+    process tools to get in place (and should probably already be in place).
+
+    Nice write-up, lots of fun to read with great insights.
+
+    Thanks, Johnny
+
+*** Me
+    /The developers feel that someone else is testing their code, so they don't have to./
+
+    Interesting.  I've never worked in a place where the testers were considered a lower caste, so I
+    can't really identify with this.  It seems like an a toxic anti-pattern.
+
+    Most places I've been treat tester time as valuable.  Developers tend to apologize when
+    something glaringly obvious slips through, and make sure they've done everything they can think
+    of to break their own code before sending it on.
+
+    According to the case study, however, bench-testing has fallen by the wayside, which is funny
+    given that we haven't had a test team until now.  This suggests that we have the kind of shop
+    where testers are serfs.  I wonder if there's anything we could do about that as managers.
+
+
