@@ -47,6 +47,7 @@
   into the discussion.
 
 
+* Me                                                               :noexport:
 ** Separate Integration/Test Team
    /a. What do you think of the above strategy of creating a separate integration and test team (both
    benefits and challenges)?/
@@ -109,9 +110,9 @@
 
 
 
-* Responses to me
+* Responses to me                                                  :noexport:
 ** Ayellet
-*** Her :noexport:
+*** Her
     Ben, 
 
     Good answer, one thing regarding the challenges for the new I/T team, do you think that the
@@ -251,7 +252,7 @@ their intelligence, and it's generally frowned upon to buy beer. :)
     argument: we can spend $2,000 to find 10 bugs now, or $10,000 to find two of them in test.
 
 
-* Responses to others
+* Responses to others                                              :noexport:
 ** John Waterbrook
 *** Him :noexport:
     a. What do you think of the above strategy of creating a separate integration and test team
@@ -366,3 +367,361 @@ their intelligence, and it's generally frowned upon to buy beer. :)
     where testers are serfs.  I wonder if there's anything we could do about that as managers.
 
 
+
+* Summary
+** Originals                                                       :noexport:
+*** Me
+**** Separate Integration/Test Team
+     /a. What do you think of the above strategy of creating a separate integration and test team (both
+     benefits and challenges)?/
+
+     The most obvious and immediate benefit is that we have a test group at all, which is something I
+     was concerned about from the first personnel plan.  I also believe that starting to test this
+     early in the development process will be good in several ways, including higher end-product
+     quality.  Having that kind of test support will also help the confidence of the engineers, who
+     seem to need it.
+
+     On the negative side, filling out the test group with requirements engineers may be convenient
+     from a personnel standpoint, but these people may not have the skills or mindset to be really
+     great testers.  For the same reason, I'm concerned about mixing development (integration) and test
+     responsibilities in the same group.
+
+**** Processes and Tools for I/T Team
+     /b.  What integration and testing processes and tools would you introduce into this team?/
+
+     It almost goes without saying that this team needs access to a defect-tracking system.  They'll
+     also need a hardware setup equivalent to the intended installation for the customer.  
+
+     I'd also recommend the use of metrics for this group, since all the other software work products
+     flow through them.  We should focus on those metrics that relate to the 'ilities' required by the
+     customer, such as throughput, response time, and trends in the defect database.  These should be
+     gathered as much as possible by automation, both to minimize the cost of collection and the level
+     of error.
+
+**** Processes at Large
+     /c.  What processes would you integrate into the software development teams and the project team
+     at large to increase software quality and counter some of the problems outlined above?/
+
+     I'd recommend starting a continuous-integration system that will perform builds on every checkin.
+     This tightens the feedback loop; the engineers can know of build problems within minutes, rather
+     than waiting until it's time to provide a build for the customer.
+
+     Removing the SDM bottleneck for integration will relieve some of the time pressure from the
+     developers, which will hopefully help curb the practice of sending code to integration without
+     adequate preparation.  However, it might be nice to integrate code reviews into JDI's culture.
+
+     I can think of two things we can do right now to start it.  First, let the company sponsor
+     code-review lunches twice a week, where each team of 8 sits down and inspects some new chunk of
+     code.  Second, we can reduce the impedance for reviewing incremental changes by hosting something
+     like [[http://code.google.com/p/reviewboard/][Review Board]] and encouraging its use.
+
+**** Introducing Changes
+     /d.  In what order would you introduce changes and how quickly would you introduce them?/
+
+     I would first make sure the I/T team got off the ground with whatever process and equipment
+     support they required.  This is a critical, core function of this organization, and I want to make
+     it clear that they are not second-class citizens.
+
+     Second, I would kick off the continuous integration practice.  The initial time investment is
+     fairly minimal, say two days per team to get the build running.  After the painful first few
+     builds, the build will start gradually stabilizing, and then the time overhead for running the
+     system is minimal.
+
+     The third thing I would do is find an opinion leader to help introduce code reviews.  While the
+     SPM can introduce processes and mandate their use, cultural change can only happen from within, so
+     it's key that the push for sometihng like this come from someone the engineers trust.
+
+
+*** Ayellet
+    1. I think that creating a separate integration and testing team is the right thing to, the key
+       reason is that for a project of this size and complexity integration and testing are a big
+       task that has a lot of challenges and in order to make sure that these tasks would be looked
+       at seriously we must have a dedicated team that is tasked to perform these activities.
+       a. Benefits –
+       i. Dedicated team that performs all the integration and testing activities.
+       ii. People that have expertise in testing and integration.
+       iii. Task ownership – a team that owns the executing f the activities and is accountable to
+       the results.
+       b. Challenges –
+       i. Due to the fact that we are creating the team after the fact we need to find people that
+       have the needed expertise and will not need too much time to ramp up.
+       ii. Once we move the requirement analysts to this role we will have to train them and bring
+       them up to speed.
+       iii. Need to make sure that the new team gets the support they need in order to successfully
+       execute the testing and integration activities.
+
+    2. Due to the size and complexity of the project I would recommend getting tools and using
+       process that have automated testing, for Java environment I would recommend using something
+       like JUnit Generator and AgitarOne Agitator that include built-in support for continuous
+       integration and testing. This is a proven best practice of running regression tests and
+       validating the continued correct behavior of the code after any revisions. AgitarOne JUnit
+       Generator and AgitarOne Agitator incorporate the popular open-source solution,
+       CruiseControl. Combining hand-written JUnit tests, JUnit tests created by AgitarOne JUnit
+       Generator, and assertions created using AgitarOne Agitator, gives you a far more thorough set
+       of regression tests than would be possible with hand-written tests alone. It is useful to run
+       these tests frequently to reduce the time that passes between a change and a regression that
+       stems from that change. AgitarOne’s continuous integration and test support rebuilds the
+       modules, runs the regression suite, and reports back on the status.
+
+
+    3. The key problems are – 
+       a. Developers debugging and fixing rather than developing new code.
+       b. No sufficient time for integration testing
+       c. Developers are not checking in the code and not performing unit testing.
+       d. The SDM’s are performing integration work.
+       Problems A & D will be resolved by the creation of the new integration and testing team.
+       In order to resolve problems B & C I would recommend making the following changes – 
+       1. Using a process called test-driven development, each new feature begins with writing a
+          test. This test must inevitably fail because it is written before the feature has been
+          implemented. (If it does not fail, then the proposed “new” feature is obviated.) To write a
+          test, the developer must clearly understand the feature's specification and
+          requirements. The developer can accomplish this through use cases and user stories that
+          cover the requirements and exception conditions.
+
+       2. Maintain an updated code repository – mandate that developers will check in their new code
+          every day before they leave of if they complete their assigned module they should check it
+          in immediately.
+
+       3. Automate the build – every day (at least once, preferably few times a day rebuild the code,
+          today we have tools that will rebuild the code every time someone checks the code in).
+
+       4. Automate the testing as much as possible
+
+       5. Every module must be unit tested before task is complete, if bugs are found they must be
+          fixed immediately
+
+    8. I would introduce the changes immediately. The first thing is to get the code base stable I
+       would check in all the code freeze the development and make sure we fix all issues. (Run this
+       in an urgent manner) at the same time I would build the build environment and implement the
+       development changes. In parallel I would create the integration testing team and get them
+       working. The bottom line is I would it all as fast as possible without waiting because this
+       can impact the project quality and delivery timeline.
+
+       -Ayellet 
+       
+*** Johnny
+    a. What do you think of the above strategy of creating a separate integration and test team (both
+    benefits and challenges)?
+
+    I think that a separate integration and test team is essential. However, there are a few things
+    to watch out for. For example, the developers should be very aware so they don't “throw things
+    over the fence” to the testers and hope that they are the ones finding the bugs. The developers
+    need to pay close attention to doing their own testing while they are coding and let the testers
+    be the QA aspect.
+
+    Another hurdle is so the testers write good bugs or communicate the problems clearly. In my
+    experience, developers usually don't make very good testers and this is because they are very
+    short and to the point about the problems, they don't usually take the time to create a step by
+    step repeatable scenario. Overall, communication will be the key to success here.
+
+    But, having this team will greatly benefit the team now. Developers can concentrate on getting
+    requirements met and they have a person to verify all of their changes and new features. Also, as
+    the integration team gets their environment all set up, they will be able to coordinate
+    demonstrations and catch more problems before it's too late.
+
+    b. What integration and testing processes and tools would you introduce into this team?
+
+    I would definitely have bug tracking software and use the bug tracking processes that fit that
+    software. It will be worth while to integrate that bug tracking software into the software
+    versioning system (Subversion) as well.
+
+    I might place into the mix some automated testing as well. Hopefully, there are hooks in place
+    already to do this, but the testers may need to coordinate with the developers on this.
+
+    c. What processes would you integrate into the software development teams and the project team at
+    large to increase software quality and counter some of the problems outlined above?
+
+    Ultimately, the reason for the trouble mentioned above is because the developers are having a
+    hard time checking out their own work, or the requirements are too vague.
+
+    The builds breaking all the time is a problem we have hit in our organization. We still haven't
+    completely solved it because it's a very slow moving process to make changes, but if I were to
+    solve something like this, I would be building constantly and with all software check-ins. In
+    other words, automate the build process and be sure that it gets priority to fix it when problems
+    arise. In fact, there may be a way to reject commits that fail to build successfully.
+
+    Another process to put in place may be automated build verification testing. On the development
+    side, we would want to know that the basic functionality isn't broken after a build, not that it
+    just builds. So something like this in place may help.
+
+    Unit testing is another aspect of this that probably needs more attention. It was mentioned that
+    they are not doing it very much, but this may be for a couple reasons. Maybe it's too
+    cumbersome. In this case, automate it. Use unit testing software to do this (Junit, CuTest,
+    etc). The other aspect is physical process oriented. If they have too much pressure to rush
+    something out without testing it themselves, this may be a source of a bad product. Be sure there
+    is not management pressure in this area. Also, make it part of the code delivery process so it
+    must be checked off the list before the delivery is considered “complete”.
+
+    d. In what order would you introduce changes and how quickly would you introduce them?
+
+    I would start by introducing the automation tasks first. This will give us regression testing
+    capabilities and will be a foundation for the next changes.
+
+    I would then introduce the process guidelines for bug tracking and communication layer between
+    the groups. What is expected of everyone should be clearly defined.
+
+    Then the rest and I would do this as soon as possible, this should be very high on the priority
+    scale for project management. There's obviously a problem identified here, and there doesn't seem
+    to be any reason we can't solve this starting now.
+
+*** Dan
+    QN A. I have always been a proponent of creating a separate integration and testing team (IQA
+    team) made up of developers, so I really like this idea of a separate IQA team. A dedicated IQA
+    team will directly address some of the concerns expressed in the case study problem statement as
+    follows:
+
+    1. The SPMs will no longer be a bottle neck since they will be replaced with a team made of up
+       people with integration and testing experience who might be more efficient
+    2. The IQA team can work in parallel with the developers. This addresses concerns about the
+       schedule slipping since more people will be working on the areas of concern which is currently
+       quality
+    3. Developers might be encouraged to do more thorough testing for fear of acquiring a bad
+       reputation from the IQA team.
+    4. I think migrating the requirements analysts to the IQA team has the added benefit of having
+       people who understand the product and what the client wants be the ones that verify and
+       validate the product
+    5. Finally a IQA team will increase the quality of the final product due the pressures of
+       ownership and responsibility. In other words the success criteria for a dedicated IQA team is
+       higher quality software
+
+       The few disadvantages that I can think of are as follows:
+    1. Should the project scope change significantly requiring a major revision of the requirements,
+       how will the SPM fill the role of the analysts
+    2. Developers may not always be the best testers
+    3. There will be an added layer of communication with the introduction of a new team with its own
+       agenda and the associated office politics, potential finger pointing and blame games if and
+       when things go wrong.
+
+    QN B. In order for the new team to be at their most effective, I would introduce the following
+       process and tools:
+
+    1. Develop a frameworks or use existing unit testing tools such as JUnit and require adequate
+       unit testing prior to checking in code
+    2. Continuous integration and building sounds feasible given the size of the project budget and
+       given the fact the JDI intends to produce related COTs which will benefit from an investment
+       in all the tools and processes mentioned in this section
+    3. Integrated and automated system / regression testing and bug tracking is also needed for the
+       project of this size to ensure adequate code coverage. There are lots of compelling open
+       source tools (see http://www.opensourcetesting.org/functional.php for a long list of tools),
+       additionally, the project is adequately funded enough to pay for some of the higher end
+       proprietary tools.
+
+    QN C: I would emphasize the following processes as part of the overall software development
+       process
+
+    1. A major focus on test driven development. The test plan being a project deliverable should be
+       far along at this stage in the project and should therefore be made available and used to
+       streamline development
+    2. Introduction of code reviews to help catch logical errors is a big necessity for a project of
+       this size and complexity
+
+     QN D. The proposed changes in QN B and QN C above should be introduced immediately since the
+       project schedule is fixed. I would introduce the proposed changes in the following order:
+
+    1. Immediately introduce code reviews and require both development teams to actively participate.
+    2. At the same time assemble the new IQA team and acquire and configure the tools that they will
+       need
+    3. Next, implement automated testing to the extent practicable and
+    4. Work on migrating towards a continuous integration and build system
+
+*** James
+    a. What do you think of the above strategy of creating a separate integration and test team (both
+    benefits and challenges)?
+
+    The strategy of creating a separate integration team is a good one. It is a risk avoidance
+    strategy which handles a high probability risk (one that is actually happening.) Reducing
+    verification in order to minimize risk is an unacceptable solution [Fairley p371] so creating a
+    team to handle verification will help quality. The increasingly poor quality of the software,
+    caused in part by the developers performing less unit testing and the SDM’s having too much
+    hands-on in integration, means that a new course must be taken with the integration and test
+    task. Having an independent test team is never a bad strategy.
+
+    A benefit in this strategy is making good use of staff with experience and requirements
+    knowledge. The first benefit is in integration. Integrating the software components will take a
+    burden off the development team and difficult problems involving interfaces should be more
+    quickly found by technical staff. There should be less ramp up time for test since the new staff
+    has been developing the system and is familiar with it’s operation.
+
+    I never had requirements analysts on a test team but they would bring good experience in creating
+    a test plan and tracing requirements to the individual tests. They should be good users for
+    testing the software.
+
+    Some challenges which may occur are that the tasks assigned to the developers who move to
+    integration (if not already completed) need to be performed by somebody.
+
+    Also we are having problems with the SDM’s being too involved in hands-on integration we may have
+    the same problem of the integration/test team trying to “fix” the software problems found while
+    testing. This could impact the schedule and cause conflicts on source code (even while using a CM
+    tool.)
+
+    b. What integration and testing processes and tools would you introduce into this team?
+
+    Tools ------ . Bug tracking tools . JUnit testing platform . Metrics collection and tracking
+    tools - probably an Excel spreadsheet to start. Metrics which track broken builds, open trouble
+    reports and closed reports are good to start with.
+
+    Processes ---------- . Processes will be developed for execution of tests derived from the
+    Software Test Plan.  . Exit criteria for integration of code into baseline before moving into
+    system test.  . An engaged change control board (CCB) called out in processes to make decisions
+    on requested changes.
+
+
+    c. What processes would you integrate into the software development teams and the project team at
+    large to increase software quality and counter some of the problems outlined above?
+
+    . Processes for generating baselines before handing software to I&T.
+
+    . Checklists and code inspections. This needs to be tracked and lead by the SDM which will
+    mitigate the risk of these inspections being skipped and will also get the SDM out of the
+    integration role.
+
+    . Processes to use automated unit tests provided by I&T group.
+
+    . A Risk Management Board needs to be appointed, with project level management, in order to have
+    a better handle on available resources for implementing mitigation strategies.
+
+
+    d. In what order would you introduce changes and how quickly would you introduce them?
+
+    1. I would introduce the new integration team first since this should have an immediate impact on
+       the project. It is assumed that progress is being made on the software test plan and
+       procedures. This would be done immediately.
+
+    2. Introduction of software checklists and code checks. This should be an immediate impact to
+       quality with less re-work and will free up developers to continue code development. This would
+       be performed immediately.
+
+    3. Introduction of metrics for the I&T team. Monitoring of these metrics will help to determine
+       if our strategies are working and/or more changes are needed. This will be introduced after
+       the team is formed and people are assigned to testing duties.
+
+    4. New baseline procedures for development to follow before handing source code off to the I&T
+       group will need to be completed. This will happen quickly since these broken builds affect
+       everybody.
+
+    5. I&T team tools for bug tracking, and unit testing need to be installed and used. This will
+       happen after step 4 when baseline problems are solved.
+
+    6. If not formed already, the CCB needs to be formed and added to procedures for ruling on
+       requested changes and suggested implementations.
+
+** Summary
+   *A.* We all agree that the new integration/test team is a net benefit, mainly because we needed a
+     test team in the first place.  The main drawbacks are the availability of personnel, the use of
+     developers and requirements analysts for testing (they may not be as good at testing, and their
+     old roles may still be necessary), and the risk of political squabbles due to the late
+     introduction of this team.
+
+   *B.* We all recognized that basic testing tools (like a defect-tracking tool) were necessary for
+     the new team.  Several people recommended JUnit and other automated testing tools, along with
+     continuous integration and metrics gathering.
+
+   *C.* Our group recommended the following processes for the development teams.
+     - Continuous integration
+     - Regular code reviews
+     - Test-driven development
+     - Automated testing
+
+   *D.* Opinions were scattered on the order of introduction, but everyone wanted to make sure the
+   new QA team got off the ground first, with automated build and test systems following closely
+   afterwards.
