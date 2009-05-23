@@ -1,0 +1,62 @@
+Week 8
+
+* Topic
+  Although the customer’s domain experts actively contributed to the good progress being made on the
+  application requirements and user interfaces during the fall, recently they have been changing
+  requirements that were thought to have been agreed to, and adding new ones that had not been
+  contemplated. And the requirements for both the personal storage devices and the handheld devices
+  (PDAs and cells) are still fairly sketchy.
+
+  Nevertheless, on November 1st the design consultants presented their preliminary design
+  specifications to the team and then the customer. Based on partial - but increasingly complete -
+  knowledge of the requirements, the design admittedly had some holes, but the customer was fairly
+  pleased because it was the first such picture presented and it was a good start toward the final
+  system.
+
+  But just days before the Christmas break, the customer received some feedback from the domain
+  experts about apparent problems on the project. They gave the customer the (incorrect) impression
+  that JDI may be trying to avoid implementing the system in strict compliance with their needs and
+  expectations. The customer is now asking for a major progress review some time early in the New
+  Year.
+
+  Based on the initial estimates provided by the team leads before Christmas, the SPM has good
+  reason to believe that the project is on track for completion. Also, monthly progress meetings
+  have been going very smoothly all along. But the SPM wants to make doubly sure that this next
+  meeting also goes just as smoothly.
+
+  The SPM therefore calls a meeting with project leads and tells them that the team needs to get
+  ready for a customer briefing. The team needs to be able to clearly demonstrate what work has been
+  completed and what remains to be done. The SPM convinces the team leads and developers that it
+  would be prudent to think carefully about the issues and risks and present a clear vision of how
+  the project will move steadily towards completion.
+
+  One idea proposed by the software development managers is to provide the customer a list detailing
+  all the program modules that have been completed so far. Since there are about seventy (70)
+  finished units, some of them integrated into the subsystems, they feel such a listing should give
+  the customer a secure feeling and counter the unfortunate comments of the customer’s domain
+  experts. The SPM agrees with this approach, but instructs team members to ensure that these
+  modules can be related to the original work breakdown and that revised estimates to complete all
+  modules are provided. This will provide visibility into progress and estimates to complete the
+  project as well.
+
+  It has been decided to develop a revised “plan-to-complete” that incorporates the necessary
+  processes to manage and approve requirements and changes to requirements, monitor project risks,
+  track development progress, and assure the quality of the internal (a.k.a. developmental) and
+  external (customer) product releases. The strategy set out aims to get the customer to buy-into
+  the revised action plan for the remaining project schedule. One of the most critical aspects of
+  this strategy is to get the customer to agree to approve the current requirements baseline.
+
+  Discussion 8: Providing Visibility into Progress, December 24th
+
+  The project team needs to give tangible visibility into the project to put the customer at
+  ease. The customer should be presented estimates and alternatives to build confidence that the
+  project’s objectives will be met in a reasonable and timely manner.
+
+  a. What specific technical and management perspectives and information indicating positive
+  progress and potential roadblocks should be prepared for the meeting?  b. What specific actions
+  should be taken by the team to prepare for the meeting?  c. What tangible proposals and trade-offs
+  should the team propose to the customer?
+
+
+* TODO First Response
+  
