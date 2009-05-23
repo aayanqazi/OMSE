@@ -1,6 +1,7 @@
 Week 8
 
-* Topic
+
+* Where is the Project Headed? December 24th (Merry Christmas!)    :noexport:
   Although the customer’s domain experts actively contributed to the good progress being made on the
   application requirements and user interfaces during the fall, recently they have been changing
   requirements that were thought to have been agreed to, and adding new ones that had not been
@@ -39,7 +40,7 @@ Week 8
   modules are provided. This will provide visibility into progress and estimates to complete the
   project as well.
 
-  It has been decided to develop a revised “plan-to-complete” that incorporates the necessary
+  It has been decided to develop a revised "plan-to-complete" that incorporates the necessary
   processes to manage and approve requirements and changes to requirements, monitor project risks,
   track development progress, and assure the quality of the internal (a.k.a. developmental) and
   external (customer) product releases. The strategy set out aims to get the customer to buy-into
@@ -52,11 +53,40 @@ Week 8
   ease. The customer should be presented estimates and alternatives to build confidence that the
   project’s objectives will be met in a reasonable and timely manner.
 
-  a. What specific technical and management perspectives and information indicating positive
-  progress and potential roadblocks should be prepared for the meeting?  b. What specific actions
-  should be taken by the team to prepare for the meeting?  c. What tangible proposals and trade-offs
-  should the team propose to the customer?
+
+* First Response
+* Progress
+  /a. What specific technical and management perspectives and information indicating positive
+  progress and potential roadblocks should be prepared for the meeting?/
+
+  I'd communicate positive progress by showing a color-coded version of the project PERT chart,
+  with the completed tasks shaded green.  This meeting is about reassuring the customer, so it's
+  important to focus on the big picture without showering them with too many details.
+
+  Likewise with the plan for potential roadblocks.  I'd give them an overview of the 5 issues I'm
+  spending most of my time nailing down, and what my plan is for addressing each.  Again, it's
+  important to provide the right level of detail here; too much and their eyes will glaze over, too
+  little and they won't believe us.
 
 
-* TODO First Response
-  
+* Preparation
+  /b. What specific actions should be taken by the team to prepare for the meeting?/
+
+  Take a look at the defect list, and make sure they all know the most serious bugs in their
+  subsystems.  They should pay special attention to any defects actually found by the customer; we
+  should be prepared to explain what we intend to do about these.
+
+  I'd also have them look at the tasks they'll be starting soon, so they have an idea of where the
+  entire project stands.
+
+
+* Proposals
+   /c. What tangible proposals and trade-offs should the team propose to the customer?/
+
+   I'm not sure I understand the question; the customer hasn't asked us for any.  It seems foolish
+   to give proposals before the customer tells us what's wrong, and it might send the wrong
+   message.  If the customer wants to change something, we can do that, but until then we should
+   just continue doing what we do best.
+
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil
