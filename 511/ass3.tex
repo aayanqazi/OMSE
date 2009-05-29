@@ -7,6 +7,7 @@
 \usepackage{tabularx}
 \usepackage{tabulary}
 \usepackage{amssymb}
+\usepackage{ifpdf}
 
 \usepackage{tikz}
 \usetikzlibrary{trees}
@@ -492,8 +493,9 @@ With an average loaded cost of \$2,400, this gives a total cost estimate of \$3,
 
 
 \subsection{Schedule}
-\todo[inline]{Uncomment this for PDF version.}
-% \includegraphics[width=\textwidth]{gantt.png}
+\ifpdf
+\includegraphics[width=\textwidth]{gantt.png}
+\fi
 
 
 
