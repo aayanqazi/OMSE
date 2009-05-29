@@ -1,5 +1,5 @@
 Week 8
-#+OPTIONS: num:nil toc:nil author:nil timestamp:nil
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
 
 * Topic                                                            :noexport:
@@ -8,42 +8,77 @@ Week 8
   ARE STILL EXPECTED TO CONSOLIDATE.
 
   The day before Christmas the customer presses the SPM to schedule the detailed status briefing for
-  January 4th which the SPM agrees to. Fortunately, the team has started to pull the critical
-  information together, however, there is still much work to be done. The SPM has no choice but to
-  ask the team to prepare for this briefing over the Christmas vacation period. The team greatly
+  January 4th which the SPM agrees to.  Fortunately, the team has started to pull the critical
+  information together, however, there is still much work to be done.  The SPM has no choice but to
+  ask the team to prepare for this briefing over the Christmas vacation period.  The team greatly
   resists initially because of the time of year and because the team leads did not want to see their
-  team members waste their time preparing for and supporting another customer briefing. They feel
+  team members waste their time preparing for and supporting another customer briefing.  They feel
   that far too much of developers’ time had already been spent in meetings with the customer
-  discussing changes and clarifications to requirements specifications, design documents, and so
-  on. Besides, they said, it would take a great amount of time to prepare a comprehensive briefing
+  discussing changes and clarifications to requirements specifications, design documents, and so on.
+  Besides, they said, it would take a great amount of time to prepare a comprehensive briefing
   because it would be necessary to update the top-level design document - the one presented to the
-  customer in early November. However, the team collectively recognizes the critical importance of
+  customer in early November.  However, the team collectively recognizes the critical importance of
   communicating reliable status information to the customer and working together with the customer
-  to remove roadblocks and pave the way forward. They work long hard hours over the break to revise
+  to remove roadblocks and pave the way forward.  They work long hard hours over the break to revise
   estimates and provide more visibility into what needs to be done.
 
   However, as a result of this detailed preparation work, it becomes painfully evident to the SPM
-  that the July 1st deadline cannot be met. The SPM recalls Fred Brooks’ warning about adding
-  resources to a project that is already late (makes it later). In fact, the SPM’s most optimistic
+  that the July 1st deadline cannot be met.  The SPM recalls Fred Brooks’ warning about adding
+  resources to a project that is already late (makes it later).  In fact, the SPM’s most optimistic
   completion date for any meaningful delivery works out to be the end of October – four months
-  later–and even that date would require an immediate freeze on all requirements! The situation is
+  later–and even that date would require an immediate freeze on all requirements!  The situation is
   clearly very critical.
 
   Discussion 9: Preparing for a Critical Meeting, January
 
   The Software Project Manager is on the edge of major confrontation with the customer.
 
-  a. Has the project team failed to consider any technical, management, or strategic actions that
-  could help the stakeholders converge on a workable and mutually acceptable solution?
 
-  b. What should the SPM do to prepare for the meeting to negotiate a reasonable result?
+  
 
 
 * Missed Considerations
 
+  /a.  Has the project team failed to consider any technical, management, or strategic actions that
+  could help the stakeholders converge on a workable and mutually acceptable solution?/
+
+  We prepared a flexibility matrix for exactly this sort of occasion.  If the schedule is the most
+  flexible thing we have to work with, then we can extend the end date.  If a certain segment of the
+  requirements is in the *Flexible* column, then those features can be trimmed (hopefully we haven't
+  already completed them) until we can meet the schedule.
+
+  Also, our risk planning should have identified scope creep and shaky requirements as risks.  We
+  should have a contingency plan for when these things happen, and we should have been watching them
+  all along.
+
+  In the end, it's really a function of what's most important to the customer.  I know this is bad
+  news, but it's better to find out now (when we still have time to make decisions) than two weeks
+  before the final delivery date.
+
+
 * Preparations
 
+  /b.  What should the SPM do to prepare for the meeting to negotiate a reasonable result?/
 
+  We should probably pay a lot of attention to softening the blow.  The customer was worried that
+  something was seriously wrong with how we were running the project, and it turns out that the
+  project is indeed in trouble.
 
-* Replies
+  This news will call into question the quality and completeness of much of the implementation work,
+  so it's important to give the customer the whole picture of where the project stands.  I still
+  think a color-coded Gantt or PERT chart is a good way to communicate this, so I'd prepare one of
+  those.  It's probably a good idea to communicate what's left of the requirements work, so a
+  version of the requirements document that's color-coded based on stability or completeness might
+  be a good idea.
+
+  So that's the "where we are" portion of the meeting.  Leaving aside the "interlude for hurling
+  blame," what's left is "where we go from here."  I'd first give the customer the option of cutting
+  features or extending the schedule, since the staffing profile seems to indicate that we're under
+  budget.  Based on the flexibility matrix, I'd prepare three or four options for bringing the
+  project to completion.  Since lots of customer bigwigs will be there, it's an excellent time to
+  get buy-in for whatever plan we end up with.x
+
+  
+
+* Replies                                                          :noexport:
   ( No replies necessary; do Assignment #3 instead)
