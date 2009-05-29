@@ -54,7 +54,7 @@ Week 8
   project’s objectives will be met in a reasonable and timely manner.
 
 
-* First Response
+* First Response                                                   :noexport:
 ** Progress
    /a. What specific technical and management perspectives and information indicating positive
    progress and potential roadblocks should be prepared for the meeting?/
@@ -89,7 +89,7 @@ Week 8
    just continue doing what we do best.
 
 * Replies
-** Thread as of sunday morning
+** Thread as of sunday morning                                     :noexport:
    Compiled Messages
 
    Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Monday, May
@@ -107,457 +107,729 @@ Week 8
 
    Subject: Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: Ayellet Wolman
 
-   <strong>a and c</strong><br />This could be the most critical meeting that the project had to
-   date, the SPM must convince the customer that they don't have to worry and that JDI are in
-   control of the project. In a project status meeting the customer stakeholders need to see four
-   things – 1. Overall status including a reiteration of JDI’s commitment to implementing the system
-   in strict compliance with their needs and expectations. <br />2. High\ Medium level project
-   status. <br />    a.Show the Project plan with key milestones and progress to date. <br />   
-   b.Key project indicators including Project budget utilization, Project staffing, SW modules
-   status, SW Quality status, Integration and verification status. <br />3. Project issues. <br
-   />    a.Lack of requirement baseline. <br />    b.Late changes in the requirements. <br />   
-   c. Major SW changes driven by the changing requirements.  <p>4.High level plan\ proposal moving
-   forward. <br />    a.The first thing the SPM should communicate the new processes that will be
-   implemented to control the project including requirement change control process (management and
-   approve requirements and changes to requirements), monitor project risks, track development
-   progress, and assure the quality of the internal (a.k.a. developmental) and external (customer)
-   product releases. <br />    b. Propose a revised release plan, instead of delivering the full
-   product on July 1st 2010 break the project down to 3 releases the first one the will be delivered
-   on July 1st that will include all the critical components/ requirements the second release 3
-   months later with the important components/ requirements and the third release will include all
-   the optional components/ requirements. </p> <p><strong>b</strong> <br />As the SPM prepares to
-   this meeting he should make sure that all the leads understand the importance and prepare the
-   information needed on time and 100% accurate, JDI cant have any surprises in this meeting. <br
-   />    Validation manager – must provide the SW quality status including number of bugs found and
-   fixed, number modules completed and successfully integrated. <br />    SW dev manager – Must
-   provide the number of modules completed, in progress and not started yet. <br />    Req manager –
-   breakdown the requirements into the functional area and provide statistics on what was completed
-   and what wasn't <br />    SPM – needs to provide the project status including milestone status,
-   project cost and staffing status.</p>
-
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
-   21, 2009
-
-   Subject: Re:Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: John
-   Waterbrook
-
-   <br/>Ayellet,<br/><br/>I totally agree that this could be the most critical meeting to date.  It
-   means that the customers are becoming very aware of the project and we are at the turning point
-   in the project where the customer involvement will start to increase as deadlines start to pass.
-   This meeting is about reaffirmation and comfort.  As you mentioned, status will definitely play a
-   huge role in accomplishing these.<br/><br/>You propose a lot of great things we can provide at
-   the meeting, it may even be beneficial to go one step further and say what we can provide on a
-   regular basis after the meeting (so this kind of thing doesn&#39;t happen again).  I mentioned a
-   one-page status at some interval.<br/><br/>I also agree that surprises are not what we want at
-   this meeting, I wonder if there is anything we can do before the meeting with the customers to
-   clear things up ahead of time.  The best kind of meeting like this is one where customers have
-   already used up their ammunition before the meeting.<br/><br/>Thanks for sharing, it was a great
-   read.<br/><br/>Johnny<br/>
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
-   22, 2009
-
-   Subject: Re:Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: Ayellet
-   Wolman
-
-   Johnny, <br/><br/>You brought up a great point, if possible we should meet with the customer
-   prior to the scheduled meeting to get from them a detailed list of their issues in writing and to
-   make sure that we address all of them as part of the presentation in the
-   meeting.<br/><br/>Ayellet
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
-   23, 2009
-
-   Subject: Re:Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: James
-   Thompson
+   <strong>a and c</strong>
 
-   Very good post Ayellet. I think the best idea is the thought of having an interim release. This
-   would be something the systems engineer (do we have one&#63;) and the developers would need to
-   consult on to determine if 1) we can develop three releases which have useable functionality, 2)
-   is this politically something which would benefit us; i.e., risk vs. reward, 3) detail the
-   project impact for risk, cost and schedule<br/><br/>You did a very good job in the project status
-   descriptions covering both positives and negatives. This should adequately show our positive
-   progress (and belief of an on-time completion), and the challenges and risks.<br/><br/>
+   This could be the most critical meeting that the project had to date, the SPM must convince the
+   customer that they don't have to worry and that JDI are in control of the project. In a project
+   status meeting the customer stakeholders need to see four things – 1. Overall status including a
+   reiteration of JDI’s commitment to implementing the system in strict compliance with their needs
+   and expectations.
 
+    1. High\ Medium level project status.
 
+          a.Show the Project plan with key milestones and progress to date.
 
+          b.Key project indicators including Project budget utilization, Project staffing, SW modules
+      status, SW Quality status, Integration and verification status.
 
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
-   21, 2009
+    2. Project issues.
 
-   Subject: Dan Pankani - Re:Part 8 for Team D: Where is the Project Headed?  Author: Dan Pankani
-
-   <b>QN A.</b> The JDI SPM must appear organized, informed and in-control of the project during the
-   meeting. The parts of the project that are completed must be highlighted and the uncompleted
-   portions must be shown to be well under way or at least well thought through. Additionally, the
-   issues and challenges caused by the client’s domain experts must be made know and addressed by
-   multiple alternative scenarios. To accomplish this, I feel the following are needed:
-
-   1. An updated organizational chart demonstrating adequate staffing for the remaining work
-   2. An updated WBS that distinguishes between work that has been completed versus work remaining
-   3. An update project schedule based on the most feasible development scenario alternative with
-   project milestones highlighting deadlines that the client’s domain experts must meet.
-   4. The SPM must be prepared to talk about schedule and priorities and address which components
-   are likely to be excluded to meet the fixed project completion date if requirements continue to
-   be vague.
-   5. An updated project budget, hopefully showing that the budget spent is in line with
-   expectations considering work that has been already completed
-   6. A risk analysis with alternative risk mitigation scenarios demonstrating that the SPM is well
-   aware of the road blocks ahead and is well prepared to deal with any eventuality
-
-   <b>QN B.</b> The team can take the following actions to prepare themselves and team leads for the
-   meeting
-   1. Consider putting together a demonstration of completed components of the project if feasible
-   2. The requirements team should put together a list of missing requirements and be prepared to
-   talk about impacts to the project if the requirements are not baselined soon
-   3. The development team should put together a list of all modules needed for the complete product
-   to the best of their knowledge, clearly indicating which have been completed and which
-   remain. Each of the modules must be tied to specific WBS element and requirements and the
-   requirements should be annotated to indicate whether they are well understood or are still vague
-   4. An updated progress report summary should be prepare specifically for the meeting, summarizing
-   the contents of all the progress reports that have been prepared to date to further demonstrate
-   progress.
-
-   <b>QN C.</b> The biggest risk as I perceive it is the changing and vague requirements. The drive
-   towards a requirements baseline is key. Therefore the team should consider presenting the
-   following tradeoffs to the client.
-   1. The team should present the “plan-to-complete” document with the processes that will be used
-   to manage the requirements going forward. The benefits of requirements management and control
-   should be explained to the client as benefit of the extra processes that are being introduced.
-   The aim is to get the client to approve the current requirements baseline which will in turn
-   cause the clients domain experts to be more efficient at producing the requirements. The benefit
-   to the client is that the schedule is more likely to be met.
-   2. If the clients domain experts feel like they need more time to figure out the requirements,
-   the team should propose to build the product for easy implementation of the personal storage
-   device and handheld device support for future versions of the product under a separate
-   contract. This will allow the current set of requirements to be baselined in a timely manner
-   3. Along the same lines the team could propose to sideline components whose requirements cannot
-   be baselined by a certain date to be implemented at a later date under a separate contract.
-
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
-   21, 2009
-
-   Subject: Re:Dan Pankani - Re:Part 8 for Team D: Where is the Project Headed?  Author: John
-   Waterbrook
-
-   <br/>Dan,<br/><br/>Great response.  I noticed that you thought of the unspoken side of things
-   including appearing in control and that the general demeanor of the management needs to be
-   confident.  Definitely an important aspect of how well this meeting will go.<br/><br/>I had
-   missed that staffing and headcount spreadsheets would be good in this situation as well.  I&#39;m
-   glad you brought up this point because some concern may be driven from lack of understanding in
-   this area.  Even though headcount doesn&#39;t necessarily mean that things are going to be done
-   fast (as many interns are not equal to a seasoned veteran) I believe it is still a good metric
-   for the meeting.<br/><br/>I also appreciate how you mentioned requirements as a key component in
-   the resolution of the customer concerns.  I might also suggest that mapping these requirements to
-   accomplished tasks may be additional information that the customers would like to
-   see.<br/><br/>Thanks for the write-up.<br/><br/>Johnny<br/>
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
-   23, 2009
-
-   Subject: Re:Dan Pankani - Re:Part 8 for Team D: Where is the Project Headed?  Author: Dan Pankani
-
-   Thanks for the kind comments Johnny, as always getting the requirements right is crucial to the
-   success of the project, hence my emphasis on the requirements. Thanks again for your comments.
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
-   21, 2009
-
-   Subject: Johnny - Week 8 Discussion - Topic 1 Author: John Waterbrook
-
-   <br/>a. What specific technical and management perspectives and information indicating positive
-   progress and potential roadblocks should be prepared for the meeting&#63;<br/><br/>We have a
-   thing at our work called a one-page status.  It contains a color indicating if we think the
-   project is green (on schedule), yellow, or red (hurting).  It shows a high-level gantt chart, and
-   a small list of accomplishments and risks, potential or current problems.  During the meeting, I
-   would propose that this be sent to the customers on a regular basis.<br/><br/>I would want to
-   provide updated documentation such as WBS and project plan, SRS ready for base-lining, and design
-   documents.  In fact, I may even want these sent out ahead so that they would have time to review
-   them and provide feedback before and during the meeting.<br/><br/>I would want to have a set of
-   customer identified risks and a mitigation plan for each.  Part of how we will calm them down is
-   be analyzing each problem and coming up with a solution.  It would be good for us to know all of
-   these anyway, just in case there is something that we missed that we hadn&#39;t thought of.
-   <br/><br/>I would definitely concentrate at a higher-level of technicality whenever possible in
-   the meeting.  A bunch of technical lingo is not what is needed at this meeting.  I believe we
-   would want the technical people present for support, but need to correctly administer the meeting
-   so it doesn&#39;t go down the wrong path.<br/><br/><br/>b. What specific actions should be taken
-   by the team to prepare for the meeting&#63;<br/><br/>I believe the team can go over what is done,
-   what needs to be done, and if they believe the estimates are off or reestimate.  This can be done
-   at a technical level and from their perspectives as a comparison with management
-   thoughts.<br/><br/>Development and Test can prepare test modules and test module outputs and
-   reports.  This will be a good indicator of functionality that is currently working in our
-   environment and will show progress.<br/><br/>Development can come up with a breakdown list of
-   accomplished tasks.  They may also have a better idea of how to organize them in documentation
-   now that they are complete.  This is also a good time to get started on some documentation that
-   may not have been planned to be complete until the end of the project.  Customers always like to
-   see things ahead of schedule, no matter how small they are.  A requirements checklist might also
-   be a good piece of information to give at the meeting that could be prepared by the
-   team.<br/><br/>The team may also be able to possibly prepare a few working modules as
-   demonstrations.  Usually demonstrations are a great way to get the “customer off your back”.
-   There&#39;s just something about a tangible/moving demonstration that brings relief when done
-   correctly.  In fact, pulling in a couple customer representatives to have a “sneak peek” before
-   the meeting might be a good idea as well so any small loose ends can be tied ahead of
-   time.<br/><br/>c. What tangible proposals and trade-offs should the team propose to the
-   customer&#63;<br/><br/>Requirements sounds to be like the main driver for the turmoil.  I believe
-   if requirements could be base-lined at this event, then people will feel more settled.  This can
-   also be used as a bargaining chip and should be at the center for trade-offs.<br/><br/>I would
-   propose that if we can get a solid set of requirements, then we can provide regular feedback on
-   which ones are complete.  A chart showing the number of 2nd or 3rd level requirements by week may
-   be the kind of visual feedback they need.<br/><br/>I&#39;m not sure, and that may be part of the
-   problem as well, what the concerns really are.  I think a pre-meeting just to get the initial
-   “attack” done with would be a great idea so that we could prepare for the meeting better.  Maybe
-   this is blowing it out of proportion, but it&#39;s hard to understand the severity of the
-   concern.<br/>
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
-   22, 2009
-
-   Subject: Re:Johnny - Week 8 Discussion - Topic 1 Author: Ayellet Wolman
-
-   Johnny, <br/><br/>Good answer,<br/>You mentioned that &quot;I would propose that if we can get a
-   solid set of requirements, then we can provide regular feedback on which ones are complete.&quot;
-   my question about this is - we were not successful to get this list stable over the past few
-   months so do you think it is even feasible to do it in the next 2 weeks&#63;<br/><br/>Great
-   answer<br/>Ayellet
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
-   23, 2009
-
-   Subject: Re:Johnny - Week 8 Discussion - Topic 1 Author: James Thompson
-
-   &gt;Development and Test can prepare test modules and test module outputs<br/>&gt;and
-   reports. This will be a good indicator of functionality that is<br/>&gt;currently working in our
-   environment and will show progress.<br/><br/>This is an idea I missed. The great thing about
-   completed signed off tests is that we are 100&#37; complete in an area and the resources can all
-   be moved to other areas. This should be the lead-off on our customer meeting. <br/><br/>&gt; The
-   team may also be able to possibly prepare a few working modules<br/>&gt;as
-   demonstrations…<br/><br/>I mentioned this also. Demonstrations are always appreciated and
-   generate excitement. I helped a buddy move a very large classic tractor some years ago. We rented
-   too small of trailer to move it causing a lot of smoke and burning smell from the tires. As my
-   buddy put it, that is the smell of progress! The demonstrations show progress and open up the
-   dialog to the solid proven foundation we are building upon, the cutting edge architecture and the
-   demonstrated knowledge of the business domain manifested in code.<br/><br/>&gt; I&#39;m not sure,
-   and that may be part of the problem as well, what the<br/>&gt;concerns really are. I think a
-   pre-meeting just to get the initial “attack”<br/>&gt;done with would be a great idea so that we
-   could prepare for the<br/>&gt;meeting better. Maybe this is blowing it out of proportion, but
-   it&#39;s hard<br/>&gt;to understand the severity of the concern.<br/><br/>A pre-meeting, probably
-   just between management teams is a good idea. This can be fairly informal in order to get a more
-   honest discussion on what the customer is thinking. JDI does not have to answer any tough
-   questions since we have the main meeting coming up afterward. The discussions will help us tailor
-   our presentations to best address customer concerns.<br/>
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
-   21, 2009
-
-   Subject: James Thompson Team D: Where is the Project Headed?  Author: James Thompson
-
-   a. What specific technical and management perspectives and information indicating positive
-   progress and potential roadblocks should be prepared for the meeting&#63; <br/><br/>Positive
-   progress<br/>-----------------<br/><br/>The ability to meet milestones would be the best
-   indication of positive progress. This will show that we can estimate and deliver. Each of the
-   completed tasks listed on the Gantt chart has a deliverable associated with it. Guiding the
-   customer through progress so far will show historical good management. Future milestones need to
-   be discussed also along with the probability of them being met.<br/><br/>Process improvements to
-   handle the increasing number of defects (from week 7 of the case study) should be showing
-   positive effects. The details of process improvement and metrics showing amount of improvement
-   need to be presented to the customer.<br/><br/>Since we have the goal of getting the current
-   requirements baseline approved it would be beneficial to go through the requirements-defining
-   evolutionary development process including what questions we needed to answer and what were our
-   results. This is a positive spin on why there are still requirements in need of approval (we
-   always planned on the project working in this manner.)<br/><br/>A product demonstration of the
-   latest baseline would show positive progress. Since we should be in the phase with iterative
-   development and periodic baselines there will be a working set of subsystems (if not we have
-   problems.) Some of the GUI interfaces can be demonstrated also to give an idea what the final
-   system will look like.<br/><br/>Road blocks<br/>------------<br/><br/>The deviation from
-   requirements by the customer&#39;s domain experts needs to be addressed. It is common for
-   developers at the individual level to commonly insert their own requirements [Fairley 429]. In
-   this case it happens to be the &quot;domain experts&quot; so we need to find out if these are
-   requirements which are missed (at which point they need to be addressed with the customer) or we
-   need to have the customer tell his/her people to stick with the requirements as approved. This
-   needs to be investigated before the meeting.<br/><br/>The sketchy requirements on personal
-   storage devices and handheld devices are a road block. Evolutionary development was supposed to
-   clear up the hand held device requirements. If we performed the initial requirements analysis at
-   the beginning of each spiral, planned the iteration, prototyped and evaluated the results then we
-   should have tangible results for the customer.<br/><br/>The &quot;personal storage&quot;
-   requirements were deemed low priority at the beginning of the project, we need to make sure that
-   either 1) still holds true or 2) make sure this is addressed by the customer. If this is given
-   higher priority then other requirements may be impacted.<br/><br/>b. What specific actions should
-   be taken by the team to prepare for the meeting&#63;<br/><br/>We need to determine why the domain
-   experts think that we have problems and what non-compliant activities JDI is supposed to be
-   doing. The psychology of the domain experts change in opinions between the time they were making
-   great progress implementing the UI, and the time of the poor status report to the client needs
-   investigation. If we can find out the source of the problem we can maybe get these developers
-   feeling better about the progress and more integrated back into the team.<br/><br/>Each of the
-   teams; development, test, requirements analysis, etc needs to detail progress made to date,
-   review future milestones and list risks which could jeopardize a successful completion. The risks
-   must be categorized by the probability of occurrence and impact. This list of categorized risks
-   would be useful to present to the customer.<br/><br/>The individual teams should be given
-   autonomy on what/how they want to present their status to the customer. The SPM needs to
-   communicate the objectives and coordinate with each team so that the presentations work well
-   together (similar format, consistent story) <br/><br/>The current plan is to detail the 70
-   finished modules as a way to show progress. This is a good idea if the SPM vision of tying them
-   back to WBS work packages is followed. Listing completed modules brings up question of how many
-   are incomplete, or not started. This information (modules left to complete) needs to be available
-   in detail.<br/><br/><br/>c. What tangible proposals and trade-offs should the team propose to the
-   customer&#63;<br/><br/>The impact to the schedule and product need to be calculated for delaying
-   approval of the requirements baseline. This trade off should be presented to the
-   customer.<br/><br/>The investigation into why the customer’s domain experts have changed attitude
-   should give us an idea what can help to make them feel more team oriented. This solution (or
-   solutions) could be proposed to the customer. For example; if some of the domain experts want to
-   learn a different technology such as web services or handheld device programming we can suggest a
-   plan to integrate some of them into other teams.<br/><br/>Since risk analysis will be completed
-   between now and the customer meeting, these risks must be categorized by probability and
-   impact. How those risks are to be handled needs to be proposed to the customer. Some risks we may
-   want to mitigate through changes in process or team makeup. Some risks will need to be monitored,
-   maybe through the addition of new metrics. Whatever risk mitigations strategies are determined to
-   be best need to be proposed.<br/><br/>Another goal is to get buy-in for the revised action
-   plan. Since we use rolling-wave planning, providing detailed planning for the next month and less
-   detail for the more distant future, this newly revised plan needs approval. Since we acknowledged
-   there are some holes in the design consultant’s preliminary specifications this should be
-   addressed in this plan as a priority for the coming month.<br/><br/>Since there are some
-   demonstrable modules this may be a good time to discuss the priority of requirements. Sometimes a
-   client perspective changes when they see actual running software.<br/><br/><br/>
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
-   22, 2009
-
-   Subject: Re:James Thompson Team D: Where is the Project Headed?  Author: Ayellet Wolman
-
-   James, <br/><br/>Very nice answer, one thing i missed was &quot;The investigation into why the
-   customer’s domain experts have changed attitude should give us an idea what can help to make them
-   feel more team oriented&quot; this is a great idea, how can we get the real answer from them&#63;
-   We could have a loyalty issue with them (more loyal to the customer then to help develop
-   JDI&#39;s project)<br/><br/>Ayellet
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
-   23, 2009
-
-   Subject: Re:James Thompson Team D: Where is the Project Headed?  Author: James Thompson
-
-   &gt;... how can we get the real answer from them&#63;<br/><br/>In my work so much time is spent
-   on finding a strategy to determine how someone &quot;feels&quot; that problems last till there is
-   no longer any chance of a solution. I&#39;d just ask them. The four developers probably have a
-   leader we can corner over coffee and ask, &quot;hey I hear you think corners are being cut on the
-   deliverable. Are there any particular areas you see as a problem&#63;&quot; This is pretty open
-   ended and not particularly combative.<br/>
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
-   23, 2009
-
-   Subject: Re:James Thompson Team D: Where is the Project Headed?  Author: Dan Pankani
-
-   James,<br/><br/>I think you touched on most of the key points. You suggested using the project
-   milestones to demonstrate our competence for meeting targets in the past, and I think that is a
-   very good idea. You also mentioned using the evolutionary nature of the early phases as an
-   explanation for the state of the requirements which I think is a good idea, but could also be
-   used as an excuse by the domain experts to justify their apparent indecision with regards to the
-   changing requirements. The only thing that is still missing from all the posts I have read
-   including mine is how to get the domain experts to work with JDI as a team and prevent an
-   adverserial relationship from developing. <br/><br/>I enjoyed your post and it was very detailed
-   and well written.<br/><br/>Thanks
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
-   22, 2009
-
-   Subject: Ben Straub:Part 8 for Team D: Where is the Project Headed?  Author: Benjamin Straub
-
-   <h2 id="sec-2">Progress </h2> <div class="outline-text-2" id="text-2">
-
-   <p><i>a. What specific technical and management perspectives and information indicating positive
-   progress and potential roadblocks should be prepared for the meeting?</i> </p> <p> I'd
-   communicate positive progress by showing a color-coded version of the project PERT chart, with
-   the completed tasks shaded green.  This meeting is about reassuring the customer, so it's
-   important to focus on the big picture without showering them with too many details.  </p> <p>
-   Likewise with the plan for potential roadblocks.  I'd give them an overview of the 5 issues I'm
-   spending most of my time nailing down, and what my plan is for addressing each.  Again, it's
-   important to provide the right level of detail here; too much and their eyes will glaze over, too
-   little and they won't believe us.  </p>
-
-   </div>
-
-   </div>
-
-   <div id="outline-container-3" class="outline-2"> <h2 id="sec-3">Preparation </h2> <div
-   class="outline-text-2" id="text-3">
-
-   <p><i>b. What specific actions should be taken by the team to prepare for the meeting?</i> </p>
-   <p> Take a look at the defect list, and make sure they all know the most serious bugs in their
-   subsystems.  They should pay special attention to any defects actually found by the customer; we
-   should be prepared to explain what we intend to do about these.  </p> <p> I'd also have them look
-   at the tasks they'll be starting soon, so they have an idea of where the entire project stands.
-   </p>
-
-   </div>
-
-   </div>
-
-   <div id="outline-container-4" class="outline-2"> <h2 id="sec-4">Proposals </h2> <div
-   class="outline-text-2" id="text-4">
-
-   <p><i>c. What tangible proposals and trade-offs should the team propose to the customer?</i> </p>
-   <p> I'm not sure I understand the question; the customer hasn't asked us for any.  It seems
-   foolish to give proposals before the customer tells us what's wrong, and it might send the wrong
-   message.  If the customer wants to change something, we can do that, but until then we should
-   just continue doing what we do best.  </p>
-
-   </div>
-
-
-
-
-
-   Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
-   23, 2009
-
-   Subject: Re:Ben Straub:Part 8 for Team D: Where is the Project Headed?  Author: James Thompson
-
-   Good idea on color coding the PERT/Gantt chart(s). We had an Air Force contract which required
-   color coding status as red/yellow/green. They appreciated it and I think the status was better
-   since more information was given to justify the color coding.<br/><br/>I also agree with your
-   assessment of Part C (proposals.)  If the current plan is working then don&#39;t change the
-   plan. I viewed this as being the rolling-wave planning where we have to provide updates for the
-   next two rolling-wave months and provide status on the completed thoroughly planned month.<br/>
+           a.Lack of requirement baseline.
+
+           b.Late changes in the requirements.
+
+           c. Major SW changes driven by the changing requirements.  <p>
+
+    3. High level plan\ proposal moving forward.
+
+          a.The first thing the SPM should communicate the new processes that will be
+      implemented to control the project including requirement change control process (management and
+      approve requirements and changes to requirements), monitor project risks, track development
+      progress, and assure the quality of the internal (a.k.a. developmental) and external (customer)
+      product releases.
+
+          b. Propose a revised release plan, instead of delivering the full product on July 1st 2010
+      break the project down to 3 releases the first one the will be delivered on July 1st that will
+      include all the critical components/ requirements the second release 3 months later with the
+      important components/ requirements and the third release will include all the optional
+      components/ requirements. </p>
+
+       <p><strong>b</strong>
+
+      As the SPM prepares to this meeting he should make sure that all the leads understand the
+      importance and prepare the information needed on time and 100% accurate, JDI cant have any
+      surprises in this meeting.
+
+          Validation manager – must provide the SW quality status including number of bugs found and
+      fixed, number modules completed and successfully integrated.
+
+          SW dev manager – Must provide the number of modules completed, in progress and not started
+      yet.
+
+          Req manager – breakdown the requirements into the functional area and provide statistics
+      on what was completed and what wasn't
+
+          SPM – needs to provide the project status including milestone status, project cost and
+      staffing status.</p>
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
+      21, 2009
+
+      Subject: Re:Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: John
+      Waterbrook
+
+
+
+      Ayellet,
+
+
+
+      I totally agree that this could be the most critical meeting to date.  It means that the
+      customers are becoming very aware of the project and we are at the turning point in the
+      project where the customer involvement will start to increase as deadlines start to pass.
+      This meeting is about reaffirmation and comfort.  As you mentioned, status will definitely
+      play a huge role in accomplishing these.
+
+
+
+      You propose a lot of great things we can provide at the meeting, it may even be beneficial to
+      go one step further and say what we can provide on a regular basis after the meeting (so this
+      kind of thing doesn&#39;t happen again).  I mentioned a one-page status at some interval.
+
+
+
+      I also agree that surprises are not what we want at this meeting, I wonder if there is
+      anything we can do before the meeting with the customers to clear things up ahead of time.
+      The best kind of meeting like this is one where customers have already used up their
+      ammunition before the meeting.
+
+
+
+      Thanks for sharing, it was a great read.
+
+
+
+      Johnny
+
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
+      22, 2009
+
+      Subject: Re:Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: Ayellet
+      Wolman
+
+      Johnny,
+
+
+
+      You brought up a great point, if possible we should meet with the customer prior to the
+      scheduled meeting to get from them a detailed list of their issues in writing and to make sure
+      that we address all of them as part of the presentation in the meeting.
+
+
+
+      Ayellet
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
+      23, 2009
+
+      Subject: Re:Ayellet Wolman:Part 8 for Team D: Where is the Project Headed?  Author: James
+      Thompson
+
+      Very good post Ayellet. I think the best idea is the thought of having an interim release. This
+      would be something the systems engineer (do we have one&#63;) and the developers would need to
+      consult on to determine if 1) we can develop three releases which have useable functionality, 2)
+      is this politically something which would benefit us; i.e., risk vs. reward, 3) detail the
+      project impact for risk, cost and schedule
+
+
+
+      You did a very good job in the project status descriptions covering both positives and
+      negatives. This should adequately show our positive progress (and belief of an on-time
+      completion), and the challenges and risks.
+
+
+
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
+      21, 2009
+
+      Subject: Dan Pankani - Re:Part 8 for Team D: Where is the Project Headed?  Author: Dan Pankani
+
+      <b>QN A.</b> The JDI SPM must appear organized, informed and in-control of the project during the
+      meeting. The parts of the project that are completed must be highlighted and the uncompleted
+      portions must be shown to be well under way or at least well thought through. Additionally, the
+      issues and challenges caused by the client’s domain experts must be made know and addressed by
+      multiple alternative scenarios. To accomplish this, I feel the following are needed:
+
+      1. An updated organizational chart demonstrating adequate staffing for the remaining work
+      2. An updated WBS that distinguishes between work that has been completed versus work remaining
+      3. An update project schedule based on the most feasible development scenario alternative with
+         project milestones highlighting deadlines that the client’s domain experts must meet.
+      4. The SPM must be prepared to talk about schedule and priorities and address which components
+         are likely to be excluded to meet the fixed project completion date if requirements
+         continue to be vague.
+      5. An updated project budget, hopefully showing that the budget spent is in line with
+         expectations considering work that has been already completed
+      6. A risk analysis with alternative risk mitigation scenarios demonstrating that the SPM is
+         well aware of the road blocks ahead and is well prepared to deal with any eventuality
+
+      <b>QN B.</b> The team can take the following actions to prepare themselves and team leads for
+      the meeting
+      1. Consider putting together a demonstration of completed components of the project if feasible
+      2. The requirements team should put together a list of missing requirements and be prepared to
+         talk about impacts to the project if the requirements are not baselined soon
+      3. The development team should put together a list of all modules needed for the complete
+         product to the best of their knowledge, clearly indicating which have been completed and
+         which remain. Each of the modules must be tied to specific WBS element and requirements and
+         the requirements should be annotated to indicate whether they are well understood or are
+         still vague
+      4. An updated progress report summary should be prepare specifically for the meeting,
+         summarizing the contents of all the progress reports that have been prepared to date to
+         further demonstrate progress.
+
+      <b>QN C.</b> The biggest risk as I perceive it is the changing and vague requirements. The
+      drive towards a requirements baseline is key. Therefore the team should consider presenting
+      the following tradeoffs to the client.
+      1. The team should present the “plan-to-complete” document with the processes that will be
+         used to manage the requirements going forward. The benefits of requirements management and
+         control should be explained to the client as benefit of the extra processes that are being
+         introduced.  The aim is to get the client to approve the current requirements baseline
+         which will in turn cause the clients domain experts to be more efficient at producing the
+         requirements. The benefit to the client is that the schedule is more likely to be met.
+      2. If the clients domain experts feel like they need more time to figure out the requirements,
+         the team should propose to build the product for easy implementation of the personal
+         storage device and handheld device support for future versions of the product under a
+         separate contract. This will allow the current set of requirements to be baselined in a
+         timely manner
+      3. Along the same lines the team could propose to sideline components whose requirements
+         cannot be baselined by a certain date to be implemented at a later date under a separate
+         contract.
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
+      21, 2009
+
+      Subject: Re:Dan Pankani - Re:Part 8 for Team D: Where is the Project Headed?  Author: John
+      Waterbrook
+
+
+
+      Dan,
+
+
+
+      Great response.  I noticed that you thought of the unspoken side of things including appearing
+      in control and that the general demeanor of the management needs to be confident.  Definitely
+      an important aspect of how well this meeting will go.
+
+
+
+      I had missed that staffing and headcount spreadsheets would be good in this situation as well.
+      I&#39;m glad you brought up this point because some concern may be driven from lack of
+      understanding in this area.  Even though headcount doesn&#39;t necessarily mean that things
+      are going to be done fast (as many interns are not equal to a seasoned veteran) I believe it
+      is still a good metric for the meeting.
+
+
+
+      I also appreciate how you mentioned requirements as a key component in the resolution of the
+      customer concerns.  I might also suggest that mapping these requirements to accomplished tasks
+      may be additional information that the customers would like to see.
+
+
+
+      Thanks for the write-up.
+
+
+
+      Johnny
+
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
+      23, 2009
+
+      Subject: Re:Dan Pankani - Re:Part 8 for Team D: Where is the Project Headed?  Author: Dan Pankani
+
+      Thanks for the kind comments Johnny, as always getting the requirements right is crucial to
+      the success of the project, hence my emphasis on the requirements. Thanks again for your
+      comments.
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday,
+      May 21, 2009
+
+      Subject: Johnny - Week 8 Discussion - Topic 1 Author: John Waterbrook
+
+
+
+      a. What specific technical and management perspectives and information indicating positive
+      progress and potential roadblocks should be prepared for the meeting&#63;
+
+
+
+      We have a thing at our work called a one-page status.  It contains a color indicating if we
+      think the project is green (on schedule), yellow, or red (hurting).  It shows a high-level
+      gantt chart, and a small list of accomplishments and risks, potential or current problems.
+      During the meeting, I would propose that this be sent to the customers on a regular basis.
+
+
+
+      I would want to provide updated documentation such as WBS and project plan, SRS ready for
+      base-lining, and design documents.  In fact, I may even want these sent out ahead so that they
+      would have time to review them and provide feedback before and during the meeting.
+
+
+
+      I would want to have a set of customer identified risks and a mitigation plan for each.  Part
+      of how we will calm them down is be analyzing each problem and coming up with a solution.  It
+      would be good for us to know all of these anyway, just in case there is something that we
+      missed that we hadn&#39;t thought of.
+
+
+
+
+      I would definitely concentrate at a higher-level of technicality whenever possible in the
+      meeting.  A bunch of technical lingo is not what is needed at this meeting.  I believe we
+      would want the technical people present for support, but need to correctly administer the
+      meeting so it doesn&#39;t go down the wrong path.
+
+
+
+
+
+      b. What specific actions should be taken by the team to prepare for the meeting&#63;
+
+
+
+      I believe the team can go over what is done, what needs to be done, and if they believe the
+      estimates are off or reestimate.  This can be done at a technical level and from their
+      perspectives as a comparison with management thoughts.
+
+
+
+      Development and Test can prepare test modules and test module outputs and reports.  This will
+      be a good indicator of functionality that is currently working in our environment and will
+      show progress.
+
+
+
+      Development can come up with a breakdown list of accomplished tasks.  They may also have a
+      better idea of how to organize them in documentation now that they are complete.  This is also
+      a good time to get started on some documentation that may not have been planned to be complete
+      until the end of the project.  Customers always like to see things ahead of schedule, no
+      matter how small they are.  A requirements checklist might also be a good piece of information
+      to give at the meeting that could be prepared by the team.
+
+
+
+      The team may also be able to possibly prepare a few working modules as demonstrations.
+      Usually demonstrations are a great way to get the “customer off your back”.  There&#39;s just
+      something about a tangible/moving demonstration that brings relief when done correctly.  In
+      fact, pulling in a couple customer representatives to have a “sneak peek” before the meeting
+      might be a good idea as well so any small loose ends can be tied ahead of time.
+
+
+
+      c. What tangible proposals and trade-offs should the team propose to the customer&#63;
+
+
+
+      Requirements sounds to be like the main driver for the turmoil.  I believe if requirements
+      could be base-lined at this event, then people will feel more settled.  This can also be used
+      as a bargaining chip and should be at the center for trade-offs.
+
+
+
+      I would propose that if we can get a solid set of requirements, then we can provide regular
+      feedback on which ones are complete.  A chart showing the number of 2nd or 3rd level
+      requirements by week may be the kind of visual feedback they need.
+
+
+
+      I&#39;m not sure, and that may be part of the problem as well, what the concerns really are.
+      I think a pre-meeting just to get the initial “attack” done with would be a great idea so that
+      we could prepare for the meeting better.  Maybe this is blowing it out of proportion, but
+      it&#39;s hard to understand the severity of the concern.
+
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday,
+      May 22, 2009
+
+      Subject: Re:Johnny - Week 8 Discussion - Topic 1 Author: Ayellet Wolman
+
+      Johnny,
+
+
+
+      Good answer,
+
+      You mentioned that &quot;I would propose that if we can get a solid set of requirements, then
+      we can provide regular feedback on which ones are complete.&quot; my question about this is -
+      we were not successful to get this list stable over the past few months so do you think it is
+      even feasible to do it in the next 2 weeks&#63;
+
+
+
+      Great answer
+
+      Ayellet
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
+      23, 2009
+
+      Subject: Re:Johnny - Week 8 Discussion - Topic 1 Author: James Thompson
+
+      &gt;Development and Test can prepare test modules and test module outputs
+      &gt;and reports. This will be a good indicator of functionality that is
+      &gt;currently working in our environment and will show progress.
+
+
+
+      This is an idea I missed. The great thing about completed signed off tests is that we are
+      100&#37; complete in an area and the resources can all be moved to other areas. This should be
+      the lead-off on our customer meeting.
+
+
+
+      &gt; The team may also be able to possibly prepare a few working modules
+      &gt;as demonstrations…
+
+
+
+      I mentioned this also. Demonstrations are always appreciated and generate excitement. I helped
+      a buddy move a very large classic tractor some years ago. We rented too small of trailer to
+      move it causing a lot of smoke and burning smell from the tires. As my buddy put it, that is
+      the smell of progress! The demonstrations show progress and open up the dialog to the solid
+      proven foundation we are building upon, the cutting edge architecture and the demonstrated
+      knowledge of the business domain manifested in code.
+
+
+
+      &gt; I&#39;m not sure, and that may be part of the problem as well, what the
+      &gt;concerns really are. I think a pre-meeting just to get the initial “attack”
+      &gt;done with would be a great idea so that we could prepare for the
+      &gt;meeting better. Maybe this is blowing it out of proportion, but it&#39;s hard
+      &gt;to understand the severity of the concern.
+
+
+
+      A pre-meeting, probably just between management teams is a good idea. This can be fairly
+      informal in order to get a more honest discussion on what the customer is thinking. JDI does
+      not have to answer any tough questions since we have the main meeting coming up afterward. The
+      discussions will help us tailor our presentations to best address customer concerns.
+
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Thursday, May
+      21, 2009
+
+      Subject: James Thompson Team D: Where is the Project Headed?  Author: James Thompson
+
+      a. What specific technical and management perspectives and information indicating positive
+      progress and potential roadblocks should be prepared for the meeting&#63;
+
+
+
+      Positive progress
+
+      -----------------
+
+
+
+      The ability to meet milestones would be the best indication of positive progress. This will
+      show that we can estimate and deliver. Each of the completed tasks listed on the Gantt chart
+      has a deliverable associated with it. Guiding the customer through progress so far will show
+      historical good management. Future milestones need to be discussed also along with the
+      probability of them being met.
+
+
+
+      Process improvements to handle the increasing number of defects (from week 7 of the case
+      study) should be showing positive effects. The details of process improvement and metrics
+      showing amount of improvement need to be presented to the customer.
+
+
+
+      Since we have the goal of getting the current requirements baseline approved it would be
+      beneficial to go through the requirements-defining evolutionary development process including
+      what questions we needed to answer and what were our results. This is a positive spin on why
+      there are still requirements in need of approval (we always planned on the project working in
+      this manner.)
+
+
+
+      A product demonstration of the latest baseline would show positive progress. Since we should
+      be in the phase with iterative development and periodic baselines there will be a working set
+      of subsystems (if not we have problems.) Some of the GUI interfaces can be demonstrated also
+      to give an idea what the final system will look like.
+
+
+
+      Road blocks
+
+      ------------
+
+
+
+      The deviation from requirements by the customer&#39;s domain experts needs to be addressed. It
+      is common for developers at the individual level to commonly insert their own requirements
+      [Fairley 429]. In this case it happens to be the &quot;domain experts&quot; so we need to find
+      out if these are requirements which are missed (at which point they need to be addressed with
+      the customer) or we need to have the customer tell his/her people to stick with the
+      requirements as approved. This needs to be investigated before the meeting.
+
+
+
+      The sketchy requirements on personal storage devices and handheld devices are a road
+      block. Evolutionary development was supposed to clear up the hand held device requirements. If
+      we performed the initial requirements analysis at the beginning of each spiral, planned the
+      iteration, prototyped and evaluated the results then we should have tangible results for the
+      customer.
+
+
+
+      The &quot;personal storage&quot; requirements were deemed low priority at the beginning of the
+      project, we need to make sure that either 1) still holds true or 2) make sure this is
+      addressed by the customer. If this is given higher priority then other requirements may be
+      impacted.
+
+
+
+      b. What specific actions should be taken by the team to prepare for the meeting&#63;
+
+
+
+      We need to determine why the domain experts think that we have problems and what non-compliant
+      activities JDI is supposed to be doing. The psychology of the domain experts change in
+      opinions between the time they were making great progress implementing the UI, and the time of
+      the poor status report to the client needs investigation. If we can find out the source of the
+      problem we can maybe get these developers feeling better about the progress and more
+      integrated back into the team.
+
+
+
+      Each of the teams; development, test, requirements analysis, etc needs to detail progress made
+      to date, review future milestones and list risks which could jeopardize a successful
+      completion. The risks must be categorized by the probability of occurrence and impact. This
+      list of categorized risks would be useful to present to the customer.
+
+
+
+      The individual teams should be given autonomy on what/how they want to present their status to
+      the customer. The SPM needs to communicate the objectives and coordinate with each team so
+      that the presentations work well together (similar format, consistent story)
+
+
+
+      The current plan is to detail the 70 finished modules as a way to show progress. This is a
+      good idea if the SPM vision of tying them back to WBS work packages is followed. Listing
+      completed modules brings up question of how many are incomplete, or not started. This
+      information (modules left to complete) needs to be available in detail.
+
+
+
+
+
+      c. What tangible proposals and trade-offs should the team propose to the customer&#63;
+
+
+
+      The impact to the schedule and product need to be calculated for delaying approval of the
+      requirements baseline. This trade off should be presented to the customer.
+
+
+
+      The investigation into why the customer’s domain experts have changed attitude should give us
+      an idea what can help to make them feel more team oriented. This solution (or solutions) could
+      be proposed to the customer. For example; if some of the domain experts want to learn a
+      different technology such as web services or handheld device programming we can suggest a plan
+      to integrate some of them into other teams.
+
+
+
+      Since risk analysis will be completed between now and the customer meeting, these risks must
+      be categorized by probability and impact. How those risks are to be handled needs to be
+      proposed to the customer. Some risks we may want to mitigate through changes in process or
+      team makeup. Some risks will need to be monitored, maybe through the addition of new
+      metrics. Whatever risk mitigations strategies are determined to be best need to be proposed.
+
+
+
+      Another goal is to get buy-in for the revised action plan. Since we use rolling-wave planning,
+      providing detailed planning for the next month and less detail for the more distant future,
+      this newly revised plan needs approval. Since we acknowledged there are some holes in the
+      design consultant’s preliminary specifications this should be addressed in this plan as a
+      priority for the coming month.
+
+
+
+      Since there are some demonstrable modules this may be a good time to discuss the priority of
+      requirements. Sometimes a client perspective changes when they see actual running software.
+
+
+
+
+
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
+      22, 2009
+
+      Subject: Re:James Thompson Team D: Where is the Project Headed?  Author: Ayellet Wolman
+
+      James,
+
+
+
+      Very nice answer, one thing i missed was &quot;The investigation into why the customer’s
+      domain experts have changed attitude should give us an idea what can help to make them feel
+      more team oriented&quot; this is a great idea, how can we get the real answer from them&#63;
+      We could have a loyalty issue with them (more loyal to the customer then to help develop
+      JDI&#39;s project)
+
+
+
+      Ayellet
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
+      23, 2009
+
+      Subject: Re:James Thompson Team D: Where is the Project Headed?  Author: James Thompson
+
+      &gt;... how can we get the real answer from them&#63;
+
+
+
+      In my work so much time is spent on finding a strategy to determine how someone
+      &quot;feels&quot; that problems last till there is no longer any chance of a solution. I&#39;d
+      just ask them. The four developers probably have a leader we can corner over coffee and ask,
+      &quot;hey I hear you think corners are being cut on the deliverable. Are there any particular
+      areas you see as a problem&#63;&quot; This is pretty open ended and not particularly
+      combative.
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
+      23, 2009
+
+      Subject: Re:James Thompson Team D: Where is the Project Headed?  Author: Dan Pankani
+
+      James,
+
+      I think you touched on most of the key points. You suggested using the project milestones to
+      demonstrate our competence for meeting targets in the past, and I think that is a very good
+      idea. You also mentioned using the evolutionary nature of the early phases as an explanation
+      for the state of the requirements which I think is a good idea, but could also be used as an
+      excuse by the domain experts to justify their apparent indecision with regards to the changing
+      requirements. The only thing that is still missing from all the posts I have read including
+      mine is how to get the domain experts to work with JDI as a team and prevent an adverserial
+      relationship from developing.
+
+      I enjoyed your post and it was very detailed and well written.
+
+      Thanks
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Friday, May
+      22, 2009
+
+      Subject: Ben Straub:Part 8 for Team D: Where is the Project Headed?  Author: Benjamin Straub
+
+      <h2 id="sec-2">Progress </h2> <div class="outline-text-2" id="text-2">
+
+      <p><i>a. What specific technical and management perspectives and information indicating positive
+      progress and potential roadblocks should be prepared for the meeting?</i> </p> <p> I'd
+      communicate positive progress by showing a color-coded version of the project PERT chart, with
+      the completed tasks shaded green.  This meeting is about reassuring the customer, so it's
+      important to focus on the big picture without showering them with too many details.  </p> <p>
+      Likewise with the plan for potential roadblocks.  I'd give them an overview of the 5 issues I'm
+      spending most of my time nailing down, and what my plan is for addressing each.  Again, it's
+      important to provide the right level of detail here; too much and their eyes will glaze over, too
+      little and they won't believe us.  </p>
+
+      </div>
+
+      </div>
+
+      <div id="outline-container-3" class="outline-2"> <h2 id="sec-3">Preparation </h2> <div
+      class="outline-text-2" id="text-3">
+
+      <p><i>b. What specific actions should be taken by the team to prepare for the meeting?</i> </p>
+      <p> Take a look at the defect list, and make sure they all know the most serious bugs in their
+      subsystems.  They should pay special attention to any defects actually found by the customer; we
+      should be prepared to explain what we intend to do about these.  </p> <p> I'd also have them look
+      at the tasks they'll be starting soon, so they have an idea of where the entire project stands.
+      </p>
+
+      </div>
+
+      </div>
+
+      <div id="outline-container-4" class="outline-2"> <h2 id="sec-4">Proposals </h2> <div
+      class="outline-text-2" id="text-4">
+
+      <p><i>c. What tangible proposals and trade-offs should the team propose to the customer?</i> </p>
+      <p> I'm not sure I understand the question; the customer hasn't asked us for any.  It seems
+      foolish to give proposals before the customer tells us what's wrong, and it might send the wrong
+      message.  If the customer wants to change something, we can do that, but until then we should
+      just continue doing what we do best.  </p>
+
+      </div>
+
+
+
+
+
+      Topic: Part 8: Where is the Project Headed? December 24th (Merry Christmas!)  Date: Saturday, May
+      23, 2009
+
+      Subject: Re:Ben Straub:Part 8 for Team D: Where is the Project Headed?  Author: James Thompson
+
+      Good idea on color coding the PERT/Gantt chart(s). We had an Air Force contract which required
+      color coding status as red/yellow/green. They appreciated it and I think the status was better
+      since more information was given to justify the color coding.
+
+      I also agree with your assessment of Part C (proposals.)  If the current plan is working then
+      don&#39;t change the plan. I viewed this as being the rolling-wave planning where we have to
+      provide updates for the next two rolling-wave months and provide status on the completed
+      thoroughly planned
+
+
 
 ** My replies
 
@@ -566,3 +838,31 @@ Week 8
 
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil
+*** Ayellet / Johnny
+    /The best kind of meeting like this is one where customers have already used up their ammunition
+    before the meeting./
+
+    Johnny, your point is well taken.  I wonder how much of this is driven by politics, and if we're
+    being set up for an ambush.  Funny, I just read a [[http://www.randsinrepose.com/archives/2009/05/10/the_screwme_scenario.html][blog post]] about this.
+*** Johnny / James
+    /A pre-meeting, probably just between management teams is a good idea. This can be fairly
+    informal in order to get a more honest discussion on what the customer is thinking./
+
+    I think this cuts right to the point -- it's not really clear what the customer is worried
+    about.  In the face of this, and assuming we've been communicating properly with them all along,
+    it's hard to know what exactly to say at this big meeting, so we of course say everything we can
+    think of.
+
+    Maybe this is an indication that the communication channels we've set up aren't effective.
+    Are we not giving out the right information?  Are they just not getting it?  Are they not giving
+    us feedback, or are we not getting it?  Something clearly isn't working if something as simple
+    as a rumor can set off a firestorm like this.
+*** James / Ayellet / James
+    /I'd just ask them./
+
+    How refreshing! :)
+
+    This is about the best way I can think of to get a preview of what's going to happen at the
+    meeting.  In my experience the best way to cut through potentially-ugly politics by being
+    up-front and honest.  Everything about this situation reeks of a political in-fight, and it's
+    best for the project if we get past it as quickly as possible.
