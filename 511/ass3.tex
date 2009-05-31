@@ -170,6 +170,7 @@ This plan has several external dependencies:
 \end{itemize}
 
 \subsection{Project Deliverables}
+\label{deliverables}
 This project's deliverables are:
 
 \begin{itemize}
@@ -242,9 +243,9 @@ managed by requiring each release to be approved by the change control board.
 %-------------------------------------------------------------------------------
 \section{Definitions}
 \begin{description}
-\item[CHG] Columbia Healthcare Group
-\item[AEHS] Advanced E-Healthcare System
-\item[CPS] Claims Processing System
+\item[CHG] --~ Columbia Healthcare Group
+\item[AEHS] --~ Advanced E-Healthcare System
+\item[CPS] --~ Claims Processing System
 \end{description}
 
 
@@ -544,11 +545,11 @@ to the project owners in the customer and JDI organizations.
 \subsubsection{Metrics Collection}
 The following collection mechanisms will be utilized:
 \begin{description}
-\item[Effort] -- All engineers enter actual-effort-against-task numbers into a time-tracking
+\item[Effort] --~ All engineers enter actual-effort-against-task numbers into a time-tracking
   application.  All task work is tracked this way, including project management.
-\item[Defects] -- The defect-tracking application includes analysis features for trending and
+\item[Defects] --~ The defect-tracking application includes analysis features for trending and
   statistics.
-\item[Code Metrics] -- The continuous-integration system runs all checked-in code through the
+\item[Code Metrics] --~ The continuous-integration system runs all checked-in code through the
   compiler, static analysis tools, and unit tests.
 \end{description}
 
@@ -679,27 +680,80 @@ Project plans and requirements specifications will be placed into configuration 
 which uses a version control tool for document storage.  These documents are deemed to be ready for
 baseline when both the customer and the project management team sign off.  Any changes to these
 documents after they are baselined must be proposed in the form of a change request, and be approved
-by the CCB.  The CCB includes representatives from the project team, the customer, and JDI
-management.
+by the CCB.  The CCB includes representatives from the project team, CHG management, and the JDI QA
+department.
 
 
 \subsection{Software Quality Assurance}
 \todo[inline]{How will you ensure that your documents and code have been independently reviewed by
-  someone on your team?}
+  someone on your team?
 
-Verification and validation will be performed by the JDI SQA team.  All documents controlled by CM
-are to be formally inspected under the supervision of this team.  
+  How assured that fulfilling commitments to rocesses spec'd in requirements spec, spmp, supporting
+  plans, standards, procedures, guidelines? Analysis, inspections, reviews, audits, assessments.
+}
+
+Quality assurance activities will be performed by the JDI SQA team.  This team reports to JDI
+management, and so is functionally independent from the project team and leadership.  Their findings
+will be reported to both the AEHS project and CHG management teams.
+
+\begin{description}
+\item[Inspections] --~ The QA team will facilitate inspections of all documents that are to be
+  baselined.  This inspection must pass, and all action items completed, before the inspected item
+  is placed into configuration management.
+\item[Analysis] --~ \todo{Remove?}
+\item[Reviews] --~ Semi-formal retrospectives will be held at each major milestone to find issues
+  with process conformance and interactions.  A formal project retrospective will be held once the
+  AEHS project is closed.
+\item[Audits] --~ Process audits will be performed on a quarterly basis.  These audits will
+  determine how closely the project team is adhering to their stated processes.
+\item[Assessments] --~ This project will include an informal CMMI Level 3 assessment.
+\end{description}
 
 
 \subsection{Documentation Management}
 \todo[inline]{Describe how you will manage the key software documents produced by the project, in
   particular the SPMP, SRS, SAD, user documentation and other key customer deliverables.  How will
-  you review, approve, and release these documents (what, who, how, when)?}
+  you review, approve, and release these documents (what, who, how, when)?
+
+  What documents generated?  Templates/standards?  Who responsible for providing info, generating
+  docs, reviewing, accepting?  Which are placed in ver. control?  When are review/baseline versions
+  due?
+
+  Nondeliverables: requirements specs, design documentation, traceability matrices, test plans,
+  meeting minutes, review reports, action items, change requests, defect reports.
+
+  Deliverables: source code, binary code, manual, on-line help, regression test suite, configuration
+  library, principles of operation, maintenance guide, stuff from \ref{deliverables}.
+}
+
+All documents covered by this plan shall be placed in version control, starting with the appropriate
+template.  Standard JDI templates will be used for all documents except where requested by CHG.
+These templates are subject to review by QA.
+
+The following documents are covered by this plan.
+
+\begin{tabular}{llll}
+  \bf Document & \bf Template & \bf Content & \bf Review/Acceptance \\
+  \hline \hline
+  SPMP & JDI SPMP & SPM & CHG/JDI management
+\end{tabular}
+% \begin{description}
+% \item[SPMP] --~ Uses the JDI SPMP template.  SPM provides content, review and acceptance by CHG and
+%   JDI management.
+% \item[SRS] --~ Uses the JDI SRS template.  RM responsible for content, review and acceptance by CHG
+%   management.
+% \end{description}
+
+
 
 \subsection{Subcontractor Management}
 \todo[inline]{Describe the work that will be contracted out, if any, deliverables, schedules for
   delivery, and subcontractor control mechanisms to be used to ensure timeliness and quality of
-  deliverables.  }
+  deliverables.
+
+  How selected and managed? Who resp. for preparing mgmt plans? Who resp. for providing technical/
+  managerial interfaces?  
+}
 
 
 
