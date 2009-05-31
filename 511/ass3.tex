@@ -23,6 +23,8 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{11pt plus 3pt minus 2pt}
 
+\newcommand{\loadedcost}{\$2,400 per staff-week}
+
 \begin{document}
 
 
@@ -489,34 +491,111 @@ project team follows specified procedures and processes.
   \end{tabular}
 \end{center}
 
-With an average loaded cost of \$2,400, this gives a total cost estimate of \$3,021,312.
+With an average loaded cost of \loadedcost, this gives a total cost estimate of {\bf \$3,021,312}.
 
 
 \subsection{Schedule}
 \ifpdf
 \includegraphics[width=\textwidth]{gantt.png}
+\else
+\missingfigure{Schedule graphic only appears in PDF mode.}
 \fi
 
 
 
 \subsection{Monitoring, Reporting, and Control Mechanisms}
-\todo[inline]{Describe what progress and control metrics you will use to report progress across your
-  teams, to senior management and to the customer.  What will be included in your reports?  How
-  often will you deliver them and brief various stakeholders?}
+
+\subsubsection{Schedule Control}
+Implementation progress will be measured by comparing the estimated and actual duration and effort
+of each task.  The results will be constantly available on the project dashboard as an
+automatically-generated burn-down chart, which shows both actual and planned progress, as well as a
+velocity projection for completion of the project.  This gives us progress information and the
+ability to take corrective action relatively early in the schedule.
+
+Corrective actions may be restricting the project scope, or extending the project schedule.  Either
+of these actions requires renegotiation of the contract.
+
+
+\subsubsection{Budget Control}
+The cost of work completed is measured using the average loaded cost of personnel (\loadedcost).
+This actual cost is constantly available on the project dashboard, as well as the planned cost up to
+that point, and the difference between the two.  
+
+\todo[inline]{The cost of corrective measures???}
+
+\subsubsection{Quality Control}
+Project quality is measured as two separate quantities: subjective and objective quality.
+
+Subjective quality is a measure of how satisfied users and customers are with the working system,
+and is measured by having users test the software and fill out feedback forms.  This is performed at
+every major milestone where a user-testable system is available, and the resulting data are
+available on the project dashboard, along with statistical analysis and trend information.
+
+Objective quality is measured using the defect tracking database.  Trends in defect discovery rate,
+age of defects when they are fixed, and severity of open defects are all used to measure the quality
+of the system.
+  
+\subsubsection{Reporting}
+Most measurement information is available on the project dashboard as the project progresses, but
+this will only be available for the active duration of the project.  Report documents will be
+prepared at every major milestone, which include all of the same information, and will be delivered
+to the project owners in the customer and JDI organizations.
+
+\subsubsection{Metrics Collection}
+The following collection mechanisms will be utilized:
+\begin{description}
+\item[Effort] -- All engineers enter actual-effort-against-task numbers into a time-tracking
+  application.  All task work is tracked this way, including project management.
+\item[Defects] -- The defect-tracking application includes analysis features for trending and
+  statistics.
+\item[Code Metrics] -- The continuous-integration system runs all checked-in code through the
+  compiler, static analysis tools, and unit tests.
+\end{description}
+
+Data is retained using existing infrastructure, which includes ample digital storage and off-site
+secure backups.  The data is made available constantly through the project dashboard, and is
+included in the appendices of the progress report documents (see Reporting above).
 
 \subsection{Requirements Management and Control}
-\todo[inline]{One key risk is that the scope of the work may be larger than originally anticipated.
-  Briefly describe your approach for monitoring possible “scope creep” and negotiating required
-  changes with the customer and your senior management.}
+One key risk is that the scope of the work may be larger than originally anticipated.  This can
+happen in two ways.
+
+The first way is that the original requirements, which seem reasonable at a high level, become too
+large when expanded with necessary detail.  This can be controlled through the use of 50\%- and
+90\%-confidence estimates for uncertain or incomplete areas.  As the uncertainty in the requirements
+is reduced, we can calculate the statistical likelihood of hitting the schedule, and take corrective
+action if it becomes less than 80\% likely that the project will be delivered on time.
+
+The second way is through changing requirements.  This can be controlled through the use of
+baselines, change requests, and impact estimates.  Requirements baselines must be accepted and
+signed by both project management and the customer.  Change requests are routed through a Change
+Control Board (CCB), which conducts analysis to determine impact, and decides whether to accept,
+deny, or defer each request.  The CCB includes representatives from the project team, the customer,
+and JDI management.
+
 
 \subsection{Risk Management}
-\todo[inline]{For each project risk, what do you plan to do to mitigate the risk?  For example, what
-  if your customer does not deliver certain documents or tools?  What if your sponsor drops out or
-  does not provide as much guidance as you were hoping?  What if a key member of your team drops
-  out, how will you cover this loss?  What if after some initial work you discover that there is
-  more work than you thought?  How will you deal with this but still achieve a reasonable outcome?
-  What can you do to prepare for such eventualities?}
+Risk identification and planning is done in accordance with CMMI-DEV v1.2 RSKM framework,
+specifically Technical Report CMU/SEI-93-TR-6, \textit{Taxonomy-Based Risk Identification}.
 
+The following issues have been specifically identified as high risks to the project.
+
+\begin{description}
+\item[Personnel] --~ This project involves some elements which are significantly outside the comfort
+  zone of JDI.  Finding people with the appropriate domain knowledge may be a challenge.
+  \begin{description}
+  \item[Mitigation] --~ We should start hiring domain experts at the earliest available opportunity.
+  \item[Contingency] --~ If proper personnel cannot be obtained, a schedule or scope adjustment may
+    be required.
+  \end{description}
+\item[Scope] --~ Some of the requirements are vague and uncertain, and the difference between the
+  smallest and largest possible systems that could satisfy the customer is fairly large.
+  \begin{description}
+  \item[Mitigation] --~ The most uncertain requirements should be refined first through prototyping.
+  \item[Contingency] --~ If the scope turns out to be too large, it should be restricted, or the
+    schedule expanded to suit.
+  \end{description}
+\end{description}
 
 
 
