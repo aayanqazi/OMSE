@@ -6,6 +6,8 @@ auto/*
 *.aux 
 *.dvi
 *.toc
+*.html
+*.pdf
 ~$*
 
 ass1.pdf
