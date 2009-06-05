@@ -1,28 +1,29 @@
 Week 10
+
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
 
 * Topic                                                            :noexport:
   Part 10: Epilogue, Sometime After July 1st
 
-  As it turns out, the Software Project Manager did not prepare well for the meeting. Possibly, the
-  SPM could have made better use of the data prepared by team members. Maybe the SPM could have
-  asked team members for more help. Perhaps the SPM was not able to get enough buy-in from the team
+  As it turns out, the Software Project Manager did not prepare well for the meeting.  Possibly, the
+  SPM could have made better use of the data prepared by team members.  Maybe the SPM could have
+  asked team members for more help.  Perhaps the SPM was not able to get enough buy-in from the team
   or they were not committed enough.
 
   In any case, the SPM told the customer that it was impossible to meet the July 1st delivery date
-  and the only way to save the project would be to extend the schedule. The customer became enraged
-  and insisted that JDI meet the July 1st deadline, no matter what the cost. The Software Project
+  and the only way to save the project would be to extend the schedule.  The customer became enraged
+  and insisted that JDI meet the July 1st deadline, no matter what the cost.  The Software Project
   Manager continued to say that the job could not be finished in time no matter what resources are
-  applied. The customer immediately demanded a meeting the next day with JDI’s senior management
+  applied.  The customer immediately demanded a meeting the next day with JDI’s senior management
   (Vice Presidents).
 
-  The meeting was reasonably calm. The customer reviewed (1) JDI’s performance on the Contract,
+  The meeting was reasonably calm.  The customer reviewed (1) JDI’s performance on the Contract,
   emphasizing late staffing; (2) JDI’s complaints about what JDI called “changes” but what the
-  customer considered part of the job; (3) the extreme importance of meeting the July 1st
-  date. Senior management listened attentively and promised to meet again the next day with the
-  customer to tell him what JDI would be prepared to do. The customer smiled, shook hands, and hoped
-  that a strong letter to JDI’s CEO would not need to be written.
+  customer considered part of the job; (3) the extreme importance of meeting the July 1st date.
+  Senior management listened attentively and promised to meet again the next day with the customer
+  to tell him what JDI would be prepared to do.  The customer smiled, shook hands, and hoped that a
+  strong letter to JDI’s CEO would not need to be written.
 
   During a very late session that night attended by the Software Project Manager, the project leads
   and JDI’s VPs, the situation was summarized as follows by one of the VPs:
@@ -34,11 +35,11 @@ Week 10
     disposal, it should be possible through a crash effort to meet the July 1st deadline.
 
     The Vice President directed the Software Project Manager to proceed with the job, holding July
-    1st as an immovable deadline. To help, the following was offered:
+    1st as an immovable deadline.  To help, the following was offered:
 
   - Assurances that the SPM could ask for any of the experienced software developers or analysts
-    from anywhere in the Division and they would be made immediately available to the project. There
-    are about a thousand such technical personnel in the Division.
+    from anywhere in the Division and they would be made immediately available to the project.
+    There are about a thousand such technical personnel in the Division.
   - Authorization for all the paid overtime.
   - Any assistance requested from the VP’s staff.
 
@@ -46,36 +47,75 @@ Week 10
     for a few trivial dropped requirements that the customer has agreed to, nothing is to be
     postponed or dropped from the system.
 
-    Out of a sense of pride, duty, allegiance and hope, the SPM decided to give July 1st a try. The
-    SPM found it impossible to look the Vice President in the eye and say “no”. July 1st was held as
-    the final operational deadline and all else was based on the assumption that that deadline could
-    be met.
+    Out of a sense of pride, duty, allegiance and hope, the SPM decided to give July 1st a try.  The
+    SPM found it impossible to look the Vice President in the eye and say “no”.  July 1st was held
+    as the final operational deadline and all else was based on the assumption that that deadline
+    could be met.
 
-    The project took a turn for the worse. Instead of being delivered July 1st or even 4 months
-    later, it was actually delivered 1 year late. After the project, there were several changes at
+    The project took a turn for the worse.  Instead of being delivered July 1st or even 4 months
+    later, it was actually delivered 1 year late.  After the project, there were several changes at
     JDI, including the Software Project Manager, the SPM’s manager, and one of the software
-    development managers. The customer was reasonably happy with the system that finally went on the
-    air, patched though it was. The system cost JDI much more that originally estimated. Most of
-    JDI’s people went on to other jobs, wiser for their experiences. A couple of them checked into
-    the “Oregon Rest Home for Tired Managers and Worn-out Software Developers”. One of the team
-    members wrote a “A War Story” which was the foundation for this case study.
+    development managers.  The customer was reasonably happy with the system that finally went on
+    the air, patched though it was.  The system cost JDI much more that originally estimated.  Most
+    of JDI’s people went on to other jobs, wiser for their experiences.  A couple of them checked
+    into the “Oregon Rest Home for Tired Managers and Worn-out Software Developers”.  One of the
+    team members wrote a “A War Story” which was the foundation for this case study.
 
     Discussion 10: What are the “Get-Well” Actions for this Project?
 
     In January, the project addressed the need to manage and control project requirements, risks and
-    progress. Nevertheless, the Software Project Manager was unable to achieve success. In
+    progress.  Nevertheless, the Software Project Manager was unable to achieve success.  In
     particular, the SPM was unable to convince the customer or senior management that the current
-    strategy was doomed for failure and that some other path to success just might be
-    possible. Revisit the project’s top challenges. Remember that the customer has been very fixed
-    on scope and schedule. At the same time the customer has been ready to provide resources as
-    required. Finally, the case study does not articulate what remains in the project budget. Given
-    this additional information and how the project finally unfolded, succinctly address these
-    questions:
+    strategy was doomed for failure and that some other path to success just might be possible.
+    Revisit the project’s top challenges.  Remember that the customer has been very fixed on scope
+    and schedule.  At the same time the customer has been ready to provide resources as required.
+    Finally, the case study does not articulate what remains in the project budget.  Given this
+    additional information and how the project finally unfolded, succinctly address these questions:
 
 
 * Reasons for Failure
-  /a. What do you believe are the key strategic reasons this project failed to be successful?/
+  /a.  What do you believe are the key strategic reasons this project failed to be successful?/
+
+  I think the primary reason was the lack of flexibility.  As the topic states, "the customer has
+  been very fixed on scope and schedule."  The budget was fixed from the start, and while JDI's
+  wallet opened toward the end of the project, it came too late in the project to help.  This is the
+  project management equivalent of specifying a device with a 27-inch screen that fits in your
+  pocket.  
+
+  It also seems that communication channels between JDI and CHG weren't as open as they could have
+  been.  One major clue was the fact that a simple rumor could start such a firestorm; if the CHG
+  and JDI were being truly open and honest, a simple phone call could have cleared up the confusion.
+  This also points to CHG not trusting the SPM or JDI in general; in this case perhaps not enough
+  was done to build confidence that JDI could deliver.
+
+  
+
 
 * Getting Well
-  /b. What are the critical “get-well” actions you would have taken January to maximize changes of
+  /b.  What are the critical “get-well” actions you would have taken January to maximize changes of
   success?/
+
+  Firstly, using the word "impossible" in a meeting with the customer, without providing any
+  options, is generally a mistake.  I'm sure that's not what really happened, but that's apparently
+  what the customer heard.  The SPM told them that the project was in trouble, but didn't give them
+  any strategies (that they could accept) to fix it.  
+
+  If the customer couldn't accept a schedule extension (which seems silly in retrospect, since they
+  were at least satisfied getting it a year late), then the SPM should have given them some other
+  choices.  A scope restriction, a phased deployment.  There must have been something they could
+  agree to that would get the project back on track, or at least closer.
+
+  If there wasn't, and the customer had chosen the "July 1st or Die Trying" route against all
+  advice, well then I guess we made the best of a bad situation.  The only thing to do is try our
+  best to meet the deadline.  I wouldn't be willing to sacrifice the engineers' health or families
+  for this project, so I wouldn't have mandated a crunch overtime; if the customer points to this as
+  evidence that JDI wasn't trying hard enough, I could point to Peopleware.  It would probably be
+  necessary from a political standpoint to staff up, given that that's the only dimension we've been
+  allowed to scale.  I'd introduce another development team or two, and task them with the most
+  decoupled, independent components remaining to be developed, or given them completed parts of the
+  system to own and fix defects.  The project probably still would have come in late, but we would
+  have projected the appearance of having done all we could to make it succeed.
+
+  But for all this, it doesn't seem like the SPM did anything truly wrong.  I can't point to a
+  single decision and say, "this is where the project started going downhill."  I don't even think I
+  could have done a better job, really.
