@@ -121,7 +121,7 @@ Week 10
    could have done a better job, really.
 
 
-* TODO Replies
+* Replies
 ** Dan -> Ayellet
    /...outsourcing and COTS products.../
    
