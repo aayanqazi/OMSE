@@ -72,50 +72,53 @@ Week 10
     Finally, the case study does not articulate what remains in the project budget.  Given this
     additional information and how the project finally unfolded, succinctly address these questions:
 
+* First Response                                                   :noexport:
+** Reasons for Failure
+   /a.  What do you believe are the key strategic reasons this project failed to be successful?/
 
-* Reasons for Failure
-  /a.  What do you believe are the key strategic reasons this project failed to be successful?/
+   I think the primary reason was the lack of flexibility.  As the topic states, "the customer has
+   been very fixed on scope and schedule."  The budget was fixed from the start, and while JDI's
+   wallet opened toward the end of the project, it came too late in the project to help.  This is the
+   project management equivalent of specifying a device with a 27-inch screen that fits in your
+   pocket.  
 
-  I think the primary reason was the lack of flexibility.  As the topic states, "the customer has
-  been very fixed on scope and schedule."  The budget was fixed from the start, and while JDI's
-  wallet opened toward the end of the project, it came too late in the project to help.  This is the
-  project management equivalent of specifying a device with a 27-inch screen that fits in your
-  pocket.  
+   It also seems that communication channels between JDI and CHG weren't as open as they could have
+   been.  One major clue was the fact that a simple rumor could start such a firestorm; if the CHG
+   and JDI were being truly open and honest, a simple phone call could have cleared up the confusion.
+   This also points to CHG not trusting the SPM or JDI in general; in this case perhaps not enough
+   was done to build confidence that JDI could deliver.
 
-  It also seems that communication channels between JDI and CHG weren't as open as they could have
-  been.  One major clue was the fact that a simple rumor could start such a firestorm; if the CHG
-  and JDI were being truly open and honest, a simple phone call could have cleared up the confusion.
-  This also points to CHG not trusting the SPM or JDI in general; in this case perhaps not enough
-  was done to build confidence that JDI could deliver.
-
-  
+   
 
 
-* Getting Well
-  /b.  What are the critical “get-well” actions you would have taken January to maximize changes of
-  success?/
+** Getting Well
+   /b.  What are the critical “get-well” actions you would have taken January to maximize changes of
+   success?/
 
-  Firstly, using the word "impossible" in a meeting with the customer, without providing any
-  options, is generally a mistake.  I'm sure that's not what really happened, but that's apparently
-  what the customer heard.  The SPM told them that the project was in trouble, but didn't give them
-  any strategies (that they could accept) to fix it.  
+   Firstly, using the word "impossible" in a meeting with the customer, without providing any
+   options, is generally a mistake.  I'm sure that's not what really happened, but that's apparently
+   what the customer heard.  The SPM told them that the project was in trouble, but didn't give them
+   any strategies (that they could accept) to fix it.  
 
-  If the customer couldn't accept a schedule extension (which seems silly in retrospect, since they
-  were at least satisfied getting it a year late), then the SPM should have given them some other
-  choices.  A scope restriction, a phased deployment.  There must have been something they could
-  agree to that would get the project back on track, or at least closer.
+   If the customer couldn't accept a schedule extension (which seems silly in retrospect, since they
+   were at least satisfied getting it a year late), then the SPM should have given them some other
+   choices.  A scope restriction, a phased deployment.  There must have been something they could
+   agree to that would get the project back on track, or at least closer.
 
-  If there wasn't, and the customer had chosen the "July 1st or Die Trying" route against all
-  advice, well then I guess we made the best of a bad situation.  The only thing to do is try our
-  best to meet the deadline.  I wouldn't be willing to sacrifice the engineers' health or families
-  for this project, so I wouldn't have mandated a crunch overtime; if the customer points to this as
-  evidence that JDI wasn't trying hard enough, I could point to Peopleware.  It would probably be
-  necessary from a political standpoint to staff up, given that that's the only dimension we've been
-  allowed to scale.  I'd introduce another development team or two, and task them with the most
-  decoupled, independent components remaining to be developed, or given them completed parts of the
-  system to own and fix defects.  The project probably still would have come in late, but we would
-  have projected the appearance of having done all we could to make it succeed.
+   If there wasn't, and the customer had chosen the "July 1st or Die Trying" route against all
+   advice, well then I guess we made the best of a bad situation.  The only thing to do is try our
+   best to meet the deadline.  I wouldn't be willing to sacrifice the engineers' health or families
+   for this project, so I wouldn't have mandated a crunch overtime; if the customer points to this as
+   evidence that JDI wasn't trying hard enough, I could point to Peopleware.  It would probably be
+   necessary from a political standpoint to staff up, given that that's the only dimension we've been
+   allowed to scale.  I'd introduce another development team or two, and task them with the most
+   decoupled, independent components remaining to be developed, or given them completed parts of the
+   system to own and fix defects.  The project probably still would have come in late, but we would
+   have projected the appearance of having done all we could to make it succeed.
 
-  But for all this, it doesn't seem like the SPM did anything truly wrong.  I can't point to a
-  single decision and say, "this is where the project started going downhill."  I don't even think I
-  could have done a better job, really.
+   But for all this, it doesn't seem like the SPM did anything truly wrong.  I can't point to a
+   single decision and say, "this is where the project started going downhill."  I don't even think I
+   could have done a better job, really.
+
+
+* TODO Replies
