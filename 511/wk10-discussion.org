@@ -122,3 +122,35 @@ Week 10
 
 
 * TODO Replies
+** Dan -> Ayellet
+   /...outsourcing and COTS products.../
+   
+   I haven't thought much about COTS, but this far into the project, I doubt there are too many
+   loosely-coupled parts of the system left.  The system infrastructure is already in place, so
+   buying a subsystem may cost more in integration rework than finishing it manually.
+
+   As for outsourcing, I don't think there would be any advantage.  JDI has opened the wallet, and
+   offered the use of any of "about a thousand" engineers to work on the project.  Given the
+   management, communication, and documentation overhead of outsourcing a component, it should be
+   much more efficient to *in*-source it.
+
+** John
+   /Paying overtime and bonuses may improve chances for success.../
+
+   I disagree very strongly with this statement, for two reasons.
+
+   The first is the ability of incentives to destroy a team.  You're trying to replace team-wide
+   intrinsic motivation with individual extrinsic motivation, which can destroy momentum and morale
+   in a heartbeat.  The single members of the team will work heavy overtime while many of their
+   peers with families choose not to, and will receive more visibility, pay, and recognition for
+   their efforts.  It's a great way to sow jealousy and distrust between team members, while
+   simultaneously glorifying overtime and devaluing engineers with families.  Some of these are
+   permanent culture changes, especially if the project succeeds because of these bonuses.
+
+   The second is natural human greed; if you offer incentives to satisfy a metric, people will game
+   the metric.  Paying extra for more hours?  People will stay late and surf Fark.  Bonuses for
+   meeting deadlines?  The defect count will skyrocket the day after a milestone is reached.
+
+   There's plenty of writing on this topic, and probably the most famous is one of the textbooks for
+   this course.  This idea has so many downsides that it should probably be simply avoided, rather
+   than approached with caution.
