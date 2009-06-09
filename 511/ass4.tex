@@ -20,6 +20,9 @@
 \renewcommand{\p@enumiii}{\arabic{enumi}.\arabic{enumii}.}
 \makeatother
 
+\newif\ifzero
+\zerotrue
+
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{11pt plus 3pt minus 2pt}
 
@@ -35,9 +38,15 @@
 \thispagestyle{empty}
 
 %-------------------------------------------------------------------------------
-\section{Executive Summary}
 
-\todo[inline]{Summary.}
+
+\vskip 1in
+
+\todo{Revise}
+The AEHS project has come to a crossroads, and if the project is to have any chance of succeeding,
+some changes need to be made.  This document attempts to identify the reasons for the project's
+current situation, and develops ideas for how to address the core issues.  A set of recommendations
+is provided which will hopefully give the project a way to succeed.
 
 \clearpage
 
@@ -47,8 +56,149 @@
 
 
 %-------------------------------------------------------------------------------
-\section{First Section}
+\section{How we got here}
 
-\todo[inline]{More content.}
+\todo[inline]{\ldots}
+
+This project is in trouble.  Current estimates indicate that the specified work cannot be delivered
+with less than a 6-month schedule slip, which cannot be prevented by simple measures such as
+overtime, or extra manpower.  It's important to understand how this situation came to be if we are
+to move forward in a constructive way.
+
+One primary reason for this is a breakdown in communications.  The laundry that was aired at the
+emergency meeting would not have been as dirty if JDI and CHG had been open, honest, and trusting
+with each other.
+
+Yet another reason is the lack of project-level flexibility.  From the outset, both the schedule and
+budget were fixed, and though the initial requirements were vague, it has been made clear that a
+scope reduction is not an option.  Realistically, AEHS is going to violate one of those constraints.
+If we can realize this truth, we may get to choose which.  \todo{Revise}
+
+%-------------------------------------------------------------------------------
+\section{Where we go next}
+
+\todo[inline]{Specific options/plans for progress.}
+
+%-------------------------------------------------------------------------------
+\section{Recommendations}
+
+\todo[inline]{Tie it all together.}
+
+
+% -------------------------------------------------------------------------------
+\ifzero
+\section{Week 10 summary}
+
+\todo[inline]{Remove this section for submit (see ifzero).}
+
+QN A: What do you believe are the key strategic reasons this project failed to be successful?  The
+key strategic reasons why this project failed to succeed are as follows:
+
+1. We think the primary reason for the project’s problems was the lack of flexibility. The
+customer’s inflexibility with regard to scope and schedule was a big part in the strategy
+failure. The project was overly constrained for the level of uncertainty in the requirements. A
+project with a fixed budget and a fixed schedule, with poorly defined requirements is likely to be a
+high risk project. The ability to prioritize requirements may have provided a majority of the
+desired functionality on time. It turns out (from this case study) that schedule was not as
+important as stated. Also, the budget was fixed from the start, and while JDI's wallet opened toward
+the end of the project, it came too late in the project to help.
+
+2. Another big reason is the requirements. Requirements uncertainty and volatility ultimately made
+the team struggle. If not for technical reasons, emotionally as well. Poorly defined requirements
+and the inability to achieve a requirements baseline early on in the project made it more
+challenging. The customer’s requirements experts further exacerbated the problem and made it hard to
+implement early requirements control and management.  The high level project objective was not
+defined in detail prior to the beginning.
+
+3. We also blame the failure on poor estimation techniques and inadequate tracking of progress
+visibility. It also seems that communication channels between JDI and CHG weren't as open as they
+could have been. If JDI were in constant communication about the status of the project, there would
+never have been the need for a one-time urgent meeting. This is a big sign that people that were
+making the decisions did not have visibility into the progress of the project. The last minute
+“scramble” could have been avoided if they had seen it coming.
+
+4. The project terms of reference didn’t put any responsibility on the customer to deliver the
+needed collateral to JDI project team as a pre-requisite for a successful project. There was no
+section of the document that talked about customer deliverables. Also, the definition of requirement
+satisfaction (in the terms of reference) was very ambiguous and subjective as evidenced by the term
+“fit to use”.
+
+5. The project staffing and ramp up was very slow (too slow for a project of this scale and
+constrained timeline). Unavailability of experienced staff to work on the project at the beginning
+resulted in late staffing which further aggravated the situation
+
+6. JDI’s inexperience in the healthcare domain and mobile device development posed additional
+problems by requiring a prototyping stage and also meant that they really did not know what to
+expect. The JDI startup team did not have the appropriate skill set to analyze the project needs and
+to create a viable proposal. Additionally, the project team did not have all the skills that were
+needed to develop such a system.
+
+7. Due to all the uncertainties in the project, all the help the customer offered by the way of
+additional programmers should have been accepted immediately and put to work and the customer should
+have been asked for additional resources as needed. It seems like Columbia should be very familiar
+with the HIPAA rules and regulations. If JDI had requested an expert from the Columbia then JDI
+could have eliminated the evolutionary process components pertaining to healthcare.
+
+QN B: What are the critical “get-well” actions you would have taken in January to maximize changes
+of success?
+
+The following critical “get-well” actions could have been taken in January to maximize the chances
+of success:
+
+1. Push harder for an extended schedule, for instance JDI could create a new project schedule with 3
+cycles of delivery according to the requirements priority. Alternatively, JDI could settle for
+delivering some of the less critical component as part of a future release if the customer pushes
+back. JDI could implement the high priority requirements first so that even if the project ends up
+being late the customer would be less impacted. This scheme should work well with iterative process
+used for the project.
+
+2. If the customer would not accept a schedule extension (which seems silly in retrospect, since
+they were satisfied with the late project), then the SPM could present other alternatives such as a
+scope restriction, or the phased deployment described above. This needs to be negotiated with the
+customer so that their needs are met and everyone wins. It could be beneficial to propose trade-offs
+whereby certain core capabilities, such as billing and patient records are not compromised whereas
+other less critical areas could be delayed.
+
+3. Consider outsourcing more. This project must have been broken down into modules and interfaces at
+one point. JDI could outsource appropriate modules off to other companies more capable than
+JDI. Many contracting companies specialize in doing “rescue” projects, so even some of the project
+management could have been outsourced as needed. For instance, handheld devices should have been
+outsourced freeing up much of the team that was tied up in this effort trying to come up to speed on
+the technology.
+
+4. The project team needs to identify components that can be replaced by COTs instead of developing
+them in house. Scheduling, appointments, instant messaging, and other such components are potential
+candidate for implementation via the application of COTS.
+
+5. Send people to Columbia’s offices to observe work onsite and to proactively deduce requirements
+to be confirmed with Columbia’s requirements experts to speed things up
+
+6. Ask for more help in areas the customer had to address when creating their original system. JDI
+should request a HIPAA expert from the customer. Columbia could work with JDI to more quickly get
+the requirements completed without the spiral analysis. If this area is still having problems JDI
+could switch from iterative development to an agile method. In this case Columbia could work more
+closely with JDI and iteratively build the system they want leveraging their expertise in the health
+care field.
+
+7. Ask JDI senior management for 2 additional teams of programmers to work on other components of
+the system that are fairly independent. Also, supplement the test team with more staff. The
+developers on the test team can be used for defect fixing while the new staff can concentrate on
+testing. The developers who are creating the system will not be as tied down with bug fixes.
+
+8. Strive for a requirements base line and prioritization. This is the number one activity that the
+SPM must drive, without a successful baseline and priorities, there is no chance that the project
+will be able to get back on track. Once the requirements are baselined establish the change control
+board (CCB) and also establish a risk management process to deal with all project risks on an
+ongoing basis.
+
+9. Automate as many processes as possible e.g. automated integration and building and automated
+testing, bug tracking etc. Additionally, buy tools or make tools to help get the job done. It may
+not have made much sense before to get small amounts of payoff with new tools, but now every savings
+counts.
+
+10. Keep up with progress reports and progress meetings and keep customer in the loop about the
+status of the project at all times.  Also keep up with more active stakeholder management. Get both
+the external and the internal stakeholders to support the SPM’s project rescue efforts.
+\fi
 
 \end{document}
