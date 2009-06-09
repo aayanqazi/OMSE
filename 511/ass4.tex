@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+
+\usepackage[]{todonotes}
+\usepackage{times}
+\usepackage{fullpage}
+\usepackage[pdfborder=false]{hyperref}
+\usepackage{tabularx}
+\usepackage{tabulary}
+\usepackage{amssymb}
+\usepackage{ifpdf}
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+% Enumeration environment: 1 -> 1.1 -> 1.1.1, etc
+\makeatletter
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
+\renewcommand{\theenumiii}{\arabic{enumiii}}
+\renewcommand{\p@enumiii}{\arabic{enumi}.\arabic{enumii}.}
+\makeatother
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{11pt plus 3pt minus 2pt}
+
+\begin{document}
+
+
+%------------------------------------------------------------------------------- 
+
+\title{Columbia AEHS\\Get-Well Plan}
+\author{Ben Straub\\Initech Corporation}
+\date{6/10/2009}
+\maketitle
+\thispagestyle{empty}
+
+%-------------------------------------------------------------------------------
+\section{Executive Summary}
+
+\todo[inline]{Summary.}
+
+\clearpage
+
+%-------------------------------------------------------------------------------
+\tableofcontents
+\clearpage
+
+
+%-------------------------------------------------------------------------------
+\section{First Section}
+
+\todo[inline]{More content.}
+
+\end{document}
