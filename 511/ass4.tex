@@ -1,17 +1,14 @@
-\documentclass[11pt]{article}
+\documentclass[12pt]{article}
 
 \usepackage[]{todonotes}
 \usepackage{times}
-%\usepackage{fullpage}
 \usepackage[pdfborder=false]{hyperref}
 
-\makeatletter
+% Remove section numbers
+\setcounter{secnumdepth}{0}     % From headings
+\def\thechapter{}               % From TOC
 
-% Enumeration environment: 1 -> 1.1 -> 1.1.1, etc
-\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}}
-\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
-\renewcommand{\theenumiii}{\arabic{enumiii}}
-\renewcommand{\p@enumiii}{\arabic{enumi}.\arabic{enumii}.}
+\makeatletter
 
 % \iftodo command, binds to \usepackage[disable]{todonotes}
 \newif\iftodo
@@ -42,7 +39,7 @@
 
 \vskip 1in
 
-\todo{Revise} The AEHS project has come to a crossroads, and if the project is to have any chance of
+\todo{} The AEHS project has come to a crossroads, and if the project is to have any chance of
 succeeding, some changes need to be made.  This document attempts to identify the reasons for the
 project's current situation, and develops ideas for how to address the core issues.  A set of
 recommendations is provided which will hopefully give the project a way to succeed.
@@ -50,32 +47,120 @@ recommendations is provided which will hopefully give the project a way to succe
 \clearpage
 
 %-------------------------------------------------------------------------------
-\tableofcontents \clearpage
+\todo{Do we need/want TOC?}
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\clearpage
 
 
 %-------------------------------------------------------------------------------
 \section{How we got here}
 
-\todo[inline]{\ldots}
+The AEHS project is in trouble.  Current estimates indicate that the specified work cannot be
+delivered with less than a 6-month schedule slip, which cannot be prevented by simple measures such
+as overtime, or extra manpower.  It's important to understand how this situation came to be if we
+are to move forward in a constructive way.
+\todo{}
 
-This project is in trouble.  Current estimates indicate that the specified work cannot be delivered
-with less than a 6-month schedule slip, which cannot be prevented by simple measures such as
-overtime, or extra manpower.  It's important to understand how this situation came to be if we are
-to move forward in a constructive way.
+{\bf Communications ---} The laundry that was aired at the emergency meeting would not have been as
+dirty if JDI and CHG had been open, honest, and trusting with each other.  If project progress would
+have been communicated in a more effective way, the meeting could have been avoided altogether.
+\todo{}
 
-One primary reason for this is a breakdown in communications.  The laundry that was aired at the
-emergency meeting would not have been as dirty if JDI and CHG had been open, honest, and trusting
-with each other.
+{\bf Domain knowledge ---} This is JDI's first foray into the healthcare sector, and our knowledge
+of that area is lacking.  Domain experts were not brought on until too late in the project.
+\todo{}
 
-Yet another reason is the lack of project-level flexibility.  From the outset, both the schedule and
-budget were fixed, and though the initial requirements were vague, it has been made clear that a
-scope reduction is not an option.  Realistically, AEHS is going to violate one of those constraints.
-If we can realize this truth, we may get to choose which.  \todo{Revise}
+{\bf Requirements ---} The lack of domain knowledge exacerbated the uncertainty in the requirements.
+The initial contract was a good starting point, but requirements work should have been performed
+with the help of some people at CHG, rather than in a vacuum.
+\todo{}
+
+{\bf Staffing --} The instability of the requirements led directly to an inability to effectively
+staff the project.  The requirements simply weren't complete enough to have engineers start
+designing and implementing to them.
+\todo{}
+
+{\bf Flexibility ---} or lack thereof.  From the outset, both the schedule and budget were fixed, and
+though the initial requirements were vague, it has been made clear that a scope reduction is not an
+option.  Realistically, AEHS is going to violate one of those constraints.  If we can realize this
+truth, we may get to choose which.
+\todo{}
+
+\clearpage
+
 
 %-------------------------------------------------------------------------------
-\section{Where we go next}
+\section{We can do better}
 
-\todo[inline]{Specific options/plans for progress.}
+None of the problems listed above are intractable, and reducing the impact of any of them would help
+this project get back on track.  In this section, we explore some ways of getting past these
+roadblocks.
+
+\subsection{Communications}
+Communication problems can be solved by providing more and/or better information.
+
+To give \textit{more} information, we could open up the internal project-tracking dashboard and
+defect-tracking database to CHG.  This has all the effects of taking a tour of a sausage factory,
+but it may provide confidence that JDI is doing the job to the best of its ability, and removes lag
+time between work being done and progress being reported to CHG.
+
+\textit{Better} information takes two forms: information you can trust, and pre-digested briefs of
+the large amounts of data that are available.  Both of these could be produced by a CHG
+representative that works part-time at JDI, whose responsibility is to act as a second, trusted
+source of data and reports.  \todo{}
+
+
+\subsection{Domain Knowledge}
+CHG has extensive knowledge of the healthcare domain, and their IT department could be a great help.
+One solution in this area is to have JDI borrow several more engineers (including a HIPAA-compliance
+expert) from CHG to work full-time on AEHS.
+
+Another way to mitigate this problem is to have JDI acquire more domain knowledge.  This could be
+achieved by sending some JDI engineers to CHG, to observe and interview end users.
+\todo{}
+
+
+\subsection{Requirements}
+Additional domain experts will go a long way towards tightening up the requirements, but it's
+imperative to get final review and sign-off on the set of requirements that will be delivered.
+Refining the requirements to the point where they can be estimated is necessary to baseline them,
+which will help control the cost of changing them.  This should be a top priority.
+
+Adjusting the project scope is another way to rein in the schedule.  This can be approached as
+reducing the total scope of AEHS, or as planning for a phased rollout of the full system.  
+
+Additionally, COTS components may be able to satisfy parts of the requirements.  Some research will
+need to be done to determine how such components would fit into the system as it stands, and how
+much modification will be necessary.  A cost analysis would also be in order.
+
+\subsection{Staffing}
+The cross-staffing changes mentioned above will help with the staffing, but there is still too much
+work for the current staff level.  One proposal is to bring on two more development teams, which
+will either start some of the work that can be done in parallel with the existing teams, or take
+over defect fixes for subsystems that are more-or-less complete.  Some care will need to be taken to
+avoid Brooks' law; the goal here should be effective application of people, rather than reducing the
+schedule with brute-force.
+\todo{}
+
+\subsection{Flexibility}
+In order for the project to have any chance of success, the project management team needs some
+dimension of flexibility to deal with unforeseen circumstances.  CHG could provide this by answering
+the following questions.
+
+\begin{itemize}
+\item Would you rather have the project on schedule at the cost of some functionality?  (The answer
+  will likely depend on the functionality in question, so this is really about ten questions.)
+\item Which would you choose: a project that is six months late, or a 50\% over budget?
+\item Which requirements areas would you cut if you could shave 10\% from the budget?
+\end{itemize}
+
+This information is indispensable for producing a phased-rollout plan, or for prioritizing defect
+fixes.  Knowing which of the million things that go into a system are the most important is
+essential for delivering to a satisfied customer.
+\todo{}
+
 
 %-------------------------------------------------------------------------------
 \section{Recommendations}
