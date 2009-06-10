@@ -18,10 +18,15 @@
 \renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}}
 \renewcommand{\theenumiii}{\arabic{enumiii}}
 \renewcommand{\p@enumiii}{\arabic{enumi}.\arabic{enumii}.}
-\makeatother
 
-\newif\ifzero
+\newif\iftodo
+\if@todonotes@disabled
+\zerofalse
+\else
 \zerotrue
+\fi
+
+\makeatother
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{11pt plus 3pt minus 2pt}
@@ -86,10 +91,8 @@ If we can realize this truth, we may get to choose which.  \todo{Revise}
 
 
 % -------------------------------------------------------------------------------
-\ifzero
+\iftodo
 \section{Week 10 summary}
-
-\todo[inline]{Remove this section for submit (see ifzero).}
 
 QN A: What do you believe are the key strategic reasons this project failed to be successful?  The
 key strategic reasons why this project failed to succeed are as follows:
