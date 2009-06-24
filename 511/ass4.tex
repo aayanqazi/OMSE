@@ -1,8 +1,9 @@
 \documentclass[12pt]{article}
 
-\usepackage[]{todonotes}
+\usepackage[disable]{todonotes}
 \usepackage{times}
 \usepackage[pdfborder=false]{hyperref}
+\usepackage{enumerate}
 
 % Remove section numbers
 \setcounter{secnumdepth}{0}     % From headings
@@ -29,7 +30,7 @@
 %------------------------------------------------------------------------------- 
 
 \title{Columbia AEHS\\Get-Well Plan}
-\author{Ben Straub\\Initech Corporation}
+\author{Ben Straub\\JDI Corporation}
 \date{6/10/2009}
 \maketitle
 \thispagestyle{empty}
@@ -39,19 +40,17 @@
 
 \vskip 1in
 
-\todo{} The AEHS project has come to a crossroads, and if the project is to have any chance of
-succeeding, some changes need to be made.  This document attempts to identify the reasons for the
-project's current situation, and develops ideas for how to address the core issues.  A set of
-recommendations is provided which will hopefully give the project a way to succeed.
+The AEHS project has come to a crossroads, and if the project is to have any chance of success,
+changes must be made.  This document seeks to identify the reasons for the project's current
+situation, develop ideas for how to address them, and recommend a course of action going forward.
 
 \clearpage
 
 %-------------------------------------------------------------------------------
-\todo{Do we need/want TOC?}
-\setcounter{tocdepth}{1}
-\tableofcontents
-
-\clearpage
+\todo{Do we need/ want TOC?}
+% \setcounter{tocdepth}{1}
+% \tableofcontents
+% \clearpage
 
 
 %-------------------------------------------------------------------------------
@@ -60,33 +59,32 @@ recommendations is provided which will hopefully give the project a way to succe
 The AEHS project is in trouble.  Current estimates indicate that the specified work cannot be
 delivered with less than a 6-month schedule slip, which cannot be prevented by simple measures such
 as overtime, or extra manpower.  It's important to understand how this situation came to be if we
-are to move forward in a constructive way.
+are to move forward in a constructive way.  This section is not intended as a finger-pointing
+exercise, but rather as an objective look at the events that transpired.
 \todo{}
 
 {\bf Communications ---} The laundry that was aired at the emergency meeting would not have been as
 dirty if JDI and CHG had been open, honest, and trusting with each other.  If project progress would
 have been communicated in a more effective way, the meeting could have been avoided altogether.
-\todo{}
 
-{\bf Domain knowledge ---} This is JDI's first foray into the healthcare sector, and our knowledge
-of that area is lacking.  Domain experts were not brought on until too late in the project.
-\todo{}
+{\bf Domain knowledge ---} This is JDI's first foray into the healthcare sector, and organizational
+knowledge of that area is less than ideal.  Domain experts were not brought on until late in the
+project, well past the time when their expertise would have been most beneficial.
 
-{\bf Requirements ---} The lack of domain knowledge exacerbated the uncertainty in the requirements.
-The initial contract was a good starting point, but requirements work should have been performed
-with the help of some people at CHG, rather than in a vacuum.
-\todo{}
+{\bf Requirements ---} The lack of domain knowledge exacerbated the uncertainty in the requirements,
+as well as the vagueness inherent in new platforms and advancing technology.  The initial contract
+was a good starting point, but requirements work should have been performed alongside domain experts
+from CHG, as well as some outside consultants.
 
 {\bf Staffing --} The instability of the requirements led directly to an inability to effectively
-staff the project.  The requirements simply weren't complete enough to have engineers start
-designing and implementing to them.
-\todo{}
+staff the project -- the requirements simply weren't complete enough to have engineers start
+designing and implementing to them.  An extended prototyping phase, which advanced the requirements
+considerably, unfortunately absorbed too much development effort.
 
-{\bf Flexibility ---} or lack thereof.  From the outset, both the schedule and budget were fixed, and
-though the initial requirements were vague, it has been made clear that a scope reduction is not an
-option.  Realistically, AEHS is going to violate one of those constraints.  If we can realize this
-truth, we may get to choose which.
-\todo{}
+{\bf Flexibility ---} or lack thereof.  From the outset, both the schedule and budget were fixed,
+and though the initial requirements were vague, it was made clear that a scope reduction is not an
+option.  Realistically, AEHS is going to violate one of those constraints.  The only question left
+here is which one we would prefer.
 
 \clearpage
 
@@ -101,25 +99,27 @@ roadblocks.
 \subsection{Communications}
 Communication problems can be solved by providing more and/or better information.
 
-To give \textit{more} information, we could open up the internal project-tracking dashboard and
+To give \emph{more} information, we could open up the internal project-tracking dashboard and
 defect-tracking database to CHG.  This has all the effects of taking a tour of a sausage factory,
 but it may provide confidence that JDI is doing the job to the best of its ability, and removes lag
 time between work being done and progress being reported to CHG.
 
-\textit{Better} information takes two forms: information you can trust, and pre-digested briefs of
-the large amounts of data that are available.  Both of these could be produced by a CHG
-representative that works part-time at JDI, whose responsibility is to act as a second, trusted
-source of data and reports.  \todo{}
+\emph{Better} information takes two forms: information you can trust, and briefs of the large
+amounts of data that are available.  Both of these could be produced by a CHG representative that
+works part-time at JDI, whose responsibility is to act as a trusted source of data and reports.
 
 
 \subsection{Domain Knowledge}
-CHG has extensive knowledge of the healthcare domain, and their IT department could be a great help.
-One solution in this area is to have JDI borrow several more engineers (including a HIPAA-compliance
-expert) from CHG to work full-time on AEHS.
+Applying domain knowledge takes one of two forms: using existing expertise, or acquiring more.
 
-Another way to mitigate this problem is to have JDI acquire more domain knowledge.  This could be
-achieved by sending some JDI engineers to CHG, to observe and interview end users.
-\todo{}
+CHG has extensive knowledge of the healthcare domain, and their IT department could be a great help
+to AEHS development.  One solution is to have JDI borrow several more engineers from CHG to work
+full-time on AEHS, including at least one person with experience in implementing HIPAA-compliant
+systems.
+
+Another way to mitigate this problem is for JDI to acquire more domain knowledge.  This could be
+achieved by sending some JDI engineers to CHG (to observe and interview end users), or to some
+HIPAA-focused design and development training.
 
 
 \subsection{Requirements}
@@ -129,43 +129,73 @@ Refining the requirements to the point where they can be estimated is necessary 
 which will help control the cost of changing them.  This should be a top priority.
 
 Adjusting the project scope is another way to rein in the schedule.  This can be approached as
-reducing the total scope of AEHS, or as planning for a phased rollout of the full system.  
+reducing the total scope of AEHS, or as a phased rollout of the full system.  Either option means
+CHG must settle for less functionality in the short term, but this may be acceptable, depending on
+priorities.  It will also mean deciding which requirements are more important than the others.
 
-Additionally, COTS components may be able to satisfy parts of the requirements.  Some research will
-need to be done to determine how such components would fit into the system as it stands, and how
-much modification will be necessary.  A cost analysis would also be in order.
+Parts of the requirements may be satisfied by acquiring COTS components.  Research and cost analysis
+will be required to determine which components are available, how they would fit into the system as
+it stands, and the amount of modification that will be necessary.
 
 \subsection{Staffing}
 The cross-staffing changes mentioned above will help with the staffing, but there is still too much
-work for the current staff level.  One proposal is to bring on two more development teams, which
-will either start some of the work that can be done in parallel with the existing teams, or take
-over defect fixes for subsystems that are more-or-less complete.  Some care will need to be taken to
-avoid Brooks' law; the goal here should be effective application of people, rather than reducing the
-schedule with brute-force.
-\todo{}
+work for the current staff level.  One proposal is to bring on more development personnel from
+inside JDI, which will either start some of the work that can be done in parallel with the existing
+teams, or take over ownership and fix defects for subsystems that are mostly complete.  Some care
+will need to be taken to moderate Brooks' law; the goal here should be effective application of
+personnel, rather than reducing the schedule with brute force.
+
+Outsourcing is an option considered by many organizations in this kind of situation, but
+realistically, its application is limited.  Offloading development of the core system to another
+organization would likely take longer than having JDI finish it; contract negotiations and rework
+would neutralize any potential schedule gain.
+
+One area where outsourcing shows some promise is in extended maintenance or support.  While JDI is
+perfectly capable of performing these tasks, it is entirely up to CHG whether this avenue is to be
+pursued.
 
 \subsection{Flexibility}
 In order for the project to have any chance of success, the project management team needs some
 dimension of flexibility to deal with unforeseen circumstances.  CHG could provide this by answering
-the following questions.
+the following questions:
 
 \begin{itemize}
 \item Would you rather have the project on schedule at the cost of some functionality?  (The answer
   will likely depend on the functionality in question, so this is really about ten questions.)
-\item Which would you choose: a project that is six months late, or a 50\% over budget?
+\item Which would you choose: a project that is six months late but on budget, or on-time but with a
+  50\% cost overrun?
 \item Which requirements areas would you cut if you could shave 10\% from the budget?
 \end{itemize}
 
-This information is indispensable for producing a phased-rollout plan, or for prioritizing defect
-fixes.  Knowing which of the million things that go into a system are the most important is
+This information is indispensable for producing any kind of get-well plan.  Knowing which of the
+million things that go into a system are the most important (and which can be set aside) is
 essential for delivering to a satisfied customer.
-\todo{}
 
 
 %-------------------------------------------------------------------------------
+\clearpage
 \section{Recommendations}
+What follows are the recommendations of JDI, in priority order.  These are the actions which we feel
+will have the most traction in getting the project under control, with the least possible cost and
+risk.
 
-\todo[inline]{Tie it all together.}
+\begin{enumerate}[\bf 1.]
+\item Decide whether to pursue AEHS with reduced scope, perform a phased rollout of the full system,
+  or extend the schedule.
+  \begin{enumerate}[\bf a.]
+  \item If with reduced scope, decide which subset is to be retained.
+  \item If as a phased rollout, prioritize which subsets of the full requirements will be included
+    with each phase, and when each phase will be delivered.
+  \end{enumerate}
+\item Get schedule/budget/scope prioritization matrix from CHG. 
+\item Add two full development teams to the project, staffed mostly with JDI engineers.  Include at
+  least one domain expert from CHG on each team.
+\end{enumerate}
+
+We feel that these actions stand the best chance of producing a satisfactory result for both JDI and
+CHG.  While this project has been a challenge for both organizations, we hope this story will end
+well for all concerned.
+
 
 
 % -------------------------------------------------------------------------------
