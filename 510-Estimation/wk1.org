@@ -65,4 +65,8 @@ Week 1
     This type of development process can give us early feedback on requirements, as well as the
     ability to calculate a team velocity, which will help narrow the cone of uncertainty sooner.
 
-  - *Use t-shirt sizing* -- 
+  - *Use t-shirt sizing* -- We need Columbia management to prioritize the requirements for us.  Only
+    then can we know which features to cut, or delay until version 2.
+
+  - 
+    
