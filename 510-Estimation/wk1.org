@@ -61,4 +61,8 @@ Week 1
   McConnell gives a great list of generic options on page 267.  Here are the ones I think are most
   applicable:
 
-  
+  - *Use an iterative approach* -- The startup team has already paved the way for this adjustment.
+    This type of development process can give us early feedback on requirements, as well as the
+    ability to calculate a team velocity, which will help narrow the cone of uncertainty sooner.
+
+  - *Use t-shirt sizing* -- 
