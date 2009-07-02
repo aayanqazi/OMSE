@@ -64,9 +64,22 @@ Week 1
   - *Use an iterative approach* -- The startup team has already paved the way for this adjustment.
     This type of development process can give us early feedback on requirements, as well as the
     ability to calculate a team velocity, which will help narrow the cone of uncertainty sooner.
+    From the reference document, it looks like project management is already prepared to do this.
 
-  - *Use t-shirt sizing* -- We need Columbia management to prioritize the requirements for us.  Only
-    then can we know which features to cut, or delay until version 2.
+  - *Use t-shirt sizing* -- Columbia management has to prioritize the requirements for us.  Only
+    then can we know which features to cut, or delay until version 2.  Chris has done this nicely
+    for us in the B1 thread.
+
+  - *Add more developers* -- This may blow out the budget a bit, depending on the staff profile.
+    Doing this depends on the system architecture, however; if subsystems are too interdependent,
+    you run up against Brooks' Law.
+
+  - *Add expert staff* -- Since the target system is in a domain that JDI has no experience, some
+    domain experts would give some leverage on requirements gathering, and alleviate some uncertainty.
+
+  - *Phased commitments* -- Use coarse estimates to begin with, refine as you go along, and don't
+    commit to anything that's still too uncertain.  This is related to using an iterative approach,
+    but extends to estimates as well.
 
   - 
     
