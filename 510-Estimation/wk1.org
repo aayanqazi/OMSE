@@ -1,0 +1,64 @@
+Week 1
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Setup                                                            :noexport:
+  This is a role-playing assignment designed to simulate the launch of a principled negotiation
+  process between a customer (Columbia) and a software contractor (JSI). The discussion aims to
+  discover where the points of flexibility appear in both the problem and solution spaces. The
+  purpose of this discussion is not to develop a new estimate for the project. Rather, the principle
+  aim is to:
+
+  (a)  Define a short-list of prioritized project functions, features, and attributes (reqts) that
+  will meet Columbia’s needs
+
+  (b) Define a list of feasible development and delivery (tech) options that JDI will implement to
+  meet project needs
+
+  (c) Agree to mutually acceptable prioritized requirements and technical options to reduce the
+  “cone of uncertainty”.
+
+  Comment: This problem-solving exercise represents the first significant step exposing the key
+  points of flexibility, namely, Columbia’s prioritized needs, and JDI’s technical options. The next
+  steps (which you are not being asked to explore) are to reduce project uncertainties wherever
+  possible, develop a new estimate, and make a mutual commitment to plan the project.
+
+  Discussion Teams and Threads
+
+  The class will be organized into discussion teams (A, B, C, etc.), each with a designated captain,
+  and each divided into two sub-teams:
+
+  + Non-Technical Sub-Team: The customer and users driven by user and customer needs
+  + Technical Sub-Team: The SPM, requirements, architect, and development leads by technical
+    solution options
+
+  Note that senior management and the head of marketing, though stakeholders, have not been included
+  in this exercise.
+
+  Three discussion threads will be set up for each team by your instructor: one for each sub-team and
+  a third “negotiation” thread to be used for the purpose of converging on a consensus:
+
+  1. During the first day or two of this week everyone needs to become thoroughly familiar with the
+     principled negotiation process as well as Columbia’s requirements and contract (below) [review
+     Ch 23 and key points];
+ 2. By Thursday midnight each sub-team should have agreed and discussed where they believe their
+    flexibilities lay: a. The non-technical sub-team is to determine Columbia’s project priorities
+    b. The technical sub-team is to identify feasible development and delivery options
+
+ 3. Over the subsequent three (3) days the sub-teams are to review each others’ areas of
+    flexibility, identify consistencies and inconsistencies between priorities and options, achieve
+    consensus if possible, and but identify unresolved issues as “pending” problems. By Sunday
+    evening (say by 8 pm) the sub-teams should complete this phase of their work.
+
+ 4. The appointed team captain is to post a “consolidated” result from these inputs by Sunday
+    midnight or Monday noon at the latest.
+
+* Team B1 assignment                                               :noexport:
+  Your main challenge will be to predict areas where you will be able to provide technical options
+  to fit customer/user priorities.
+  
+* Initial response
+  McConnell gives a great list of generic options on page 267.  Here are the ones I think are most
+  applicable:
+
+  
