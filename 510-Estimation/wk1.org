@@ -57,7 +57,7 @@ Week 1
   Your main challenge will be to predict areas where you will be able to provide technical options
   to fit customer/user priorities.
   
-* Initial response
+* Initial response                                                 :noexport:
   McConnell gives a great list of generic options on page 267.  Here are the ones I think are most
   applicable:
 
@@ -83,3 +83,42 @@ Week 1
 
   - 
     
+* Sunday responses
+** Kevin -> James
+   /I would propose we use an iterative development model for the back-end business logic and
+   database development./
+
+   I think this is a great fit, and seems to jive with the strengths of the two models.  Agile
+   methods are really strong with requirements that are nebulous, or things that are as easily
+   prototyped as described, like UI.  An iterative model is better at delivering subsets of the
+   final system, where the requirements are more well-defined.
+
+   /If JDI wants to get into the health care market I would like to see us develop more custom
+   software which handles the HIPAA and HL-7 standards./
+
+   You'd have to convince me of this, for several reasons.  Firstly, health care isn't among our
+   core competencies, so we'd have to make the choice to *make* it one.  Secondly, we'd be wading
+   into a firestorm; other companies have a pretty big lead in terms of market share and maturity of
+   implementation.  I'm not saying I couldn't be convinced, but it doesn't sound like a slam dunk.
+
+   /... it seems to me that forms are the life blood of the health care industry./
+
+   It's really unfortunate that making the front end truly great will most likely be cut due to the
+   cost involved.  Making a truly great UI isn't cheap, and since the people paying for the system
+   aren't the people using it, it seems sadly inevitable that our UI will be functional but clunky.
+   What's even sadder is that businesswise, it's totally justified; making the end users happy won't
+   make us any more money, or buy us good PR.
+
+   </soapbox> 
+** James -> Kevin -> Raleigh
+   /It's just that the data exists in multiple databases./
+
+   While I definitely prefer this to a bunch of paper, as you say, it's still a pretty hairy
+   problem.  AEHS has been chartered to replace all the disparate local databases, and the
+   error-prone human-based protocol with which they communicate.
+
+   This means that we need to provide a way for local database admins to import all of their local
+   data into AEHS.  Which means either (a) an import tool, or (b) training, sample Perl scripts, and
+   support.  Chris is right to say we haven't been addressing this issue.
+
+   
