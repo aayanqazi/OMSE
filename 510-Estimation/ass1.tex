@@ -13,8 +13,13 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{11pt plus 3pt minus 2pt}
 
+\newif\ifblockcomment
+\blockcommentfalse
+
+
 \begin{document}
 
+\ifblockcomment
 You are working with a development team on a large software project.  The project is creating a web
 based three-dimensional modeling tool.  This system will allow registered users to create and
 manipulate three-dimensional objects via a web browser.  Because this is a project with a great deal
@@ -33,6 +38,76 @@ mechanism.
 
 Please contact Chris Gilmore (via email or Blackboard) for any questions you may have about the
 assignment.
+\fi
 
+\title{OMSE 510 -- Software Estimation\\Assignment \#1}
+\author{Ben Straub}
+\date{July 12, 2009}
+\maketitle
+
+
+There are many sources of error in software estimation.  The purpose of this document is to provide
+the project team with knowledge and recommendations for how to minimize the unnecessary
+uncertainties for the estimation of this project.
+
+
+\section{Planning Phase}
+\begin{itemize}
+\item {\bf Project planning} --- It's also imperative to have a complete project plan.  Have an
+  experienced project manager produce or review the plan.
+\item {\bf Missing activities} --- See McConnell page 45 (tables 4-3 and 4-4) for a list of
+  development activities that are commonly overlooked when preparing a project plan.  Don't assume
+  all team members will be working on the project 40 hours per week.
+\item {\bf Personnel issues} --- Inexperienced or prima-donna team members can leach uncertainty into
+  a project plan.  Minimize the number of rookie engineers on the project, and deal with personality
+  problems early.
+\item {\bf Tooling} --- This is the time to make sure your processes and tools are in place.
+  Adequate source control is chief among these; choose a tool and workflow before any code is
+  written.
+\end{itemize}
+
+
+\section{Requirements Phase}
+The quality of the requirements themselves is of utmost importance to the rest of the project.  Here
+are some sources of uncertainty related to the requirements:
+\begin{itemize}
+\item {\bf Unfinished requirements} --- It's imperative that requirements be of high quality for
+  future consumption.  This means that they are investigated fully, with involvement from the
+  customer.
+\item {\bf Volatile requirements} --- If possible, produce a stable set (baseline) of requirements,
+  and control all changes to that baseline with cost, effort, and schedule impact information.  It
+  may be suitable to include requirements growth in the estimate.
+
+  If the requirements are too volatile or the environment unsuitable for this practice, consider an
+  alternate process model that better suits this situation.
+\item {\bf Missing requirements} --- Check McConnell page 44 (table 4-2) for a list of requirements
+  areas that are commonly overlooked.
+  \end{itemize}
+
+
+\section{Design and Implementation Phase}
+
+\begin{itemize}
+\item {\bf Abandoning planning} --- Don't stop planning activities because of schedule pressure.
+  This will remove all of the estimation confidence you have.
+\item {\bf Gold plating} --- Also pronounced YAGNI.  If it's not required for the current project,
+  don't bother writing it.
+\end{itemize}
+
+\section{General Advice}
+\begin{itemize}
+\item {\bf Use the simplest method possible} --- Complex methods allow subjectivity to creep into
+  estimates.  Use a simpler method if it will do.
+\item {\bf Use multiple methods} --- If possible, compare the results from more than one estimation
+  method.
+\item {\bf Never give off-the-cuff estimates} --- A 15-minute estimate is much more accurate than a
+  30-second estimate.
+\item {\bf Don't negotiate estimates} --- They're the results of calculation, and should be treated
+  as facts.  Instead, negotiate commitments and targets.
+\item {\bf Use appropriate precision} --- If the uncertainty in an estimate is $\pm$2 months, don't
+  give the mean in hours.
+\item {\bf Know your math} --- Good estimation relies on the proper use of statistics, especially
+  confidence levels and standard deviation.
+\end{itemize}
 
 \end{document}
