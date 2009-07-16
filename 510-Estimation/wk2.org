@@ -1,0 +1,6 @@
+Week 2
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Setup                                                            :noexport:
+  See [[file:wk2-setup.pdf][pdf]]
