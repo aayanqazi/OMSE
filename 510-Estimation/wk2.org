@@ -4,3 +4,37 @@ Week 2
 
 * Setup                                                            :noexport:
   See [[file:wk2-setup.pdf][pdf]]
+* Thursday
+  1. The primary goal of this project was to update our driver software to support a refresh of our
+     flagship hardware product.  It involved the expansion of our driver software in several
+     directions, some of which were entirely new to the system being modified.  For example, the
+     Intuos4 product has graphical displays on board, which mean that the system now had to do some
+     bitmap processing and text rendering.
+
+  2.
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Factor                    | Influence | Rationale                                                                         |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Domain Experience         | H         | The system's architecture was designed with extensible product lines in mind.     |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Documentation Required    | N         | Our normal manual requirements applied, as well assome minimal API documentation. |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Language/Tools Experience | VH        | We've been using the same tools for several years.                                |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Multi-site development    | VL        | All our staff are on-site.                                                        |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Personnel Turnover        | VH        | Of a team of 5, two left over the course of this project.                         |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Process Maturity          | N         | We're somewhere between CMM levels 2 and 3.                                       |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Programmer Capability     | H         | This may be Lake Woebegone Syndrome, but our team is pretty good.                 |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Team Cohesion             | H         | Our group is not very contentious.                                                |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Storage Constraint        | VL        | Our product is not memory-intensive, so we don't tend to hit any limitations.     |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Execution Time Constraint | VL        | Our code is invoked at 200Hz, so we don't have to tune processing very much.      |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+
+    
+  
