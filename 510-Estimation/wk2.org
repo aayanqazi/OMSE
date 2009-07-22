@@ -4,7 +4,7 @@ Week 2
 
 * Setup                                                            :noexport:
   See [[file:wk2-setup.pdf][pdf]]
-* Thursday
+* Thursday                                                         :noexport:
   1. The primary goal of this project was to update our driver software to support a refresh of our
      flagship hardware product.  It involved the expansion of our driver software in several
      directions, some of which were entirely new to the system being modified.  For example, the
@@ -36,5 +36,290 @@ Week 2
     | Execution Time Constraint | VL        | Our code is invoked at 200Hz, so we don't have to tune processing very much.      |
     |---------------------------+-----------+-----------------------------------------------------------------------------------|
 
-    
-  
+* Sunday I                                                         :noexport:
+** Kevin                                                           :noexport:
+*** His post                                                       :noexport:
+    OMSE 510 Software Estimating 14 July 2009 Kevin Richardson Discussion II (Week 4)
+
+    Software Estimating Influence Factors
+
+    Project: Bears is the code name for three color inkjet business copiers:
+
+    - Papa --104 pages/min(ppm) Black -- 80 ppm Color full feature set;
+    - Mama slower with less features & lower price point;
+    - Baby slower yet again with less features & price point.
+
+    The bears program is a cost reduction of the Condor product which is out in the market and was
+    the first color inkjet business copier developed by the division. This includes a finisher which
+    staples, collates, hole punches, and stacks jobs at the output. This is a very large project
+    with over 300 engineers working on it and a timeframe of about 3 years. The Condor project took
+    6 years. Much too large for the exercise we are doing so I am limiting the scope of this
+    discussion to the embedded software (firmware) integration of this product. Just integration
+    occupies between 15 to 20 engineers full time.  Integration includes combining each component,
+    test, builds, revision control, defect tracking and triage. It does not include unit or
+    component development or test. It does not include final solution test, user interface test,
+    localization, performance test, serviceability, or beta test.
+
+    FACTOR RATING RATIONALE Product Complexity VH Integration of firmware controlling
+    electromechanical, multiprocessor, multiple operating systems, image processing, some real-time,
+    and intermixed with some new inventions.
+
+    Uncertainty of Requirements VH Requirements analyst is composed of a team of product managers
+    from the various disciplines not a single individual. Many new inventions as part of the
+    requirements. Interface interpretation not always understood by both parties on opposite sides
+    of the interface. Interface with finisher is new and between engine and finisher. Previous
+    finisher interface was between formatter and finisher.
+
+    Extent of Documentation Required N Documentation requirements not extensive for this
+    project. Reuse of previous documentation is maximized. Documents do need to be reviewed and
+    updated where needed but not created new for most of the project.
+
+    Development for Reuse H Reuse is very high for each major component of the project but only high
+    for integration. Some of the interfaces have changed. New inventions are scattered
+    everywhere. Schedule pushed scope of reuse to a low priority for integration.
+
+    Criticalities (Reliability, Availability, Security, and/or Safety) H Many of these factors would
+    be very high for this product but they were addressed in the previous product and have not
+    changed that much in this one. This is high because of all of the changes in the system from one
+    project to the next.
+
+    Requirements Analyst Capability H Requirements analyst is composed of a team of product managers
+    from the various disciplines not a single individual. This reduces conceptual integrity because
+    no one individual thinks of it all. There is one manager named Bill who pulls all of the
+    integration requirements together and provides some conceptual integrity to integration.
+
+    Programmer Capability H The previous projects developed a great amount of capability in the
+    entire development team; enough to put this at a low for an influence factor but the integration
+    team was pulled together from engineers that were left over when the music stopped and were not
+    placed into a more specialized team. This knowledge moves this factor to a high for that reason.
+
+    Management Capability N The manager (Bill) over integration is new to this position but has very
+    strong organizational and requirements analyst skills. Bill is not new to the organization as he
+    worked on the previous product. All other managers were in their positions on the previous
+    product.
+
+    Application/Domain/Business Area Experience L All personnel on the team worked on the previous
+    product and are very familiar with the trade-offs that they had to make on that product. This is
+    a second product so they need to show self discipline and not allow feature creep to
+    unnecessarily increase scope.
+
+    Analyst Experience N The analysts of this business have been in the printing business a long
+    time but not in the large copier business as long. They have one similar project (Condor) under
+    their belts and many smaller printer projects as well.
+
+    Development Environment Experience (w. Languages and Tools) N The development environment is the
+    same as that used on the previous product. Some of the development engineers are moving from C++
+    to C# on this product but only in small areas.
+
+    Storage Constraints VL The system was sized so that there is no problem with storage.
+
+    Schedule Pressure/Time to Market VH Upper level management decided that since this is a
+    follow-on project, there can be less time for development. The first project took 6 years. They
+    feel that invention of many of the systems caused it to take that long. They are only willing to
+    allow this one three years. Schedule is best if introduction is in early fall. Early Spring is
+    doable but not as good.
+
+    Multi-Site Development VH Integration team is in Vancouver, Engine development is in Vancouver,
+    Formatter development is in Boise, Security is in Roseville, and Marketing is in Vancouver and
+    San Diego. Development silos can and do cause communication problems for the integration team.
+
+    Team Cohesion N The integration team works very closely with each other even though they were
+    thrown together for this project. They also have developed close relationships with the
+    component development teams and they have a great amount of experience in each of their areas of
+    expertise. They work well together.
+
+    Invention (Added new) EH Invention is added as a factor here because it is a very large variable
+    that adds uncertainty to the project. Invention cannot always be set to a schedule. There are
+    many areas of this project that need to be invented. Not near as many as with the previous
+    project but enough.
+
+*** My response
+    *Requirements Uncertainty* -- Most of what you talk about here is really the *Invention*
+    factor.  It actually sounds like the requirements are fairly well-defined, so maybe this should
+    be an N.
+
+    *Documentation* -- If we're reusing the old documentation with some surgical changes, wouldn't
+    that make this an L or VL?
+
+    *Management Capability* -- Bill has managed several successful projects for this company before,
+    and as you say he has strong applicable skills.  He should be an H.
+
+    *Domain Experience* -- From your description, the project team knows this type of project pretty
+    well.  It sounds like they should be an H rather than an L.
+
+    *Analyst Experience* -- Again, from your description, they should probably be rated at H.
+
+    *Dev. Environment* -- Once again, if the team is used to their tools and can use them
+    effectively because of that experience, they should be rated higher than Nominal.
+
+    *Multi-site* -- I think you're too conservative here.  A VH rating should indicate that most
+    /teams/ are multi-site.  I'll grant you that the silos have an effect, but most of the teams are
+    internally co-located, so I'd reduce this to an H.
+
+    *Invention* -- This just seems like business as usual.  If we were solving problems that had
+    been solved before, we'd just buy something.  Most worthwhile software efforts are doing
+    something fairly new, and if solving those problems results in something patentable, then that's
+    a nice side effect.  I would argue that this factor should be rated as H at the most, and more
+    probably N.
+
+    I think you're too conservative in general.  If we're going to take this thing to market in 3
+    years, we need to be aggressively realistic; playing it safe won't cut it.
+
+** Chris
+*** His post                                                       :noexport:
+    GENERAL OBJETIVES
+    Develop a software module (Content Manager) that is responsible for distributing content (mpeg)
+    to various video servers. The software module interfaces with an external component that will
+    aggregate the content and it's associated metadata. Once notification has been sent over the
+    network by the external component, the Content Manager needs to transfer to content to the video
+    servers via FTP and the send a message to the video server to start the process of grooming the
+    content for play by the end customer.
+
+    - FACTOR (INFLUENCE RATING) - RATIONALE
+      ---------------------------------------------
+    - Product Complexity (2.38) - The project requires a number of interfaces and calls across the
+      network. Handling these messages needs to happen asynchronously, which introduces concurrent
+      programming techniques combined with network messaging. Likewise, the application needs to be
+      fault tolerant if the external components are not available, or if the network connections are
+      dropped in mid processing. This introduces considerable complexity.
+
+    - Programmer Capability (1.76) - The programmers that have been working on this solution are
+      well trained and have experience writing network applications. While this specific module is a
+      new product (see the application experience factor below) most of the engineers working on it
+      are at the senior level or above.
+
+    - Requirements Analyst Capability (2.00) - The requirements analyst wears many hats and is
+      trying to guide a software product that could be delivered to multiple customers (see
+      multi-site development factor below). Because of this, the actual job of gathering, recording
+      and updating the requirements is usually low. Many requirements need to be investigated by the
+      engineer before implementation can begin.
+
+    - Documentation Required (1.52) - The product is meant to be installed at a customer site and
+      maintained by their system engineers. This being so, a large amount of high quality
+      documentation is needed for configuration, general operations and problem resolution.
+
+    - Application Experience (1.51) - Along with the poor requirements, the overall application
+      experience of the team is low. The overall system is very complex and requires different
+      integrations with different customers, so the learning curve is very sharp for the developers,
+      project managers, quality assurance and system engineering. Usually the system engineering
+      group needs to educate the other team members on an installations layout and configuration.
+
+    - Multi-site Development (1.56) - As described above, the product is intended to be installed at
+      different customer sites, each with different messaging and integration points.
+
+    - Required Reliability (1.54) - Reliability of the software needs to be extremely high. If
+      content cannot be transferred to video servers and prepared then the cable company is losing
+      money. The software is also capable of running in a hot and cold high availability
+      configuration which allows for minimal downtime between the switch.
+
+    - Requirements Flexibility (1.26) - With the poor delivery of requirements described above, once
+      requirements have been investigated there have been ongoing changes and additional
+      requirements (feature creep) added to the project.
+
+    - Time Constraint (1.63) - The cable industry moves very slow, so time constraints are usually
+      not adhered to. There is a significant amount of hardware that needs to be put in place before
+      an installation of the Content Manager. This being said, the VOD market is relatively small so
+      there is always pressure to release product before the competition.
+
+    - Team Cohesion (1.29) - Overall team cohesion is low, as project roles are usually
+      compartementalized.
+
+
+
+      INFLUENCE FACTOR RATINGS --------------------------------
+    - Product Complexity - 1.74 (Extra High)
+    - Programmer Capability - 0.76 (Very High)
+    - Requirements Analyst Cap - 1.19 (Low)
+    - Documentation Required - 1.23 (Very High)
+    - Application Experience - 1.10 (Low)
+    - Multi-site Development - 1.09 (Low)
+    - Required Reliability - 1.26 (Very High)
+    - Requirements Flexibility - Not available in Table 5.4
+    - Time Contraint - 1.00 (Nominal)
+    - Team Cohesion - 1.12 (Low)
+
+*** My response
+    *Product Complexity* -- You rated this area EH, which in my mind is on the order of the avionics
+    in the Space Shuttle.  Is this system really that complicated?  I would think VH at the highest.
+
+    *Documentation* -- Your rating was VH, but what you describe is the normal amount of
+    documentation for this type of system.  For instance, we don't need to provide flow diagrams of
+    all the major algorithms to the customer.  This sounds more like an N or H than a VH.
+
+    *Multi-site development* -- That word; I don't think it means what you think it means.  It
+    sounds like the development team all work in the same part of the same building, so this should
+    be N, or L if their space is fairly conducive to software work.
+
+    *Team Cohesion* -- The roles may be compartmentalized, but does the team work well together?  It
+    sounds like they have in the past, so this should probably be an H.
+
+    In general, your ratings tend to be on the conservative side.  If we're going to bring this to
+    market in a reasonable amount of time, we can't afford to play it safe.
+
+* Sunday II - Thursday Revised
+** Chris                                                           :noexport:
+   Hi Ben -
+
+   It looks like you have a very dialed in team and project described in this post (see James' post
+   for an example of the opposite) and its hard to refute the comments that you have made, but I
+   always remember that software engineers are always the optimist (this definitely includes
+   me). So, in an effort to explore and get a better idea on the adjustment factors here are some
+   points for discussion:
+
+   Domain Experience - since it was an update to existing software I can understand the high rating
+   that you have. Were all of the team members on the original development team? I noticed that
+   there is a certain amount of turnover - and new team members on the project many not have the
+   level of experience that you have. Your tasks might be estimates with uncertainty, but that
+   doesn't mean the overall team estimate will be.
+
+   Language Tools - If there are new people on the team, what is their comfort and expertise levels
+   with the language and tools. Is there a training program new hires go thru, or is it a
+   sink-or-swim environment (I have mainly worked in sink-or-swims). Altho since not everyone on the
+   team is a new hire, they should be able to provide some direction since they have been working
+   with it for years.
+
+   Process Maturity - Its good to see that you have a process and that steps are taken to measure
+   this against the CMM stages. It's a good idea to revisit the process in practice vs. the process
+   that is documented. (I work at a company that has a great process documented, but in action,
+   there are areas that fall short).
+
+   Programmer Capability - How do you retain the capability along with the turnover that you have
+   described?
+
+   Good post Ben - it's nice to hear that not all projects out there are crazy time constrained
+   efforts with little requirements input. Hopefully my comments above are valid and help reduce the
+   level of variance in the project.
+
+   -ChrisM
+** Kal                                                             :noexport:
+** My post
+  1. The primary goal of this project was to update our driver software to support a refresh of our
+     flagship hardware product.  It involved the expansion of our driver software in several
+     directions, some of which were entirely new to the system being modified.  For example, the
+     Intuos4 product has graphical displays on board, which mean that the system now had to do some
+     bitmap processing and text rendering.
+
+  2.
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Factor                    | Influence | Rationale                                                                         |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Domain Experience         | H         | The system's architecture was designed with extensible product lines in mind.     |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Documentation Required    | N         | Our normal manual requirements applied, as well assome minimal API documentation. |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Language/Tools Experience | VH        | We've been using the same tools for several years.                                |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Multi-site development    | VL        | All our staff are on-site.                                                        |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Personnel Turnover        | VH        | Of a team of 5, two left over the course of this project.                         |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Process Maturity          | N         | We're somewhere between CMM levels 2 and 3.                                       |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Programmer Capability     | H         | This may be Lake Woebegone Syndrome, but our team is pretty good.                 |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Team Cohesion             | H         | Our group is not very contentious.                                                |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Storage Constraint        | VL        | Our product is not memory-intensive, so we don't tend to hit any limitations.     |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
+    | Execution Time Constraint | VL        | Our code is invoked at 200Hz, so we don't have to tune processing very much.      |
+    |---------------------------+-----------+-----------------------------------------------------------------------------------|
