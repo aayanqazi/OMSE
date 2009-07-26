@@ -6,6 +6,9 @@
 \usepackage{tabulary}
 \usepackage[pdfborder=false]{hyperref}
 
+% Remove section numbers
+\setcounter{secnumdepth}{0}     % From headings
+\def\thechapter{}               % From TOC
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{11pt plus 3pt minus 2pt}
@@ -16,13 +19,87 @@
 
 \begin{document}
 
-\title{OMSE 510 -- Software Estimation\\Assignment \#1}
-\author{Ben Straub}
-\date{July 12, 2009}
+\title{Home Security System\\Function Point Estimation}
+\author{Estimated by Ben Straub}
+\date{July 26, 2009}
 \maketitle
 
 
 % Assignment: see ass2-setup.pdf
 
 
+\section{Assumptions and Influences}
+\todo[inline]{Base data and critical assumptions shaping the estimate (show the work done in
+  calculating the function points, explain why program characteristics where low, medium or high
+  complexity)}
+
+\section{Component Estimates}
+
+\subsection{Rationale}
+
+\textbf{System Config} --
+
+\textbf{Main Processor} --
+
+\textbf{Panic Button Controller} --
+
+\textbf{Door/Window Alarm} --
+
+\textbf{Wireless Dial-out Controller} --
+
+\textbf{Key Device Controller} --
+
+\textbf{Motion Detector Controller} --
+
+\textbf{Fire Detector Controller} --
+
+\textbf{CO$_2$ Detector Conroller} --
+
+\textbf{Light A/D Controller} -- 
+
+\subsection{Ratings}
+
+\todo[inline]{How to span columns? Abbreviations need a header.}
+\begin{center}
+  \begin{tabular}[h]{lllllll}
+    {\bf Component}              & {\bf EI} & {\bf EO} & {\bf EQ} & {\bf IF} & {\bf EF} & {\bf Total} \\
+    \hline \hline
+    System Config                &          &          &          &          &          &             \\
+    Main Processor               &          &          &          &          &          &             \\
+    Panic Button Controller      &          &          &          &          &          &             \\
+    Door/Window Alarm            &          &          &          &          &          &             \\
+    Wireless Dial-out Controller &          &          &          &          &          &             \\
+    Key Device Controller        &          &          &          &          &          &             \\
+    Motion Detector Controller   &          &          &          &          &          &             \\
+    Fire Detector Controller     &          &          &          &          &          &             \\
+    CO$_2$ Detector Conroller    &          &          &          &          &          &             \\
+    Light A/D Controller         &          &          &          &          &          & 
+  \end{tabular}
+\end{center}
+
+\section{Calculations}
+
+The formula for $AFP$ (Adjusted Function Points) in the SPR method is:
+
+\begin{equation}
+  AFP = UFP \times (0.4 + 0.1 \times (PC + DC))
+\end{equation}
+
+We choose a $PC$ (Program Complexity) of 2 and $DC$ (Data Complexity) of 3.
+
+\begin{eqnarray}
+  AFP & = & UFP \times (0.4 + 0.1 \times (2 + 3)) \\
+      & = & UFP \times (0.4 + 0.1 \times 5) \\
+      & = & UFP \times (0.4 + 0.5) \\
+      & = & UFP \times 0.9 \\
+\end{eqnarray}
+\todo[inline]{Insert UFP here. Remove equation labels}
+
 \end{document}
+
+\section{Conversion to LOC}
+Function points may be converted to an LOC estimate using the following calculation:
+
+\begin{equation}
+  
+\end{equation}
