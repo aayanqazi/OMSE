@@ -1,10 +1,11 @@
 \documentclass[11pt]{article}
 
+\usepackage[pdfborder=false]{hyperref}
 \usepackage[]{todonotes}
 \usepackage{times}
-\usepackage{fullpage}
+%\usepackage{fullpage}
 \usepackage{tabulary}
-\usepackage[pdfborder=false]{hyperref}
+\usepackage{amsmath}
 
 % Remove section numbers
 \setcounter{secnumdepth}{0}     % From headings
@@ -19,7 +20,7 @@
 
 \begin{document}
 
-\title{Home Security System\\Function Point Estimation}
+\title{Home Security System\\FP/LOC Estimation}
 \author{Estimated by Ben Straub}
 \date{July 26, 2009}
 \maketitle
@@ -29,52 +30,51 @@
 
 
 \section{Assumptions and Influences}
-\todo[inline]{Base data and critical assumptions shaping the estimate (show the work done in
-  calculating the function points, explain why program characteristics where low, medium or high
-  complexity)}
+The assumption with the most impact on this estimate is that the logic necessary for the device
+controllers is minimal.  These are modeled as binary triggers that are passed to the main processor
+for handling.
 
-\section{Component Estimates}
+Another assumption made is that there is an OS that provides both a filesystem and a Python runtime.
+Omission of either of these represents a significant amount of complexity that will need to be moved
+into the project code.
 
-\subsection{Rationale}
+\section{Component Estimates -- Rationale}
 
-\textbf{System Config} --
+\textbf{Main Processor} -- There are 5 low-complexity inputs from the various detector controllers,
+as well as one medium-complexity input from the key controller.  Outputs include interfacing with
+the dial-out device (medium), the key device (medium), and the light controller (low).  The
+interaction with the system configuration can be modeled as a low-complexity query, and the module
+does not interact with any files directly.
 
-\textbf{Main Processor} --
+\textbf{System Config} -- This component has one medium-complexity output (the interface with the Main
+Processor), and one medium-complexity internal file, the settings store.
 
-\textbf{Panic Button Controller} --
+\textbf{Controller Components} -- The internals of these are modeled as a low-complexity internal
+file, and the output behavior as a low-complexity output.  The Key device has a higher external
+output complexity rating.
 
-\textbf{Door/Window Alarm} --
+\textbf{Light A/D Controller} -- This is modeled as a low-complexity input and a low-complexity
+internal file.
 
-\textbf{Wireless Dial-out Controller} --
+\section{Component Estimates -- Ratings}
 
-\textbf{Key Device Controller} --
-
-\textbf{Motion Detector Controller} --
-
-\textbf{Fire Detector Controller} --
-
-\textbf{CO$_2$ Detector Conroller} --
-
-\textbf{Light A/D Controller} -- 
-
-\subsection{Ratings}
-
-\todo[inline]{Data}
 \begin{center}
-  \begin{tabular}[h]{lllllll}
-                                 & \multicolumn{6}{c}{\bf Factor (Complexity Rating)}                 \\
+  \begin{tabular}[h]{lcccccc}
+                                 & \multicolumn{6}{c}{\bf UFP}                                        \\
     {\bf Component}              & {\bf EI} & {\bf EO} & {\bf EQ} & {\bf IF} & {\bf EF} & {\bf Total} \\
-    \hline \hline
-    System Config                &          &          &          &          &          &             \\
-    Main Processor               &          &          &          &          &          &             \\
-    Panic Button Controller      &          &          &          &          &          &             \\
-    Door/Window Alarm            &          &          &          &          &          &             \\
-    Wireless Dial-out Controller &          &          &          &          &          &             \\
-    Key Device Controller        &          &          &          &          &          &             \\
-    Motion Detector Controller   &          &          &          &          &          &             \\
-    Fire Detector Controller     &          &          &          &          &          &             \\
-    CO$_2$ Detector Conroller    &          &          &          &          &          &             \\
-    Light A/D Controller         &          &          &          &          &          & 
+    \hline
+    System Config                &          & 5        &          & 10       &          & 15          \\
+    Main Processor               & 19       & 14       & 3        &          &          & 36          \\
+    Panic Button Controller      &          & 4        &          & 4        &          & 8           \\
+    Door/Window Alarm            &          & 4        &          & 4        &          & 8           \\
+    Wireless Dial-out Controller &          & 4        &          & 4        &          & 8           \\
+    Key Device Controller        &          & 5        &          & 4        &          & 9           \\
+    Motion Detector Controller   &          & 4        &          & 4        &          & 8           \\
+    Fire Detector Controller     &          & 4        &          & 4        &          & 8           \\
+    CO$_2$ Detector Controller   &          & 4        &          & 4        &          & 8           \\
+    Light A/D Controller         & 3        &          &          & 4        &          & 7           \\
+    \hline
+    {\bf Total}                  &          &          &          &          &          & {\bf 107}
   \end{tabular}
 \end{center}
 
@@ -82,25 +82,40 @@
 
 The formula for $AFP$ (Adjusted Function Points) in the SPR method is:
 
-\begin{equation}
-  AFP = UFP \times (0.4 + 0.1 \times (PC + DC))
-\end{equation}
+\begin{align}
+  AFP = UFP \times (0.4 + 0.1 \times (PC + DC)) \notag
+\end{align}
 
-We choose a $PC$ (Program Complexity) of 2 and $DC$ (Data Complexity) of 3.
+We choose a $PC$ (Program Complexity) of 2, since there are no complicated algorithms in use, and
+$DC$ (Data Complexity) of 3, which is nominal.
 
-\begin{eqnarray}
-  AFP & = & UFP \times (0.4 + 0.1 \times (2 + 3)) \\
-      & = & UFP \times (0.4 + 0.1 \times 5) \\
-      & = & UFP \times (0.4 + 0.5) \\
-      & = & UFP \times 0.9 \\
-\end{eqnarray}
-\todo[inline]{Insert UFP here. Remove equation labels}
+\begin{align}
+  AFP & = UFP \times (0.4 + 0.1 \times (2 + 3)) \notag \\
+      & = UFP \times (0.4 + 0.1 \times 5) \notag \\
+      & = UFP \times (0.4 + 0.5) \notag \\
+      & = UFP \times 0.9 \notag \\
+      & = 107 \times 0.9 \notag \\
+      & = 96 \notag
+\end{align}
 
-\section{Conversion to LOC}
-Function points may be converted to an LOC estimate using the following calculation:
+\section{System Size Estimate}
+For this project, the team has chosen Python for implementation, given its high FP/LOC ratio, as
+well as the ability to write extensions in C if greater control or performance are required.  Python
+being an interpreted language, it's main weakness is performance, but this project is not
+performance-constrained, and the hardware used for this product is capable of running a bare-bones
+Linux system with a Python runtime.
 
-\begin{equation}
-  LOC
-\end{equation}
+Conversion factors from FP to LOC have been extrapolated for a variety of implementation languages.
+Python is modeled for this estimate as equivalent to Perl, so the values are used for best-,
+average-, and worst-case size estimates are 10, 20, and 30, respectively.  This results in the
+following LOC estimate range, which are presented with two significant digits.
+
+\begin{center}
+  \begin{tabular}[h]{ccc}
+    {\bf Best-Case} & {\bf Average-Case} & {\bf Worst-Case} \\
+    \hline
+    1000             & 1900               & 2900
+  \end{tabular}
+\end{center}
 
 \end{document}
