@@ -1,0 +1,1461 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<!-- discussion/NewMessageCompileView.jsp -->
+<!-- applicationframework/CommonHeader.jspi -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- applicationframework/contextPath.jspi -->
+
+
+
+
+
+
+
+
+<!-- tool=discussion screenId=92 -->
+
+<html dir="ltr">
+<head>
+
+<title>Compiled Messages</title>
+<!-- applicationframework/HeaderCSS.jspi -->
+
+
+<script language="javascript" type="text/javascript" src="/webct/libraryjs.dowebct?locale=en_US"></script>
+<script type="text/javascript">
+function navJump(){
+var appFrame = getApplicationFrame();
+if(appFrame){
+if(appFrame.TOOLFRAME.LEFTTOOLFRAME){
+if(appFrame.TOOLFRAME.LEFTTOOLFRAME.document.getElementById("cthomepage")) appFrame.TOOLFRAME.LEFTTOOLFRAME.focus();
+else appFrame.TOOLFRAME.focus();
+}else if(appFrame.TOOLFRAME.EXPLORER_LEFT){
+appFrame.TOOLFRAME.EXPLORER_LEFT.focus();
+}else appFrame.TOPAPPFRAME.focus();
+}
+}
+function contentJump(){
+var appFrame = getApplicationFrame();
+if(appFrame){
+if(appFrame.TOOLFRAME.RIGHTTOOLFRAME) appFrame.TOOLFRAME.RIGHTTOOLFRAME.focus();
+else if(appFrame.TOOLFRAME.EXPLORER_RIGHT) appFrame.TOOLFRAME.EXPLORER_RIGHT.focus();
+else appFrame.TOOLFRAME.focus();
+}
+}
+function hideLinks(){
+var appFrame = getApplicationFrame();
+if(appFrame){
+if(window.name=="LEFTTOOLFRAME" || window.name=="EXPLORER_LEFT")document.getElementById("jumpLinks").removeChild(document.getElementById("navijump"));
+if(window.name=="RIGHTTOOLFRAME" || window.name=="EXPLORER_RIGHT")document.getElementById("jumpLinks").removeChild(document.getElementById("contjump"));
+}
+else{
+document.getElementById("jumpLinks").removeChild(document.getElementById("navijump"))
+document.getElementById("jumpLinks").removeChild(document.getElementById("contjump"))
+}
+}
+</script>
+<link rel="stylesheet" href="/webct/css/styles.jsp?locale=en_US&Id=484427900021&colorSetId=FFFFFF000000000099000099006633FFFFFFffffff000099F8FAFD000099cad7ee394859ededed&fontSize=.8em&fontType=Verdana,Arial,Helvetica,sans-serif" type="text/css" />
+<div id="jumpLinks">
+<a href="Javascript:navJump()" id="navijump" accesskey="1" title="Jump to Navigation Frame" class="hideoff">Jump to Navigation Frame</a>
+<a href="Javascript:contentJump()" id="contjump" accesskey="2" title="Jump to Content Frame" class="hideoff">Jump to Content Frame</a>
+</div>
+<script type="text/javascript">hideLinks()</script>
+
+<script language="javascript" type="text/javascript" src="/webct/libraryjs.dowebct?locale=en_US"></script>
+<script language="Javascript" src="jslib/popupSupport.js"></script>
+<script language="javascript" type="text/javascript" src="jslib/popupSupport.js"></script>
+<script language="javascript" type="text/javascript" src="/webct/jslib/sniffer.js"></script>
+<script language="javascript" type="text/javascript" src="jslib/PopItLibrary.js"></script>
+<script language="Javascript" type="text/javascript" src="jslib/nsPostFileForward.jsp"></script>
+
+<script language="javascript" type="text/javascript">
+var containAttachments = false;
+var compliedMessageIds = "";
+var attachmentsIds = "";
+function saveAttachments(){
+if(containAttachments && confirm('The selected messages contain attachments. Do you want to save the attachments with the messages?')==true){
+document.forms[0].saveSimpleFile.value=false;
+}else{
+document.forms[0].fileName.value='Discussions_2009-Aug-02-08-50'+'.txt';
+}
+document.forms[0].attachmentIds.value=attachmentsIds;
+document.forms[0].messageIds.value=compliedMessageIds;
+doSubmit(document.forms[0], '/webct/urw/lc427542153021.tp484427900021/createAttachmentZip.dowebct')
+}
+function printWindow()
+{
+if ( navigator.userAgent.toLowerCase().indexOf( "mac" ) !=-1 ){
+alert("Mac users: To print this page, click command-P.")
+return;
+}
+window.print();
+}
+</script>
+
+<script language="javascript" type="text/javascript">
+function forwardMessage(id)
+{
+
+var messageid = id;
+url = "/webct/urw/lc427542153021.tp484427900021/forwardDiscussionMessage.dowebct?todo=forward&messageid="+messageid;
+
+title = "about";
+openWindow(url,title,725,500);
+registerPopupWindow(newWindow);
+}
+</script>
+
+<script language="javascript" type="text/javascript">
+function replyMessage(areaid, topicid, messageid)
+{
+
+url = "/webct/urw/lc427542153021.tp484427900021/createMessage.dowebct?todo=view&actionType=reply&areaid="+areaid+"&topicid="+topicid+"&messageid="+messageid;
+
+title = "replymessage";
+openWindow(url,title,725,500);
+registerPopupWindow(newWindow);
+}
+function calculateURL(){
+var view = "Threaded";
+var expandMsgId = "";
+var msgListing ="";
+var url ="";
+
+if ( window.opener.document.messageViewForm != null ) {
+view = window.opener.document.messageViewForm.view.value;
+if ( window.opener.document.messageViewForm.exp != null )
+expandMsgId = "&exp=" + window.opener.document.messageViewForm.exp.value;
+if ( window.opener.document.messageViewForm.msgListing != null ) {
+msgListing ="&msgListing=" + window.opener.document.messageViewForm.msgListing.value;
+}
+}
+url ="/webct/urw/lc427542153021.tp484427900021/newMessageThread.dowebct?discussionaction=mDisplay&view="+view+"&topicid=" +document.compiledMessageForm.topicid.value + "&areaid="+ document.compiledMessageForm.areaid.value +msgListing + expandMsgId;
+
+return url;
+}
+function closeWindow()
+{
+self.close();
+}
+closing=true;
+
+function refreshParent(){
+if (opener && opener.openerparent){
+if (closing){
+var openURL = calculateURL();
+urllen=openURL.length+1;
+hashval=opener.location.hash
+hashlen=hashval.length+1;
+var i = hashval.indexOf("target");
+targnum = hashval.substring(i+6,i+7);
+if (hashlen>1 && i>0){
+openURL = openURL.substring(0,urllen-hashlen);
+openURL=openURL + "&Id=1710415172#target"+targnum;
+}
+else{
+newURL=openURL + "&Id=1710415172";
+}
+opener.location=openURL;
+}
+}
+}
+function DisplayComments(areaid, topicid,messageid, oldCount){
+
+url = "/webct/urw/lc427542153021.tp484427900021/viewComments.dowebct?todo=view&actionType=reply&areaid="+areaid+"&topicid="+topicid+"&messageid="+messageid+"&oldCount="+oldCount;
+
+document.location= url;
+}
+</script>
+</head>
+<body class="listingpage" onClick="hidemenu2()" onUnload="refreshParent()";>
+<form name="compiledMessageForm" method="post" action="/webct/urw/lc427542153021.tp484427900021/compiledMessageThreadView.dowebct">
+<input type="hidden" name="strutsaction">
+<input type="hidden" name="topicid" value="484551384021" />
+<input type="hidden" name="areaid" value="-1" />
+<input type="hidden" name="fileName" value="Discussions_2009-Aug-02-08-50" />
+<input type="hidden" name="attachmentIds" value="" />
+<input type="hidden" name="saveSimpleFile" value="true" />
+<input type="hidden" name="messageIds" value="" />
+
+<div class="closewindow">
+<a href="javascript:closeWindow();">Close this window</a>
+</div>
+
+<div class="taskpagetitlediv">
+<h1>Compiled Messages</h1>
+</div>
+<div class="taskbuttondiv marginvert">
+<input type="button" class="task" value="Print" onClick="printWindow();">
+<input type="button" class="task" value="Save as File" onClick="saveAttachments();">
+</div>
+
+
+
+<div class="entrydiv">
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Group 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Kalman Toth
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 25, 2009 2:11 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+This is your discussion area.
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','523363431021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('523363431021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Group 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Kevin Richardson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 29, 2009 8:22 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+Hello Team,<br/>I am working on 1. Decide on an initial set of product, platform, personnel, and project influence factors that characterize the project.<br/>I will try to get something out for your view early Friday. I would like it if people would comment on it at that time. If we could have someone work on 2. and 3. it would be much appreciated. I have started work on 1. already. We could also have someone pull 1. 2. and 3. together when we all get finished. Let me know what you think.<br/><br/>Kevin
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','526366180011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('526366180011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Group 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 29, 2009 8:52 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+I will be working on 2 and will hopefully have something posted for your review by Thurs. night.
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','526383429021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('526383429021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Group 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Benjamin Straub
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 30, 2009 7:42 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+Looks like 1, 2, and 3 have been claimed. I guess I&#39;ll take the task of coordinating the rest of the discussion.<br/><br/>If everyone gets their initial contribution in by Friday night, and give feedback by Sunday around noon, I can put together the coordinated report Sunday night.
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','526994391021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('526994391021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Group 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Kevin Richardson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 31, 2009 11:35 AM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+I have included an Excel spreadsheet. I am still working on the bottom but I needed to get this out there for review.
+
+</div>
+
+<div class="attachmentdiv">
+<div class="userhtml">Attachments:
+
+<a href="RelativeResourceManager/sfsid/527373921021 " target="viewcontentframe" onClick="closing=false">Discussion III Influence Factors.xlsx</a>
+
+</div>
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527373918021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527373918021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 29, 2009 10:01 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+The different requirements are going to be grouped into the following categories.  Each grouping will have an overall flexibility assigned for it, based on the requirements that it represents.<br/>-	Functional Requirements – describe the functionality of the application<br/>-	Platform Requirements – the underlying software platform requirements<br/>-	Performance and Availability Requirements – how well the application performs <br/>-	Security Requirements – security constraints including what’s needed for the application and existing standards<br/><br/><br/>The functional areas for the application will be separated into 4 different categories that are prioritized as follows:<br/><br/>1.	Patient Records (inviolate)– this includes patient records, treatment histories, contact information, drug prescriptions, conforming to HL-7 standards and other patient related information.<br/>2.	Billing (inviolate)– this functional area includes the integration with the CPS system, access to billing records, billing information, conforming to HIPAA standards, claims and reimbursements<br/>3.	Clinician Profiles (relaxed)– this functional area consists of descriptions of the clinician profiles, what services they have been trained to perform and patient referrals<br/>4.	Healthcare Knowledge Base (deferred) – used to describe the different procedures that are performed, research materials to assist in diagnosis and other medical resources.<br/><br/><br/>Security Requirements – Given that this is an application that is not only going to be handling billing and contact information, but also patients medical records, the security is of the utmost importance.  This being so, there is no flexibility allowed for the requirements contained within this section.<br/>-	Public Key Infrastructure for messaging (inviolate)– encrypted communication amongst the available web services<br/>-	Secure Socket Layer (inviolate)– encrypted communication between the application and the clients (workstations, handhelds)<br/><br/><br/>Platform Requirements – The updated case study describes that the following should be “sufficiently” covered.  I’m taking this to mean that these requirements can be relaxed.  Other requirements that were described with a “must” are characterized as inviolate.<br/>-	Reliability (relaxed) <br/>-	Scalable over 5 years (relaxed or deferred) – the initial design may have to account for it, but depending on how much refactoring we can do between deployments…<br/>-	Availability (relaxed)<br/>-	Maintainability (relaxed)<br/>-	MS Windows support (inviolate)<br/>-	Operating System (inviolate)<br/>-	Database Management System (inviolate) – including backup and restore functionality<br/><br/><br/>Performance Requirements –<br/>-	Response times under 5 seconds (deferred – but may have to be included in the application design and hardware procurement phases)<br/>-	Performance monitoring (relaxed)<br/><br/><br/>Functional Requirements – The following are arranged in order from most important to least.<br/>- Patient medical records (inviolate)<br/>- Office workstations (inviolate)<br/>- Integration with CPS (inviolate)<br/>- Conforming to HIPAA and HL-7 standards (inviolate)<br/>- Data conversion (bootstrapping the new application) (inviolate)<br/>- Access control (inviolate)<br/>- System administration (inviolate) <br/>- Patient Registration (relaxed)<br/>- Patient scheduling (relaxed)<br/>- Clinician profiles (relaxed)<br/>- Medical information system (deferred)<br/>- Handheld/PDA support (deferred)<br/>- Appointment scheduling (deferred)<br/>- Online Forms (deferred)<br/>- Personal storage (deferred) – Portable Identity Management<br/>- IM, texting support (deferred)<br/>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','526419128021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('526419128021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Benjamin Straub
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 30, 2009 8:20 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+<p>Chris,
+</p>
+<p>
+This looks pretty good.  My main concern is that we're deferring too much till the next release.
+Assuming Columbia agreed to an iterative release, and we're only estimating the first iteration,
+this is probably fine.  <i>[ For the purposes of this discussion, I vote both of these are true. ]</i>
+</p>
+<p>
+I'd probably mark scalability as relaxed.  Deferred means we can completely ignore it, since it
+may never make the cut.  At the very least, we'll need to <i>allow</i> for tuning and profiling in the
+future.
+
+</p>
+<p>
+Response time is another item I'd probably promote to 'relaxed.'  5 seconds isn't a difficult
+goal to meet; if we fail to meet it, it's most likely an architectural issue than something that
+can be tuned away.
+</p>
+<p>
+&mdash; Ben
+</p>
+
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527009553021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527009553021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 31, 2009 7:49 AM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+Hi Ben<br/><br/>Sounds like some good suggestions.  The reason for the deferrals is that I had the same case study last quarter in OMSE 511 and the deferrals matched what was finally chosen.  Plus remember, that the project contract still states that we need to deliver the application within 18 months.  Hopefully we&#39;ll have a better idea of what will be deferred after the estimates.  For now, the labels really mean:<br/><br/>inviolate &#61; high priority<br/>relaxed &#61; medium priority<br/>deferred &#61; low priority<br/><br/>I was just using the verbiage from the case study writeup.  <br/><br/>I think you make a good point with the scalability and that we should have it relaxed.  Its something that does need to be taken into account for our estimates since its not usually a task that lends itself well to being added half-way thru the project.  Its more of a platform/design thing unless there is some hardware solution (possibility&#63;).<br/><br/>Agreed on the response times too.  5 seconds these days is an eternity, unless we are doing complex algorithms and/or data aggregations - which doesn&#39;t seem like the case at the moment.<br/><br/>What do you think about the performance monitoring under the Performance Requirements&#63;  I had them as relaxed(medium), but on second thought it might be better as deferred(low).  How critical do would you guess this is&#63;<br/><br/>Any of the functional requirements that you think I missed, or have prioritized incorrectly&#63;<br/><br/>-Chris 
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527314829021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527314829021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Benjamin Straub
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 6:54 AM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+Chris,<br/><br/>It&#39;s probably not all that critical, definitely not &quot;inviolate&quot;. Adding hooks to measure performance in any kind of detail would be significant effort. But depending on what the client wants, it could be easy; a simple dashboard with response time, # requests per minute, etc.<br/><br/>I think I&#39;d leave it as &quot;relaxed&quot;. I took 511 last term as well, and my team put a fair amount of thought into those categorizations, so maybe we should trust them. Of course, in the real world, that could be our downfall. :)<br/><br/>-- Ben
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527860309011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527860309011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 6:47 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+<br/>Hi Ben,<br/><br/>Ok, that sounds fine. We&#39;ll mark it as &quot;Relaxed&quot;.<br/><br/>-ChrisM
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','528068937021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('528068937021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> James Thompson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 12:18 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+ARE WE GOING TO ESTIMATE DEFERRED FUNCTIONALITY NEXT WEEK&#63;<br/><br/>This looks really good and I agree 99&#37;. My only concern is:<br/><br/>Personal Storage - I used to consider this as deferred but since this falls under HIPAA as needed encryption and access control, I wonder if we should not consider it inviolate&#63; Or maybe deferred-involate&#63;<br/><br/>I noted PointSec as an application which may work for this area - it is a COTS tool. Please let me know what anyone thinks.<br/><br/>The updated case study gives more information on Forms Management Services. This appears to be the same sized development effort as our the CS, HS and UW requirements. Does anybody agree&#63; I would say we fight to defer this. It should be the most deferrable.<br/><br/>James<br/>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527940015011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527940015011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Benjamin Straub
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 3:55 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+<blockquote><em>
+ARE WE GOING TO ESTIMATE DEFERRED FUNCTIONALITY NEXT WEEK?
+</em></blockquote>
+
+I doubt it. I think the reason we're categorizing like this is to trim down what it is we're estimating. This might be a question for Kal.
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','528009997011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('528009997011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 6:54 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+James,<br/><br/>&gt;Personal Storage - I used to consider this as deferred<br/>&gt;but since this falls under HIPAA as needed encryption<br/>&gt;and access control, I wonder if we should not consider<br/>&gt;it inviolate&#63; Or maybe deferred-involate&#63;<br/><br/>Are the HIPAA standards really reflective of personal storage&#63;  The way I read it was, that any functionality, message, data storage that our application does should conform to those standards.  Whether or not we implement personal storage for the first phase of application development is still up in the air.  I don&#39;t see personal storage and HIPAA being tied at the hip.<br/><br/>&gt;I noted PointSec as an application which may work for<br/>&gt;this area<br/>PointSec looks like it is an encryption tool - not one that focuses on HIPAA.  Let&#39;s factor that into our decision on the applicability of using it as COTS.  If I was planning this project I would want to make sure that we don&#39;t make the mistake of defining something as a silver bullet.<br/><br/>-ChrisM
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','528071290021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('528071290021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 2 - Chris McGinnis
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> James Thompson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 9:00 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+HIPAA is very explicit about personal storage. The document referenced below talks about policies and training required, check section &quot;C. Minimum Content of the Policies and Procedures&quot; regarding portable devices and removable media.<br/><br/>http://www.hhs.gov/ocr/privacy/hipaa/enforcement/examples/agreement.pdf<br/><br/>That said, I would be fine deferring personal storage - but if we do estimate this then we have to include encryption and password protection.<br/><br/>We use PointSec at work, it is an effective encryption tool which integrates well with enterprise identity management. PointSec has been used by the army for HIPAA compliance of medical records on mobile devices (according to hipaabulletin.com.) <br/><br/>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','528110730011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('528110730011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> James Thompson section 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> James Thompson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 30, 2009 9:44 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+&gt; 3) Agree on the acceptable range of technical options for your estimate,<br/>&gt;namely, where/how you hope to leverage reuse, whether you will<br/>&gt;consider using any COTS products for certain functions, and<br/>&gt;whether you plan on strengthening your personnel or technologies /<br/>&gt;tools in certain areas. <br/><br/>I listed all requirements areas (with the exception of performance) and identified the probability of:<br/><br/>. COTS<br/>. Reuse<br/>. New tools (increase productivity)<br/>. Benefit from new personnel / training<br/><br/>The factors were rated as high, medium or low. These subjective measures are detailed in the &lt;b&gt;attached spreadsheet&lt;/b&gt;. I will summarize the &quot;High&quot; areas here.<br/><br/>All web services (UW, HS, CS) will benefit highly from strengthening tool support since design tools are increasingly supporting this technology. Database design and management will also benefit from tool support; this is a very mature technology area.<br/><br/>All system administration, user identities, access control and management should use COTS. Most operating systems have this capability built in and there are many third party tools (which use open standards such as certificates and Kerberos) to provide access control. The selected technologies should be compatible with the legacy Cascade systems.<br/><br/>Database backup, performance monitoring, logging and general administration is best performed with COTS software. There are many good backup and recovery programs which could do a better job than us for less cost than design, implementation and testing of this capability.<br/><br/>Appointment management is another high candidate for COTS software. Calendaring software and utilities are readily available and they also interface nicely with custom software (such as we would create.) <br/><br/>Portable identity management should be included (or compatible) with the COTS solution we have identified for our web services based system.<br/><br/>Documentation should make good reuse of existing plans and documents from other similar projects. Additionally we could make use of more modern document management technologies (like version control, collaboration technologies, etc.)<br/><br/>
+
+</div>
+
+<div class="attachmentdiv">
+<div class="userhtml">Attachments:
+
+<a href="RelativeResourceManager/sfsid/527058917021 " target="viewcontentframe" onClick="closing=false">Cots-reuse-matrix.xls</a>
+
+</div>
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','526699262011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('526699262011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:James Thompson section 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 31, 2009 8:07 AM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+<br/>Hi James -<br/><br/>Good post - you cover quite a bit between the attached excel spreadsheet and your message.  <br/><br/>I might be digging too far into the details, but the way I understand it is that HL-7 is a messaging standard that we will need to implement.  I&#39;m figuring that the HL-7 compliant messages will be used to communicate with other web services that we are integrating with.  I have done a quick search and found simulators that can spam your system with messages for testing, but no actual implementations of the stack.  I just don&#39;t want to paint us into a corner saying that there is a COTS solution and then be unable to find one.<br/><br/>I wasn&#39;t sure of the reuse level for patient records and processing, but after thinking about it I agree.  There has to be some sort of tool that one of the Columbia offices use to do this that we may be able to leverage for our product. (I&#39;m fine going forward with this decision in our discussions)<br/><br/>For OS and DBMS, you specified them as tools, but I was thinking that these would be COTS.  Wouldn&#39;t we be buying the OS (Microsoft Windows) and the underlying license for the database (Oracle, MySQL, SQLServer)&#63;  Let me know what your thoughts on this.<br/><br/>Portable identity management is still a fuzzy requirements for me.  What are your thoughts on how this works&#63;<br/><br/>-ChrisM <br/><br/>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527317040021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527317040021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:James Thompson section 3: Chris, Kevin, Ben and James
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> James Thompson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 11:35 AM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+&gt;I might be digging too far into the details, but the way I understand it is that HL-7 is a messaging standard that we will need to implement. I&#39;m figuring that the HL-7 compliant messages will be used to communicate with other web services that we are integrating with. I have done a quick search and found simulators that can spam your system with messages for testing, but no actual implementations of the stack. I just don&#39;t want to paint us into a corner saying that there is a COTS solution and then be unable to find one.<br/><br/>There is no way to dig too deeply into the details, in my opinion.  I marked this area as medium-cots. I might make this medium-high because there are several implementations of this. SourceForge (my favorite place) has a Perl API for HL-7, there is also a java open source api, also others. This area seems to have a lot more resources than I was aware.<br/><br/>&gt;I wasn&#39;t sure of the reuse level for patient records and processing, but after thinking about it I agree. There has to be some sort of tool that one of the Columbia offices use to do this that we may be able to leverage for our product. (I&#39;m fine going forward with this decision in our discussions)<br/><br/>Major caveat!!!! I have limited web development experience, but I once created a website using Tomcat. There were all sorts of crazy ways to structure the data but once I had an infrastructure in place I figured I could use the project and create content much faster. For all the web services I made this assumption that we could take an existing JDI project (full infrastructure in place – not healthcare related) and re-use those parts while implementing the functionality - content (such as patient records, processing, etc…) completely new. Someone with more n-tier architecture experience will have to decide if I am correct – that we can reuse some percentage of a development to support different content.<br/><br/>&gt; For OS and DBMS, you specified them as tools, but I was thinking that these would be COTS. Wouldn&#39;t we be buying the OS (Microsoft Windows) and the underlying license for the database (Oracle, MySQL, SQLServer)&#63; Let me know what your thoughts on this.<br/><br/>I was thinking of tools such as ER Studio for doing database development.  This clearly was not the place to list development tools but the “updated” case study seems to concentrate more on functional requirements and dropped the more substantial section on database requirements listed in the original case study.<br/><br/>&gt;Portable identity management is still a fuzzy requirements for me. What are your thoughts on how this works&#63;<br/><br/><br/>VPN’s and proxy servers are good ways to limit access to the network for mobile devices. I think we could require VPN access to sensitive records and could configure a proxy server to limit external mobile devices (which do not use VPN) to non-sensitive portions of our web service architecture. With the VPN use we will have an actual network identity, therefore all our security measures should work for the mobile device as well as any workstations. Additionally the proxy will allow us to distinguish between the UW, CS, HS and SA web services as some will be limited to certain domains.<br/><br/>http://www.windowsfordevices.com/c/a/News/Wireless-VPN-supports-Windows-Mobile-50/<br/><br/>As much as I hate PointSec, it offers mobile encryption and enterprise data management. This utility will force encryption of sensitive data on mobile devices as specified by enterprise management policies.<br/>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527924430011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527924430011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Section 1 Excel spreadsheet
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Kevin Richardson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> July 31, 2009 1:00 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+Here is my section 1 contribution. Please feel free to express concerns about where I put the ratings and to add supporting data. Chew this up and tell me where I am wrong. I will not be offended. I may disagree but I will let you know where that happens.<br/><br/>Kevin
+
+</div>
+
+<div class="attachmentdiv">
+<div class="userhtml">Attachments:
+
+<a href="RelativeResourceManager/sfsid/527400868021 " target="viewcontentframe" onClick="closing=false">Discussion III Influence Factors.xlsx</a>
+
+</div>
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527400865021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527400865021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 1 Excel spreadsheet
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> James Thompson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 12:29 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+Hi Kevin,<br/><br/>This looks excellent. Great job on a very thorough spreadsheet. All areas are covered and the descriptions with regards to our project are detailed.<br/><br/>I tried to format this as: Influence factor, was rated, suggested rating, reason<br/><br/>Required Reliability was VH, suggest H, This is not a life critical application and they have backup processes and procedures to keep the business operational until bugs get worked out. Since we are replacing a process which works (though cumbersome) we can afford some latitude on reliability. Testing and verification activities to make a very high reliable system may be more than we want to invest.<br/><br/>Product Complexity was H, suggest VH. The product has lots of standards, encryption, complex user modes, auditing, protected data requirements, etc… If we were just creating the capability without all the standards and constraints then I would call it high.<br/><br/>Execution Time Constraints was L, suggest N. The execution time requirements do not seem onerous, but could rapidly become that way when we have to integrate encryption, identity management, restricted accesses and multiple users.<br/><br/>Storage Constraints was N, suggest VH. I realize storage is cheap but in this instance when we are using our data it must be kept in accordance with HIPAA standards which require restricted access, physical security, encryption, auditing, etc. The data we test with will need to be segregated from the normal environment and therefore the constraints on this storage will be high. It will be easy to run up against barriers with this factor.<br/><br/>Personnel Turnover was VH, suggest H. While the economy provides less opportunity to leave, we still have to recruit internal people from other projects and keep them from going back.<br/><br/>Development Flexibility was L, suggest H. Is this one of those factors where a high rating means a low multiplier&#63;<br/><br/>Arch/Risk Resolution was H, suggest N. This is how well our company handles risk mitigation. I would rate it N since we don&#39;t know how proactive our management team will be and there seemed to be little documentation on past performance in this area.<br/><br/>Team cohesion was L, suggest H. This is a factor which a &quot;high&quot; rating &#61; low multiplier. Your description seemed to be a highly cohesive team of individuals who have worked well together in the past.<br/><br/>Requirements Volatility was H, suggest VH. Since there few requirements now, there will be many changes (since adding requirements is changing.)  I think this project is a guaranteed highly volatile area in regards to requirements.<br/><br/><br/>James<br/>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','527943207021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('527943207021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 1 Excel spreadsheet
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> Christopher McGinnis
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 6:46 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+&gt;Required Reliability was VH, suggest H<br/>I agree with this as well and would have marked it as Medium if it were not for monetary transactions.  When money is involved then people usually get concerned about the reliability.  But I agree that this could be a High instead of VH.<br/><br/>&gt;Product Complexity was H, suggest VH<br/>I think the High captures the project well.  If this was an aerospace application, or if lives were involved then I would agree that Complexity would by VH.  But for what has been described so far, H is fine.<br/>&gt;Execution Time Constraints was L, suggest N<br/>I agreed that execution time constraints were Low.  5 seconds is an eternity.<br/><br/>&gt;Storage Constraints was N, suggest VH<br/>Good points about all of the overhead to consider with the storage constraints.  I wasn&#39;t sure if it should affect this factor, or if we had captured that in the complexity constraint&#63;  What do you think&#63;<br/>&gt;Personnel Turnover was VH, suggest H<br/>I would have marked this as normal since their is no indication in the case study that we have personnel turnover.<br/><br/>&gt;Arch/Risk Resolution was H, suggest N<br/>Agree with N since no processes have been described in the case study.<br/><br/>&gt;Team cohesion was L, suggest H<br/>The case study did mention that Columbia has completed other products (not necessarily in the healthcare industry), but what indication do we have to swing this one way or the other&#63;<br/><br/>&gt;Requirements Volatility was H, suggest VH<br/>Agree with the VH.  The information that we have right now is very light.<br/><br/><br/>-ChrisM
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','528068798021');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('528068798021')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+<div class="entrydiv">
+
+
+<table summary="" cellspacing="0">
+<tr >
+<td>
+<b>Subject:</b> Re:Section 1 Excel spreadsheet
+
+</td>
+<td class="rightcolumn">
+
+<b>Topic:</b> Discussion III (week 6): Preparing for the Software Estimating Task
+</td>
+</tr>
+<tr>
+<td>
+<b>Author:</b> James Thompson
+</td>
+<td class="rightcolumn">
+<b>Date:</b> August 1, 2009 9:36 PM
+</td>
+</tr>
+</table>
+<div class="entrytext">
+<div class="userhtml">
+
+
+&gt;&gt;Team cohesion was L, suggest H<br/>&gt;The case study did mention that Columbia has completed other<br/>&gt;products (not necessarily in the healthcare industry), but what indication <br/>&gt;do we have to swing this one way or the other&#63;<br/><br/>Good question, I deferred to Kevin&#39;s description of team dynamics. Our L vs. H differed on how to interpret to book description of this factor.<br/><br/>&gt;&gt;Storage Constraints was N, suggest VH<br/>&gt;Good points about all of the overhead to consider with the storage<br/>&gt;constraints. I wasn&#39;t sure if it should affect this factor, or if<br/>&gt;we had captured that in the complexity constraint&#63; What do you think&#63;<br/><br/>I think these are different since I read complexity as being how difficult the software is to produce and storage constraints more related to the development environment. Each should affect the ability to produce a product. Much of our work is on closed networks and it adds a lot of extra time for system administration and moving code back and forth, testing, etc.<br/><br/><br/>&gt;&gt;Personnel Turnover was VH, suggest H<br/>&gt;I would have marked this as normal since their is no indication in the case<br/>&gt;study that we have personnel turnover.<br/><br/>I could go either way, since there was no mention of seething tensions I decided to err on high.
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix">
+
+
+<div class="replytomessage">
+<a class="actionlight" href="Javascript:replyMessage('0','484551384021','528119407011');" title="Link opens in a new window">Reply</a>
+<!-- Only show the forrward button in portfolio if users is powner.-->
+
+
+<a class="actionlight" href="javascript:forwardMessage('528119407011')" title="Link opens in a new window">
+
+Forward
+
+</a>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<div class="closewindow">
+<a href="javascript:closeWindow();">Close this window</a>
+</div>
+<script language="JavaScript">
+containAttachments = true;
+compliedMessageIds = '523363431021,526366180011,526383429021,526994391021,527373918021,526419128021,527009553021,527314829021,527860309011,528068937021,527940015011,528009997011,528071290021,528110730011,526699262011,527317040021,527924430011,527400865021,527943207021,528068798021,528119407011';
+attachmentsIds = "527373921021,Discussion III Influence Factors.xlsx,527058917021,Cots-reuse-matrix.xls,527400868021,Discussion III Influence Factors.xlsx,";
+</script>
+</body>
+</html>
+ l+resources.%0D%0A%0D%0A%0D%0ASecurity+Requirements+%E2%80%93+Gi
