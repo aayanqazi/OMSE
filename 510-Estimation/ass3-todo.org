@@ -1,0 +1,6 @@
+* Estimation techniques [1/3]
+  - [ ] Cocomo II
+        Need to get a size estimate from another technique.
+  - [X] Analogy (seems easy)
+        May need to massage data?
+  - [ ] Function points
