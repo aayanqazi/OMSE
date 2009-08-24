@@ -1,0 +1,77 @@
+Week 9
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* FP                                                               :noexport:
+  Here's the raw data I used to generate my FP numbers. It's mostly a quick judgement call with
+  round numbers. These are the counts of the features, not FP.
+
+  | / |   |                           |  < |    |   |  < |    |   | <  |    |    |  < |    |    | <  |    |  > |
+  |   |   |                           |    | EI |   |    | EO |   |    | EQ |    |    | IF |    |    | EF |    |
+  |   |   |                           |  S |  A | C |  S |  A | C | S  |  A |  C |  S |  A |  C | S  |  A |  C |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Operating Sys, DBMS       |    |    |   |    |    |   |    |    |    |    | 10 | 10 |    | 10 | 10 |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Communications            |    | 15 | 5 |    | 15 | 5 |    |    |    |    |    |    |    |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Web Services              | 10 |  5 | 5 | 10 |  5 | 5 |    |  5 |    |    |    |    |    |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Access Control            |    |  5 | 5 |    |  5 | 5 |    |  5 |    |    |  5 |    |    |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Security Administration   |    | 10 | 5 |    | 10 | 5 |    |  5 | 10 |    |  5 | 10 |    |  5 | 10 |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Utilities and Procedures  |    |    |   |    |    |   |    |  5 |  5 |    |  5 |  5 |    |  5 |  5 |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Patient Registration Serv | 10 |  5 | 5 | 10 |  5 | 5 |    |    |    |    |    |    |    |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Patient Processing Serv   |    |  5 | 5 |    |  5 | 5 |    | 10 |  5 | 10 |  5 |  5 |    |  5 |  5 |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Claims Processing Serv    |    |    |   |    | 10 | 5 |    | 10 |  5 |    |    |    |    |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Forms Mgt Serv            |  5 |    |   |    |    |   | 5  |    |    | 20 |    |    | 5  |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Appointment Mgt Serv      | 10 | 10 |   | 10 | 10 |   | 10 |    |    | 10 |    |    | 10 |    |    |
+  |---+---+---------------------------+----+----+---+----+----+---+----+----+----+----+----+----+----+----+----|
+  |   |   | Portable ID Mgt Sys       |    |    |   |    |    |   |    |  5 |  5 |    | 10 |  5 |    | 10 |  5 |
+
+  
+  Here are the FP totals for the controversial categories:
+
+  | External Inputs (EI)  |  505 |
+  | External Outputs (EO) |  690 |
+  | Internal Files (IF)   | 1085 |
+
+* COCOMO Factors
+** Intro                                                           :noexport:
+   Hi All -
+
+   The adjustment factors that we each chose for the COCOMO model followed our discussion from the
+   previous week, but there were still some differences.
+
+   The most glaring was the SITE value. We each had a different adjustment factor ranging from VL to
+   VH. I think there is some confusion about this point that we should clear up before the next
+   estimation round.
+
+   The other differences were not that drastic and were as follows:
+
+   DATA - VH(3), H(1)
+   DOCU - VH(3), H(1)
+   PCON - VH(3), H(1)
+   LTEX - VH(1), H(3)
+   TOOL - H(3), L(1) - there might be some confus here too
+   SCED - VL(1), N(3)
+
+
+   The Scaling Factors for the COCOMO model were the same except for:
+   RESL - H(3), N(1) 
+** Response
+   Most of my ratings were just continuations from two weeks ago. 
+
+   - *SITE* -- I rated this VH because it had the lowest multiplier.  Our team works in the same
+     space, so there shouldn't be any penalty.
+   - *DATA* -- Our database will include data for a /million/ patients. I rated this VH.
+   - *DOCU* -- I rated this VH, since that's what we agreed on two weeks ago.
+   - *PCON* -- I gave this a VH; we're not likely to have a lot of turnover.
+   - *LTEX* -- H.
+
+   
