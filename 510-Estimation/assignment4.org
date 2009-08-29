@@ -1,0 +1,13 @@
+Assignment 4
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Setup                                                            :noexport:
+  You are required to read and use Roetzheim’s reuse methodology in “Calculating for Reuse” which
+  you will find in Course Resources.
+
+  Note that there will be virtually no allowance for lateness for this last assignment as final
+  grades need to be submitted early in the week of September 7th. The system will allow you to
+  submit Assignment 4 at most 6 hours late which is 6am of September 7th Portland Oregon (Pacific)
+  time.
+
