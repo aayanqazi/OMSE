@@ -1,0 +1,77 @@
+Great programmers
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Original post                                                    :noexport:
+
+** A great programmer
+*** Thinks logically and mathematically
+    it's imperative to be able to handle Boolean logic and program flow, as well as follow program
+    flow.  This also includes the ability to take a human-language description of an algorithm and
+    write some code that implements it.
+
+*** Thinks abstractly
+    Read "can understand pointers."  If you can't wrap your brain around a dereferenced pointer, or go
+    one level meta in a design session, you'll never be great.
+
+*** Has a irtual machine in her head
+    This is the ability to mentally simulate program flow, almost like running a symbolic debugger.
+
+*** Is curious
+    A great programmer never stops learning, whether they are extending their breadth by learning a
+    totally new technology or language, or simply extending their knowledge and experience with their
+    native toolset.
+
+*** Effectively communicates
+    Having great ideas and ninja-like skills with Emacs does very little good if you can't work with
+    other people.
+
+** My manager thinks a great programmer
+*** Gets the job done
+    At the end of the day, all that matters is that the work got done, and the system can do what
+    the business is asking of it.  The converse of this is building the system that's needed, rather
+    than the Platonic ideal system that would solve the business problem as a side-effect.
+*** Doesn't hurt the team
+    There are several skills that prevent one's code from causing pain to other team members, or the
+    original author several weeks or months later.  Writing readable code, writing useful comments,
+    low-level design techniques and patterns all come into play here.
+*** Is self-aware
+    Being able to produce a decent work estimate is an invaluable skill when planning a software
+    project.  When in the trenches, knowing where you stand with respect to where you should be is a
+    powerful decision-making tool.
+*** Is passionate
+    People who care about what they do tend to be easier to manage.  They improve themselves, they
+    enforce quality standards, and they take pride in what they do.
+
+* Reply to Kevin Richardson                                        :noexport:
+  /Writes tests for his code before he actually writes the code./
+
+  I understand that TDD is the new hotness, but I'd argue that this is a point of methodology.  Is
+  Linus Torvalds a good programmer?  He didn't write tests for the Linux kernel before he wrote it.
+  Writing your tests first is a fine technique, but I don't think it's an intrinsic quality of a
+  good programmer.
+
+  /his/her code is extensible/
+
+  Sometimes this isn't desirable.  I'd argue that, in most situations, there's no way to know what
+  kinds of extensibility will be useful or necessary in the future, so commiting to one set of axes
+  for extension is premature.  True, if your predictions are correct, it'll be nice to already have
+  the new feature written, but what are the odds that you're exactly right?  It's usually better to
+  do the simplest thing that could possibly work, rather than risk wasting the development time
+  including the wrong kind of extensibility.
+  
+
+
+* Reply to Kooth's reply to Sharad
+  /I would like to add that a good programmer would do a self review before even giving to peer
+  review and he starts the unit testing only after the peer review is complete./
+
+  In an ideal world, perhaps this would be true.  Pair-programming goes this route, where all code
+  is "peer-reviewed" by at least one other person before it's checked in, but there's no "self
+  review" stage there.  Also, TDD seems to be the best thing since sliced bread these days, so the
+  unit testing should then happen before writing any code.
+
+  I guess the point I'm trying to make is that no single methodology or process can define what a
+  good programmer is.  A good programmer uses the team's methodology when it is a benefit, and
+  circumvents or changes it when it is a detriment.
+
