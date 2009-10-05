@@ -1,0 +1,48 @@
+Programming languages
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Original post                                                    :noexport:
+  /Does the choice of a programming language affect development?  Why or why not?/
+
+  Yes it does matter.  In the COCOMO models, the implementation language has a direct effect on the
+  code size, total effort, and calendar time needed to produce a given system.
+
+  The choice of language has other effects as well.  Some languages are more suited to certain tasks
+  than others; hardly anyone who knows Perl would choose C++ to write a program involving regular
+  expressions.  An object-oriented system is certainly possible in Perl 5, but the impedance is much
+  higher than with Python.  If your system is required to be provably correct, it's probably better
+  to choose a language that has provability as one of its primary goals, since C++ is nearly
+  unparseable.
+
+  There are non-technical reasons to choose one language over another, as well.  The availability of
+  experienced programmers is a good example.  Marketability is another; nobody wants to work in
+  MUMPS.  Team morale is yet another; writing a web application in x86 assembler is painful.
+
+  /Can you write good code in any language?/
+  
+  Sure, but the quality of the code is meaningless next to what it can do.  When writing in
+  assembly, all the programmer's brainpower is spent in keeping track of what variable is in what
+  register, and how to deal with hyperthreading and out-of-order execution.  This makes it much more
+  time- and labor-intensive to achieve higher-order objectives, such as a smooth user experience.
+  On the other end of the spectrum, frameworks such as Django and Rails handle the gruntwork of
+  writing a certain class of applications; about half of what's left is designing the user
+  experience.
+
+  It's the difference between a crowbar and a forklift.  No matter how finely crafted the crowbar,
+  you'll never lift two tons of shingles to the roof of a 10-story building.
+
+* Reply to Nick
+  /For example, McConnell argues, "The words available in a programming language for expressing
+  your programming thoughts certainly determine how you express your thoughts and might even
+  determine what thoughts you can express./"
+
+  This is called the [[http://www.programmersparadox.com/2009/02/27/sapir-whorf-hypothesis/][Sapir-Whorf Hypothesis]], and it was originally posited about human languages;
+  that the ideas you can think are limited by what's expressible in your language.  If it's correct
+  (and it certainly has the ring of truth), this is a good argument for learning new computer
+  languages -- after a while, you'll start having ideas that you not only didn't have before, but
+  that you /couldn't/ have had before.
+
+  We're getting a little off-topic, but this definitely suggests that knowing some programming
+  languages makes you better in others.  Does that mean that the choice of programming language
+  matters for a given system?

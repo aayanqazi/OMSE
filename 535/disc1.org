@@ -62,7 +62,7 @@ Great programmers
   
 
 
-* Reply to Kooth's reply to Sharad
+* Reply to Kooth's reply to Sharad                                 :noexport:
   /I would like to add that a good programmer would do a self review before even giving to peer
   review and he starts the unit testing only after the peer review is complete./
 
@@ -75,3 +75,54 @@ Great programmers
   good programmer is.  A good programmer uses the team's methodology when it is a benefit, and
   circumvents or changes it when it is a detriment.
 
+
+* Reply to mine: Jesse                                             :noexport:
+  Sure, but the question wasn't "What makes a programmer you'd like to work with?" :)
+
+  I used to think that skill didn't matter, that I could keep doing what I was doing and be happy
+  with my career.  I read [[http://www.joelonsoftware.com/articles/HighNotes.html][something]] a while back that changed my mind.  It turns out that there is a
+  difference between most programmers and the /best/ programmers, and I believe it is worth striving
+  for.
+
+  There's a network effect, too.  Great programmers tend to gather, because it's /awesome/ to work
+  with great people.  Think about it: while it'd be nice for a while, wouldn't it eventually get
+  boring always being the smartest guy in the room?  Not respecting the taste or skill of your
+  teammates, and not trusting their judgement?  Wouldn't you want to have someone to look up to, to
+  learn from, to compete with?
+
+  I'm not even sure this is on-topic.  I realize most people aren't, but I'm really into getting
+  better at programming and engineering.  To do that, you have to know the difference between the
+  average and the truly great.
+
+* Reply to mine: Martin
+  /It's interesting that many people (including myself) referenced schedules, estimates, and job
+  completion only under the "what my manager wants" section./
+
+  Maybe it's because of the word 'programmer'.  To me, to be a good programmer is to be good at
+  designing and writing code.  The "my manager" qualities we chose are really more about software
+  engineering and predictability.
+
+  I guess we all think that our managers don't really care how much of a superstar genius ninja you
+  are with your text editor, they just care that the work gets done on time.
+  
+
+* Reply to mine: Matthew
+  /you mentioned here that being able to think in the abstract would involve the understanding of
+  pointers./
+
+  Maybe I singled out pointers too much.  You're right, there are really two kinds of abstraction
+  going on here.
+
+  The first is technical, or what OS people call virtualization; you're given a thing, but it's not
+  really a thing, it's just something that lets you find the real thing.  This happens with objects
+  (pointers and references), buffers (virtual/physical memory addresses), and OS objects (handles).
+
+  The second is design-time abstraction, or intellectual leverage.  The ability to re-use ideas, to
+  think generically, to juxtapose two specific problems and see that they're really just two aspects
+  of the same issue.  Knowing and using design patterns, processing code like it was data, that kind
+  of thing.
+
+  So yes, there are two kinds of abstraction.  I would further argue that a /good/ programmer needs
+  both of them.  If you can't handle pointers, some of the most profound ideas in computer science
+  will simply be over your head.  If you can't apply old ideas in new ways, the bulk of computer
+  science is useless to you.
