@@ -32,7 +32,7 @@ Programming languages
   It's the difference between a crowbar and a forklift.  No matter how finely crafted the crowbar,
   you'll never lift two tons of shingles to the roof of a 10-story building.
 
-* Reply to Nick
+* Reply to Nick                                                    :noexport:
   /For example, McConnell argues, "The words available in a programming language for expressing
   your programming thoughts certainly determine how you express your thoughts and might even
   determine what thoughts you can express./"
@@ -46,3 +46,44 @@ Programming languages
   We're getting a little off-topic, but this definitely suggests that knowing some programming
   languages makes you better in others.  Does that mean that the choice of programming language
   matters for a given system?
+* Kevin / Mike / Me                                                :noexport:
+  /If it takes months to become proficient in a new language and you could have written the app in that time in the language you know, then you have to weigh that fact against the possible future benefits of knowing the new language./
+
+  Languages don't tend to come in a vacuum anymore.  What we're really weighing is whether choosing
+  a new language /and its libraries/ will give more long-term benefit than using the current
+  language.  If the cost is two months of ramp-up, but the benefit is that you don't have to write
+  your own HTTP client, I'd say that's a net win for any project longer than 3 months.
+
+  Also, it's pretty rare to be moving down on the language power scale; how many times will you
+  stop developing in Python in favor of Fortran?  Given that most of these choices are between the
+  current (low-power) language and the new (high-power) language, the ramp-up cost is amortized over
+  years of having higher productivity.
+
+* Kooth / Joseph                                                   :noexport:
+  /If these are the "pure" basis of language selection, what do you think is the impact in one of my projects with 85 developers that are well-experienced in Java (note: the count does not include analysts, testers and QA) if we have chosen to use .Net, which like Java is also well-suited for the given type of project and within the list of standard frameworks that we can possibly use?/
+
+  Migrating from Java to .NET is like trading a Ford pickup for a Chevy.  [[Http://www.qsm.com/%3Fq%3Dresources/function-point-languages-table/index.html][Industry data]] indicates
+  both languages have similar productivity.  The standard libraries are of similar capability.  The
+  third-party tools and components ecosystems are both excellent.  They have similar performance.
+  They both require an external runtime to be installed.  
+
+  There would have to be a significant organizational or environmental reason for moving from one to
+  the other, and it would have to be compelling enough to warrant the cost, which like you said is
+  significant.
+
+* Kooth / Matt / Kooth / Joseph / Kooth / Me                       :noexport:
+  I think the point was that, regardless of how urgent the project is or how loose or tight the
+  schedule, it's still better to choose technologies that will make it cost less.  In the example
+  you cited, the "loose" projects were still implemented in less-efficient environments.
+
+  I can think of a few good reasons to make this choice.  One is risk; if your developers know TACL,
+  they're less likely to design against the grain of the language, and will probably introduce fewer
+  bugs -- the project may take more time initially, but be fairly stable and predictable.  Contrast
+  with a tightly-constrained project, where it makes sense to take some risks to achieve the
+  schedule -- less experience may mean more bugs and more uncertainty, but the project at least has
+  a chance of meeting the delivery date.
+
+  In hindsight, it's easy to say "we should have been doing this all along!"  Of /course/ we should
+  choose the toolset that lets us complete the system with the least effort.  But it's not always
+  clear which choice to make.
+
