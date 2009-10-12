@@ -1,0 +1,53 @@
+Abstraction
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Me / Jason                                                       :noexport:
+  /Is it correct to say that every tool that you have for abstraction in structured development is
+  available to you in object-oriented development?/
+
+  You make a good point; structured programming seems to be a proper subset of OO development, so
+  what's possible with SD is possible with OO.  OO gives us some extra tools for use with
+  abstractions, making them subtler and more sophisticated.
+
+  Is a more sophisticated abstraction better?  Does it hide information better?  Is it easier to
+  write a consistent module interface?  I'm not sure the answer to all these questions is yes.
+  Similar to our programming language discussion, it seems you can write spaghetti in any language,
+  and there are good and bad abstractions at any level of tool.
+
+* Me / Gabriel                                                     :noexport:
+  /Assuming a similar level of ADT understanding; do you think that the support that OO programming
+  languages provide, could facilitate abstraction?/
+
+  The tools OO gives us are very powerful, and they can make our abstractions more sophisticated.
+  However, OO is not the only abstraction model, and some OO languages actively discourage you from
+  following another path.  So it seems that, of all the abstraction models we could have built on
+  top of the older procedural languages, we have chosen a subset to include in the syntax of our new
+  languages.
+
+  We used to build the abstractions from the ground up; if you wanted inheritance, you wrote your
+  own vtable lookup calls (back when men were men); if you wanted continuation-passing style, you
+  wrote your own call stack storage and lookup.  We've optimized one of these models into the
+  language itself, making it much less painful to write OO code, but the abstractions now hang
+  loosely on the problem.  This is the difference between a medium-size shirt from Costco and a
+  custom-tailored shirt from William Westmancott - the old way solved the problem, no more and no
+  less, but the new way costs much less.
+
+* Maureen                                                          :noexport:
+  /Object-oriented developers have had an easier time than structured developers with implementing
+  abstraction since object-oriented programming supports multiple instances of abstract data types./
+
+  I keep beating this drum, but I would argue that they've had an easier time implementing /some
+  kinds/ of abstraction.  OO is not the only model out there, and sometimes it isn't a very good fit
+  to the problem.  Of course you can solve all problems with OO (just as you can perform any
+  computation on a Turing-complete pocket calculator), but some problems are better solved with
+  different tools.
+
+* Joel / Mike                                                      :noexport:
+  /I have seen several cases of over-engineering in software./
+
+  I wonder what the proportion of problems that would have been better solved with something other
+  than OO were solved with classes, simply because that's what the language provides?  This is
+  probably related to Sapir-Whorf; if your language favors OO as strongly as Java or C#, it becomes
+  difficult to think in terms of any other kind of abstraction.
+
