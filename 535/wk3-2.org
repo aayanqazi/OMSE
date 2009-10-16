@@ -1,0 +1,19 @@
+Process/Framework
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Development process and framework: What effect does the development process have on productivity? What process do you follow? What are some important criteria in determining what type of process works best?/
+
+  Process has a very large effect on productivity; people cannot write code and do paperwork at the
+  same time.  The more ceremony involved in a given process, the less code is produced per
+  staff-month.
+
+  My team follows a fairly standard waterfall process, though we've had some recent success with
+  some elements of an incremental model.  Projects are still planned, specified and designed before
+  code is written, but we now deliver weekly builds to QA for early feature-focus testing.
+
+  The most common criteria for choosing a process is how critical the system is, or how severe the
+  consequences of a defect are.  I don't want my radiation therapy machine's software written
+  without a large amount of work done to prove that it is safe, but for my time-tracking software
+  I'm more interested in ease of use than whether it crashes once a month, at least at first.
