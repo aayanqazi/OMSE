@@ -1,0 +1,18 @@
+Responsibility
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Responsibility for Code: Who is responsible for the quality of the code? Why? Who should have the
+  final say about the acceptability of the code for release? Why?/
+
+  It depends on the structure of the team.
+
+  In a classic organization with an engineering team and a QA team, code quality is the
+  responsibility of the programmers (since they're the only ones allowed to change it), while QA
+  holds responsibility for certifying that the code is ready for release (since they're doing all
+  the bug-finding).
+
+  In a more agile organization, the test and programming functions are more mixed together, so the
+  team as a whole is responsible for the quality of both code and release.
+

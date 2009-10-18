@@ -1,4 +1,4 @@
-Abstraction
+Information Hiding
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
@@ -14,3 +14,47 @@ Abstraction
   contained in one place ("module" in Parnas papers).  In other words, the things are likely to come
   up when /maintaining the system/ are each self-contained and isolated from the rest of the system.
   IH makes maintenance easier by allowing maintenance changes to be more surgical and lower-risk.
+
+* Me / Gabriel / Jason                                             :noexport:
+  /[90%] is the highest estimate I've seen./
+
+  Version 1.0 of the system I work on was originally written 15 years ago.  Assuming that was a
+  one-year effort, my system has spent 93% of its time in maintenance, and the proportion is higher
+  if you measure effort.  I don't think that this is the most common scenario, but I don't think
+  it's rare, either.
+
+  The point is that version 1.0 is just the beginning.  Most successful systems will have more
+  effort expended in maintenance and extension than in the original release, so it makes sense to
+  make decisions based on this fact.
+* Me / Gabriel                                                     :noexport:
+  /I think the appropriate requirements elicitation process should correctly and as much as possible
+  capture those likely changes and design accordingly.../
+
+  When's the last time you worked on a project with perfect requirements?  Even if _all_ the
+  requirements are available up front, what's the likelihood that a stakeholder changes their mind?
+  Or that more information becomes available which changes some assumptions?  Or that the spec has
+  bugs in it?
+
+  Yes, the Platonic ideal system follows the waterfall process, and comes out the end perfect.  I
+  don't know about you, but I don't work on that system, so I try to make allowances for changing
+  requirements.
+* Mike / Kooth                                                     :noexport:
+  /What do you expect as "headaches" at an organization level if the code is not designed for
+  maintenance ?/
+
+  I can think of a few.  If your company develops systems for other companies, what happens when
+  they want a version 2 with more features?  That's maintenance, and if the code doesn't allow for
+  it, the schedule and cost will be more than it needed to be.
+
+  If your company develops shrink-wrap software, the argument is the same.  A successful version 1
+  means you'll be working on version 2, with bug fixes and new features.
+
+  If your company makes internal applications, you may not have the version 2 problem, but you'll
+  still need to troubleshoot and fix bugs.
+* Marty
+  /Asking for some basic feedback can bring up potential changes that you haven’t considered./
+
+  Indeed.  I've also noticed the 'cardboard engineer' effect: you walk into a coworker's office and
+  ask a question, then say "never mind" and walk back out again.  The very act of formulating the
+  question gave you the insight you needed, so it would almost be more efficient if everybody had a
+  cardboard Mr. Spock in their office to ask.
