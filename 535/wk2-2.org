@@ -1,0 +1,16 @@
+Abstraction
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Abstract                                                         :noexport:
+  Information Hiding: What effect does information hiding have on maintenance of programs? Why is it
+  important to design for maintenance?
+  
+* My post
+  Second question first: 90% of a system's lifetime is spent in the maintenance cycle.  Since we'll
+  be spending most of our time there, our lives would be easier if we planned for it.
+
+  One of the benefits of IH is that the hard or likely-to-change design decisions are captured and
+  contained in one place ("module" in Parnas papers).  In other words, the things are likely to come
+  up when /maintaining the system/ are each self-contained and isolated from the rest of the system.
+  IH makes maintenance easier by allowing maintenance changes to be more surgical and lower-risk.

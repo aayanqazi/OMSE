@@ -1,0 +1,22 @@
+Abstraction
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Abstract                                                         :noexport:
+  Abstraction: Why is abstraction of data important? Why should we define Abstract Data Types (ADTs)
+  and use them in code? Have Object-oriented developers made better use of abstractions than
+  Structured developers? Why or why not?
+
+* My post
+  As a programmer, abstraction is the most powerful tool I have.  Abstraction allows me to fetch a
+  web page with one line of bash script, even though there are several layers of interpreted and
+  native code invoked when I do so.
+
+  ADTs are a way of packaging abstraction.  In C++, an ADT allows me to apply a regular expression
+  with three lines of code, even though there's a parser and a state machine that spring into action
+  when I do so.
+
+  I don't think that OO is better at abstraction than SP.  Most modern software systems are written
+  in an OO style, but that was the case with SP in its day.  Is Apache a better example of
+  abstraction than System/360?  Abstraction seems to be orthogonal to which method you use to
+  decompose your system into modules.
