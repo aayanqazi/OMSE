@@ -2,7 +2,7 @@ Process/Framework
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Development process and framework: What effect does the development process have on productivity? What process do you follow? What are some important criteria in determining what type of process works best?/
 
   Process has a very large effect on productivity; people cannot write code and do paperwork at the
@@ -17,3 +17,29 @@ Process/Framework
   consequences of a defect are.  I don't want my radiation therapy machine's software written
   without a large amount of work done to prove that it is safe, but for my time-tracking software
   I'm more interested in ease of use than whether it crashes once a month, at least at first.
+
+* Me / Gabriel                                                     :noexport:
+  /I agree that we will be producing the less actual code when we are involved in other process
+  activities. But, how do you interpret that, as a good or bad thing for the development process?/
+
+  It's neither good nor bad, it's just a consequence of the process.  The question was whether
+  process affects productivity; if you measure productivity in LOC/staff-month (which is how I've
+  usually seen it measured), a more ceremonious process will yield lower productivity.
+
+* Me / Joel                                                        :noexport:
+  Exactly.  Sometimes you have a choice in your process model, sometimes you don't.
+
+  Hardware-driven schedules are another example; it's hard to iterate when the prototypes won't be
+  ready until two weeks before your deadline.
+
+* Me / Merri                                                       :noexport:
+  /You sound bitter :)/
+
+  Not bitter, just trying to be witty. :)
+
+  You're right though.  Productivity (as measured in LOC/staff-month) will be lowest with too little
+  or too much process.  There's a sweet spot somewhere in the middle where everybody can go fast,
+  and the project can still get done on time.
+
+* Me / Mike
+  I have yet to see a fatality, only murderous rage.

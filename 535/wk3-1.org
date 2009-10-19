@@ -2,7 +2,7 @@ Responsibility
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Responsibility for Code: Who is responsible for the quality of the code? Why? Who should have the
   final say about the acceptability of the code for release? Why?/
 
@@ -16,3 +16,41 @@ Responsibility
   In a more agile organization, the test and programming functions are more mixed together, so the
   team as a whole is responsible for the quality of both code and release.
 
+* Mike                                                             :noexport:
+  /Everyone is responsible for the quality of the code, from the customer to the qa team.>/
+
+  I disagree.  Everyone is responsible for the quality of the /product/.
+
+  When we talk about code quality, it's really something different from product quality.  Your code
+  may be of the finest handcrafted assembler, and your product might be a pile of steaming poo, or
+  vice-versa.
+
+  High quality in the code can only be produced by the people writing it, though they need an
+  enlightened management structure that allows them to keep it clean.
+
+* Me / Jesse                                                       :noexport:
+  /Do you think there is a place for a separate QA team in an agile organization?/
+
+  Oh, definitely.  I think that, even if testers and other QA personnel are involved directly in the
+  development effort, it's beneficial for them to have a separate organization.  Partly this is
+  because of a conflict of interest -- if both teams report to the same manager, when bug count
+  clashes with schedule, which call do you think she'll make?
+
+  In the end, however, it depends on your project, organization, and methodology.  I'm sure some
+  shops can do good work even without a separate QA organization, where others get benefits from
+  having one.
+
+* Me / Jesse / Nick                                                :noexport:
+  That's a really good point.  QA is stereotypically made up of testers, but one of the functions of
+  "quality assurance" is to ensure the quality of the development process.
+
+  In that light, of /course/ agile teams need QA.  If they didn't have it in one form or another,
+  their process would disintegrate.
+
+* Maureen / Matt / Merri
+  /I think you could make a distinction between poor code quality and poor product quality./
+
+  That's an excellent point.  It's sometimes hard for me to switch levels of abstraction while going
+  through the OMSE program, since one month we'll be talking about the entire process, and the next
+  month we're focusing in on code quality.  I /think/ Manny wants us to focus on the code, though,
+  at least for this class.
