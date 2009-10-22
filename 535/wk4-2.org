@@ -1,0 +1,24 @@
+Code Reuse
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Code reuse: When should code be reused, and when should code not be reused? What unique
+  maintenance issues arise when you reuse code? How do we prevent or manage these issues?/
+
+  In the estimation class, we used a formula to estimate the cost of reusing a software component.
+  The equation reads like this (DDJ, 12/1/2000, /Calculating for Reuse/ by William H. Roetzheim):
+  
+  /EV = [(0.4 \times DM) + (0.3 \times CM) + (0.3 \times IT)] \times RV/
+
+  Where /EV/ is the equivalent volume of code (for use in estimating effort), /RV/ is the volume of
+  reused code, and /DM/, /CM/ and /IT/ are factors related to redesign, code rework, and
+  integration/testing effort.  The same article indicated that, for typical values of DM, CM, and IT
+  (0.25, 0.5, and 0.5), the cost of reuse is 40% of the cost of building the component from scratch.
+
+  So in short, code should be reused when it's cost-effective to do so.
+
+  Reused code tends to have many other pieces of code depending on its behavior, for better or
+  worse.  Often, fixing a bug in the library code causes other bugs to appear where other components
+  were dependent on incorrect behavior.  This can be prevented by proper contract documentation, and
+  through the use of automated unit tests to catch contract breakages and encourage good design.

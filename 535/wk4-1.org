@@ -1,0 +1,17 @@
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Code reviews, inspections, and walkthroughs: Why is it important to find defects early? How early can we find defects in software? What effect does finding defects early have on cost and schedule?/
+
+  Finding defects early is important because the later they're found, the more expensive they are to
+  fix.  Fixing a defect in the testing phase can be 15 times as expensive as fixing the same defect
+  in the requirements phase.  This can affect schedule as well -- if insufficient time is budgeted
+  for bug fixing, the project manager may be left with the choice of shipping good software late, or
+  bad software on time.
+
+  Defects occur at all phases of software development, from concept and requirements on, and we can
+  start finding and fixing them as soon as they are introduced.  The techniques we're focusing on
+  for this discussion are inspections and reviews, which are very effective at the requirements and
+  construction stages of a project, and while there is cost associated with them, it is much lower
+  than the cost of finding them late in the project.
