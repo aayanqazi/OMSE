@@ -2,7 +2,7 @@ Code Reuse
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Code reuse: When should code be reused, and when should code not be reused? What unique
   maintenance issues arise when you reuse code? How do we prevent or manage these issues?/
 
@@ -22,3 +22,21 @@ Code Reuse
   worse.  Often, fixing a bug in the library code causes other bugs to appear where other components
   were dependent on incorrect behavior.  This can be prevented by proper contract documentation, and
   through the use of automated unit tests to catch contract breakages and encourage good design.
+* Nick ... Nick                                                    :noexport:
+  /Do you think in-line code documentation is sufficient?/
+
+  With the advent of doxygen and javadoc, the in-line comments can act as the source code for the
+  offline documentation, with the advantage of staying accurate as the system is maintained, or at
+  least more accurate than separately-maintained documentation (which becomes stale very fast).
+
+  I think this can work well for utility classes which are designed for reuse, but these systems
+  can't provide a good high-level overview of how the various classes stitch together into a
+  system.  There will always be a need for design documentation for this sort of thing.
+
+* Sharad ... Sharad
+  /Test case/results will most probably be available in cases where elements are designed to be
+  reusable right from the beginning./
+
+  Sometimes automated contract-checking is a luxury.  We have several classes that were clearly
+  designed for reuse, which have many, /many/ clients, and which also have no automated unit tests
+  or formal documentation.  These facts don't stop us from using them.

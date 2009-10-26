@@ -1,7 +1,7 @@
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Code reviews, inspections, and walkthroughs: Why is it important to find defects early? How early can we find defects in software? What effect does finding defects early have on cost and schedule?/
 
   Finding defects early is important because the later they're found, the more expensive they are to
@@ -15,3 +15,43 @@
   for this discussion are inspections and reviews, which are very effective at the requirements and
   construction stages of a project, and while there is cost associated with them, it is much lower
   than the cost of finding them late in the project.
+
+* Me / Kooth                                                       :noexport:
+  "/[...] the longer a defect remains in the system, the more expensive it becomes to remove./"
+
+  Like many of McConnell's insights, This has the ring of truth to it, and it's so obvious in
+  retrospect that it feels almost tedious to discuss it.
+
+  The longer a piece of code is in a system, whether it's a bug or a feature, the more other parts
+  of the system come to rely on its behavior.  If that behavior is incorrect, then the effort to
+  correct it will also need to cover changing the client code to conform to the correct behavior.
+
+  This extends to more than just code.  A requirements bug that goes uncaught until the system is
+  nearly complete can take a major architectural change to fix.
+
+* John / Michael                                                   :noexport:
+  /Wouldn't it be possible in such a case to actually introduce errors in the code review process
+  due to lack of understanding of the code and the original design considerations?/
+
+  This has happened to my team, though before my time.  Our codebase is 15 years old, and only one
+  of the original design/implementation team is still around, so they thought there would be value
+  in walking through some of the older parts of the system.
+
+  They found many parts of the system that didn't seem to have a purpose, and they tried to refactor
+  these parts out.  In several cases, this broke some core piece of functionality in subtle ways.
+  When they started finding these bugs, the effort was abandoned -- the feeling was that it was
+  safer to let the older parts of the system go unknown and working, than to collapse the waveform
+  and break them.
+
+  Unfortunately, this experience left a bad taste in the mouth of the VP of Engineering regarding
+  refactoring, which has hampered some of our recent efforts in cleaning up the code.
+
+* Jason ... Jesse                                                  :noexport:
+  /Depending on how many places the code is used, it's usually best not to ever touch the
+  interface./
+
+  Any class that is intended for reuse _needs_ to have a stable interface.  Changing the interface
+  is /way/ harder than changing the implementation, because of all the clients.  This applies to
+  implicit interfaces as well, like (in C++) a class's =protected= members, which effectively
+  comprise the interface exposed to derived classes.
+
