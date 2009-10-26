@@ -1,0 +1,27 @@
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Pre-Work
+  /You must prepare a brief paragraph stating what tool you wish to research and present in class,
+  email it to the instructor, and get approval PRIOR to starting this part of the project./
+
+* Ideas
+  - Refactoring tool - Visual Assist X
+  - Automated test framework - boost.test
+
+* Proposal
+  I have two ideas for this project.  
+
+  The first is a unit test framework for C++ called cxxtest (I've wanted to use this at work for a
+  while).  I'd approach this from the standpoint of a maintenance programmer on a medium-large
+  system which does not currently have any test coverage.  I'd definitely cover issues surrounding
+  integration into an existing code base, as well as concerns around how to structure unit-test
+  targets as part of a normal build.
+
+  The other idea is a kind of tool that isn't on your list: a refactoring tool called Visual Assist
+  X (I've started using this at work recently).  This would include things like what kinds of
+  activities are easier or harder, impedance mismatch with other tools, and other niceties/quirks of
+  the tool as they appear during normal use.
+
+  Are either of these acceptable topics?  Should we be picking tools that are less familiar, or is
+  there value in having more experience with a particular tool?
