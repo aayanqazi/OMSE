@@ -1,0 +1,125 @@
+Test 1
+
+This is the first of two exams for the course. Please read the instructions carefully and answer all
+the questions.
+
+- This exam is open book, open notes, closed to external help. You may NOT consult with anyone other
+  than the instructor about the examination, so that your answers represent your own work entirely.
+
+- In general you should be writing in your own words (rather than lifting the words of authors)!
+
+- If you cite the text, use "quotes" and cite the author. You'll lose points if I recognize the
+  quote or the writing style and you didn't give credit to the author.
+
+- For each answer, I expect no less than a paragraph, but please no more than one page.
+
+- You will receive points for effectively exploring the issues raised in the question.
+
+- You must justify the points you raise and the claims you make.
+
+- Clearly distinguish between the different points you make in your answers. Bullets and white space
+  are encouraged.
+
+- Points are not awarded for bulk. Be succinct!
+
+- Repeating the same point several times with different wording does not add to your point total.
+
+- Rephrasing the question as an intro and again as a summary does not add to your point total.
+
+* 1. Specific code example (Points: 20)  
+  (a) Give the best example you can find in Code Complete of specific code for which McConnell
+  states that efficiency works together with good readability, maintenance qualities, etc., instead
+  of these opposing properties working against each other.
+
+  (b) Cite the page reference.
+
+  (c) Why is this a good example?
+
+* 2. With respect to performance (Points: 20)  
+  (a) When should a developer be concerned about performance, and why?
+
+  (b) What performance issues should be addressed before the code is written?
+
+  (c) What effect can maintenance have on performance? Give your ideas for how you would plan to
+  address possible performance issues during maintenance.
+
+  --------------------------------------------------------------------------------------------------
+
+  (a) Macro performance (or algorithmic complexity) is something that should always be in mind when
+  designing and constructing a system, because it's difficult to tell early in the life of a system
+  which of its procedures will be performance limiting later on.  It's best to mind the big-O
+  performance of anything of non-constant N.
+
+  Micro performance, on the other hand, is rarely needed when macro performance is dealt with on
+  higher levels.  It's exceedingly rare to need to tighten a loop by 3 cycles, and it's hard to do
+  manually with modern OOO CPU architectures.  If algorithmic complexity is under control, the
+  necessity for code-level optimization should be determined by using a profiling tool, and focusing
+  effort on the "hot spots" identified by the tool.
+
+  (b) I touched on this above, but algorithmic complexity should be addressed at an architectural or
+  design level as much as possible.  This can have the effect of hardening the system against
+  maintenance degradation
+** TODO Finish this point
+
+  (c) Maintenance can have a large effect on performance, since small modifications may not be
+  designed with the big-picture architecture and design in mind.  It's very easy to introduce a slow
+  algorithm into a fast system while fixing a defect, and the effects may not be found until after
+  delivery.
+
+  The best way to combat the tendency of a system to get slower is to test for performance, and
+  watch for trends.  This can be done manually, by periodically testing key performance metrics, or
+  in an automated way, by running the performance tests as part of continuous integration.  In the
+  extreme case, the tests could be run as a pre-commit hook, and reject changes that make the system
+  slower.
+
+* 3. “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” (Martin Fowler, Refactoring.) (Points: 20)
+
+  (a) Do you agree with this statement? Why or why not?
+
+  (b) What do you think should be a higher development priority - readable code, or code that
+  behaves correctly?
+
+  (c) Is there a strong correlation between readable code and code that behaves correctly? Explain.
+
+  --------------------------------------------------------------------------------------------------
+
+  (a) It's also been said that "programs must be written for people to read, and only incidentally
+  for machines to execute." (Abelson and Sussman, Structure and Interpretation of Computer Programs)
+  A "good programmer" knows that a piece of code will only be written once, but will be read by
+  maintainers (including the original author) dozens of times, so in the long run it's best to
+  optimize for readability.
+
+  (b) I think this is a false dichotomy; readability and correctness are not two ends of a single
+  spectrum.  In fact, by saying "we prefer foo over bar" ensures you'll get lots of foo, and very
+  little bar.  We want our code to have both qualities, to be both correct and readable.
+
+  (c) Intuitively yes.  Without readability, it's hard to tell whether a piece of code is correct or
+  not, where an easily readable class passes review easily, and in the event of a defect has low
+  impedance to fixes.
+
+  The data appears to back this up; McConnell cites several studies which suggest that readability
+  is important (CC2 p. 842).
+  
+
+* 4. There are many good reasons to design for maintenance. From your perspective, explain: (Points: 20)  
+  (a) Why is it important to design for maintenance?
+
+  (b) Give some specific examples of techniques you can use to help ensure that understanding of the
+  design is not lost during maintenance.
+
+  --------------------------------------------------------------------------------------------------
+
+  (a)
+
+  (b)
+
+* 5. McConnell makes the claim in Code Complete that “Aside from the invention of the computer, the routine is the single greatest invention in computer science.” (Points: 20)  
+  (a) Do you think this is true? Why or why not?
+
+  (b) Name and describe at least 5 good reasons to use routines.
+
+  --------------------------------------------------------------------------------------------------
+
+  (a)
+
+  (b)
