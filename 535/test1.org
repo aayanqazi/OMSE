@@ -26,7 +26,9 @@ the questions.
 
 - Rephrasing the question as an intro and again as a summary does not add to your point total.
 
-* 1. Specific code example (Points: 20)  
+* 1.
+  Specific code example (Points: 20)
+
   (a) Give the best example you can find in Code Complete of specific code for which McConnell
   states that efficiency works together with good readability, maintenance qualities, etc., instead
   of these opposing properties working against each other.
@@ -35,7 +37,25 @@ the questions.
 
   (c) Why is this a good example?
 
-* 2. With respect to performance (Points: 20)  
+  --------------------------------------------------------------------------------------------------
+
+  I tend to like examples that run counter to popular opinion and intuition, so I'll choose the
+  examples surrounding the use of goto.  The discussion starts on page 400, and the specific sample
+  code starts on the bottom of page 401.
+
+  This is a really memorable part of the book for me, because it brings into specific relief all the
+  complexity and beauty of writing code.  He gives an example of a routine which makes use of goto,
+  which most programmers would agree is distasteful, and then proceeds to outline all the trade-offs
+  you'd have to make to avoid it.  In the end, the sample is probably best written WITH the gotos.
+  
+  This sample is a good answer to this test question because despite the use of the most reviled
+  keyword in all of programming, the original sample stands out among the alternatives as the
+  easiest to follow, most readable and maintainable, and among the fastest to run.  Ugly as the
+  foundation for beauty.
+
+* 2.
+  With respect to performance (Points: 20)  
+
   (a) When should a developer be concerned about performance, and why?
 
   (b) What performance issues should be addressed before the code is written?
@@ -45,34 +65,36 @@ the questions.
 
   --------------------------------------------------------------------------------------------------
 
-  (a) Macro performance (or algorithmic complexity) is something that should always be in mind when
+  (a) Macro performance (algorithmic complexity) is something that should always be in mind when
   designing and constructing a system, because it's difficult to tell early in the life of a system
   which of its procedures will be performance limiting later on.  It's best to mind the big-O
-  performance of anything of non-constant N.
+  performance of anything of non-constant N, and stick to polynomial or constant-time algorithms if
+  at all possible.
 
   Micro performance, on the other hand, is rarely needed when macro performance is dealt with on
-  higher levels.  It's exceedingly rare to need to tighten a loop by 3 cycles, and it's hard to do
-  manually with modern OOO CPU architectures.  If algorithmic complexity is under control, the
-  necessity for code-level optimization should be determined by using a profiling tool, and focusing
-  effort on the "hot spots" identified by the tool.
+  higher levels.  It is exceedingly rare to need to tighten a loop by 3 cycles, and it's incredibly
+  hard to do manually with modern out-of-order CPU architectures.  If algorithmic complexity is
+  under control, the necessity for code-level optimization should be determined by using a profiling
+  tool, and focusing effort on the "hot spots" identified by the tool.
 
-  (b) I touched on this above, but algorithmic complexity should be addressed at an architectural or
-  design level as much as possible.  This can have the effect of hardening the system against
-  maintenance degradation
-** TODO Finish this point
+  (b) I touched on this above, but algorithmic complexity can and should be addressed at an
+  architectural or design level as much as possible.  Once code is written, it's generally too late
+  to address issues at a higher level without huge rework costs.
 
-  (c) Maintenance can have a large effect on performance, since small modifications may not be
-  designed with the big-picture architecture and design in mind.  It's very easy to introduce a slow
+  (c) Maintenance can have a large effect on performance, since small modifications are often done
+  without the big-picture architecture and design in mind.  It's very easy to introduce a slow
   algorithm into a fast system while fixing a defect, and the effects may not be found until after
   delivery.
 
   The best way to combat the tendency of a system to get slower is to test for performance, and
-  watch for trends.  This can be done manually, by periodically testing key performance metrics, or
-  in an automated way, by running the performance tests as part of continuous integration.  In the
-  extreme case, the tests could be run as a pre-commit hook, and reject changes that make the system
-  slower.
+  watch for trends.  This can be done occasionally, by manually testing key performance metrics, or
+  more often, by running automated performance tests as part of continuous integration.  In the
+  extreme case, the tests could be run as a pre-commit hook, and changes that make the system slower
+  could be outright rejected.  
 
-* 3. “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” (Martin Fowler, Refactoring.) (Points: 20)
+* 3.
+  “Any fool can write code that a computer can understand. Good programmers write code that humans
+  can understand.” (Martin Fowler, Refactoring.) (Points: 20)
 
   (a) Do you agree with this statement? Why or why not?
 
@@ -87,11 +109,12 @@ the questions.
   for machines to execute." (Abelson and Sussman, Structure and Interpretation of Computer Programs)
   A "good programmer" knows that a piece of code will only be written once, but will be read by
   maintainers (including the original author) dozens of times, so in the long run it's best to
-  optimize for readability.
+  optimize for reading.
 
   (b) I think this is a false dichotomy; readability and correctness are not two ends of a single
   spectrum.  In fact, by saying "we prefer foo over bar" ensures you'll get lots of foo, and very
-  little bar.  We want our code to have both qualities, to be both correct and readable.
+  little bar.  We want our code to have both qualities, to be both correct and readable, so the very
+  act of expressing a preference is detrimental.
 
   (c) Intuitively yes.  Without readability, it's hard to tell whether a piece of code is correct or
   not, where an easily readable class passes review easily, and in the event of a defect has low
@@ -101,7 +124,10 @@ the questions.
   is important (CC2 p. 842).
   
 
-* 4. There are many good reasons to design for maintenance. From your perspective, explain: (Points: 20)  
+* 4.
+  There are many good reasons to design for maintenance. From your perspective, explain: (Points:
+  20)
+
   (a) Why is it important to design for maintenance?
 
   (b) Give some specific examples of techniques you can use to help ensure that understanding of the
@@ -109,17 +135,51 @@ the questions.
 
   --------------------------------------------------------------------------------------------------
 
-  (a)
+  (a) Because the average software system spends 60% of its time in maintenance mode.  ("Facts and
+  fallacies of software engineering", Robert L. Glass, 2003)  It would be foolish to optimize the
+  software for writing, while ignoring more than half of the application's life cycle. 
 
-  (b)
+  (b) McConnell mentions that the use of data structures aids in maintenance, since adding or
+  removing a field from a structure only affects the parts of the system that need to be coupled to
+  that field, rather than having to modify function arguments to transport the new field around.
 
-* 5. McConnell makes the claim in Code Complete that “Aside from the invention of the computer, the routine is the single greatest invention in computer science.” (Points: 20)  
+  The use of design patterns is also helpful to preserve the system's structure through maintenance.
+  The patterns' names can be used to communicate a hefty amount of design knowledge in a few words,
+  and the terms have the same meaning no matter who is reading them.  In this way, the code itself
+  is telling the story of how it was designed, in addition to the up-to-date and perfectly accurate
+  design documentation.
+
+* 5.
+  McConnell makes the claim in Code Complete that “Aside from the invention of the computer, the
+  routine is the single greatest invention in computer science.” (Points: 20)
+
   (a) Do you think this is true? Why or why not?
 
   (b) Name and describe at least 5 good reasons to use routines.
 
   --------------------------------------------------------------------------------------------------
 
-  (a)
+  (a) I agree with McConnell.  Abstraction is our primary tool as writers and designers of software,
+  and the routine is the atomic unit of abstraction.  
 
-  (b)
+  (b) First, to give a name to a chunk of code.  The right name can make even the most obtuse pile
+  of code clear in purpose.
+
+  Second, to provide an interface.  At the very least, the routine's arguments and return type give
+  some indication of the expectations of the routine, without giving away any of its internals.
+
+  Third, to hide information.  If a routine has only one job and does it well, the rest of the
+  system need only concern itself with the name of the routine, rather than the job it's doing.  If
+  that job needs to be done differently in the future, that can be accomplished without disturbing
+  the rest of the system.
+
+  Fourth, to separate concerns.  Routines can be used to lighten the cognitive load of engineers by
+  reducing the portion of the system they need in their heads at any given time.  This is
+  accomplished by making each routine have one and only one job.
+
+  Fifth, to avoid repetition.  Without routines, different parts of the system doing similar things
+  would have identical code, and each copy would need to be written, stored, and maintained
+  separately.
+
+  Sixth, to ease maintenance.  A defect can be solved with a change to only one bit of code if the
+  system is properly decomposed with routines.
