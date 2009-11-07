@@ -1,0 +1,20 @@
+Maintenance
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Code maintenance: What is maintenance programming? How much latitude does a maintenance programmer have to correct legacy issues? What unique challenges does a maintenance programmer face that a new product developer may not have to deal with?/
+
+  I like to draw a distinction between maintenance and extension; the former is the fixing of
+  defects in /existing/ functionality, and the latter is the adding of /new/ features or
+  capabilities.
+
+  One way maintenance is different from green-fields development is the risk of changing the
+  behavior of a system with an existing user base.  Regardless of how much better the new behavior
+  is, there are people and other programs depending on the existing behavior.  The value lost by
+  changing may be greater than that gained.
+
+  Given this, the maintenance programmer's job is to generally fix issues as surgically as possible.
+  In an extension scenario, the programmer may have lattitude to rework some other behavior to make
+  the new features fit in as well as possible, but job #1 is still to do as little damage to the
+  #value of the existing system as humanly possible.
