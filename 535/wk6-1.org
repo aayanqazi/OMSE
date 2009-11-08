@@ -2,7 +2,7 @@ Performance
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Performance and optimization: When should a developer be concerned about performance, and why? When should a developer be concerned about optimizing the code? What performance issues should be addressed before the code is written?/
 
   Macro performance (algorithmic complexity) is something that should always be in mind when
@@ -21,3 +21,40 @@ Performance
   architectural or design level as much as possible.  Once code is written, it's generally too late
   to address issues at a higher level without huge rework costs.
 
+* Me / Jason                                                       :noexport:
+  You're right, of course.  I the system interacts with other systems that have their own
+  performance characteristics, those should be taken into account.  A cache is an excellent example.
+
+  I suppose I shouldn't have used the term 'algorithmic' -- really what we're referring to are macro
+  effects, and the performance characteristics of the interactions of subsystems (the web front end
+  and the database, or the CPU cache and RAM).  These kinds of things should be addressed whenever
+  possible in the architecture and design phases, if it can be said for certain that they will be a
+  problem.
+
+  The other class of optimizations consists of tweaking individual modules or functions to be faster
+  once they work properly.  The important thing about these bits is to get them working; only then
+  should we spend time making them fast, since it's almost impossible to say for certain which of
+  them will be a bottleneck.
+
+* Mike / John                                                      :noexport:
+  /XML should only be used for small configuration files or when you much go through your firewall
+  for IPC./
+
+  XML has other purposes as well.  For example, our C++ application uses XML for IPC on the local
+  machine, simply because it gives us a serialization format that doesn't have to be bogged down
+  with byte-level operations.  When it was introduced, we replaced thousands of IPC transactions
+  with a single blob of XML, and it netted us a huge performance gain.  
+
+  I would also argue that the "small" and "configuration" restrictions aren't real either.  Parsing
+  XML is expensive, true, but that doesn't matter much unless you're doing it all the time.  Taking
+  a second to parse a 1MB configuration file might be okay if you only do it once per hour, but
+  10ms of parsing can kill you when you're doing it for every screen refresh.  
+
+* Kevin / Martin
+  /I've been working with .NET/C# for most of my professional career, and have never selected a
+  compiler (I assume all .NET developers used the same standard compiler, but may be wrong)./
+
+  There's at least one other C# compiler, it's included with [[http://www.mono-project.com/CSharp_Compiler][Mono]].  I don't know what its benefits
+  are, other than having the compiler's source code.  The compiler itself isn't as much of a concern
+  with .NET or Java applications, since so much of the application's performance depends on the
+  virtual machine, which is why there are [[http://www.dmoz.org/Computers/Programming/Languages/Java/Implementations/][so many implementations]] to choose from.
