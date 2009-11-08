@@ -1,0 +1,23 @@
+Performance
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Performance and optimization: When should a developer be concerned about performance, and why? When should a developer be concerned about optimizing the code? What performance issues should be addressed before the code is written?/
+
+  Macro performance (algorithmic complexity) is something that should always be in mind when
+  designing and constructing a system, because it's difficult to tell early in the life of a system
+  which of its procedures will be performance limiting later on.  It's best to mind the big-O
+  performance of anything of non-constant N, and stick to polynomial or constant-time algorithms if
+  at all possible.
+
+  Micro performance, on the other hand, is rarely needed when macro performance is dealt with on
+  higher levels.  It is exceedingly rare to need to tighten a loop by 3 cycles, and it's incredibly
+  hard to do manually with modern out-of-order CPU architectures.  If algorithmic complexity is
+  under control, the necessity for code-level optimization should be determined by using a profiling
+  tool, and focusing effort on the "hot spots" identified by the tool.
+
+  I touched on this above, but algorithmic complexity can and should be addressed at an
+  architectural or design level as much as possible.  Once code is written, it's generally too late
+  to address issues at a higher level without huge rework costs.
+
