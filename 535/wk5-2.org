@@ -2,7 +2,7 @@ Maintenance
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Code maintenance: What is maintenance programming? How much latitude does a maintenance programmer have to correct legacy issues? What unique challenges does a maintenance programmer face that a new product developer may not have to deal with?/
 
   I like to draw a distinction between maintenance and extension; the former is the fixing of
@@ -18,3 +18,35 @@ Maintenance
   In an extension scenario, the programmer may have lattitude to rework some other behavior to make
   the new features fit in as well as possible, but job #1 is still to do as little damage to the
   #value of the existing system as humanly possible.
+* Me / Kevin                                                       :noexport:
+  /Little changes are made, code compiled, testing done. If successful then the feature has been
+  added. If it fails, jerk it out and try something else./
+
+  The unfortunate reality is that most legacy systems don't have any kind of automated regression
+  test suite, and those that do are rather sparse.  I know intellectually that a large suite of
+  automated tests is supposed to make refactoring fairly safe, but my personal experience has been
+  with testless systems, where restructuring is done with care and trepidation.
+
+  Even with unit tests, though, there's still risk of getting screamed at because you broke the VP's
+  pet feature.
+* Nick / Gabriel                                                   :noexport:
+  /Looking at the time 50 to 60% that takes just understanding the system, it makes this a hard
+  task./
+
+  This is always the problem with estimating defect corrections.  With some issues, just finding the
+  problem is 90% of the effort and time, and the actual fix is nearly trivial.
+
+  Extensions are the same way.  I don't have objective metrics, but my personal effectiveness is
+  much higher now that I know most of the system I work on, which corroborates the time division
+  McConnell mentions.
+* Kooth / Mike
+  /When I have to maintain someone elses code, I find the "Adapting to the existing design and
+  coding style of the program" to be the most difficult part of it all./
+
+  I have this same issue.  Our style guide is rather out-of-date, but parts of our system were
+  written to an even earlier standard.
+
+  I also tend to disagree with parts of our style guide, and have been known to be subversive.  One
+  example is a prohibition on allocating memory in the constructor of a C++ object; the system
+  performs all manner of contortions to satisfy this.  This was a stumbling block for me early on,
+  until I finally got the rational behind some design decisions.
