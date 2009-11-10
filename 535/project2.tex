@@ -22,12 +22,90 @@
 \section{Annotated Standard}
 
 \begin{enumerate}
-\item Some kind of guideline.
+\item Follow language and framework naming idioms as much as possible.  This includes names for
+  files, classes, functions, variables, etc.
   \begin{itemize}
-  \item \textsc{Good} -- An example or two of good form.
-  \item \textsc{Bad} -- An example or two of bad form.
+  \item \textsc{Good:}
+    \begin{itemize}
+    \item C file: \texttt{code.c}, \texttt{code.h}
+    \item C++ class: \texttt{CLogFile}
+    \item Python function: \texttt{do\_some\_work}
+    \end{itemize}
+  \item \textsc{Bad:}
+    \begin{itemize}
+    \item C++ class: \texttt{atoi}
+    \item Ruby file: \texttt{myrubycode.cpp}
+    \item Java variable: \texttt{t3mp0rarYV4r14bl3}
+    \end{itemize}
   \end{itemize}
-   \\ {\it Should include some rationale.  Not sure what kind of formatting to use here. }
+  {\it Following idioms makes code more readable and discoverable, and reduces the impedance
+    mismatch between modules. }
+
+\item Code files should be named after their principal content, whether it be a class, function, or
+  namespace.
+  \begin{itemize}
+  \item \textsc{Good:} \texttt{WinUtils.h} for public members of the \texttt{WinUtils} namespace.
+  \item \textsc{Bad:} \texttt{WinUtils.h} containing six classes, none of which is named
+    \texttt{WinUtils}.
+  \end{itemize}
+  {\it It should be easy to find the definition of a class or function from file names alone. }
+  
+\item Function parameters should be annotated with their purpose (input, output, or both).
+  \begin{itemize}
+    \item \textsc{Good:} \texttt{ErrorCode do\_work(int n\_I, float \&result\_O)} 
+    \item \textsc{Bad:} \texttt{ErrorCode do\_work(int n, float \&x)}
+  \end{itemize}
+  {\it Provides discoverability of an interface without the need for reading the implementation
+    code.}
+
+\item Avoid magic numbers.  Use a language feature to provide a meaningful name to any constant in
+  source code.
+  \begin{itemize}
+  \item \textsc{Good:} \texttt{do\_work(MAX\_CONNECTIONS);}
+  \item \textsc{Bad:} \texttt{do\_work(3);}
+  \end{itemize}
+  {\it Numbers without context are nearly meaningless.  Use names to give them meaning and
+    connotation. }
+
+\item Follow indentation style for the rest of the project.  This is especially important where the
+  language depends on indentation, as Python does.
+  \\ {\it Having multiple indentation styles hurts readability, and can cause subtle bugs in Python
+    code. }
+
+\item Use assertions for documenting assumptions and and enforcing contracts.
+  \\ {\it Asserts are much more useful than function-header comments, since they are executable, and
+    by necessity up-to-date. }
+
+\item Use appropriate logging for non-standard conditions.  Avoid excessive logging of normal
+  behavior without specifically enabling it.
+  \\ {\it The application log is a primary debugging and diagnostic tool, so keeping the output as
+    relevant as possible for those tasks is important. }
+
+\item Use namespaces or packages to compartmentalize functionality.
+  \begin{itemize}
+  \item \textsc{Good:} \texttt{bool WinUtils::FileExists(std::string path\_I);}
+  \item \textsc{Bad:} \texttt{bool ::WinFileExists(std::string path\_I);}
+  \end{itemize}
+  {\it The global namespace is crowded, and adding more symbols to it can only end in confusion and
+    ambiguity.   }
+
+\item Interfaces should be uncluttered and abstract.
+  \\ {\it This is an extension of the encapsulation principle; if a member can be made private, it
+    should be.  Keeping the public interface simple is a sign of clean design and high coherence. }
+
+\item Class hierarchies should be shallow.
+  \begin{itemize}
+  \item \textsc{Good:} Object<-Renderable<-Fly
+  \item \textsc{Bad:} Object<-Renderable<-Animated<-Creature<-Insect<-WingedInsect<-Fly
+  \end{itemize}
+  {\it Classes are coupled rather tightly to all the other classes in their hierarchy.  Deep
+    hierarchies breed high coupling, where shallow trees isolate and reduce it. }
+
+\item Use appropriate flow control devices.  The use of \texttt{goto} and \texttt{throw} are
+  discouraged for this purpose, but not prohibited.
+  \\ {\it Code readability is paramount when using flow control; use the device that makes the code
+    easiest to understand. }
+
 \end{enumerate}
 
 
@@ -36,7 +114,15 @@
 \section{Inspection Checklist}
 
 \begin{enumerate}[\ensuremath{\square}]
-  \item Checklist Items
+  \item Names are idiomatic and follow conventions for the environment.
+  \item Filenames are related to principal file content.
+  \item All function parameters are annotated with input/output designations.
+  \item No magic numbers.
+  \item Methods/functions assert for invalid parameters.
+  \item Logging is used, but not excessively.
+  \item All top-level entities are in a good namespace or package.
+  \item Class hierarchies are as shallow as possible.
+  \item Appropriate flow control.
 \end{enumerate}
 
 \end{document}
