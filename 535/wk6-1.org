@@ -6,4 +6,11 @@ Software testing
   /Software testing: What is software testing? Why do we test software? Whose responsibility is it
   to test software? Should developers share in the responsibility of testing? Why or why not?/
 
-  
+  Software testing is the act of probing a system to find defects.  There are many forms of testing,
+  each with their own strengths and weaknesses; for example, automated unit tests are useful for
+  preventing regression bugs, while manual exploratory testing is a good way of finding latent
+  defects.
+
+  As far as responsibility goes, testing is the job of the entire team.  The end goal is defect-free
+  software (or close to it); developers will be able to easily catch defects that would take a
+  tester much longer, and vice-versa.
