@@ -1,0 +1,8 @@
+Test Planning
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Test planning: Why should we plan testing? Importantly, at what point in the development cycle should we start to plan testing? How important is test coverage to understanding the state of software? Why?/
+
+  

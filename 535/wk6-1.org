@@ -1,0 +1,9 @@
+Software testing
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Software testing: What is software testing? Why do we test software? Whose responsibility is it
+  to test software? Should developers share in the responsibility of testing? Why or why not?/
+
+  
