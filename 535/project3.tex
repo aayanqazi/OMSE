@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+
+\usepackage{enumerate}
+\usepackage{todonotes}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fullpage}
+
+% Remove section numbers
+\setcounter{secnumdepth}{0}     % From headings
+\def\thechapter{}               % From TOC
+
+\begin{document}
+
+
+
+\title{OMSE 535 Project 3 \\ Review and Analysis of Code}
+\author{Ben Straub}
+\maketitle
+
+
+\section{Defect Log}
+
+\begin{center}
+  \begin{longtable}{|c|l|c|l|l|l|}
+    % First header
+    \hline
+    \textbf{\#} & \textbf{File} & \textbf{Line} & \textbf{Defect Description} & \textbf{Severity} & \textbf{Source} \\
+    \hline\hline
+    \endfirsthead
+
+    % Other headers
+    \hline
+    \textbf{\#} & \textbf{File} & \textbf{Line} & \textbf{Defect Description} & \textbf{Severity} & \textbf{Source} \\
+    \hline\hline
+    \endhead
+
+    % Intermediate footers
+     \multicolumn{5}{|r|}{{Continued on next page}}
+    \endfoot
+
+    % Last footer
+    \hline
+    \endlastfoot
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    1 & stack.h & 6      & Function parameter not designated as \texttt{\_I} or \texttt{\_O} & Low    & Rule \#3 \\ \hline
+    2 & stack.h & 6,9,12 & Exported functions use common names                               & Medium & Rule \#8 \\ \hline
+    3 & stack.c & 20     & Return value from \texttt{malloc} not logged or asserted          & Medium & Rule \#7 \\
+    
+
+  \end{longtable}
+\end{center}
+
+
+\section{Analysis}
+
+\subsection{\#1}
+This is a degenerate case of this class of defect.  The \texttt{push} function takes one parameter,
+\texttt{stackinput}, but the name of that parameter is not designated as input or output.  In order
+to follow conventions, the signature of this function should be changed to the following:
+
+\begin{verbatim}
+   void push(int stackinput_I);
+\end{verbatim}
+
+\subsection{\#2}
+The names \texttt{push}, \texttt{pop}, and \texttt{isempty} are very common.  C does not support
+namespaces for code organization, so the idiomatic approach is to use name prefixes.  It is
+recommended to replace these names with the following:
+
+\begin{verbatim}
+   void stackPush(int stackinput_I);
+   int  stackPop(void);
+   int  stackIsempty(void);
+\end{verbatim}
+
+\subsection{\#3}
+There are some circumstances where \texttt{malloc} could return \texttt{NULL}.  These include
+virtual address space exhaustion, or low-memory conditions on platforms that don't support memory
+virtualization.  Though these cases are rare, this is a utility library, so it's not guaranteed this
+code will not be run in those conditions, so it's best to safely handle these cases, and log that
+event for diagnostic purposes.  The recommended resolution to this defect is as follows:
+
+\begin{verbatim}
+   struct stackelement *newnode = malloc(sizeof (struct stackelement));
+   assert(newnode);
+   if (newnode) {
+      newnode->stackdata = stackinput;
+      newnode->next= stacktop;
+      
+      stacktop = newnode;
+   }
+\end{verbatim}
+
+
+\end{document}
