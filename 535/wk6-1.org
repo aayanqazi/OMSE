@@ -2,7 +2,7 @@ Software testing
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Software testing: What is software testing? Why do we test software? Whose responsibility is it
   to test software? Should developers share in the responsibility of testing? Why or why not?/
 
@@ -14,3 +14,36 @@ Software testing
   As far as responsibility goes, testing is the job of the entire team.  The end goal is defect-free
   software (or close to it); developers will be able to easily catch defects that would take a
   tester much longer, and vice-versa.
+
+* Me / Marty
+  A test that passes is an assurance that the system can perform a certain task, where a failure
+  indicates the lack of that capability.  The way we use this in software development is to
+  construct tests from the requirements such that, if they all pass, we feel comfortable releasing
+  the software.  The high-level purpose of these tests is to (with passing tests) verify that the
+  system can perform to the requirements, and to (with failing tests) inform where improvements need
+  to be made.
+
+* Jason / Kooth
+  /Most of the times, when our testing team [...] finds a failure and report as defects, the first response from our developers would be "it is working as designed"./
+
+  If the developers and testers are disagreeing on how the software *should* behave, you have a
+  requirements issue, and no amount of testing discipline and code review will catch it.  The
+  developers designed a system that met their requirements, but the testers wrote their tests
+  against a completely different set of requirements.
+
+  The most interesting part is how final testing can inform requirements.  Incomplete requirements,
+  or the lack of an authority to resolve low-level disputes, can cause testing to be more expensive
+  than it needs to be.
+
+* John / Jason
+  /Do think it would be better to have a developer who is not the author perform the white box
+  testing?/
+
+  This is an interesting idea.  You'd also get a peer code review in the bargain.  However, this is
+  expensive, since every line of code would now need to be read, understood, reviewed, and tested by
+  a second developer, which probably doubles the development cost.
+
+  I think in the end a test-first approach might give the best of both worlds, at least in
+  situations where it can be used.  All the code is by necessity written to be tested, and the
+  developer starts by writing a client, so the interface is designed for use rather than ease of
+  implementation.

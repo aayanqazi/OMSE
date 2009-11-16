@@ -2,7 +2,7 @@ Test Planning
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Test planning: Why should we plan testing? Importantly, at what point in the development cycle should we start to plan testing? How important is test coverage to understanding the state of software? Why?/
 
   Testing should be planned so as to waste less time.  Much like anything in software, proceeding
@@ -25,3 +25,17 @@ Test Planning
   Requirements test coverage is very valuable in planning.  Test procedures should address every
   requirement to some level of rigor, and the most critical requirements should be held to more
   stringent testing.  A traceability matrix can be used to determine the requirements coverage.
+* Jason / Kooth
+  /Would test coverages help us find out missing requirements?/
+
+  Test coverage boils down to the ratio of which requirements are tested to total requirements.  I
+  don't think it's possible to find missing requirements just by looking at how many of the existing
+  ones have been satisfied.
+
+* Joel / Jason
+  /That is, that the purpose of a test plan is not only to manage software quality, but also has a
+  project management function as well./
+
+  Any plan has project management value.  The test plan allows us to apply our limited resources and
+  prioritize which testing activities have the most value.  Without a plan, testing will proceed in
+  a haphazard and random manner, which is almost guaranteed not to be effective.
