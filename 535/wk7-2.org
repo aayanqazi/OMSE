@@ -1,0 +1,19 @@
+Project II Discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post                                                             :noexport:
+  ...
+* Jason / Joel / Jason / Merri                                     :noexport:
+  /Otherwise you have to spend too much time studying the standard./
+
+  Probably the best balance is a standard that takes half an hour to read, and a checklist that's
+  7\pm2 items.  Any longer and nobody will read it; any shorter and you're not getting maximum
+  benefit.
+
+* John / Martin / John
+  /Otherwise, the document will probably be ignored./
+
+  I don't think a document necessarily has to have hard pronouncements to be effective.  If the
+  content is meaningful and readable enough, the document will get its due attention, regardless of
+  whether it never states any hard rules.

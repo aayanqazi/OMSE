@@ -1,0 +1,25 @@
+New Test Approaches
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post                                                             :noexport:
+  ...
+* Merri / Michael                                                  :noexport:
+  /Not testing at all is better than pretending to test [...]/
+
+  I respectfully disagree.  Even those five wimpy tests were saying something about the working
+  condition of the software.  If they passed, you could always say that those specific combinations
+  of functions were working.  That's more than you can say if you run no tests.
+
+  The problem isn't the tests, it's how the results were interpreted; those tests weren't worthless,
+  their importance was just being overstated.  Any level of testing has value, however small; it's
+  important to recognize what that value is so we can make decisions with that information.
+* Kooth / Nick
+  /I’ve spoken to friends practicing agile methodologies who said the customers and analyst don’t
+  actually write tests./
+
+  From what I've heard, the goal of that agile principle is to get everyone to test the software to
+  the best use of their time.  Customers don't necessarily have to write code or test cases, but
+  they do need to give feedback as to whether the software is doing what they need it to do.
+  Analysts don't need to write automated functional tests, but they should keep an eye on the
+  stories and raise a ruckus if the project is going astray.
