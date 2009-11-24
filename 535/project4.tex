@@ -20,5 +20,30 @@
 \author{Ben Straub}
 \maketitle
 
+\section{Test Plan}
+
+\begin{enumerate}
+\item Black-box tests
+  \begin{enumerate}[{1}.1]
+  \item Empty initial list -- No actions. Expected result: \texttt{isempty()} returns non-zero.
+  \item Consistency -- \texttt{push(37)}.  Expected result: \texttt{pop()} returns \texttt{37}.
+  \item Non-empty list -- \texttt{push()} one item.  Expected result: \texttt{isempty()} returns
+    zero.
+  \item Capacity -- \texttt{push()} one million items, \texttt{pop()} one million items. Expected
+    result: \texttt{isempty()} returns non-zero.
+  \end{enumerate}
+\item White-box-tests
+  \begin{enumerate}[{2}.1]
+  \item Violated assumption -- No actions.  Expected result: \texttt{pop()} does not cause a crash.
+  \item Out of memory -- \texttt{push()} forever.  Expected result: program gracefully stops when
+    an out-of-memory condition is exceeded.
+  \end{enumerate}
+\end{enumerate}
+
+
+\section{Coverage}
+
+\section{Test report log}
+
 
 \end{document}
