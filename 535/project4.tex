@@ -22,28 +22,63 @@
 
 \section{Test Plan}
 
-\begin{enumerate}
-\item Black-box tests
-  \begin{enumerate}[{1}.1]
-  \item Empty initial list -- No actions. Expected result: \texttt{isempty()} returns non-zero.
-  \item Consistency -- \texttt{push(37)}.  Expected result: \texttt{pop()} returns \texttt{37}.
-  \item Non-empty list -- \texttt{push()} one item.  Expected result: \texttt{isempty()} returns
-    zero.
-  \item Capacity -- \texttt{push()} one million items, \texttt{pop()} one million items. Expected
-    result: \texttt{isempty()} returns non-zero.
-  \end{enumerate}
-\item White-box-tests
-  \begin{enumerate}[{2}.1]
-  \item Violated assumption -- No actions.  Expected result: \texttt{pop()} does not cause a crash.
-  \item Out of memory -- \texttt{push()} forever.  Expected result: program gracefully stops when
-    an out-of-memory condition is exceeded.
-  \end{enumerate}
-\end{enumerate}
+\textsc{Strategy:} Use black-box testing to ensure the consistency and correctness of the interface
+as defined in \texttt{stack.h}.  White-box testing is used to exercise any code paths not covered by
+black-box testing.
 
+\begin{center}
+  \begin{tabular}[h]{|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{\bf Black-box Testing}                                                                                                    \\
+    \hline \hline
+    \textbf{Input}                                               & \textbf{Expected Result}                                                        \\
+    \hline \hline
+    None                                                         & \texttt{isempty()} returns non-zero.                                            \\
+    \texttt{37}                                                  & \texttt{pop()} returns \texttt{37}                                              \\
+    \texttt{10}, \texttt{20}, \texttt{30}                        & Calling \texttt{pop()} returns \texttt{30}, then \texttt{20}, then \texttt{10}. \\
+    \texttt{5}                                                   & \texttt{isempty()} returns zero.                                                \\
+    \texttt{push()} 1,000 times, then \texttt{pop()} 1,000 times & \texttt{isempty()} returns non-zero.                                            \\
+    \hline \hline
+    \multicolumn{2}{|c|}{\bf White-box Testing}                                                                                                    \\
+    \hline \hline
+    \textbf{Input}                                               & \textbf{Expected Result}                                                        \\
+    \hline \hline
+    \texttt{pop()}                                               & Program doesn't crash.  Return value is undefined.                              \\
+    \texttt{while(1) \{ push(10); \}}                            & Program gracefully quits when memory is exhausted.                              \\
+    \hline
+  \end{tabular}
+\end{center}
 
 \section{Coverage}
 
+Since the code includes no branches, a simple call to each function is sufficient to achieve 100\%
+coverage, so the black-box test suite is more than enough for this purpose.  The (unchecked) return
+codes from \texttt{malloc}, and the dereferencing of \texttt{NULL} are covered by the white-box
+tests.
+
 \section{Test report log}
 
+\begin{center}
+  \begin{tabular}[h]{|l|l|}
+    \hline
+    \multicolumn{2}{|c|}{\bf Black-box Testing}                                                                                                    \\
+    \hline \hline
+    \textbf{Input}                                               & \textbf{Result}                                                                 \\
+    \hline \hline
+    None                                                         & \texttt{isempty()} returns non-zero.                                            \\
+    \texttt{37}                                                  & \texttt{pop()} returns \texttt{37}                                              \\
+    \texttt{10}, \texttt{20}, \texttt{30}                        & Calling \texttt{pop()} returns \texttt{30}, then \texttt{20}, then \texttt{10}. \\
+    \texttt{5}                                                   & \texttt{isempty()} returns zero.                                                \\
+    \texttt{push()} 1,000 times, then \texttt{pop()} 1,000 times & \texttt{isempty()} returns non-zero.                                            \\
+    \hline \hline
+    \multicolumn{2}{|c|}{\bf White-box Testing}                                                                                                    \\
+    \hline \hline
+    \textbf{Input}                                               & \textbf{Result}                                                                 \\
+    \hline \hline
+    \texttt{pop()}                                               & {\color{red} Program crashes.}                                                  \\
+    \texttt{while(1) \{ push(10); \}}                            & {\color{red} Program crashes.}                                                  \\
+    \hline
+  \end{tabular}
+\end{center}
 
 \end{document}
