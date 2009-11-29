@@ -44,7 +44,7 @@ Project III Discussion
   review the rest of the code.  If the code is just plain wrong, it's a good learning experience for
   the author to have the problems pointed out and explained face-to-face.
 
-* Mike / Jason
+* Mike / Jason                                                     :noexport:
   /I can see all of these things really dragging down the productivity of the review session./
 
   You make a good point, and to a certain extent this is exactly what happens; it's sort of like
@@ -53,3 +53,7 @@ Project III Discussion
   just get something trivial out of everybody's heads, but this is not without cost.
 
   
+* Me / Kooth
+  You're absolutely right.  Any artifact that persists for more than one use in a software
+  engineering team environment should be reviewed and developed by more than one person, and the
+  programming guide is no exception.
