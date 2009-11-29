@@ -2,7 +2,54 @@ Project III Discussion
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Project Part III Discussion: What real value is there in reviewing code (or documentation) before testing? How valuable is a programming standard and evaluation criteria when reviewing code? What important lessons did you learn from this part of the project?/
+
+  A review is just a specific kind of test you can apply to code.  It has a different kind of
+  coverage than functional testing or any other kind of run-time test; it tests for things like
+  maintainability, readability, conforming to the style guide, security, and other things that are
+  very difficult to test at.
+
+  The programming standard is a set of guidelines for inspecting and reviewing code in this way.  It
+  transmits collective wisdom and knowledge to those reviewers with less experience, as well as
+  ensuring that reviewed code is always inspected for certain kinds of issues.
+
+  The exercise mainly taught me that my standard was terribly incomplete.  Certain problems were not
+  covered and probably should have been, such as always checking return codes from system calls.
+  Other things were specified, but untestable.  Writing a good standard is difficult.
+
+
+* John                                                             :noexport:
+  /From Project 3 I learned that there reaches a point where further review is pointless and counter
+  productive./
+
+  /[...]/
+
+  /I also learned that my standard/checklist was a bit too lengthy./
+
+  Do you think these two effects are related?  Does a long checklist necessarily translate into
+  time better spent fixing issues?  Or are they both just symptoms of the fact that none of us has
+  done this before. :)
+   
+* John / Jason                                                     :noexport:
+  /Is this something that should be caught as part of a peer review step, or should it be something
+  that is handled in the review session with the entire team?/
+
+  It seems silly to gather the entire review team just to say "This code doesn't conform to the
+  guide.  Meeting adjourned."  Basic compliance with the programming guide is a prerequisite for
+  holding the review meeting at all.
+
+  On the other hand, there is still value in having the meeting, depending on the infraction.  If
+  it's the indentation style that's not matching up, you can list that as one issue, and proceed to
+  review the rest of the code.  If the code is just plain wrong, it's a good learning experience for
+  the author to have the problems pointed out and explained face-to-face.
+
+* Mike / Jason
+  /I can see all of these things really dragging down the productivity of the review session./
+
+  You make a good point, and to a certain extent this is exactly what happens; it's sort of like
+  pair programming with 10 people.  We put the code up on the projector, and someone points out a
+  logic error in an if statement, and we then proceed to code as a committee.  It can be useful to
+  just get something trivial out of everybody's heads, but this is not without cost.
 
   

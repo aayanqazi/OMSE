@@ -2,7 +2,59 @@ Operational Testing
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+* Post                                                             :noexport:
   /Operational testing: Why is operational testing important? What specific types of problems can be found using an operational test approach? Discuss a specific real-life example of a fault that could have been discovered during operational testing but wasn’t discovered until it was used in the field. How could this problem have been averted?/
 
+  Operational testing is important because of the different aspects of the system it tests.  For
+  example, there is often no substitute for production data when exposing certain kinds of issues.
+  You can try to simulate a production environment, but there will always be differences from the
+  real thing.  One specific example would be a bug that only occurs after the millionth record is
+  entered, from Atlanta, while the backup is running.
+
+  Also, regardless of how good your pre-release testing is, issues will still occur.  Doing
+  operational testing means that your system is better instrumented for diagnosing and finding
+  problems, even in a production environment, so you get the added benefit of using your testing
+  tools to directly help in fixing a customer's issue.
+
+  We've had some issues like this with per-user settings.  We try to handle both Unicode paths and
+  networked home directories, but mixing the two can be problematic at times, and there were several
+  issues that cropped up with a complicated Active Directory network in Japan.  If we were to have
+  replicated this kind of issue locally, we would need to triple the size of our test team, and have
+  expertise in setting up mixed Windows and Mac networks in exactly the ways our system breaks.
+
+
+* Kooth / Jason / Kooth                                            :noexport:
+  /[...] especially when the system testing did not detect it./
+
+  This is a good point.  While it's a great goal to have all your testing hit the system from
+  different angles, it's good to have some redundancy for those cases where your /tests/ have bugs
+  in them.
+
+* Matt / Manny                                                     :noexport:
+  /Do you think this type of problem is more or less likely to occur in custom-developed software
+  (as opposed to shrink-wrap software?)/
+
+  It's more probable that a shrink-wrap system will encounter an environment in which it will not
+  function properly.  This is simply sheer numbers; if you design a system for one environment,
+  there is a probability /P/ that the target environment will expose some defect.  For a shrink-wrap
+  system, /P/ might be smaller because the system is designed for a wider range of environments, but
+  the number of installations is higher as well.
+
+  These problems are harder to fix in shrink-wrap software as well.  In custom software, you only
+  have to worry about one environment, one data set.  You can fix the problem around what the
+  customer's installation actually is.  In the shrink-wrap situation, fixing this type of issue
+  involves doing the right thing in /every/ situation, not just the one that exposed the problem.
+
   
+
+* Marty
+  /A good operational test would have been to build a fake product with our own API, and then submit
+  it to some load testing./
+
+  For a UI, this would be called a /usability test/.  I don't think there's a canonical term when
+  you're exercising an API.
+
+  It's definitely valuable to write a non-trivial application around your interfaces, though; we've
+  exposed some fairly serious flaws in our own APIs this way.  It seems obvious in retrospect,
+  right?  Before you ship something, you should actually try to /use/ it?  But we don't think of
+  that as much when the audience is developers; they're just like us, they should think like us.
