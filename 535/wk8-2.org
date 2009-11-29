@@ -1,0 +1,8 @@
+Project III Discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Project Part III Discussion: What real value is there in reviewing code (or documentation) before testing? How valuable is a programming standard and evaluation criteria when reviewing code? What important lessons did you learn from this part of the project?/
+
+  

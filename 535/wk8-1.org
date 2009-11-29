@@ -1,0 +1,8 @@
+Operational Testing
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Operational testing: Why is operational testing important? What specific types of problems can be found using an operational test approach? Discuss a specific real-life example of a fault that could have been discovered during operational testing but wasn’t discovered until it was used in the field. How could this problem have been averted?/
+
+  
