@@ -1,0 +1,8 @@
+Project IV
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Project Part IV Discussion: What value does unit testing have? Should we perform unit testing? Why or why not? Why don’t most organizations unit test their software? What important lessons did you learn from this part of the project?/
+
+  

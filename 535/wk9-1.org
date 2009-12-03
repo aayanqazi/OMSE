@@ -1,0 +1,8 @@
+Software Reliability
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Post
+  /Software Reliability: What is software reliability? If a program runs continuously for 7 days a week, 365 days a year without a failure, does that make it a reliable program? How does operational testing relate to reliability? What are the fundamental differences between software and hardware reliability?/
+
+  
