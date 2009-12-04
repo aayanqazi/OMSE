@@ -1,8 +1,35 @@
-Project IV
-
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
-  /Project Part IV Discussion: What value does unit testing have? Should we perform unit testing? Why or why not? Why don’t most organizations unit test their software? What important lessons did you learn from this part of the project?/
+Project IV
 
-  
+* Post
+  /What value does unit testing have?/
+
+  Unit testing provides two important values: better design and regression safety.
+
+  Unit testing, when performed before writing code, can be a powerful technique in making the class
+  or module testable and easy to use.  When you write the tests first, you tend to decrease coupling
+  (by mocking out dependencies), and increase cohesion (by thinking about the module's job before
+  writing it).
+
+  The other primary value a unit test suite has is for regression testing.  Refactoring code can be
+  scary without unit tests, since any change might break something in some unexpected place, and you
+  won't know about it until the test group finds the defect.  With unit tests, in many cases you
+  know within seconds of making the change that it changed a behavior that some other component was
+  depending on.
+
+  /Should we perform unit testing? Why or why not? Why don’t most organizations unit test their
+  software?/
+
+  The pragmatic view is that test code is just more code -- it takes time to write, and it takes
+  time to maintain.  To a certain degree, this is true; test code does take time to write, but it
+  can add significant value to the software.  Every organization must answer the cost/benefit
+  question itself.
+
+  /What important lessons did you learn from this part of the project?/
+
+  As a developer, I tend to think in a very white-box way -- I know all the workings of the code, so
+  I want to test the hidden capabilities and the corner cases.  The biggest revelation to me on this
+  project was thinking in black-box terms, testing the code using only its public interface.  By
+  forcing myself to ignore some of my knowledge, I got an entirely different perspective on the
+  code.

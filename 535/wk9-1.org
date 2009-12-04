@@ -3,6 +3,21 @@ Software Reliability
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
 * Post
-  /Software Reliability: What is software reliability? If a program runs continuously for 7 days a week, 365 days a year without a failure, does that make it a reliable program? How does operational testing relate to reliability? What are the fundamental differences between software and hardware reliability?/
+  /If a program runs continuously for 7 days a week, 365 days a year without a failure, does that
+  make it a reliable program?/
 
-  
+  Yes.  In fact, one year of operation without a single failure might be statistically /very/ high
+  reliability, depending on the environment.  However, if this particular environment isn't very
+  demanding, then that reliability measurement might not have a lot of meaning.
+
+  /How does operational testing relate to reliability?/ 
+
+  Operational testing can help uncover bugs that lower reliability.  It is a test of a real-world
+  scenario, with all the messiness that entails, and can uncover some failure modes that would
+  otherwise be very difficult to find.
+
+  /What are the fundamental differences between software and hardware reliability?/
+
+  Software reliability is a consequence of design perfection, where hardware reliability is a result
+  of manufacturing perfection.  With software, our manufacturing process is (nearly) always perfect,
+  so all of the defects come from the complexity in the design.
