@@ -1,8 +1,8 @@
-Software Reliability
-
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Post
+Software Reliability
+
+* Post                                                             :noexport:
   /If a program runs continuously for 7 days a week, 365 days a year without a failure, does that
   make it a reliable program?/
 
@@ -21,3 +21,43 @@ Software Reliability
   Software reliability is a consequence of design perfection, where hardware reliability is a result
   of manufacturing perfection.  With software, our manufacturing process is (nearly) always perfect,
   so all of the defects come from the complexity in the design.
+ 
+* Me / Michael                                                     :noexport:
+  /I don't think you can say that just because a program is running, and doesn't crash, it's
+  reliable./
+ 
+  Your statement is true, as far as it goes.  However, you can't talk about reliability without
+  mentioning for what workload the reliability is being measured.  To use your examples:
+
+  - Running the same unit test data for a year would mean that the system very reliably runs those
+    unit tests.  You couldn't really say any more than that.
+  - If the system hangs in a busy-wait loop, it is not meeting any of its other requirements.  This
+    is (likely) 
+a failure, so the system's measured reliability would be very low indeed.
+  - Likewise for a payroll system: printing erroneous checks is a critical defect and a failure.
+
+  "Failure" doesn't just mean crashing.  The exact definition will vary from system to system, but
+  I'd rougly define it as a serious or critical deviation of actual system behavior from the
+  behavior described in the requirements.
+* Kevin / Sharad                                                   :noexport:
+  /We therefore cannot say that a software system is less or more reliable, a software system is or
+  isn’t reliable./
+
+  I'd have to disagree here, at least in practical terms.  It is true in theory that a program
+  either is or is not correct, but in practice most every program is incorrect.  How often have any
+  of us seen a perfect system, provably correct?  In order to have a meaningful discussion about
+  real-world software, we need come down from Olympus.
+
+  In a world of imperfect software, there are systems that can function with an unreliable network
+  connection under five times the design workload and with a failing memory chip, and there are
+  those that will fall over with the first dropped packet.  There are most definitely differences in
+  reliability between systems.
+* Maureen / Nick
+  Good point.  It's not enough to know that it runs.  Nor is it enough to know that it has
+  encountered every possible set of elements.  Truly, absolutely reliable software has to run
+  without interruption, and produce the /correct result/ for every possible set of inputs.
+
+  Now, in practice, it's impossible to exhaust the input space, even for a modestly-complex system.
+  Nor is it practically possible to hold most systems to this standard; the cost of developing such
+  a system is very high.  But if we're talking about the absolute pinnacle of reliability, that's
+  definitely it.
