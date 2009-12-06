@@ -2,7 +2,7 @@
 
 Project IV
 
-* Post
+* Post                                                             :noexport:
   /What value does unit testing have?/
 
   Unit testing provides two important values: better design and regression safety.
@@ -33,3 +33,27 @@ Project IV
   project was thinking in black-box terms, testing the code using only its public interface.  By
   forcing myself to ignore some of my knowledge, I got an entirely different perspective on the
   code.
+* Me / Gabriel                                                     :noexport:
+  Most everything I've read says that unit testing has value, and TDD and BDD are great techniques.
+  It's still hard to convince my /coworkers/ that we should be spending effort on these things, let
+  alone management.
+
+
+  I wonder how much of it is curmudgeonliness, and how much is rooted in that deep skepticism you
+  get from being in this industry for multiple decades.
+* Jason / Mike / Jason                                             :noexport:
+  /Yeah, I really think help with refactoring is the biggest benefit of unit tests, in terms of
+  total cost/effort savings./
+
+  I've had this argument with my boss, and he thinks refactoring is hooey.  "So now you've spent a
+  bunch of time and effort in changing the code, and it doesn't do anything more than when you
+  started!"  It's hard to make high-level points about TDD/BDD and the value of a regression suite
+  when refactoring when the very practice of refactoring isn't seen as having any value.
+* Jesse / Joe / Jesse
+  /On the other hand, I'd still contend that even lower quality unit testing can positively affect
+  code quality and improve the effectiveness of downstream testing efforts./
+
+  It's easy to say that any testing is better than no testing.  But if your developers are wasting
+  time writing no-op test cases, they're also giving themselves a false sense of security when it
+  comes to their abilities and the quaility of their code.  The cost of poor testing can be quite
+  high.
