@@ -110,3 +110,21 @@ Exam #2
   as to the nature of the failure as well as the determined root cause. How could this problem have
   been averted?
 
+** 5 -- Answer
+   Operational testing is important because of the different aspects of the system it tests.  For
+   example, there is often no substitute for production data when exposing certain kinds of issues.
+   You can try to simulate a production environment, but there will always be differences from the
+   real thing.  One specific example would be a bug that only occurs after the millionth record is
+   added, from Atlanta, while the backup is running.
+
+   Also, regardless of how good your pre-release testing is, issues will still occur.  Doing
+   operational testing means that your system is better instrumented for diagnosing and finding
+   problems, even in a production environment, so you get the added benefit of using your testing
+   tools to directly help in fixing a customer's issue.
+
+   We've had some issues like this with per-user settings.  We try to handle both Unicode paths and
+   networked home directories, but mixing the two can be problematic at times, and there were
+   several issues that cropped up with a complicated Active Directory network in Japan.  If we were
+   to have replicated this kind of issue locally, we would need to triple the size of our test team,
+   and have expertise in setting up mixed Windows and Mac networks in exactly the ways our system
+   breaks.
