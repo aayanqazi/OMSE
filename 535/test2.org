@@ -2,66 +2,111 @@
 
 Exam #2
 
-1. Answer the following questions about testing:
-(Points: 20)  
-  	a. What is the difference between system testing and acceptance testing? Why isn’t it a good idea to have acceptance testing done by the same team that performs system testing?
+* 1
+  Answer the following questions about testing: (Points: 20)  
 
-b. What is the difference between system testing and integration testing? Can you do both at the same time?
+  a. What is the difference between system testing and acceptance testing? Why isn’t it a good idea
+  to have acceptance testing done by the same team that performs system testing?
 
-c. Assume that you are put in charge of testing a brand new product; what approach to testing would you take? In other words, what is the sequence of activities that you will plan in order to ensure adequate testing of the software? I’m not interested in reading about how you will actually test the software, but how you will create a plan that adequately conveys your strategy for testing.
+  b. What is the difference between system testing and integration testing? Can you do both at the
+  same time?
+
+  c. Assume that you are put in charge of testing a brand new product; what approach to testing
+  would you take? In other words, what is the sequence of activities that you will plan in order to
+  ensure adequate testing of the software? I’m not interested in reading about how you will actually
+  test the software, but how you will create a plan that adequately conveys your strategy for
+  testing.
+
+** 1 -- Answer  
+   a.  System testing is usually performed by the development organization, and its goal is to
+   reveal defects that adversely affect the quality of the delivered software.  Acceptance testing
+   is usually performed by the acquiring organization, and its goal is to determine if the software
+   is fit for the purpose for which it was commissioned.  The acceptance test is also generally an
+   element in the completion of a contract, so it is more critical that this test be performed
+   correctly.
+
+   It's a good idea to have these types of testing performed by different organizations, in order to
+   avoid a conflict of interest.  If the development organization were to write and perform the
+   acceptance test, there would be an economic incentive to fudge the performance of the test, or to
+   leave holes in it.  Also, having different groups perform these test plans may reveal more
+   defects than would otherwise be found.
+
+   b.  Both integration and system testing are black-box methods; they test the inputs and outputs
+   of a piece of software without regard to their internal workings.  System testing treats the
+   entire system as a black box; integration testing treats each /component/ as a black box.  The
+   two techniques are complimentary, and apart from resource contention, there is no good reason
+   they can't be performed in parallel.
+
+   c.  I would try to include multiple levels and perspectives in my test plan.  It would include
+   all of these elements:
+
+   - Automated unit tests and code reviews/inspections, to ensure quality at the code level.  This
+     would be ongoing during construction of the system.
+   - Integration testing, to test the quality of each subsystem individually.
+   - System testing, to test the quality of the system as a whole.
+   
+
+* 2
+  Given this simulated code fragment, answer the following questions. (Points: 20)  
+
+  read InputNumber;
+
+  if (InputNumber > 0) then
+    write InputNumber;
+  else
+    write “Number is zero or less”;
+  end if;
+
+  while (InputNumber > 10) then
+    if InputNumber mod 10 == 0 then
+      write “Evenly divisible by 10”
+    else
+      write “Not evenly divisible by 10”
+    end if;
+    InputNumber = InputNumber – 1;
+  end while;
+
+  a. How many basis paths are there?
+
+  b. Describe each path.
+
+  c. How many test cases are required to achieve minimal (basis) path coverage of this code?
 
 
-2. Given this simulated code fragment, answer the following questions.
-(Points: 20)  
-  	read InputNumber;
 
-if (InputNumber > 0) then
-write InputNumber;
-else
-write “Number is zero or less”;
-end if;
+* 3
+  McConnell (Code Complete) asserts that reviews are usually better at finding defects than testing
+  is. (Points: 20)
 
+  a. Does this imply that testing is superfluous? Why or why not?
 
-while (InputNumber > 10) then
-if InputNumber mod 10 == 0 then
-write “Evenly divisible by 10”
-else
-write “Not evenly divisible by 10”
-end if;
-InputNumber = InputNumber – 1;
-end while;
+  b. Briefly discuss the role of reviews in an overall testing approach, and the difference in the
+  types of defects that each approach finds.
 
 
 
-a. How many basis paths are there?
+* 4
+  If the current failure rate for your project is 20 failures/week, which is better than the initial
+  rate of 30 failures/week, and the total number of failures found so far is 140: (Points: 20)
 
-b. Describe each path.
+  a. How many more failures do you anticipate finding before releasing the code (i.e., there are no
+  failures according to the assumption by the model) if you use the basic reliability model? State
+  your assumptions, and show your work.
 
-c. How many test cases are required to achieve minimal (basis) path coverage of this code?
-
-
-
-3. McConnell (Code Complete) asserts that reviews are usually better at finding defects than testing is.
-(Points: 20)  
-  	a. Does this imply that testing is superfluous? Why or why not?
-
-b. Briefly discuss the role of reviews in an overall testing approach, and the difference in the types of defects that each approach finds.
+  b. Is the assumption (in the basic reliability model) that eventually there will be no failures a
+  realistic assumption? Why or why not?
 
 
 
-4. If the current failure rate for your project is 20 failures/week, which is better than the initial rate of 30 failures/week, and the total number of failures found so far is 140:
-(Points: 20)  
-  	a. How many more failures do you anticipate finding before releasing the code (i.e., there are no failures according to the assumption by the model) if you use the basic reliability model? State your assumptions, and show your work.
+* 5
+  Answer the following questions about Operational Testing: (Points: 20)
 
-b. Is the assumption (in the basic reliability model) that eventually there will be no failures a realistic assumption? Why or why not?
+  a. Why is operational testing important?
 
+  b. What specific types of problems can be found using an operational test approach?
 
-
-5. Answer the following questions about Operational Testing:
-(Points: 20)  
-  	a. Why is operational testing important?
-
-b. What specific types of problems can be found using an operational test approach?
-
-c. Discuss a specific real-life example of a fault that could have been discovered during operational testing but wasn’t discovered until it was used in the field. Please provide specifics as to the nature of the failure as well as the determined root cause. How could this problem have been averted?
+  c. Discuss a specific real-life example of a fault that could have been discovered during
+  operational testing but wasn’t discovered until it was used in the field. Please provide specifics
+  as to the nature of the failure as well as the determined root cause. How could this problem have
+  been averted?
 
