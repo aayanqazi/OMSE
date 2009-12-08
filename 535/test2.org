@@ -2,7 +2,7 @@
 
 Exam #2
 
-* 1
+* 1                                                                :noexport:
   Answer the following questions about testing: (Points: 20)  
 
   a. What is the difference between system testing and acceptance testing? Why isn’t it a good idea
@@ -17,36 +17,36 @@ Exam #2
   test the software, but how you will create a plan that adequately conveys your strategy for
   testing.
 
-** 1 -- Answer  
-   a.  System testing is usually performed by the development organization, and its goal is to
-   reveal defects that adversely affect the quality of the delivered software.  Acceptance testing
-   is usually performed by the acquiring organization, and its goal is to determine if the software
-   is fit for the purpose for which it was commissioned.  The acceptance test is also generally an
-   element in the completion of a contract, so it is more critical that this test be performed
-   correctly.
+* 1 -- Answer                                                      :noexport:
+  a.  System testing is usually performed by the development organization, and its goal is to reveal
+  defects that adversely affect the quality of the delivered software.  Acceptance testing is
+  usually performed by the acquiring organization, and its goal is to determine if the software is
+  fit for the purpose for which it was commissioned.  The acceptance test is also generally an
+  element in the completion of a contract, so it is more critical that this test be performed
+  correctly.
 
-   It's a good idea to have these types of testing performed by different organizations, in order to
-   avoid a conflict of interest.  If the development organization were to write and perform the
-   acceptance test, there would be an economic incentive to fudge the performance of the test, or to
-   leave holes in it.  Also, having different groups perform these test plans may reveal more
-   defects than would otherwise be found.
+  It's a good idea to have these types of testing performed by different organizations, in order to
+  avoid a conflict of interest.  If the development organization were to write and perform the
+  acceptance test, there would be an economic incentive to fudge the performance of the test, or to
+  leave holes in it.  Also, having different groups perform these test plans may reveal more defects
+  than would otherwise be found.
 
-   b.  Both integration and system testing are black-box methods; they test the inputs and outputs
-   of a piece of software without regard to their internal workings.  System testing treats the
-   entire system as a black box; integration testing treats each /component/ as a black box.  The
-   two techniques are complimentary, and apart from resource contention, there is no good reason
-   they can't be performed in parallel.
+  b.  Both integration and system testing are black-box methods; they test the inputs and outputs of
+  a piece of software without regard to their internal workings.  System testing treats the entire
+  system as a black box; integration testing treats each /component/ as a black box.  The two
+  techniques are complimentary, and apart from resource contention, there is no good reason they
+  can't be performed in parallel.
 
-   c.  I would try to include multiple levels and perspectives in my test plan.  It would include
-   all of these elements:
+  c.  I would try to include multiple levels and perspectives in my test plan.  It would include all
+  of these elements:
 
-   - Automated unit tests and code reviews/inspections, to ensure quality at the code level.  This
-     would be ongoing during construction of the system.
-   - Integration testing, to test the quality of each subsystem individually.
-   - System testing, to test the quality of the system as a whole.
-   
+  - Automated unit tests and code reviews/inspections, to ensure quality at the code level.  This
+    would be ongoing during construction of the system.
+  - Integration testing, to test the quality of each subsystem individually.
+  - System testing, to test the quality of the system as a whole.
 
-* 2
+
+* 2                                                                :noexport:
   Given this simulated code fragment, answer the following questions. (Points: 20)  
 
   read InputNumber;
@@ -72,9 +72,19 @@ Exam #2
 
   c. How many test cases are required to achieve minimal (basis) path coverage of this code?
 
+* 2 -- answer                                                      :noexport:
+  (a) Four.
+
+  (b) 1. TTT: InputNumber>0, InputNumber>10, and InputNumber mod 10 == 0
+      2. FTT: InputNumber<0, InputNumber>10, and InputNumber mod 10 == 0 (invalid)
+      3. TF: InputNumber>0, InputNumber<10
+      4. TTF: InputNumber>0, InputNumber>10, and InputNumber mod 10 != 0
+
+  (c) Minimal coverage is achieved by passing over each valid basis path once. Testing for expected
+  results with the inputs 20, 5, and 25 will provide minimal coverage.
 
 
-* 3
+* 3                                                                :noexport:
   McConnell (Code Complete) asserts that reviews are usually better at finding defects than testing
   is. (Points: 20)
 
@@ -83,9 +93,19 @@ Exam #2
   b. Briefly discuss the role of reviews in an overall testing approach, and the difference in the
   types of defects that each approach finds.
 
+* 3 -- Answer                                                      :noexport:
+  (a) No. Reviews are more cost effective at finding the defects that are easily found in a review.
+  That doesn't mean all defects can be found in a review.  Performance issues are a good example.
 
+  (b) Reviews are a great way of finding certain classes of defect early, and they should be used in
+  conjunction with regression, functional and exploratory testing; reviews tend to find logic,
+  off-by-one, and "ility" problems, regression testing detects when something broke unexpectedly,
+  functional testing ensures that new functionality is working as specified, and exploratory testing
+  is good for probing the system's responses to the unexpected and unspecified.
 
-* 4
+  
+
+* 4                                                                :noexport:
   If the current failure rate for your project is 20 failures/week, which is better than the initial
   rate of 30 failures/week, and the total number of failures found so far is 140: (Points: 20)
 
@@ -96,9 +116,36 @@ Exam #2
   b. Is the assumption (in the basic reliability model) that eventually there will be no failures a
   realistic assumption? Why or why not?
 
+* 4 -- Answer                                                      :noexport:
+  (a) This model assumes that eventually there will be no more failures, and that failures are
+  directly related to faults in the software.  The basic equation is this:
+
+  Lu =  L0 * (1 - (u / v))
+
+  Solving for v gives us:
+
+  Lu = L0 - (L0 * u / v)
+  Lu - L0 = - (L0 * u / v)
+  L0 - Lu = (L0 * u) / v
+  v = (L0 * u) / (L0 - Lu)
+  
+  In this case, L0 is 30 failures/week, Lu is 20 failures/week, and u is 140 failures.
+
+  v = (30 * 140) / (30 - 20)
+  v = (4200) / (10)
+  v = (420)
+
+  So by this model, we expect to find a total of 420 failures, and we've only found 140.
+  
+  (b) Not usually.  The sheer cost involved in shipping fault-free software makes this an impossible
+  goal for most organizations, though there are cases where it is warranted.  This assumption also
+  assumes that the basic functionality of the system is static, that no new requirements or features
+  are being added.  This doesn't appear to be a very common situation.
+
+  
 
 
-* 5
+* 5                                                                :noexport:
   Answer the following questions about Operational Testing: (Points: 20)
 
   a. Why is operational testing important?
@@ -110,21 +157,21 @@ Exam #2
   as to the nature of the failure as well as the determined root cause. How could this problem have
   been averted?
 
-** 5 -- Answer
-   Operational testing is important because of the different aspects of the system it tests.  For
-   example, there is often no substitute for production data when exposing certain kinds of issues.
-   You can try to simulate a production environment, but there will always be differences from the
-   real thing.  One specific example would be a bug that only occurs after the millionth record is
-   added, from Atlanta, while the backup is running.
+* 5 -- Answer                                                      :noexport:
+  Operational testing is important because of the different aspects of the system it tests.  For
+  example, there is often no substitute for production data when exposing certain kinds of issues.
+  You can try to simulate a production environment, but there will always be differences from the
+  real thing.  One specific example would be a bug that only occurs after the millionth record is
+  added, from Atlanta, while the backup is running.
 
-   Also, regardless of how good your pre-release testing is, issues will still occur.  Doing
-   operational testing means that your system is better instrumented for diagnosing and finding
-   problems, even in a production environment, so you get the added benefit of using your testing
-   tools to directly help in fixing a customer's issue.
+  Also, regardless of how good your pre-release testing is, issues will still occur.  Doing
+  operational testing means that your system is better instrumented for diagnosing and finding
+  problems, even in a production environment, so you get the added benefit of using your testing
+  tools to directly help in fixing a customer's issue.
 
-   We've had some issues like this with per-user settings.  We try to handle both Unicode paths and
-   networked home directories, but mixing the two can be problematic at times, and there were
-   several issues that cropped up with a complicated Active Directory network in Japan.  If we were
-   to have replicated this kind of issue locally, we would need to triple the size of our test team,
-   and have expertise in setting up mixed Windows and Mac networks in exactly the ways our system
-   breaks.
+  We've had some issues like this with per-user settings.  We try to handle both Unicode paths and
+  networked home directories, but mixing the two can be problematic at times, and there were
+  several issues that cropped up with a complicated Active Directory network in Japan.  If we were
+  to have replicated this kind of issue locally, we would need to triple the size of our test team,
+  and have expertise in setting up mixed Windows and Mac networks in exactly the ways our system
+  breaks.
