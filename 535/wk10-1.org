@@ -1,0 +1,10 @@
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+Future of Testing
+
+* Post
+  /The future of software testing: What do you think will transform the state of software testing in
+  the future? Will it be some fundamental technique from the past? Will remarketing the methods of
+  fundamental software testing into agile “Extreme Testing” methodologies revolutionalize the
+  testing process? Why or why not?/
+

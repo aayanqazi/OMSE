@@ -1,0 +1,7 @@
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+Project I Output
+
+* Post
+  /Project Part I Output: Discuss the tools researched individually as part of the course
+  project. What tools did you find useful? Why?/
