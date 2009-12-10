@@ -4,7 +4,23 @@ Future of Testing
 
 * Post
   /The future of software testing: What do you think will transform the state of software testing in
-  the future? Will it be some fundamental technique from the past? Will remarketing the methods of
+  the future?  Will it be some fundamental technique from the past?  Will remarketing the methods of
   fundamental software testing into agile “Extreme Testing” methodologies revolutionalize the
-  testing process? Why or why not?/
+  testing process?  Why or why not?/
 
+  I think the future of testing lies with intelligent automation.  Projects like [[http://research.microsoft.com/en-us/projects/Pex/][Pex]] can generate
+  high-coverage test suites for existing code, with many cases a human wouldn't have thought to
+  include.  Libraries like [[http://msdn.microsoft.com/en-us/devlabs/dd491992.aspx][Code Contracts]] can do static or runtime checking of interface contracts
+  (which are written by humans, but could be extracted from a specification).  Type-checkers and
+  thoerem provers can inspect a Z document and look for inconsistencies or a limited set of errors.
+
+  Humans will always be involved in one way or another, at least until we are replaced as the
+  dominant life form by machines more intelligent than ourselves, but I can see a market for
+  automated assistance in performing human tasks (CAST tools? Intellitest?).
+
+  In one sense, all of software engineering is the repackaging of old ideas; most of the profound
+  discoveries we are still relearning today were made 40 years ago.  On the other hand, combining
+  them into a form that is easy to digest at different levels of the organization is valuable, so I
+  still expect to see people selling the old ideas with new box art.
+
+  The new "extreme" methodologies won't revolutionize 
