@@ -5,3 +5,14 @@ Project I Output
 * Post
   /Project Part I Output: Discuss the tools researched individually as part of the course
   project. What tools did you find useful? Why?/
+
+  As far as what was presented in class, I was particularly interested in John's presentation on
+  TestComplete (oh, and thanks for dropping my name, John).  We're looking into automating some of
+  our testing, and this tool might work well for our SQA team as well.  FxCop and NCover being .NET
+  tools, we won't be able to use them, but it's still interesting to see what's possible on other
+  platforms.
+
+  The tool I reported on was Visual Assist X, a plugin for Visual Studio that enhances Intellisense
+  and syntax highlighting and provides some code navigation and refactoring tools.  I've enjoyed
+  using this tool, and I was glad of the opportunite to evangelize a little.  It would be difficult
+  for me to work without it at this point.
