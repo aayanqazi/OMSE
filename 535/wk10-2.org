@@ -2,7 +2,7 @@
 
 Project I Output
 
-* Post
+* Post                                                             :noexport:
   /Project Part I Output: Discuss the tools researched individually as part of the course
   project. What tools did you find useful? Why?/
 
@@ -16,3 +16,53 @@ Project I Output
   and syntax highlighting and provides some code navigation and refactoring tools.  I've enjoyed
   using this tool, and I was glad of the opportunite to evangelize a little.  It would be difficult
   for me to work without it at this point.
+
+* Me / Mike                                                        :noexport:
+  /[...] and yes, I will install Visual Assist soon./
+
+  Actually, the case for you isn't as strong.  Kernel mode components generally use a good text
+  editor and a command-line as their primary tools, and since Visual Studio isn't really the best
+  choice for either of those, VA won't help you as much as, say, me.
+
+
+* Me / John                                                        :noexport:
+  /Ben, what are some of the key features of Visual Assist X which go behond with the VS 2008 IDE
+  already gives?/
+
+  They do a pretty good job of selling the plugin on [[http://www.wholetomato.com/][their site]], but here's what I use every day as
+  a C++ developer:
+
+  - Intellisense now includes automatic suggestions based on the surrounding code
+  - Intellisense now includes snippet shortcuts
+  - Intellisense auto-complete includes acronym support ("cwe" will suggest "CreateWindowEx")
+  - Auto-completion when opening a file in the solution (Ctrl-Shift-O, "wac", enter opens a file
+    called wacom.h)
+  - Same for symbols
+  - Same for in-file navigation: auto-completion of method names
+  - Parser-based "go to definition" and "find references" (rather than text-based)
+  - Refactoring support for C++
+  - Enhanced code higlighting, including background-color for all occurrences of the symbol the
+    caret is currently on
+
+  And I'm still learning.  Using VA has made it less necessary for me to switch to emacs. :)
+
+
+* Nick / John                                                      :noexport:
+  /As long someone on the test team is comfortable with scripts [...]/
+
+  At least in my organization, this is a bit of a problem.  Our test team is /very/ good at manual
+  regression and exploratory testing, and they know the dark corners of the system where bugs hide,
+  but none of them can read or write code.  I'm sure they could handle the record-playback style of
+  scripting, but those are extraordinarily brittle, and tend to be maintenance-heavy if the UI
+  changes at all.
+
+* Jesse
+  /The tool I researched was Amazon's EC2 service. I wanted to learn more about it from an automated
+  testing perspective./
+
+  Interesting.  I've used EC2 as an offline backup service for a couple of years now (my 6GB photo
+  backup costs about $2.50 per month to host there), and I've read about using it as an application
+  deployment platform, but I never thought to use it for testing.
+
+  This probably won't do me any good, though.  All the instances are headless, so you can't get a
+  remote desktop, and it would be /very/ difficult to plug in a hardware device. :)
