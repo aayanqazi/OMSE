@@ -1,0 +1,88 @@
+Week 1 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Question
+  We will begin our weekly discussions by considering the shift that Ancona and Bresman (2007)
+  suggest in the first 2 chapters of their book and contrasting that to what we have been taught to
+  believe about the elements of successful team formatioon.
+
+  Read the first 2 chapters of Ancona and Bresman, and also the Goldsmith (2008) article - "How Can
+  I Improve Collaboration Within My Team?"
+
+  Where do you see contrasts and similarities between these two authors' suggestions? Do you agree
+  with Ancona and Bresman regarding the need for early, external focus? How does Goldsmith's
+  suggestion support or rebut their approach?
+
+  Feel free to share other resources from our D2L course resource list or others you have located.
+
+  Respond to the following multi-part question:
+
+  How should a new team focus their energy? On themselves, or on their external environment
+  (clients, competitors, suppliers, etc.)? Is this different for co-located vs. distributed teams?
+  Why and how?
+
+  Press the "Compose" button to respond to this discussion question.
+
+* Initial response
+  /Where do you see contrasts and similarities between these two authors' suggestions?/
+
+  The Goldsmith paper is focused on improving internal communication and teamwork, but these same
+  techniques would work if the definition of "team" is broadened to include everyone who works to
+  make the company a success.
+
+  /Do you agree with Ancona and Bresman regarding the need for early, external focus?/
+
+  In my experience, getting the requirements right is the single most important part of any project,
+  and the best way to do that is to bring in users from outside as soon as possible.  So yes, I
+  agree with the emphasis on early external focus.
+
+  /How does Goldsmith's suggestion support or rebut their approach?/
+
+  It supports the internal portion of team improvement, and it can be adapted to help with the
+  external portion as well.
+
+  /How should a new team focus their energy?  On themselves, or on their external environment (clients, competitors, suppliers, etc.)?/ 
+
+  The premise of the Ancona/Bresman book seems to be that internal focus is not enough, that in
+  addition to having effective internal communication and teamwork, a team in a modern work
+  environment needs to work on communication and cooperation with external bodies.  These include
+  higher management, other functional organizations (e.g.  marketing), and other teams working on
+  similar problems.
+
+  /Is this different for co-located vs. distributed teams?  Why and how?/
+
+  I would say that this is the same, though it takes a different form.  The authors mention in
+  passing that constant attention from upper management can no longer be taken for granted, and
+  teams need to work on visibility and selling their ideas.  If this effort is not taken, senior
+  management won't support the team's project.
+
+  In a distributed team, this same effort needs to be taken internally as well.  In the absence of
+  water-cooler conversation and just seeing each other, team members must take special care in
+  making sure the team jells, and that everyone is working in the same direction.  It's almost as if
+  you have to treat your /team members/ as being external entities, with relationships that need to be
+  actively managed.
+
+* Jesse Milan (response)
+  /That being said, the arguments in the readings seem to be less about physical location of team-members and more about org charts and markets./
+
+  This is accurate on the surface, but I think there are some particular features of distributed
+  teams that need to be accounted for.
+
+  One is that distributed teams don't have simple physical presence.  Your boss's boss can't just
+  walk by and see that you're working hard.  It's actually pretty hard for a distributed team to
+  show believable progress without going out of their way to do it, where co-located teams do this
+  without even trying.
+
+  The book mentions this in terms of reputation management and management visibility, but I think
+  those ideas are more relevant for distributed than co-located teams.
+
+* Ian -> Ori -> Ian
+  /Their point is that if you dont engage the external early and often, you risk falling behind into a spiral of defeat./
+
+  Exactly.  It doesn't matter how well you work together if your team is disbanded because it can't
+  keep up.
+
+  I've heard this again and again from agile evangelists, that if you're not responsive to your
+  customers, you lose.  As a team, you're not just making a product, you're also making a place for
+  your team in the organization.  This means you have more customers than you think you do.
