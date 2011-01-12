@@ -76,6 +76,21 @@ Week 1 discussion
 
   The book mentions this in terms of reputation management and management visibility, but I think
   those ideas are more relevant for distributed than co-located teams.
+** ...
+   /[...] tangible results are what matters the most and are valued over less tangibles i.e. the stuff that’s easier to see in co-located teams./
+
+   Sure, but that doesn't change human nature.  If tangible results were all that mattered, we
+   wouldn't have this class, because distributed teams would be just as easy as co-located teams.
+
+   But we don't live in that world.  Humans are clever primates, and we like to see faces and
+   nonverbal communication.  It's really hard to truly convince yourself that the one remote worker
+   on your team is working as much as the rest, no matter how hard you try, and no matter how
+   impressive her accomplishments.
+
+   There's an analogy I like to make to Apple products.  Other companies have made arguably better
+   phones and MP3 players, but Apple is the company that realized that /people form relationships/
+   with these things, and that aesthetics and subtle details matter in ways that are not logically
+   predictable.
 
 * Ian -> Ori -> Ian
   /Their point is that if you dont engage the external early and often, you risk falling behind into a spiral of defeat./
