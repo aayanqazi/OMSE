@@ -1,0 +1,7 @@
+- [X] Read article (trust)
+  - [X] Discussion - article
+    - [ ] Responses
+  - [ ] Article analysis paper
+- [ ] Read Tuckman
+  - [ ] Discussion - tuckman
+    - [ ] Responses
