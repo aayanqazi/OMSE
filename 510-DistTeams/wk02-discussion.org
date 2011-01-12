@@ -1,0 +1,30 @@
+Week 2 Discussion - Best practice article
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Ben Straub - Virtual Teams Building Trust
+  The full title of this article is /Building Trust and Cooperation through Technology Adaptation in
+  Virtual Teams: Empirical Field Evidence/, and it is a research study on the topic of software
+  management and leadership style.  There are three hypotheses:
+
+  1. Command-and-control (CnC) leadership will result in lower trust than a more facilitative
+     method.
+
+  2. Facilitative leadership will result in higher levels of technological adaptation than CnC.
+
+  3. Technological adaptation is positively correlated to trust and cooperation.
+
+  Here, "technological adaptation" means changing the use of technology that the team uses to
+  communicate.  This includes things like version control, wikis, synchronous meeting software
+  (i.e. Elluminate), and others.
+
+  Hypotheses 2 and 3 are borne out; facilitative ("Theory Y") interventions do indeed result in more
+  adaptation of communication technology, and adaptation is positively correlated with trust and
+  cooperation.  Surprisingly, CnC-style interventions are just as effective at producing trust as
+  facilitative leadership is.
+
+  This last conclusion is a bit counter-intuitive, but in hindsight it makes sense; people are more
+  willing to follow a leader who is decisive and accountable than one who is wishy-washy and pushes
+  all the decisions onto the rest of the team.  It's also clear that both styles of leadership have
+  their place, and are not mutually exclusive; some situations call for an edict, others for
+  consensus.
