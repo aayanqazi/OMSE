@@ -2,6 +2,7 @@
   - [X] Discussion - article
     - [ ] Responses
   - [ ] Article analysis paper
-- [ ] Read Tuckman
-  - [ ] Discussion - tuckman
+- [X] Read Tuckman
+  - [X] Discussion - Tuckman
     - [ ] Responses
+- [ ] Journal

@@ -2,7 +2,7 @@ Week 2 Discussion - Best practice article
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Ben Straub - Virtual Teams Building Trust (other article)
+* Ben Straub - Virtual Teams Building Trust
   The full title of this article is /Building Trust and Cooperation through Technology Adaptation in
   Virtual Teams: Empirical Field Evidence/, and it is a research study on the topic of software
   management and leadership style.  There are three hypotheses:
@@ -29,7 +29,39 @@ Week 2 Discussion - Best practice article
   their place, and are not mutually exclusive; some situations call for an edict, others for
   consensus.
 
-* TODO Ben Straub - Tuckman Article
-  /Why do you believe that this model is still the pominent and most used model for team development? In what ways is it a model that is ubiquitous in terms of its application across time, industries, and cultures? What do you see as the limitations to this model for current application, especially related to Distributed SE Teams? In other words, what is it missing? Where does it fall short (if anywhere)? How do you see Ancona & Bresman's theory of x-teams relating to, supporting, or contradicting Tuckman's model? Please use examples from your own team experiences to explain and justify your opinions./
+* Ben Straub - Tuckman Article
+  /Why do you believe that this model is still the prominent and most used model for team development?/
 
-  
+  Psychological theory is timeless, at least on the time spans our industry deals with.  What was
+  true of humans 45 years ago is still largely true today.
+
+  It's also probably partly due to good marketing.  The findings are sound-bite friendly, easily
+  remembered with the mnemonic, and ring true against both experience and intuition.
+
+  /In what ways is it a model that is ubiquitous in terms of its application across time, industries, and cultures?/
+
+  It is based upon studies from widely disparate fields of research, different group settings, and
+  that were published over the course of 30 years (1932 - 1964).  Since the subject material is so
+  varied, it makes sense that the findings would apply to a wide range of situations.
+
+  /What do you see as the limitations to this model for current application, especially related to
+  Distributed SE Teams? In other words, what is it missing? Where does it fall short (if anywhere)?/
+
+  The main limitation of these studies is that the groups were static.  In my experience, groups in
+  software development are rarely formed all at once, and are seldom completely disbanded after a
+  set amount of time.  People come and go, sometimes to the extent that a group may have more new
+  people than original members by the time a project is completed.  This situation doesn't lend
+  itself to four discrete phases of group cohesion.
+
+  /How do you see Ancona & Bresman's theory of x-teams relating to, supporting, or contradicting
+  Tuckman's model? Please use examples from your own team experiences to explain and justify your opinions./
+
+  The x-teams case studies seem to bear out Tuckman's findings, at least in my opinion.
+  Internally-focused teams spend a lot of effort getting to the the fourth stage as quickly as
+  possible, with the idea that they should spend more time /performing/.
+
+  On the other hand, externally-focused teams use the uncertainty and organicness of the first two
+  phases to find the correct purpose for the group.  Including external entities also has the effect
+  of enlarging the group that coheres; core team members are not the only people who get to the
+  /performing/ stage.  The theme here is that pointing the ship in the right direction is more
+  important than quickly getting up to speed.
