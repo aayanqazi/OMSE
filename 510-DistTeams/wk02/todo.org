@@ -1,8 +1,11 @@
-- [X] Read article (trust)
+* Actions
+  - [X] Read article (trust)
   - [X] Discussion - article
-    - [ ] Responses
+  - [X] Responses
   - [ ] Article analysis paper
-- [X] Read Tuckman
+
+  - [X] Read Tuckman
   - [X] Discussion - Tuckman
-    - [ ] Responses
-- [ ] Journal
+  - [X] Responses
+
+  - [ ] Journal
