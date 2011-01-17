@@ -94,6 +94,24 @@ Week 2 Discussion - Best practice article
    of enlarging the group that coheres; core team members are not the only people who get to the
    /performing/ stage.  The theme here is that pointing the ship in the right direction is more
    important than quickly getting up to speed.
+** Me -> Dan
+   /Even in a dynamic model of team behaviour do you know think that the four stages are adequate
+   and are only repeated in more iterations?/
+
+   I guess I was thinking of the model as including the linear progression through the stages.  I
+   suppose you could think of a dynamic team that's constantly changing members as bouncing back and
+   forth through the stages in a non-linear fashion.
+
+   I still wonder if it's more complicated than that.  Is it necessarily the case that the entire
+   team is at the same phase at the same time?  Larger teams especially will have subgroups that are
+   in a different place than the rest of the team.  Can you truly think of the team as one thing,
+   that has one position on the Tuckman phase line?
+
+   I think that the range of things we call a "team" has grown such that we can't make the same
+   assumptions all of Tuckman's source material did.  The four phases are a decent guideline as far
+   as they go, but more complicated situations demand either a more complicated model, or no
+   simplistic model at all.
+
 ** Me -> Kathy
    /It is common for a team to loop back to the storming phase when new members enter or there are
    other significant changes./
@@ -121,7 +139,7 @@ Week 2 Discussion - Best practice article
 
    If Tuckman had written his model to be more concrete and specific, it would have lost much of its
    brevity, and (perhaps?) much of its popularity and power.
-
+   
 ** Ayellet -> Kooth -> Andrew
    /It may be that we have adjusted accordingly over the intervening years, but I would guess that
    the studies examined were not based on groups as culturally diverse as, say, this class./

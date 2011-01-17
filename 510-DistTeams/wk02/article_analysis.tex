@@ -1,15 +1,95 @@
 \documentclass[11pt]{article}
 
 \usepackage{enumerate}
-\usepackage{todonotes}
+%\usepackage{todonotes}
 \usepackage{times}
+
+\makeatletter 
+\def\s@btitle{\relax} 
+\def\subtitle#1{\gdef\s@btitle{#1}} 
+\def\@maketitle{% 
+  \newpage 
+  \null 
+  \vskip 2em% 
+  \begin{center}% 
+  \let \footnote \thanks 
+    {\LARGE \@title \par}% 
+                \if\s@btitle\relax 
+                \else\typeout{[subtitle]}% 
+                        \vskip .5pc 
+                        \begin{large}% 
+                                \textsl{\s@btitle}% 
+                                \par 
+                        \end{large}% 
+                \fi 
+    \vskip 1.5em% 
+    {\large 
+      \lineskip .5em% 
+      \begin{tabular}[t]{c}% 
+        \@author 
+      \end{tabular}\par}% 
+    \vskip 1em% 
+    {\large \@date}% 
+  \end{center}% 
+  \par 
+  \vskip 1.5em} 
+\makeatother 
+
+% Remove section numbers
+\setcounter{secnumdepth}{0}     % From headings
+\def\thechapter{}               % From TOC
 
 \begin{document}
 
 \title{OMSE 510 - Distributed Teams \\ Best Practices Article Analysis}
+\subtitle{Building Trust and Cooperation through Technology Adaptation in Virtual Teams: Empirical Field Evidence}
 \author{Ben Straub}
 \maketitle
 
-\todo{Finish this.} This is the text of the analysis.
+This study was concerning the relationship between trust, leadership style, and technological
+adaptation in distributed teams.  The two leadership styles contrasted are Theory X
+(i.e. command-and-control, where decisions flow from the top of the org-chart) and Theory Y (the job
+of the manager is to give people the resources they need and to get out of the way), and the
+technology being adapted is the tools the team uses to communicate.
+
+The study has three hypotheses.
+
+\begin{itemize}
+\item \textbf{H1:} Virtual team (VT) leader interventions employing a Theory X approach will lead to
+  lower levels of trust than a Theory Y approach.
+\item \textbf{H2:} VT leader interventions employing a Theory Y approach will lead to higher levels
+  of technology adaptation than interventions employing more of a Theory X approach.
+\item \textbf{H3:} Technology adaptation will be positively related to increased trust and
+  cooperation in VTs.
+\end{itemize}
+
+The data was gathered between 2004 and 2005 using a retrospective-interview method, and includes
+accounts of interventions by VT leaders.  Six judges then proceeded to classify and rate each
+intervention for several criteria, including whether that intervention was Theory X or Y, as well as
+several characteristics of the outcome of that intervention.  ``Trust'' was measured based on
+high-level indicative behaviors of the group, and ``technology adaptation'' was indicated by
+installation, removal, or customization of an information tool.
+
+The first hypothesis was \textit{not} supported by the data.  It turns out that both X- and Y-style
+leadership actions have almost exactly the same effect on trust in a VT.  
+
+The second hypothesis \textit{was} supported.  There was a strong correlation between Y-style
+leadership interventions and technology adaptation.
+
+The third hypothesis \textit{was} supported.  There was a strong correlation between technology
+adaptation and VT trust and cooperation.
+
+This suggests that, while X-style leadership can indeed foster trust and cooperation within a team,
+Y-style leadership can induce the same amount of trust while at the same time driving the effective
+use of communication tools.  X seems to encourage direct human interactions; Y-style leaders let the
+engineers choose the methods, and engineers almost always choose automated tools.
+
+\section{Summary}
+
+The article suggests that command-and-control leadership is just as effective at fostering trust in
+a distributed team as facilitative leadership, but it doesn't tend to produce more effective use of
+communication tools.  If virtual team communication is to be managed with automated tools, Theory
+Y-style leadership should be used to manage it.
+
 
 \end{document}
