@@ -1,0 +1,36 @@
+* Agenda
+  - [X] Review assignment
+  - [X] Assign roles
+  - [X] Determine a time to meet with Kathy (before Sunday)
+  - [X] Brainstorm action plan ideas(?)
+
+* Action plan
+  - Aim to finish by week 7
+  - Deliverable 1 (technical spec) after 2 weeks (week 5)
+  - Deliverable 2 (project managemt plan) 1 week later (week 6)
+  - Deliverable 3 (deployment and support strategy) 1 week later (week 7)
+  - Deliverable 4 (presentation) 2 weeks later for week 9
+
+* Logistics
+  - Skype works for everyone
+  - Google docs for documents
+  - Want to meet twice a week, times TBD
+
+* Roles
+  - Ben: Project Manager
+  - Tim: IT/QA
+  - Andy: Dev manager/architect
+
+* Action plan contents
+  - Deliverables and dates
+  - Roles
+  - Tools used to collaborate (Google Docs, etc.)
+
+* Next meeting
+  - Saturday late afternoon, with Kathy
+
+* Action items
+  - Each propose 3-4 time slots per week (by Thursday night)
+  - Andy: create a shared directory in Google Docs
+  - Andy: reply to Kathy about meeting time
+  - Ben: create basic action plan from these notes
