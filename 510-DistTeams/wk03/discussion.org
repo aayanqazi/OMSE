@@ -1,0 +1,37 @@
+Week 3 Discussion - X-teams principles
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* My post
+  /Ancona & Bresman write of three X-Team Principles: external activity, extreme execution, and
+  flexible phases.  Pick two of these three principles and describe how you are currently (or could be) applying them to support distributed team work in your own environment./
+
+  *External Activity* --- My work involves liaising with remote management, some in Germany, some in
+  Japan.  It's difficult keeping awareness-of-existence and information sharing running smoothly
+  with people 8 time zones away, but my company has taken some steps to try to make the world a bit
+  smaller.  Things like Yammer (sort of like Twitter, but with only people inside your company) let
+  you share water-cooler chatter with everybody, no matter where they are.
+
+  *Extreme Execution* --- This principle consists of psychological safety, reflection, and shared
+  knowledge.  We probably don't do this in a focused way, but we do try to make it "safe" to share
+  new ideas and make contact with people without following the org-chart lines.  We do
+  retrospectives and talk openly about learnings from past projects, though not as much as we
+  probably should.  And we have /okay/ tools for sharing knowledge, though it's mostly just emailing
+  Word documents around.
+
+  /I would also like your thoughts on how these principles complement and/or contradict each other
+  in your opinion./
+
+  The principles seem almost completely orthogonal to me, though they seem to affect each other in
+  subtle ways.  Flexible phases would seem to enable the psychological safety necessary for extreme
+  execution; if the team is willing to go back to one of the earlier Tuckman phases to allow new
+  members to integrate successfully, they'll feel safer and more included.
+
+  /Are there risks involved in applying these principles?  What are the risks and how might you
+  mitigate them?/
+
+  I could see a risk of fear and politics from the outside.  Applying these principles will (if the
+  authors are to be believed) turn your team into a powerhouse of productivity and a dynamo of
+  organizational change.  Other groups might feel threatened by this, especially if they're not
+  doing the same things, or aren't doing them as well.  Having lots of external contact will
+  mitigate this somewhat, but no team can be everywhere.
