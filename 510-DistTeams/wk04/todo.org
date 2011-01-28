@@ -1,6 +1,6 @@
-- [ ] Readings
-      - Bennett
-      - conflict article
+- [X] Readings
+  - [X] Bennett
+  - [X] conflict article
 - [ ] View slides
-- [ ] Discuss
+- [X] Discuss
 - [ ] Respond
