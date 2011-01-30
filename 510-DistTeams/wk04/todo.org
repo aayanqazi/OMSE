@@ -1,0 +1,8 @@
+- [X] Readings
+  - [X] Bennett
+  - [X] conflict article
+- [X] View slides
+- [X] Discuss
+      - [X] 1
+      - [X] 2
+- [ ] Respond

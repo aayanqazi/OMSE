@@ -2,7 +2,7 @@ Week 3 Discussion - X-teams principles
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* My post
+* My post                                                          :noexport:
   /Ancona & Bresman write of three X-Team Principles: external activity, extreme execution, and
   flexible phases.  Pick two of these three principles and describe how you are currently (or could be) applying them to support distributed team work in your own environment./
 
@@ -35,3 +35,99 @@ Week 3 Discussion - X-teams principles
   organizational change.  Other groups might feel threatened by this, especially if they're not
   doing the same things, or aren't doing them as well.  Having lots of external contact will
   mitigate this somewhat, but no team can be everywhere.
+
+** Ian
+   /How do people end up using it in your company?/
+
+   It's a lot like Twitter, actually.  There's a wide variety of chatter, some of it work related,
+   some not.  It's also safer than Twitter, in that you can discuss things that you can't mention
+   outside the company.
+
+   /Also, I'm curious how the idea even get off the ground.  Did someone set up some server to
+   handle this and people started using it organically or was there a corporate edict saying this new tool is now available?/
+
+   I'm not actually sure.  By the time I signed up, about half the people I know inside the company
+   were already members.  I'm guessing that a group of people decided this was a good idea, got some
+   sponsorship from HR or upper management so there'd be a good seed group, and just went for it.
+   After that, it grows like any other social network, and before long you're an outsider if you
+   /aren't/ using it.
+
+** Dan
+   /Would you not agree that the same thing could happen to successful teams that may not
+   necessarily be practicing X-teams principles?/
+
+   You're right, this risk isn't specific to the X-teams techniques.  However, if these practices
+   are that much more effective, an X-team is going to stand out and become a target.
+
+   In any... let's say "mature" organization, you'll find there's pressure to maintain the status
+   quo.  It's easier to keep doing things the way you always have, stay inside the comfort zone.  I
+   ran into this when I worked fast food; there was resistance to doing things in a new way, even if
+   that way meant better service, food, or a cleaner restaurant.
+
+   /If this can happen to any successful team, would the X-team's external focus not mitigate the
+   negative impacts to an extent by having management as allies?/
+
+   Absolutely, and the authors call this out.  I just have doubts that you can cover up /all/ of the
+   red target you just painted on your back.  You'll always miss some.
+
+** Juan
+   /What other, other than Word docs and email, tools have you used for knowledge sharing?/
+
+   Wikis are great for having a single, canonical repository of human-language information, and
+   you're right, the discussion feature is invaluable for presenting "correctness" while still
+   having an open forum for determining what "correct" is.
+
+   Email is actually terrible at this.  With N people on an email chain, the number of versions of
+   the document being exchanged approaches N as time goes by.  For controversial decisions, you need
+   discussion, and a record of what's been discussed.  Google Wave sounded like a great way of doing
+   this, but alas.
+
+   /Does Yammer help with this too?/
+
+   Not really.  Yammer doesn't have the 140-character limit, but Twitter has set the expectations
+   for services like this.  It's pretty good for idle chatter and keeping up with what people are
+   doing, but not really for hosting discussions or sharing knowledge.
+   
+** John
+   /Would a discussion forum work better than yammer at [keeping people up to date]?  Sometimes it's
+   almost laborous to post to discussion forums too, is this just a motivational problem?/
+
+   That's my experience too.  The whole idea of StackOverflow is based on the fact that forums are
+   bad for getting answers for questions; invariably, the answer you want is buried on page 17 of a
+   43-page thread.
+
+   I think you can say the same for status updates; on the consumer side, how much of the thread do
+   you have to read to get the bit of information that you want?  And on the producer side, how easy
+   is it to broadcast the thing you want to tell everyone?  What if someone isn't watching exactly
+   the right thread?
+
+   For making sure everybody knows what's happening, I think Yammer could work well.  Having a place
+   where you can say "I just finished Feature A!  Woo!" is pretty nice, and if everybody on the team
+   is wataching, they'll see what's happening no matter which time zone they're in.
+
+
+* James -> Andrew -> Kathy
+  /The culture can form around the assumption that the commitment is less permanent for these team
+  members if they all see how they benefit as individuals, and commit to completion of the project they are assigned to./
+
+  I think over time, in an organization entirely made of X-teams, people would eventually find the
+  place where they're the happiest and most effective, and the jumping would taper off.  But you're
+  right; projects need to be completed, and there has to be that expectation that if you're going to
+  leave, it should be /between/ projects.
+
+* Ian -> Kathy -> Gavin
+  /[...]most people recognize a deadlock, but people always want their own viewpoint to win - so the
+  manager needs to be careful to let people know that breaking the deadlock and moving forward is always a better decision than debating forever [...]/
+
+  At my company, we've had a culture of "design deathmatches".  This is a meeting with all the
+  engineers involved (all 5 of them when I started, we've grown since), and everybody gets a
+  voice. The VP of engineering would sit in on the meetings, but wouldn't normally intervene; he
+  would let the engineers figure it out.
+
+  However, when it came to a deadlock, or the discussion was going on too long, he would step in to
+  move things along.  He also brought a more strategic viewpoint, so if there was an unwritten
+  requirement that the squares and lines on the whiteboard wouldn't accomodate, he would make sure
+  we knew about it.
+
+  It came down to a fine balance between exerting control to move the team over a speedbump, and
+  contributing to the meeting as an individual.

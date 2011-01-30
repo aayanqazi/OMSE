@@ -1,0 +1,48 @@
+Wed (1/26)
+
+- Andy's "no"s
+  - requirements
+  - archi/design
+  - metrics
+- Andy's "yes"es
+  - Distributed IDEs
+- Tim's "yes"es
+  - project mgmt + config. mgt.
+    - Redmine et al
+- Distributed IDEs 
+  - Trying to be original
+    - Not just an IDE that /can/ be used collaboratively
+    - Want a real-time interactive pairing environment
+  - Text editors
+    - Ethercodes
+    - SubEthaEdit
+    - EtherPad (defunct)
+    - typewith.me
+    - [[http://en.wikipedia.org/wiki/Collaborative_real-time_editor][(others)]]
+  - Full IDEs
+    - Any?
+- General tools
+  - Google docs / apps for domains covers:
+    - 1, 5, part of 2
+  - 2 & 3
+    - Skype (Beta does multi-way video)
+    - Oovoo (multi-way video for $)
+  - 4?
+    - Any forum should do
+    - Maybe?
+  - Note: solutions don't have to be free
+
+* Actions        
+  - Need to reach out to Kathy (Ben)
+    - See if this (dist. IDE) is a direction we want to go
+    - Confirm: all of 5.1, one of 5.2?
+  - Find a few IDE candidates by Saturday (all)
+  - Shortlist a few forum candidates that are interesting (all)
+
+* Next Meeting
+  - Saturday 1/29, 8pm
+  - Agenda:
+    - Project requirements
+    - IDEs
+    - Forums
+    - project management plan

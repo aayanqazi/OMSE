@@ -1,0 +1,84 @@
+Week 4 Discussion - Cultural differences & Conflict
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Discussion 1                                                     :noexport:
+** My post                                                         
+   /Where would you place yourself on Bennett's continuum?  Where would you place the other members on
+   your distributed team (in your actual workplace)?/
+
+   As far as work is concerned, I'd put myself somewhere between Acceptance and Adaptation.  Working
+   with Germans is one thing; while there are some cultural differences, we share western european
+   ideas of rhetoric and etiquette, so there are norms to follow.
+
+   However, the Japanese group that I deal with makes me nervous.  Japanese culture has more rules
+   about politeness and social rank than west-coast U.S. culture does, and I'm always nervous about
+   saying the wrong thing, or saying the right thing to the wrong person.  I guess that puts me in
+   the Acceptance bucket.  It doesn't stop me from working with them, I'm just extra careful when
+   writing an email.
+
+   /Are there simlarities or differences in how you think team members perceive differences on the
+   team?/
+
+   I'm not sure I understand the question.  I'm sure that other groups perceive my group in a
+   different way than my group perceives itself.  I'm also sure that certain team members perceive,
+   say, tension between two other team members, where those two don't feel it at all.
+
+   /Do you have examples of times when conflict turned productive and yielded new ideas?/
+
+   Absolutely.  I've described our culture of "design deathmatches" before, but it's definitely a
+   "collaboration" model.  Everybody has strong opinions about what makes a design good, and the
+   style of conflict our group employed worked very well for making sure everyone was satisfied that
+   the design was the best.
+
+   /Examples of times when conflict was not managed well?/
+
+   There are groups in my company that think other groups are being idiots, but it usually boils down
+   to a difference in priorities.  Engineering and marketing are often in disagreement about things,
+   but that's because engineers aren't the target market.
+
+   I wouldn't say that this conflict isn't managed well -- I'd say it isn't managed at all.  Not that
+   it's been a problem; these groups seldom work directly together, so there's no opportunity for
+   escalation.  I think this will be a roadblock as our company grows and integrates more.
+
+   /How do you think that you -- as a distributed team leader -- might find the balance between
+   cultural difference, conflict, and creative potential on your team?/
+   
+   I'm a facilitator, so mostly I focus on making sure everybody heard everybody else clearly.
+   Usually this means watching for misunderstandings, and rephrasing what was said into terms the
+   misunderstander can more readily process.  Over time, people develop their own translation filters
+   for this sort of thing, but I find the road is smoother if I help at first.
+
+** Me -> Ori
+   /Does you company provide any culture training?/
+
+   Nothing formal.  We're pretty small -- there are only 100 employees at the Vancouver office, so
+   resources are tight for that sort of thing.
+
+   We do have some informal training; his name is Jim.  He speaks and reads Japanese fluently, and
+   knows all about the culture, politeness rules, and all kinds of trivia.  He's been invaluable.
+
+** Me -> Nick
+   /[...] has that nerviousness decreased with time?/
+
+   Oh, definitely.  There's something about not failing that helps with my confidence level.
+
+   Also, the people in Japan that I usually interact with are long-term employees, and have been
+   working with Americans for decades.  They know what to expect, and probably overlook lots of my
+   transgressions.
+
+* Discussion 2
+** My post
+   1. You mentioned "power distance" as a characteristic of a culture.  In the X-teams book, the
+      authors imply that low power distance is a necessity of the "new team".  Do you think that
+      power distances are shrinking in general as companies move towards more distributed
+      leadership?
+
+   2. What are some basic techniques for groups on opposite ends of the collective/individualistic
+      continuum to work together?
+
+   3. What are some work/life balance strategies you've seen?  I can see someone working from home
+      having trouble either getting any work done at all (too many distractions) or working too much
+      since they're /always/ at the office.
+
+     
