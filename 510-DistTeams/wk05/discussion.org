@@ -1,0 +1,45 @@
+Week 5
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Discussion 1
+  Ancona and Bresman describe 3 X-Factors that "form the underlying structure and support" for the
+  X-Team (p. 139). After reading Chapter 6, consider how the practices suggested by Ancona and
+  Bresman can be leveraged in a distributed team.
+
+  Imagine you have full support to design an X-Team in your company to go after an innovative
+  product idea. How would you structure and manage that team, given the 3 X-Factors and a
+  distributed environment? Do the X-Factors give you any ideas for how to mitigate some of the
+  distributed team problems/challenges we have been discussing?
+
+  Kathy
+
+** TODO My post 
+
+* Discussion 2
+  For this discussion, I would like you to do some scouting of your own, specifically to find out
+  what kind of research is being done that could support future distributed teams.
+
+  To get you started, here is a link to a wide range of topics currently being resarched at MIT's
+  Media Lab:
+
+  http://www.media.mit.edu/research/groups-projects
+
+  Explore these topics and the specific projects within them and then respond in 1 of 2 ways:
+
+  1. Tell us about one of the projects and how you think the results might help in the development
+     of distributed team practices. Make sure to include the MIT research group and project name,
+     and any links to video or data that you find.
+
+     or
+
+  2. Suggest a research project that you would like to see conducted, which research group it woud
+     be assigned to, and articulate the essential question the research project would be trying to
+     answer.
+
+     You are welcome to use a research program other than MIT if you know of one that is looking at
+     similar problems. Just make sure and provide a link.
+
+     Kathy
+     
+** TODO My Post 
