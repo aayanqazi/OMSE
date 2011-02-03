@@ -2,8 +2,8 @@ Week 4 Discussion - Cultural differences & Conflict
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Discussion 1                                                     :noexport:
-** My post                                                         
+* Discussion 1
+** My post                                                         :noexport:
    /Where would you place yourself on Bennett's continuum?  Where would you place the other members on
    your distributed team (in your actual workplace)?/
 
@@ -49,7 +49,7 @@ Week 4 Discussion - Cultural differences & Conflict
    misunderstander can more readily process.  Over time, people develop their own translation filters
    for this sort of thing, but I find the road is smoother if I help at first.
 
-** Me -> Ori
+** Me -> Ori                                                       :noexport:
    /Does you company provide any culture training?/
 
    Nothing formal.  We're pretty small -- there are only 100 employees at the Vancouver office, so
@@ -58,7 +58,7 @@ Week 4 Discussion - Cultural differences & Conflict
    We do have some informal training; his name is Jim.  He speaks and reads Japanese fluently, and
    knows all about the culture, politeness rules, and all kinds of trivia.  He's been invaluable.
 
-** Me -> Nick
+** Me -> Nick                                                      :noexport:
    /[...] has that nerviousness decreased with time?/
 
    Oh, definitely.  There's something about not failing that helps with my confidence level.
@@ -67,8 +67,32 @@ Week 4 Discussion - Cultural differences & Conflict
    working with Americans for decades.  They know what to expect, and probably overlook lots of my
    transgressions.
 
+** Me -> Kathy
+   /[...] do you think the Japanese team is/was as nervous about interacting with you as you were with them?/
+
+   Yes and no.  Most of the people I have contact with have been working with Americans for many
+   years, so I think they are well-adjusted to doing that.  However, there are always people making
+   contact with a foreign culture for the first time, and I'm sure they're nervous, especially given
+   the Japanese concepts of politeness and social rank.
+
+** Dan -> James -> Dan -> Kathy -> James
+   /It almost seems like more of a pendulum, starting at denial as a child, moving through the continuum as normal life exposes one to many outside positive and negative influences, then
+   proceed back down the model as people have families and become more focus on their family units and tighter collection of like-mined friends./
+
+   I disagree.  I think that consciousness of cultural differences is something that never really
+   goes away, like knowing how to drive.  Just because you spend a few years mainly with your family
+   and close friends doesn't mean you then forget that Indian developers work and think differently
+   than Italians.
+
+   I wonder how much of this is perception colored by the current population?  There's a perceived
+   shift along the Bennett continuum as age increases, but that doesn't mean you lose cultural
+   sensitivity as you get older.  It just means that our grandparents' generation by and large
+   didn't have contact with other ethnic groups.  They were also more likely to refer to a black
+   person as "colored," but that doesn't mean we'll all of a sudden start using subtly inappropriate
+   racial monikers when we turn 60.
+
 * Discussion 2
-** My post
+** My post                                                         :noexport:
    1. You mentioned "power distance" as a characteristic of a culture.  In the X-teams book, the
       authors imply that low power distance is a necessity of the "new team".  Do you think that
       power distances are shrinking in general as companies move towards more distributed
