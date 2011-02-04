@@ -1,8 +1,8 @@
 * Wednesday
   - [X] Email from Andy
   - [X] Write up a package
-  - [ ] PMP outline
-  - [ ] Meeting
+  - [X] PMP outline
+  - [X] Meeting
   - [ ] Read X-teams 6-8
   - [ ] Discuss
 * Saturday:
