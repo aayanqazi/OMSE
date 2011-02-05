@@ -2,7 +2,7 @@ Week 5
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-* Discussion 1
+* TODO Discussion 1
   Ancona and Bresman describe 3 X-Factors that "form the underlying structure and support" for the
   X-Team (p.  139).  After reading Chapter 6, consider how the practices suggested by Ancona and
   Bresman can be leveraged in a distributed team.
@@ -14,12 +14,64 @@ Week 5
 
   Kathy
 
-** TODO My post
+** DONE My post                                                    :noexport:
    /How would you structure and manage that team, given the 3 X-Factors and a distributed
    environment?/
 
+   The book suggests that three things are essential to the success of such an endeavor.
+
+   The first is contacts.  The tam would need to be connected to useful resources, both inside and
+   outside the host organization.  The book gives the example of a weak tie to one member's /alma
+   mater/, and the ability to find a project sponsor through reaching out and making contacts.  I
+   would try to form the core of the team out of people who were well-connected.
+
+   The second is a growth plan.  Any project of significance needs more than a small team to
+   accomplish its goals, so it's important to be able to grow the team in a productive way.  The
+   authors suggest that the /core/, /operational/ and /outer net/ tiers are a natural division.  The
+   first growth spurt, once funding is obtained, is to add an operational layer to start making
+   things happen.
+
+   The third is accepting that people will come and go.  I don't know that there's a lot you can do
+   at the 'forming' stage to plan for this except to take it as a fact.  In the Microsoft case
+   study, it seemed as though most of the personnel changes happened at transitions between phases;
+   some people are interested in exploration, but exploitation holds no interest for them.  If
+   that's a pattern that's pretty common, it can be planned for.
+
    /Do the X-Factors give you any ideas for how to mitigate some of the distributed team
    problems/challenges we have been discussing?/
+
+   All of this seems fairly orthogonal to distributed teams.  The infrastructure that underlies an
+   X-team needs to be present whether that team is collocated or scattered.
+
+** DONE Ori -> James                                               :noexport:
+   /Which X-Factor do you think is the most difficult to achieve? I would say exchangeable
+   membership because it is hard to give up a spot on the team when you like the vision./
+
+   Interesting, that's not how I read that factor at all.  I didn't get the forceable changing of
+   team members.  What I got was that people will --- completely on their own --- join and leave such
+   a team, and that's okay.
+
+   I read somewhere (my Google-fu is failing me now) that software companies are still in an
+   industrial-age mindset when it comes to people leaving, and they treat it like a divorce.  It's a
+   betrayal to leave, and you should be ashamed and sorry.
+
+   There's another model which primes the system for people who leave after two years.  This is
+   perfectly natural and healthy; the normal cycle for verve and creative ideas goes something like
+   this:
+
+   1. You arrive fresh-faced and idealistic
+   2. You shut up for a while because you're the new guy
+   3. You become more outspoken as you become more comfortable and senior
+   4. You push for your best ideas
+   5. You get burned out from the pushing, and your level of creative output naturally declines
+
+   The peak creative output is generally somewhere around the 1-year mark in this model.  Given
+   this, it's perfectly natural to /want/ a change of scenery and some intellectual stimulation;
+   after all, you're not as excited and effective as you used to be.
+
+   This is what I took away from this factor.  Some people like the building of a product, but
+   aren't interested in selling the ideas to the rest of the company, so they'll move to another
+   team that's in the building phase.  And that's okay.
 
 * Discussion 2
   For this discussion, I would like you to do some scouting of your own, specifically to find out
