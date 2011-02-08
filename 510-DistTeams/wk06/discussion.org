@@ -1,0 +1,42 @@
+Week 6 Discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+This week, we begin our discussion of the Wenger, White, and Smith (2009) book, "Digital Habitats:
+Stewarding Technology for Communities."
+
+First, I would like to recognize that distributed communities of practice are different than
+distributed project teams. We could spend a week discussing those differences, but instead I would
+like to bypass that discussion by suggesting that the main difference is in the intent/goals of the
+group. Communities of practice are groups of people with a common interest that form for the purpose
+of sharing practices with others who share that interest. The primary goal with communities is
+learning. For project teams, there is a defined project goal and outcomes that the team is working
+toward. We hope that learning is embedded, but it is seldom the singular goal of the team.
+
+For this DQ, please reflect on a distributed team experience you have had, are currently having, or
+have studied this term. Using the authors' three inherent polarities model, answer the following
+questions about that team (from p. 68 of the book). The big idea here is to articulate the processes
+and team dynamics before beginning to search for tools.
+
+Togetherness vs. Separation -- what are/were the sources of togetherness and separation and is/was
+the rhythm optimal for the community?
+
+Participation vs. Reification -- What kind of reification needed/needs to be produced and how can
+this be integrated into forms of participation to general meaningful learning experiences?
+
+Individuals vs. Groups -- How much conformity of participation and tool use does/did the team need
+and what and how flexible does/did it need to be to accomodate indivudal choices and
+multimembership?
+
+If you would like to join a discussion about the concepts in the book, you can do so by accessing
+the blog:
+
+http://technologyforcommunities.com/
+
+
+
+* TODO My post
+
+* TODO Response 1
+
+* TODO Response 2
