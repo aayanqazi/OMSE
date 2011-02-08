@@ -3,10 +3,9 @@
   - [X] Write up a package
   - [X] PMP outline
   - [X] Meeting
-  - [ ] Read X-teams 6-8
-  - [ ] Discuss
+  - [X] Read X-teams 6-8
+  - [X] Discuss
 * Saturday:
-  - [ ] PMP draft
-  - [ ] Meeting
+  - [X] Meeting
   - [ ] Respond
   - [ ] Journal
