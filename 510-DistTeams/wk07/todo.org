@@ -1,0 +1,8 @@
+* Tues
+  - [X] Reading
+  - [X] Discussion
+* Wed
+  - [ ] Meeting
+* Sat
+  - [ ] Meeting
+  - [ ] Discussion

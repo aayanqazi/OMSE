@@ -1,0 +1,75 @@
+Week 7
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Discussion 1
+  Chapter 6 of Wenger, White, and Smith includes nine different orientations that a team might use
+  to focus their work. Pick one of these orientations (meetings, projects, content, etc.) and use it
+  to examine a team you are working with now or have worked with in the past. Diagnose the team
+  using the "Signs of Life," "Key success factors," and "Questions to consider" sections from the
+  book. As in the past, please avoid picking the same topic/orientation as others in class so that
+  we can have a discussion that covers a variety of topics. In other words, don't all pick
+  "projects" or "meetings". Also, please include the orientation in the subject of your discussion
+  post.
+
+** DONE My post
+   The team I'm on at work definitely has an /individual participation/ orientation.
+
+*** Signs of Life
+    Most people at my company have found a role they are comfortable in, and are productive with.
+    This is just as true of Engineering as anywhere else; each engineer has his or her own
+    strengths, weaknesses, pet causes and pet peeves.  Some times these are at odds, but mostly they
+    compliment each other and make for better software.
+
+*** Key Success Factors
+    We invite lots of people to design meetings to get a wide variety of opinions, which shows that
+    diversity is explicitly valued.  The only practices and tools that are mandated for use are a
+    daily stand-up meeting and a code style guide; this shows that we encourage different modes and
+    means of working together, and that we use our tools to bridge between interaction modes.
+
+*** Questions to Consider
+    - /To what extent does the community's success depend on uniform participation expectations,
+      such as logging on to an online space daily or weekly, regular meetings or ingteractions, and scheduled events?/
+
+      Not much at all.  Our daily stand-up is fairly informal, and we're flexible about missing it.
+      Likewise for our use of Skype; not everybody is logged in all the time, though certain members
+      make extensive use of it.
+
+    - /What is the degree of diversity among members in terms of level of proficiency in the
+      community's core practice [...]?/
+
+      Fairly high.  We're all good at making software, but everyone has their own specialty.  Allen
+      is practical and pragmatic, Ken is the font of arcane knowledge, etc.  
+
+    - /How many communities do members belong to simultaneously?  Are they all within one
+      organization and therefore use the same set of tools?/
+
+      Certain members of the team have regular contact with various other parts of the company, some
+      of them with several.  Liaising with other groups (marketing, product management) usually
+      means working on their terms, so we adjust our use of tools to fit the situation.
+
+   
+* Discussion 2
+  In our Team Simulation, you only have one single sponsor. However, in many project environments,
+  especially those distributed across companies and in matrix organizations, this is not the
+  case. Next we will consider the challenge of having multiple stakeholders involved in providing
+  direction to the distributed team. With the added dimensions of different offices participating in
+  a project, from different locations, cultures, and with separate leadership structures, you can
+  end up with a lot of people with opinions about your projects. This week I would like you to share
+  not only your experience with this dilemma, but your ideas for how to address it. What can you do
+  when facing a set of stakeholders with different cultural backgrounds and separate agendas? Assume
+  that these stakeholders have equivalent political power.
+
+** DONE My post
+   I actually have exactly this situation with a project I'm starting work on.  The /product/
+   manager is in Germany, the /project/ and /software/ managers are in Vancouver, and the /hardware/
+   manager is in Japan.
+
+   The way this usually shakes out is that those three people send emails at each other until the
+   disputes are reconciled.  When a question comes up, there's usually only one of them that has a
+   strong opinion, but if that's not the case, they work among themselves to figure out the answer.
+   The cultural differences are real, but everyone involved has done this before, so we're all
+   generally familiar with how to work around them.
+
+   This would obviously be much harder if we as engineers had to coordinate all this
+   decision-making, if the stakeholders didn't talk directly to each other.  
