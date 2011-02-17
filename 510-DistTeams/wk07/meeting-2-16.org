@@ -1,0 +1,37 @@
+* Agenda
+  - [X] Review document drafts
+  - [X] Review list of requirements questions for Kathy
+
+* Document Drafts
+  - Andy (tech spec)
+  - Tim (deployment)
+  - Ben (proj. mgmt)
+    - Missing some content from the requirements doc
+    - Labor estimate
+    - Team organization
+
+* Questions for Kathy
+  - Other teams are
+  - Contacting sponsor is important, need questions to be answered
+  - All agreed that more frequent contact would be good
+  - Discussed meeting times
+    - Thurs night after 8:30 (Ben/Andy)
+    - Friday after 8:30 (Andy/Tim, maybe Ben)
+    - Saturday 8pm
+    - Could do during business hours, but harder
+  - Andy's questions about Google Apps for Domains & Business
+    - Will call out assumptions, but stick with groups
+  - Tim: forum selection
+    - PHPBB
+
+* Action Items
+  - Send questions to Kathy, set up meeting (Ben)
+  - Iterate on documents w/ info from Kathy by end of Sunday (all)
+  - Propose times for presentation (Ben)
+    - 3/5, 8pm
+    - 3/2, 9:30pm as a backup
+
+* Next Meeting
+  - Meeting with Kathy (time TBD)
+  - Agenda
+    - Go over questions
