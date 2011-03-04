@@ -1,0 +1,28 @@
+* Wednesday
+** Agenda
+   - [X] Presentation 
+   - [X] Documents
+
+** Presentation
+   - We only have three days
+   - Tone/structure
+     - Each person talks about their role
+       - Architect talks about technical structure
+       - IT guy talks about infrastructure
+       - PM talks about schedules and planning, acts as MC
+     - 15-20 slides max
+     - Modeled as selling the solution to the sponsor
+   - It's saw-rows
+   - WIIFY (What's In It For You)
+     - Retaining intellectual control
+     - Jupiter
+     - Worries over outsourcing
+
+** Documents
+   - Not due till Sunday, but we want to deliver them tomorrow night
+
+** Action items
+   - Read everyone else's documents by tomorrow afternoon (all)
+   - Final drafts of documents by tomorrow night (all)
+   - Slides outline by tomorrow night (Ben)
+   - Confirm that this is "selling the idea to the sponsor" presentation (Ben)
