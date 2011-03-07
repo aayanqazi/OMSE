@@ -1,0 +1,27 @@
+Week 9 Discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+As we wind down from our reading and team projects, I would like you to think about how you will
+continue to learn about trends and best practices in distributed team collaboration after this
+course.
+
+In response to this discussion question, you will need to find a community forum to facilitate
+this. Look for a community that has a discussion thread or special interest group focused on
+distributed teams or global teams. Ideas for where to look include professional organizations
+(Software Association of Oregon, etc.), social networking sites (LinkedIn, Facebook, etc.), blog
+sites, sites that are connected to the authors of our books, etc.
+
+One rule I have for this -- it cannot be your own company's community of practice. Those are very
+important and valuable, but I also want you to look outside at the broader community for a way to
+stay connected.
+
+Please post a link to the site here and tell us a little bit about it. Let me know if you get stuck.
+
+* My post
+  If you learn more about how distributed teams work better, one good place to start is an existing
+  virtual team.  Not just any team will do, however; if you want success, you should study success.
+
+  Perhaps the most famous distributed team that can be openly studied is the development team for
+  the Linux kernel.  The [[https://lkml.org/][LKML]] (Linux Kernel Mailing List) is a treasure trove of real-world
+  interactions from a large-scale, world-class team.  

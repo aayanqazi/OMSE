@@ -1,8 +1,7 @@
 * For Saturday
-  - [ ] Document
-  - [ ] Presentation skeleton
-  - [ ] Reading
-  - [ ] Discussion
+  - [X] Document
+  - [X] Presentation skeleton
 * For Sunday
-  - [ ] More discussion
+  - [ ] Reading
+  - [X] Discussion
   - [ ] JOURNAL
