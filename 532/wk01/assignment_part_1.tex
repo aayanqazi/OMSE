@@ -2,6 +2,8 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{times}
+
+% [disable] to turn in.
 \usepackage[]{todonotes}
 
 % Remove section numbers
@@ -17,19 +19,50 @@
 \title{Assignment 1}
 \maketitle
 
-% ----------------------------------------------------------------------------
-\todo[inline]{Some overview text goes here.}
-
-ABC has been experiencing a problem with increased levels of spam in the last few weeks, and it's
-high time to do something about it.
 
 % ----------------------------------------------------------------------------
 \section{Business Rationale}
-\todo[inline]{TODO}
+
+Spam volumes are continuing to increase, and ABC has identified a product
+opportunity.  Developing a spam-filtering tool to add to our product line
+would allow us to serve our existing customers better, since they've been
+asking for this feature for some time.  This tool would also enrich our
+package of solutions, so we could make a more compelling case for new accounts
+as well.
+
+\todo[inline]{Finish this.}
+
 
 % ----------------------------------------------------------------------------
 \section{Architectural Design Goals}
-\todo[inline]{TODO}
+
+In order to fully meet the needs of the customer as well as allow future
+versions of this product to be developed, the architecture will be developed
+towards the following criteria.
+
+\begin{enumerate}
+\item \textbf{Standards Compliancy.}
+
+  ABC has a long tradition of developing its products in a standrds-compliant
+  way, so that they will interoperate with \textit{all} related products, not
+  just those sold by ABC.  ABC has no interest in entering the market of
+  proprietary email products.
+
+\item \textbf{Extensibility.}
+
+  Spam evolves, and this product must be capable of adapting as time goes on.
+  This includes future product updates, as well as customization of an
+  installed system.
+
+\item \textbf{Performance.}
+
+  Email is a mission-critical service, and some of the customers requesting
+  this product have very high email volumes.  The use of this system
+  \textit{must not} adversely affect the day-to-day business of the company
+  that purchased it, which means that per-message latency must be kept to a
+  minimum.  
+
+\end{enumerate}
 
 % ----------------------------------------------------------------------------
 \section{Components and Relations}
