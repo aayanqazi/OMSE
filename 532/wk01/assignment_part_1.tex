@@ -1,3 +1,4 @@
+
 \documentclass[11pt,letterpaper]{article}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
@@ -23,14 +24,25 @@
 % ----------------------------------------------------------------------------
 \section{Business Rationale}
 
-Spam volumes are continuing to increase, and ABC has identified a product
-opportunity.  Developing a spam-filtering tool to add to our product line
-would allow us to serve our existing customers better, since they've been
-asking for this feature for some time.  This tool would also enrich our
-package of solutions, so we could make a more compelling case for new accounts
-as well.
+In identifying the business opportunity for an ABC spam filter, several
+high-level requirements have been determined.  Using these, in conjunction
+with the data we have on existing ABC clients, we can reduce the set of
+suitable architectures.  Below is a partial list of the business concerns
+which have informed the decision-making process.
 
-\todo[inline]{Finish this.}
+\begin{enumerate}
+\item The solution should be a component independent of other ABC products.
+  This allows it to be part of a prepackaged solution, bundled with other
+  package upgrades to increase margin, or sold a la cart.
+\item Given the diverse set of software being used by ABC's clients (both
+  current and future), the solution should communicate using existing
+  standards, and be compatible with as many standards-compliant servers and
+  clients as possible.
+\item The solution should take the form of a service running on a machine
+  which is under the control of the customer.  This is the solution most
+  compatible with the various regulatory and internal security requirements
+  that our customers face.
+\end{enumerate}
 
 
 % ----------------------------------------------------------------------------
@@ -43,16 +55,17 @@ towards the following criteria.
 \begin{enumerate}
 \item \textbf{Standards Compliancy.}
 
-  ABC has a long tradition of developing its products in a standrds-compliant
-  way, so that they will interoperate with \textit{all} related products, not
-  just those sold by ABC.  ABC has no interest in entering the market of
-  proprietary email products.
+  ABC's clients have a diverse ecosystem of email software, and it's essential
+  that this product operate correctly in that environment.  In addition, ABC
+  has no interest in entering the market of proprietary email products.  These
+  two considerations mean that a solution should comply with widely-accepted
+  standards and protocols.
 
-\item \textbf{Extensibility.}
+\item \textbf{Adaptability.}
 
   Spam evolves, and this product must be capable of adapting as time goes on.
-  This includes future product updates, as well as customization of an
-  installed system.
+  This includes future product updates (which should happen on a short cycle),
+  as well as customization of an installed system.
 
 \item \textbf{Performance.}
 
