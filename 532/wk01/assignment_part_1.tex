@@ -17,7 +17,7 @@
 \begin{document}
 
 \author{Ben Straub\\OMSE 532}
-\title{Assignment 1}
+\title{Spam Filter Excercise 1.1}
 \maketitle
 
 
@@ -79,10 +79,27 @@ towards the following criteria.
 
 % ----------------------------------------------------------------------------
 \section{Components and Relations}
-\todo[inline]{TODO}
+
+The representation of the architecture should contain the following
+structures:
+
+\begin{enumerate}
+\item Modular decomposition
+\item Concurrency
+\item Client-server
+\item Repository
+\end{enumerate}
 
 % ----------------------------------------------------------------------------
 \section{Evaluation}
-\todo[inline]{TODO}
+
+The system architecture is evaluated to fitness to the design goals using the
+above structures.  Standards compliancy is evaluated by how the system will
+communicate with external servers, as represented by the client-server
+structure.  Adaptability is evaluated using the modular decomposition, and
+modeling a new type of spam, or a refinement on old spam that isn't covered by
+the current system.  Performance is evaluated using hte concurrency and
+repository structures, making sure that network bottlenecks have been
+accounted for, and that work is distributed to reduce latency.
 
 \end{document}
