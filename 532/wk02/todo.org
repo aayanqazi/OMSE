@@ -1,10 +1,10 @@
-* Reading [0/6]
+* Reading [4/6]
   - [ ] Chapter 3
-  - [ ] [[file:OMSE532_Lec_2_11.pdf][Lecture slides]]
-  - [ ] [[file:ModuleGuide.pdf][A7E module guide]]
-  - [ ] [[file:Criteria%20for%20Modules%20Parnas.pdf][Parnas 72]]
-  - [ ] [[file:Extension%20and%20Contraction%20Parnas.pdf][Parnas 79]]
+  - [X] [[file:OMSE532_Lec_2_11.pdf][Lecture slides]]
+  - [X] [[file:ModuleGuide.pdf][A7E module guide]]
+  - [X] [[file:Criteria%20for%20Modules%20Parnas.pdf][Parnas 72]]
+  - [X] [[file:Extension%20and%20Contraction%20Parnas.pdf][Parnas 79]]
   - [ ] [[file:SpamFilterBusinessRational.pdf][Assignment terms]] (modified business rationale)
 * Deliverables [0/2]
   - [ ] [[file:discussion.org][Discussion]]
-  - [ ] [[file:assignment_part_2.tex][Assignment]] ([[https://d2l.pdx.edu/d2l/lms/dropbox/user/folder_submit_files.d2l%3Fou%3D41411&isprv%3D0&db%3D19873][deliver here]])
+  - [ ] [[file:assignment_part_2.tex][Assignment]] (deliver [[https://d2l.pdx.edu/d2l/lms/dropbox/user/folder_submit_files.d2l%3Fou%3D41411&isprv%3D0&db%3D19873][here]])
