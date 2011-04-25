@@ -1,0 +1,105 @@
+
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{times}
+
+% [disable] to turn in.
+\usepackage[]{todonotes}
+
+% Remove section numbers
+\setcounter{secnumdepth}{0}     % From headings
+\def\thechapter{}               % From TOC
+
+\setlength{\parindent}{0pt}     % for less indentation
+\setlength{\parskip}{1em}       % for less whitespace
+
+\begin{document}
+
+\author{Ben Straub\\OMSE 532}
+\title{Spam Filter Excercise 1.2}
+\maketitle
+
+
+% ----------------------------------------------------------------------------
+\section{Business Rationale}
+
+In identifying the business opportunity for an ABC spam filter, several
+high-level requirements have been determined.  Using these, in conjunction
+with the data we have on existing ABC clients, we can reduce the set of
+suitable architectures.  Below is a partial list of the business concerns
+which have informed the decision-making process.
+
+\begin{enumerate}
+\item The solution should be a component independent of other ABC products.
+  This allows it to be part of a prepackaged solution, bundled with other
+  package upgrades to increase margin, or sold a la cart.
+\item Given the diverse set of software being used by ABC's clients (both
+  current and future), the solution should communicate using existing
+  standards, and be compatible with as many standards-compliant servers and
+  clients as possible.
+\item The solution should take the form of a service running on a machine
+  which is under the control of the customer.  This is the solution most
+  compatible with the various regulatory and internal security requirements
+  that our customers face.
+\end{enumerate}
+
+
+% ----------------------------------------------------------------------------
+\section{Architectural Design Goals}
+
+In order to fully meet the needs of the customer as well as allow future
+versions of this product to be developed, the architecture will be developed
+towards the following criteria.
+
+\begin{enumerate}
+\item \textbf{Standards Compliancy.}
+
+  ABC's clients have a diverse ecosystem of email software, and it's essential
+  that this product operate correctly in that environment.  In addition, ABC
+  has no interest in entering the market of proprietary email products.  These
+  two considerations mean that a solution should comply with widely-accepted
+  standards and protocols.
+
+\item \textbf{Adaptability.}
+
+  Spam evolves, and this product must be capable of adapting as time goes on.
+  This includes future product updates (which should happen on a short cycle),
+  as well as customization of an installed system.
+
+\item \textbf{Performance.}
+
+  Email is a mission-critical service, and some of the customers requesting
+  this product have very high email volumes.  The use of this system
+  \textit{must not} adversely affect the day-to-day business of the company
+  that purchased it, which means that per-message latency must be kept to a
+  minimum.  
+
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+\section{Components and Relations}
+
+The representation of the architecture should contain the following
+structures:
+
+\begin{enumerate}
+\item Modular decomposition
+\item Concurrency
+\item Client-server
+\item Repository
+\end{enumerate}
+
+% ----------------------------------------------------------------------------
+\section{Evaluation}
+
+The system architecture is evaluated to fitness to the design goals using the
+above structures.  Standards compliancy is evaluated by how the system will
+communicate with external servers, as represented by the client-server
+structure.  Adaptability is evaluated using the modular decomposition, and
+modeling a new type of spam, or a refinement on old spam that isn't covered by
+the current system.  Performance is evaluated using hte concurrency and
+repository structures, making sure that network bottlenecks have been
+accounted for, and that work is distributed to reduce latency.
+
+\end{document}
