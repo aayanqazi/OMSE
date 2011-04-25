@@ -1,0 +1,208 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <link rel="stylesheet" type="text/css"
+ href="/content/_Support/CSS/stylesheet.css?_&amp;d2lSessionVal=jGzgLn-oLEc1kO2zOG_2mDgHJx4&amp;_&amp;d2lSessionVal=_Z2WCUahmrtv49tCA-SrkvtM_WY">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>OMSE 532</title>
+</head>
+<body id="container">
+<h1>OMSE 532 | <i>Software Architecture and Domain Analysis</i><em>&nbsp;</em></h1>
+<h2>Catalog Description</h2>
+<p>Methods and principles of the architectural design of complex, large-scale software systems to accommodate change and evolution through many product releases or versions.&nbsp;Survey of the major architectural styles, their strengths and weaknesses, and architectural trade-offs with respect to system goals and desired properties.&nbsp;Study of architectural approach to development of open systems and frameworks based on case studies.&nbsp;Software engineering of domain-specific software architectures for families of systems (e.g., product lines) including domain analysis, domain modeling, and design of domain specific software architectures.&nbsp;Relation of software architecture to requirements and its effects on downstream design and software evolution.&nbsp;Students examine domain analysis and the architectural design process and products in the business context including the effects of decisions on cost and schedule.</p>
+<h2>Rationale</h2>
+<p>The architectural design of complex, long-lived systems or families of systems is fundamental to efficient, reliable software production, and fundamentally different from small-grain design issues. The field of "software architecture" continues development that can be traced back at least to&nbsp;DeRemer&nbsp;&amp;&nbsp;Kron's&nbsp;"Programming in the Large vs. Programming in the Small,&rdquo;&nbsp;Parnas&rsquo;s&nbsp;"On the Criteria for Decomposing Programs into Modules" and related papers. Today there is wide recognition of the opportunity for exploiting architectural principles to address a variety of software engineering issues including development of common platforms, reduced cycle time, improved maintainability, in decreased production cost.</p>
+<h2>Objectives</h2>
+<p>On completion of the architecture and design course, students shall understand principles of software architecture and their application, and shall:</p>
+<ul>
+<li>Understand the practical application of architectural concepts in software engineering.</li>
+<li>Develop a clear understanding of which concerns properly belong to software architecture (and which do not).</li>
+<li>Understand principles of architectural design by applying them on a small scale.</li>
+<li>Become familiar with common architectural styles: understand what distinguishes one style from another and the tradeoffs involved in using a particular style.</li>
+<li>Understand how to evaluate existing or proposed architecture for suitability to task</li>
+<li>Understand how to apply architectural design principles to support evolutionary system development (systematic reuse, lower-cost, faster time-to-market, higher quality).</li>
+</ul>
+<p>Students finishing this course are not expected to immediately become lead software architects, but will have background knowledge and skills that will prepare them to acquire architectural expertise in a particular application domain through work experience.</p>
+<h2>Required Text</h2>
+<p><i>Software Architecture in Practice&nbsp;</i>(Second Edition), by Len Bass, Paul Clements, and Rick&nbsp;Kazman.&nbsp;Addison-Wesley (SEI series in software engineering), 2003.&nbsp;ISBN 0321154959</p>
+<h2>Additional Readings</h2>
+<p>Additional readings (e.g., seminal papers) may be assigned&nbsp;throughout the course. All of these materials will be provided as downloads from the course web page.</p>
+<h2>Summary of Assignments</h2>
+<p>Students should be prepared to discuss the readings each week. Students must also complete a number of small exercises. An assignment will exercise will typically be given out during one class session and due one or two weeks later.</p>
+<p>In the second half of the course, students will participate in helping to develop&nbsp;a software&nbsp;architecture for a small system. Students go through the steps of extending a domain, analyzing commonality, and applying principles of architectural design to extend an existing architecture to encompass the evolving product domain.</p>
+<p>A midterm examination will be given in approximately week 5. It will be a take-home examination, due one week after it is handed out. A final examination, also take-home, will be given the last week of class.</p>
+<h2>Resource requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h2>
+<p>Students are expected to have access to the&nbsp;internet, a PSU Odin account, D2L, and Microsoft Word.</p>
+<h2>Topics Outline</h2>
+<p>All readings are listed in the week they are due and should be completed before the class session unless otherwise noted. Assignments are due the following week.</p>
+<h3>Week 1 &ndash; Course Introduction: Design at the Architectural Level</h3>
+<p>Overview of OMSE program, course content, and grading.&nbsp;Class discussions on &ldquo;what is architecture&rdquo; and why is its design a significant issue. What it means to do design at an architectural level.</p>
+<ul>
+<li>Course context and goals</li>
+<li>The Architectural Business Cycle</li>
+<li>What is &ldquo;software architecture&rdquo; &ndash; class discussion</li>
+<li>What and who are affected by architectural design decisions</li>
+<li>What does it mean to &ldquo;design and architecture?&rdquo; &ndash; i.e., what decisions should be made during architectural design</li>
+<li>A &lsquo;bird&rsquo;s-eye view&rdquo; of where the course is going</li>
+</ul>
+<p>Assignment:</p>
+<ol start="1">
+<li>Blackboard discussion: work experience with the ABC</li>
+<li>&nbsp;Spam Filter Architecture Exercise Handout (Part 1 due Week 2, Part 2 due Week 3).</li>
+</ol>
+<p>Readings:</p>
+<ul>
+<li>Chapters 1, 2 of text</li>
+</ul>
+<p>Background Reading: these are articles I will assume you have read. You should review them if you have read the previously and read them otherwise.</p>
+<ul>
+<li>[Brooks 87]&nbsp;&nbsp;&ldquo;No Silver Bullet&rdquo;</li>
+<li>[Faulk 11] &ldquo;Understand Software Requirements&rdquo;</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Week 2 - A Case Study in Software Architecture Views &ndash; the A-7E Operational Flight Program</h3>
+<p>Overview of the A-7E case study from Chapter 3 of the text and class handouts.&nbsp;Discusses each of the system&rsquo;s three primary architectures in terms of the elements of architectural design.</p>
+<ul>
+<li>One system, many useful views of architecture: the Module Structure, Uses Structure, and Process Structure</li>
+<li>Discussion of the design goals, components and relations used, and types of decisions represented in each structure.</li>
+<li>Class discussion: Spam Filter Architecture: Part 1</li>
+</ul>
+<p>Assignment:</p>
+<ol start="1">
+<li>The Spam Filter Architecture&nbsp;design and discussion.</li>
+<li>Understanding&nbsp;Parnas&nbsp;in Architectural terms (discussion)</li>
+</ol>
+<p>Readings:</p>
+<ul>
+<li>Chapter 3 of text: A-7E case study</li>
+<li>A-7E Software Module Guide (Download)</li>
+<li>[Parnas&nbsp;72] "On the Criteria for Decomposing Systems into Modules,&rdquo; (Download)</li>
+<li>[Parnas&nbsp;79] "Designing Software for Ease of Extension and Contraction (Download)</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Week 3 &ndash; Architectural Quality Attributes</h3>
+<p>Presentation of Spam Filter Architecture problem in class for open discussion.&nbsp;Lecture and discussion on architectural quality attributes (Chapters 4-5 of text).</p>
+<ul>
+<li>Presentation and discussion of Spam Filter Architectures</li>
+<li>Characterizing quality attributes</li>
+<li>Developmental vs. Behavioral qualities</li>
+<li>Implementation of quality attributes in the A-7E architecture examples</li>
+</ul>
+<p>Assignment: Blackboard Discussion</p>
+<ol start="1">
+<li>Write a quality attribute scenario</li>
+<li>Discuss strengths and weaknesses of quality scenarios</li>
+</ol>
+<p>Readings: The three pieces of specification from the A-7E are provided to give you some concrete examples of how quality attributes might be defined and used in a real architectural specification. I&rsquo;ll go over them in class. The Faulk paper discusses the architectural design goals for the A-7 process structure.&nbsp;&nbsp;You really only need to read the first couple of pages of this paper.</p>
+<ul>
+<li>Chapter 4 of text</li>
+<li>A-7E Quality Requirements (Download)</li>
+<li>A-7E Uses Structure (Download)</li>
+<li>Tempero on Quality Attribute Scenarios</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Week 4 &ndash; Achieving Quality Attributes</h3>
+<p>Tactics for achieving specific architectural quality attributes.&nbsp;Lecture and discussion covering Chapters 5 and 6 of text.&nbsp;Overview of architectural design principles and their relation to tactics.</p>
+<ul>
+<li>Architectural design tactics</li>
+<li>Design principles</li>
+</ul>
+<p>Assignment: Blackboard Discussion</p>
+<p>Readings:</p>
+<ul>
+<li>Chapters 5 and 6 of Bass et al</li>
+<li>Software Engineering Principles (we will add some to these in lecture)</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Week 5 &ndash; Designing the Architecture</h3>
+<p>Overview of architectural design.&nbsp;Architecture in the&nbsp;life-cycle: expected inputs and outputs of the design process. Discussion of how architecture and organization influence one another and what it takes to put the architecture and organization in synch.</p>
+<ul>
+<li>Architecture in the life-cycle</li>
+<li>Influence of architecture on organization</li>
+<li>Observations flight simulator case study</li>
+</ul>
+<p>Assignment:</p>
+<p style="padding-left: 30px;"><strong>Midterm</strong>: download and return before next class</p>
+<p>Readings:</p>
+<ul>
+<li>Chapter 7 of text</li>
+<li>Design and software architecture (uses ideas we covered, e.g.&nbsp;Parnas)</li>
+</ul>
+<p>&nbsp;</p>
+<h3>Week 6 &ndash; Representing Architectural Decisions</h3>
+<p>Techniques for architectural representation.&nbsp;Discussion of what information is needed and the issues in choosing and using a particular representation.</p>
+<ul>
+<li>What information is needed</li>
+<li>Role of different views</li>
+</ul>
+<p>Assignment:</p>
+<p style="padding-left: 30px;">Son of Spam-filter II Part 2 architectural views and rationale assignment.</p>
+<p>Readings:</p>
+<ul>
+<li>Chapters 8 &amp; 9 of Bass et al</li>
+<li>4+1 View</li>
+</ul>
+<h3>&nbsp;</h3>
+<h3>Week 7 &ndash; Evaluating Architecture</h3>
+<p>Issues in and methods for evaluating software architectures to determine &ldquo;goodness&rdquo; relative to requirements and design goals.&nbsp;Assessment of the architectural design of the Spam Filter using the ATAM approach (in class, group exercise).</p>
+<ul>
+<li>ATAM</li>
+<li>CBAM</li>
+</ul>
+<p>Assignment: Collaboarative review of spam filter designs using a simplified ATAM process.</p>
+<p>Readings:</p>
+<ul>
+<li>Chapters 11 and 12 of text</li>
+<li>SEI ATAM report</li>
+</ul>
+<h3>&nbsp;</h3>
+<h3>Week 8 &ndash; Architectures for Families of Systems</h3>
+<p>Class lecture and discussion on the concept and use of program families.&nbsp;We discuss why viewing programs as families is important to developing architectures with certain critical properties including maintainability, ease of change, and robustness.</p>
+<ul>
+<li>What is a program family?</li>
+<li>Why develop programs as families?</li>
+<li>The role of architecture in developing a family of systems.</li>
+<li>Designing program families.</li>
+<li>Commonality Analysis &ndash; a process for analyzing and characterizing a program family.</li>
+</ul>
+<p>Assignment: Commonalty analysis for FWSOS Project</p>
+<ol start="1">
+<li>FWSOS requirements</li>
+<li>Commonality analysis template</li>
+</ol>
+<p>Reading&nbsp;</p>
+<ul>
+<li>D.&nbsp;Parnas, "On the Design and Development of Program Families," IEEE TSE SE-2(1):1-9, 1976.</li>
+<li>Weiss, D., &ldquo;Defining Families: The Commonality Analysis&rdquo;</li>
+</ul>
+<h3>&nbsp;</h3>
+<h3>Weeks 9 &ndash; Architectural Approach to Software Product Lines</h3>
+<p>Class lecture and discussion of software product lines and the role of architecture in developing product lines. Approach to taking a strategic view of software development. We close the loop of the Architectural Business Cycle by showing the relationship between strategic business goals and software product lines.</p>
+<ul>
+<li>What is a software product-line?</li>
+<li>The Domain Engineering process and its products</li>
+<li>The Application Engineering Process and its products</li>
+<li>Product-line case studies: Celsius Tech and Rockwell Command and Control</li>
+<li>Discussion of Commonalty Analysis Exercise</li>
+</ul>
+<p>Assignment:</p>
+<p style="padding-left: 30px;">Module Guide for FWSOS: use the module guide template.&nbsp;&nbsp;There also is a common version of the FWSOS commonality analysis to work from.</p>
+<p>Reading&nbsp;</p>
+<ul>
+<li>Chapter 14, 15 of text</li>
+</ul>
+<h3>&nbsp;</h3>
+<h3>Week 10 &ndash; Review</h3>
+<p>Students will present the results of their design for the FWSOS project. Lecture will review course material to provide oversight and provide review for the take home final exam.</p>
+<ul>
+<li>Project Reviews and presentations.</li>
+<li>Course Review for final</li>
+</ul>
+<p>Assignment:</p>
+<ul>
+<li>Take home final: return no later than 11:59 PM, Wednesday</li>
+</ul>
+<h2></h2>
+</body>
+</html>
