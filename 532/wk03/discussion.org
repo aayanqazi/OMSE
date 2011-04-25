@@ -1,0 +1,26 @@
+Week 2 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+Text says that "a collection of concrete scenarios can be used as the quality
+attribute requirements for a system.  Each scenario is concrete enough to be
+meaningful to the architect, and the details of the response are meaningful
+enough so that it is possible to test whether the system has achieved the
+response."  From the book discussion, lecture and our own scenarios from Q1,
+please address one of the following questions:
+
+1) Do the set of scenarios provide an adequate specification of the quality
+   attributes of the Spam Filter system.  If you think that it works better
+   for some types of attributes than other, say which.  Justify your answer
+   (i.e., if not, then say why not?).
+
+2) How would you determine if the set of scenarios were adequate or not?  What
+   criteria would you use and how would you check that the scenarios met those
+   criteria (you can choose one if there are more than one)?
+
+3) What, if anything, would improve the capability to specify quality
+   requirements using scenarios?  Be clear about what is being improved, how
+   you would improve it, and why you think it is an improvement?
+
+* TODO My post
+  

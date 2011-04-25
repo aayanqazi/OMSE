@@ -1,0 +1,11 @@
+Week 2 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+Please describe at least one design issues that you encounter in developing
+the Spam Filter archtiecture. By "design issue", I mean a question about which
+design choice is better or which tradeoff sould be made that is not obvious
+how to answer.
+
+* TODO My post
+  

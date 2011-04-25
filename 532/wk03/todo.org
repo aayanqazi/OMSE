@@ -1,0 +1,7 @@
+* Reading [0/4]
+  - [ ] Chapter 4
+  - [ ] [[file:TeachingArchScenariosTempero.pdf][Quality Attribute Scenarios]]
+  - [ ] [[file:A-7E_QualityRequirements.pdf][A7E Quality Requirements]]
+  - [ ] [[file:UsesHier.pdf][A7E Uses Hierarchy]]
+* Deliverables [0/1]
+  - [ ] [[file:discussion.org][Discussion]]
