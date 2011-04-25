@@ -17,5 +17,15 @@ feature later) or previous decisions affected the form of the architecture
 You may give an example where these influences resulted in unintended
 consequences or where good control resulted in the desired effect.
 
-* TODO My post
-  
+* My post
+  The last code base I worked with had a couple of very interesting design
+  choices baked in at a very low level.  This was conceived in the early days
+  of C++, when inheritance was the primary method used for sharing code
+  between two modules.
+
+  The biggest was the [[http://en.wikipedia.org/wiki/Diamond_problem][diamond architecture]].  The base class for most working
+  code inherited from two other classes, both of which inherited from a fourth
+  class.  This bit of architecture ended up limiting future development; you
+  can only inherit from one "B" class, but we needed the "D" class to
+  reference more than one "B" type of object.  It took something like a
+  staff-month to work around that limitation.
