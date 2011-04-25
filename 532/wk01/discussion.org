@@ -1,0 +1,21 @@
+Week 1 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+The architectural business cycle (ABC) exists whether an organization pays any
+attention to it or not. That is, the architectures of a system tend to
+influence the things that influence it. The only issue is whether we are
+attempting to control those influences to achieve particular goals, or simply
+allowing them to happen.
+
+For this question, please think of an example illustrating the ABC from your
+work experiences.  Try to think of a case where certain architectural design
+decisions had downstream effects (e.g., the design made it difficult to add a
+feature later) or previous decisions affected the form of the architecture
+(e.g., the form of the organization determined the form of the architecture).
+
+You may give an example where these influences resulted in unintended
+consequences or where good control resulted in the desired effect.
+
+* TODO My post
+  

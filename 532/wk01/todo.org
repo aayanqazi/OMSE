@@ -2,5 +2,6 @@
   - [X] [[file:Faulk_SoftwareRequirements%20v4.pdf][Requirements]]
   - [X] [[file:OMSE532_Lec_1_11.pdf][Slides]]
   - [X] [[file:Mail%20Protocals%20overview.pdf][Mail protocols overview]]
-* Assignment [0/1]
-  - [ ] [[file:SpamFilterExercise.pdf][Part 1]]
+* Deliverables [1/2]
+  - [X] [[file:SpamFilterExercise.pdf][Part 1]]
+  - [ ] [[file:discussion.org][Discussion]]
