@@ -3,8 +3,7 @@
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{times}
-
-% [disable] to turn in.
+\usepackage{graphicx}
 \usepackage[]{todonotes}
 
 % Remove section numbers
@@ -22,84 +21,120 @@
 
 
 % ----------------------------------------------------------------------------
-\section{Business Rationale}
+\section{Overview}
 
-In identifying the business opportunity for an ABC spam filter, several
-high-level requirements have been determined.  Using these, in conjunction
-with the data we have on existing ABC clients, we can reduce the set of
-suitable architectures.  Below is a partial list of the business concerns
-which have informed the decision-making process.
+The architecture proposed below can be installed as a self-contained system in
+an existing business environment.  It does not replace the existing SMTP or
+POP3/IMAP server for the organization, but instead acts as a proxy for both
+sending and receiving mail.  The user agent will use this product as both the
+outgoing and incoming mail server.  
 
-\begin{enumerate}
-\item The solution should be a component independent of other ABC products.
-  This allows it to be part of a prepackaged solution, bundled with other
-  package upgrades to increase margin, or sold a la cart.
-\item Given the diverse set of software being used by ABC's clients (both
-  current and future), the solution should communicate using existing
-  standards, and be compatible with as many standards-compliant servers and
-  clients as possible.
-\item The solution should take the form of a service running on a machine
-  which is under the control of the customer.  This is the solution most
-  compatible with the various regulatory and internal security requirements
-  that our customers face.
-\end{enumerate}
+In graphical form, the proposed architecture for the system looks something
+like this:
+
+\setlength\fboxsep{0pt}
+\setlength\fboxrule{0.5pt}
+\begin{center}
+  \fbox{
+    \includegraphics[width=4in]{assignment_part_2_diagram.pdf}
+  }
+\end{center}
 
 
 % ----------------------------------------------------------------------------
-\section{Architectural Design Goals}
+\section{Components}
 
-In order to fully meet the needs of the customer as well as allow future
-versions of this product to be developed, the architecture will be developed
-towards the following criteria.
+\subsection{Data Store}
+Other modules use this one to store and retrieve email messages.  This
+module's primary secret is how messages are stored, and its primary
+responsibility is storage and retrieval of messages.
 
-\begin{enumerate}
-\item \textbf{Standards Compliancy.}
+\subsection{SMTP Proxy}
+This module exposes an SMTP interface to the network, and proxies SMTP
+requests to the actual server.  This module's primary secret is the actual
+location of the SMTP server, and its primary responsibilities are to proxy
+requests from the user agent to the external server with minimal modification,
+and to store all outgoing messages in the data store.
 
-  ABC's clients have a diverse ecosystem of email software, and it's essential
-  that this product operate correctly in that environment.  In addition, ABC
-  has no interest in entering the market of proprietary email products.  These
-  two considerations mean that a solution should comply with widely-accepted
-  standards and protocols.
+\subsection{Mailbox Manager}
+This module exposes POP3 and IMAP interfaces to the network, and allows user
+agents to retrieve their messages.  Its primary secret is the details of the
+POP3 and IMAP protocols.
 
-\item \textbf{Adaptability.}
+\subsection{Credential Store}
+Other modules use this one to store and retrieve credentials for logging into
+other systems.  Its primary secret is how credentials are stored, and its
+primary responsibility is to protect these credentials from unwanted access.
 
-  Spam evolves, and this product must be capable of adapting as time goes on.
-  This includes future product updates (which should happen on a short cycle),
-  as well as customization of an installed system.
+\subsection{Config/Admin}
+This module exposes an HTTP interface to the internal network for the purposes
+of administration and user configuration.  Its primary secret is the visual
+interface, and the details of the HTTP protocol.
 
-\item \textbf{Performance.}
+\subsection{Fetcher}
+This module retrieves messages from the actual mailbox server, using POP3 or
+IMAP.  Its primary secret is the actual location of the mailbox server.
 
-  Email is a mission-critical service, and some of the customers requesting
-  this product have very high email volumes.  The use of this system
-  \textit{must not} adversely affect the day-to-day business of the company
-  that purchased it, which means that per-message latency must be kept to a
-  minimum.  
+\subsection{Detector}
+This module is responsible for the activity of spam detection.  Spam detection
+takes the form of filling in a message header field named
+``\texttt{x-abc-spam}''.  Its primary secret is the number and name of all the
+filtering algorithms.
 
-\end{enumerate}
+\subsection{Filters}
+Each filter contains the secret of its own algorithm and method for detecting
+spam.  Filters are given access to other messages (using the Data Store) and
+any external information they may need (using the Request Proxy and Credential
+Store).
+
+\subsection{Request Proxy}
+This module is responsible for fulfilling requests for data from outside the
+system, and providing cached results given an acceptable staleness level.  The
+primary secret of this system is the method of caching.
+
 
 % ----------------------------------------------------------------------------
-\section{Components and Relations}
+\section{Interfaces}
 
-The representation of the architecture should contain the following
-structures:
+\subsection{Network interfaces}
+All network interfaces comply with an internet standard.  Examples are SMTP,
+POP3, IMAP, HTTP, and UDP.
 
-\begin{enumerate}
-\item Modular decomposition
-\item Concurrency
-\item Client-server
-\item Repository
-\end{enumerate}
+\subsection{Data Store}
+The data store exposes a programmatic interface for storing and retrieving
+email messages.  Individual messages may be identified by a key; sets of
+messages can be identified by a date range, the content of a header, or a
+full-text search.
+
+\subsection{Credential Store}
+This interface is oriented towards logging into external services.  Wherever
+possible, passwords will be encrypted, and they will never in any case be
+returned in plain-text (even if they are stored as such).
+
+\subsection{Request Proxy}
+This module's interface mainly consists of a single method:
+\texttt{retrieve(max\_age, url)}.  The \texttt{max\_age} parameter is in hours,
+and the URL is a resource addressible over a number of protocols.
+
+\subsection{Filters}
+Each filter exposes \texttt{ISpamFilter}, which mainly consists of the
+\texttt{isSpam(message)} method, which returns a boolean.  The
+\texttt{message} parameter is a structured representation of the full message,
+including a way to retrieve the attachments (if any).
+
 
 % ----------------------------------------------------------------------------
-\section{Evaluation}
+\section{Rationale}
 
-The system architecture is evaluated to fitness to the design goals using the
-above structures.  Standards compliancy is evaluated by how the system will
-communicate with external servers, as represented by the client-server
-structure.  Adaptability is evaluated using the modular decomposition, and
-modeling a new type of spam, or a refinement on old spam that isn't covered by
-the current system.  Performance is evaluated using hte concurrency and
-repository structures, making sure that network bottlenecks have been
-accounted for, and that work is distributed to reduce latency.
+It's expected that additional filters will be added later, and in fact this
+will most likely be where the most effort will be spent after version 1
+ships.  To meet this need, the number of concepts needed to write a filter are
+minimal; the simple \texttt{IFilter} interface which must be implemented, and
+the Data Store and Request Proxy interfaces for storing and retrieving any
+data that may be needed.
+
+For more detail on rationale, see ``Spam Filter Excercise 1.2'', delivered on
+April 24, 2011.
+
 
 \end{document}
