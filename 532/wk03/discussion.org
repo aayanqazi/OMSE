@@ -1,26 +1,55 @@
-Week 2 discussion
+Week 3 discussion
 
 #+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
 
-Text says that "a collection of concrete scenarios can be used as the quality
-attribute requirements for a system.  Each scenario is concrete enough to be
-meaningful to the architect, and the details of the response are meaningful
-enough so that it is possible to test whether the system has achieved the
-response."  From the book discussion, lecture and our own scenarios from Q1,
-please address one of the following questions:
+For our Spam Filter exercise, all of the requirements were given as prose. The
+text suggests that a better way to specify required quality attributes is
+using attribute scenarios.
 
-1) Do the set of scenarios provide an adequate specification of the quality
-   attributes of the Spam Filter system.  If you think that it works better
-   for some types of attributes than other, say which.  Justify your answer
-   (i.e., if not, then say why not?).
+Based on the Spam Filter writeup, your work, and discussions, please write one
+or two concrete attribute scenarios using format given in the text. Be as
+specific as possible. Since the original prose specification is pretty vague,
+you may find that you need more specific requirements to write a good
+scenario. In that case, it is OK to assume some of these details as long as
+they are consistent with the existing requirements, just state what you are
+assuming.
 
-2) How would you determine if the set of scenarios were adequate or not?  What
-   criteria would you use and how would you check that the scenarios met those
-   criteria (you can choose one if there are more than one)?
+For each such scenario, provide a short description of why that scenario is
+needed. If it is not obvious, also make clear how to apply the scenario to a
+design to objectively decide whether the design satisfies the scenario or not.
 
-3) What, if anything, would improve the capability to specify quality
-   requirements using scenarios?  Be clear about what is being improved, how
-   you would improve it, and why you think it is an improvement?
+Try not to repeat scenarios already given by your classmates (so it will be
+easier if you do it earlier).
 
-* TODO My post
+* Scenario A -- Adaptation
+  *Source*: Development team
+
+  *Stimulus*: Wishes to deploy a new spam filter algorithm
+
+  *Artifact*: Installed systems
+
+  *Environment*: Normal operation
+
+  *Response*: New filter is discovered and installed
+
+  *Response Measure*: 90% or more of reporting systems are using the new
+  filter within 24 hours.
+
+  /(For this scenario, I assumed that a live-update feature was required for
+  the system.  This seems like a reasonable assumption given my experience with spam filters.)/
   
+* Scenario B -- Various Clients
+  *Source*: Customer
+
+  *Stimulus*: New POP3/IMAP & SMTP-compliant user-agent encountered
+
+  *Artifact*: Process
+
+  *Environment*: Normal operation
+
+  *Response*: Functions normally
+
+  *Response Measure*: No errors
+  
+  /(This is to meet the anticipated mobile-device need.  I assumed this was an
+  actual requirement, rather than a vague desire as given in the document.)/

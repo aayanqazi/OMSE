@@ -1,0 +1,26 @@
+Week 4 discussion
+
+[[https://d2l.pdx.edu/d2l/lms/discussions/messageLists/frame.d2l%3Fou%3D41411&fid%3D0&tid%3D69029&ex1%3D1&cfql%3D1][Post Here]]
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+Since the tactics are a catalog of designer experience, it is likely that most
+developers will have used (or seen used) one or more of the design
+tactics. Please describe your experience (direct or indirect) with one of the
+design tactics in three parts:
+
+1. Describe the context of use sufficiently to make it clear. For example,
+   describe the type of system, the design problem or goal, and how the tactic
+   was applied.
+
+2. Describe the results of applying the tactic - was it effective at solving
+   the problem or meeting design goals?
+
+3. Describe how the tactic relates to the principles discussed in class (or
+   readings). For example, if you think it is an example of separation of
+   concerns, describe which concerns are being separated.
+
+ It is OK if you have to stretch the descriptions of the tactics to fit your
+ experience.
+
+* TODO My post

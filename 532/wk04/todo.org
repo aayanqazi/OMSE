@@ -1,0 +1,8 @@
+OMSE 532 - Week 4
+
+* Reading [0/3]
+  - [ ] Chapters 4-6
+  - [ ] [[file:OMSE532_Lec_4_11.pdf][Slides]]
+  - [ ] [[file:Principles%20of%20SE%20Ghezzi.pdf][Principles of SE]]
+* Deliverables [0/1]
+  - [ ] [[file:discussion.org][Discussion]]

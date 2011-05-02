@@ -1,0 +1,8 @@
+OMSE 532 - Week 5
+
+* Reading [1/2]
+  - [ ] Chapters 4-7
+  - [X] [[file:OMSE532_Lec_5_11.pdf][Slides]]
+* Deliverables [0/1]
+  - [ ] [[file:~/Dropbox/omse/532/wk03/discussion.org][Discussion from week 3]]
+  - [ ] [[https://docs.google.com/a/straubnet.net/document/d/12rwBVgptD2jwaAGK5esSM2Vltk9aHyOdWu_ICniPbs0/edit%3Fhl%3Den#][Midterm]]
