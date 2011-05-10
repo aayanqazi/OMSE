@@ -1,0 +1,8 @@
+* Reading [2/3]
+  - [ ] Chapters 8-9
+  - [X] [[file:OMSE532_Lec_6_11.pdf][Lecture Slides]]
+  - [X] [[file:FourPlusOne.pdf][Four + 1]]
+* Deliverables [0/1]
+  - [ ] Exercise 2
+        - [[file:SpamFilter2Part.pdf][Terms]]
+        - [[file:assignment2_part_1.tex][Work]]

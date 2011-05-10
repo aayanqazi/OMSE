@@ -1,0 +1,242 @@
+\documentclass[11pt,letterpaper]{article}
+%\usepackage{fullpage}
+\usepackage{multirow}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage[]{todonotes}
+
+\setlength{\parindent}{0pt}     % for less indentation
+\setlength{\parskip}{1em}       % for less whitespace
+
+\begin{document}
+
+\author{Ben Straub\\OMSE 532}
+\title{Spam Filter Excercise 2.1}
+\maketitle
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+
+
+
+% ----------------------------------------------------------------------------
+\section{Overview}
+
+\todo[inline]{Write some overview material.}
+
+\subsection{Structures in this document}
+
+The following structures are used to document the system architecture.  Each
+view of the system satisfies the needs of a particular architectural driver,
+and is intended for a specific audience.
+
+\begin{center}
+  \begin{tabular}[H]{lll}
+    \textbf{Driver}  & \textbf{Views} & \textbf{Primary Stakeholder} \\
+    \hline \hline                                                    
+    Modifiability    & Module, Uses   & Developers and maintainers   \\
+    Interoperability & Module         & Developers and maintainers   \\
+    Time to Market   & Uses           & Marketing                    \\
+  \end{tabular}
+\end{center}
+
+\subsubsection{Uses View}
+
+\todo[inline]{Define and blather.}
+
+\subsubsection{Module View}
+
+\todo[inline]{Define and blather.}
+
+
+% ----------------------------------------------------------------------------
+\section{Driver: Modifiability}
+
+\subsection{Overview}
+\todo[inline]{Diagram}
+
+\subsection{Element Catalog}
+\subsection{Interface Definition}
+
+
+
+% ----------------------------------------------------------------------------
+\section{Driver: Interoperability}
+
+\subsection{Overview}
+\todo[inline]{Diagram}
+\subsection{Element Catalog}
+\subsection{Interface Definition}
+
+
+% ----------------------------------------------------------------------------
+\section{Driver: Time to Market}
+
+\subsection{Overview}
+\todo[inline]{Diagram}
+\subsection{Element Catalog}
+\subsection{Interface Definition}
+
+
+% ----------------------------------------------------------------------------
+\clearpage
+\appendix
+\section{Appendix: Architectural Drivers}
+\todo[inline]{Convert PDF tables to nice format}
+
+\subsection{Modify filtering algorithms}
+A key business goal is to be able to perform hot updates to customer’s spam
+filter applications. This includes being able to modify the algorithms
+implementing spam filtering criteria, add new ones, and remove old ones.
+ 
+Following the scheme in the text, this property would be a type of
+modifiability. More specifically, it is the ability to change, extend, or
+contract the spam filtering algorithms at run time (binding time). This sort
+of modification is a form of perfective maintenance.
+
+\textbf{Source} --- Spam filter developer/maintainer responsible for
+perfective maintenance of the filtering algorithms.
+
+\textbf{Stimulus} --- Change the run-time the spam filtering criteria by
+adding, removing, or modifying one of the spam filtering algorithms.
+
+\textbf{Artifact} --- This scenario applies to modifying the spam filtering
+criteria based on the existing system context (inputs, outputs, and
+platform). For example, adding a new filtering algorithm to a set of
+algorithms that operate on the client’s inbox. (I.e., this does not include
+more general modifications such as adding new sources of input or output, or
+changing the platform the system runs on.)
+
+\textbf{Environment} --- Hot-patch: updates must be made to the customer’s
+system on site while the spam filter and mail client are running. If the spam
+filter software must shut down to complete the update then it must
+automatically re- start itself.
+
+\textbf{Response} --- Maintainers identify a new threat or possible
+improvement to the spam filtering criteria. A component implementing the
+criterion is created or modified. The component is tested for quality and
+compatibility. The component is configured for and deployed using the system’s
+automated update capability.
+
+\textbf{Response Measure} ---
+\begin{enumerate}
+\item Cost: modifications to the filtering algorithms are easy to make.  In
+  particular, less than 10% of the development time or cost of
+  modification configuring the new capability to run with the existing
+  software (conversely, the bulk of time is spent on developing and testing
+  the algorithm itself).
+\item Deployability: the new capability can be automatically deployed using a
+  common update mechanism. Deployment does not adversely impact the customer’s
+  email capabilities for a significant length of time (say, 3 minutes).
+\end{enumerate}
+ 
+Assumptions: We may wish to further refine this scenario into several more
+detailed ones if we identify different classes of updates with different
+characteristics. Here we assume that an update can use 1) existing inputs and
+outputs, 2) the existing deployment mechanism, and 3) the existing spam
+filtering infrastructure (e.g., the other parts of the system that retrieve or
+modify email). Thus, we expect that only one module will be added or changed
+and that none of the other interfaces will need to change. We may identify
+other types of updates for which one or more of these assumptions are invalid.
+
+\subsection{Interoperability}
+A key business goal is that the Spam Filter work with the most common email
+clients.
+ 
+\textbf{Source} --- Anticipated customer base. 
+
+\textbf{Stimulus} --- Identification of a mail client that the spam filter must work with. 
+
+\textbf{Artifact} --- Spam filter installation and configuration
+components. Mail client interface components (retrieve,
+
+\textbf{Environment} --- Spam Filter install-time. Install or run-time
+configuration for mail client interoperation. Run time interoperation with
+mail client.
+
+\textbf{Response} --- Provide interfaces and configuration utilities necessary
+to 1) install the spam filter as a client plug-in, 2) allow any necessary
+configuration of options to work with the mail client and 4) interoperate with
+the mail client to fully perform the spam filtering functions at run time.
+
+\textbf{Response Measure} --- The Spam Filter system installs and operates
+seamlessly with each target mail client. These clients must include Outlook,
+Outlook Express, Eudora, and Pegasus (or some other standard set)
+ 
+This general scenario can be refined into a set of more concrete, detailed
+scenarios – one for each mail client used by a significant portion of the
+target market. It could also be decomposed into different scenarios covering
+the different binding times for the interoperability. For example, we can have
+one scenario for the install with Outlook, one for configuration, and one for
+interoperation (and the same for each client where these might have different
+results).
+ 
+This scenario requires that the Spam Filter be tested with each client of
+interest. This scenario does not assume that the Spam Filter must be
+modifiable to accept new mail clients. This would be specified in a different
+(Modifiability) scenario.
+
+\subsection{Time to Market}
+A key business goal is that the Spam Filter utility be deployed quickly to
+establish market share and initiate a revenue stream. However, this business
+goal and accompanying scenario must be addressed concurrently with the
+following business goals and scenarios: 1) Rollout – ability to roll out new
+versions of the system with additional features later 2) Extensibility – with
+rollout, a capability necessary for the system’s upgrade path. In other words,
+meeting time to market cannot sacrifice the capability to deploy future
+versions of the system with enhanced capabilities.
+ 
+\textbf{Source} --- Marketing: analysis of market window for initial release
+
+\textbf{Stimulus} --- Deadline: need to deploy initial set of capabilities
+within a market window.
+
+\textbf{Artifact} --- Initial useful subset of the spam filter.  
+
+\textbf{Environment} --- Development time. 
+
+\textbf{Response} --- Define initial increment and set due date within market
+window.  Develop to schedule and requirements.
+
+\textbf{Response Measure} --- 
+\begin{enumerate}
+\item Spam filter meets functional and quality requirements for the initial
+  release.
+\item Delivery on or before the market due date.
+\end{enumerate}
+ 
+This scenario assumes that marketing identifies 1) the necessary requirements
+(functional and quality) for an initial release and 2) that marketing defines
+the market window by which the first increment must be delivered. This
+scenario might be refined by identifying more than one subset and
+corresponding market window.
+ 
+It actually does not make a lot of sense to define this kind of quality
+requirement as a “scenario” since one cannot execute it except in the general
+course of developing the product. It would be more natural to simply describe
+this in terms of the requirements for the initial increment and its due date.
+
+% Floated figure
+%\begin{figure}[h]
+%  \centering
+%  % \includegraphics[width=4in]{hi.pdf}
+%  Hello!
+%  \caption{The caption}
+%  \label{fig:somefig}
+%\end{figure}
+
+
+% Boxed graphic
+%\setlength\fboxsep{0pt}
+%\setlength\fboxrule{0.5pt}
+%\begin{center}
+%  \fbox{
+%    %\includegraphics[width=4in]{assignment_part_2_diagram.pdf}
+%  }
+%\end{center}
+
+
+\end{document}
