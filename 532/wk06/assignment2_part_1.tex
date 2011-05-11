@@ -1,11 +1,12 @@
-\documentclass[11pt,letterpaper]{article}
-%\usepackage{fullpage}
-\usepackage{multirow}
+\documentclass[letterpaper,11pt]{article}
+
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
-\usepackage{times}
 \usepackage{graphicx}
 \usepackage[]{todonotes}
+
+%\usepackage{times}
+\usepackage{mathpazo}
 
 \setlength{\parindent}{0pt}     % for less indentation
 \setlength{\parskip}{1em}       % for less whitespace
@@ -16,10 +17,9 @@
 \title{Spam Filter Excercise 2.1}
 \maketitle
 
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 \tableofcontents
 \clearpage
-
 
 
 % ----------------------------------------------------------------------------
@@ -43,23 +43,47 @@ and is intended for a specific audience.
   \end{tabular}
 \end{center}
 
-\subsubsection{Uses View}
-
-\todo[inline]{Define and blather.}
-
 \subsubsection{Module View}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=4in]{ArchModuleDecomp.pdf}
+  \caption{Module Structure}
+  \label{fig:module}
+\end{figure}
 
-\todo[inline]{Define and blather.}
+\todo[]{More blather.}  The module view shows the decomposition of the system
+into logical modules.  Note that not every node on this type of diagram
+represents a runtime or design-time construct; only the leaf nodes correspond
+to a piece of code.
+
+This structure is used to view the system through the lens of information
+hiding; each module represents some piece of the system that is protecting the
+other modules from knowing its secret.
+
+
+\subsubsection{Uses View}
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=3.5in]{ArchUses.pdf}
+  \caption{Uses Structure}
+  \label{fig:uses}
+\end{figure}
+
+\todo[]{More blather.}  The Uses view shows, for each module, which modules it
+is allowed to access at runtime.
 
 
 % ----------------------------------------------------------------------------
 \section{Driver: Modifiability}
 
 \subsection{Overview}
-\todo[inline]{Diagram}
+\todo[inline]{Blather}
 
 \subsection{Element Catalog}
+\todo[inline]{Blather}
+
 \subsection{Interface Definition}
+\todo[inline]{Blather}
 
 
 
@@ -68,8 +92,14 @@ and is intended for a specific audience.
 
 \subsection{Overview}
 \todo[inline]{Diagram}
+\todo[inline]{Blather}
+
 \subsection{Element Catalog}
+\todo[inline]{Blather}
+
 \subsection{Interface Definition}
+\todo[inline]{Blather}
+
 
 
 % ----------------------------------------------------------------------------
@@ -84,8 +114,7 @@ and is intended for a specific audience.
 % ----------------------------------------------------------------------------
 \clearpage
 \appendix
-\section{Appendix: Architectural Drivers}
-\todo[inline]{Convert PDF tables to nice format}
+\section{Architectural Drivers}
 
 \subsection{Modify filtering algorithms}
 A key business goal is to be able to perform hot updates to customer’s spam
@@ -97,41 +126,38 @@ modifiability. More specifically, it is the ability to change, extend, or
 contract the spam filtering algorithms at run time (binding time). This sort
 of modification is a form of perfective maintenance.
 
-\textbf{Source} --- Spam filter developer/maintainer responsible for
-perfective maintenance of the filtering algorithms.
-
-\textbf{Stimulus} --- Change the run-time the spam filtering criteria by
-adding, removing, or modifying one of the spam filtering algorithms.
-
-\textbf{Artifact} --- This scenario applies to modifying the spam filtering
-criteria based on the existing system context (inputs, outputs, and
-platform). For example, adding a new filtering algorithm to a set of
-algorithms that operate on the client’s inbox. (I.e., this does not include
-more general modifications such as adding new sources of input or output, or
-changing the platform the system runs on.)
-
-\textbf{Environment} --- Hot-patch: updates must be made to the customer’s
-system on site while the spam filter and mail client are running. If the spam
-filter software must shut down to complete the update then it must
-automatically re- start itself.
-
-\textbf{Response} --- Maintainers identify a new threat or possible
-improvement to the spam filtering criteria. A component implementing the
-criterion is created or modified. The component is tested for quality and
-compatibility. The component is configured for and deployed using the system’s
-automated update capability.
-
-\textbf{Response Measure} ---
-\begin{enumerate}
-\item Cost: modifications to the filtering algorithms are easy to make.  In
-  particular, less than 10% of the development time or cost of
-  modification configuring the new capability to run with the existing
-  software (conversely, the bulk of time is spent on developing and testing
-  the algorithm itself).
-\item Deployability: the new capability can be automatically deployed using a
-  common update mechanism. Deployment does not adversely impact the customer’s
-  email capabilities for a significant length of time (say, 3 minutes).
-\end{enumerate}
+\begin{description}
+\item[Source] Spam filter developer/maintainer responsible for perfective
+  maintenance of the filtering algorithms.
+\item[Stimulus] Change the run-time the spam filtering criteria by adding,
+  removing, or modifying one of the spam filtering algorithms.
+\item[Artifact] This scenario applies to modifying the spam filtering criteria
+  based on the existing system context (inputs, outputs, and platform). For
+  example, adding a new filtering algorithm to a set of algorithms that
+  operate on the client’s inbox. (I.e., this does not include more general
+  modifications such as adding new sources of input or output, or changing the
+  platform the system runs on.)
+\item[Environment] Hot-patch: updates must be made to the customer’s system on
+  site while the spam filter and mail client are running. If the spam filter
+  software must shut down to complete the update then it must automatically
+  re- start itself.
+\item[Response] Maintainers identify a new threat or possible improvement to
+  the spam filtering criteria. A component implementing the criterion is
+  created or modified. The component is tested for quality and
+  compatibility. The component is configured for and deployed using the
+  system’s automated update capability.
+\item[Response Measure] \hfill
+  \begin{enumerate}
+  \item Cost: modifications to the filtering algorithms are easy to make.  In
+    particular, less than 10% of the development time or cost of
+    modification configuring the new capability to run with the existing
+    software (conversely, the bulk of time is spent on developing and testing
+    the algorithm itself).
+  \item Deployability: the new capability can be automatically deployed using a
+    common update mechanism. Deployment does not adversely impact the customer’s
+    email capabilities for a significant length of time (say, 3 minutes).
+  \end{enumerate}
+\end{description}
  
 Assumptions: We may wish to further refine this scenario into several more
 detailed ones if we identify different classes of updates with different
@@ -145,26 +171,23 @@ other types of updates for which one or more of these assumptions are invalid.
 \subsection{Interoperability}
 A key business goal is that the Spam Filter work with the most common email
 clients.
- 
-\textbf{Source} --- Anticipated customer base. 
-
-\textbf{Stimulus} --- Identification of a mail client that the spam filter must work with. 
-
-\textbf{Artifact} --- Spam filter installation and configuration
-components. Mail client interface components (retrieve,
-
-\textbf{Environment} --- Spam Filter install-time. Install or run-time
-configuration for mail client interoperation. Run time interoperation with
-mail client.
-
-\textbf{Response} --- Provide interfaces and configuration utilities necessary
-to 1) install the spam filter as a client plug-in, 2) allow any necessary
-configuration of options to work with the mail client and 4) interoperate with
-the mail client to fully perform the spam filtering functions at run time.
-
-\textbf{Response Measure} --- The Spam Filter system installs and operates
-seamlessly with each target mail client. These clients must include Outlook,
-Outlook Express, Eudora, and Pegasus (or some other standard set)
+\begin{description} 
+\item[Source] Anticipated customer base.
+\item[Stimulus] Identification of a mail client that the spam filter must work
+  with.
+\item[Artifact] Spam filter installation and configuration components. Mail
+  client interface components (retrieve,
+\item[Environment] Spam Filter install-time. Install or run-time configuration
+  for mail client interoperation. Run time interoperation with mail client.
+\item[Response] Provide interfaces and configuration utilities necessary to 1)
+  install the spam filter as a client plug-in, 2) allow any necessary
+  configuration of options to work with the mail client and 4) interoperate
+  with the mail client to fully perform the spam filtering functions at run
+  time.
+\item[Response Measure] The Spam Filter system installs and operates
+  seamlessly with each target mail client. These clients must include Outlook,
+  Outlook Express, Eudora, and Pegasus (or some other standard set)
+\end{description}
  
 This general scenario can be refined into a set of more concrete, detailed
 scenarios – one for each mail client used by a significant portion of the
@@ -188,25 +211,22 @@ versions of the system with additional features later 2) Extensibility – with
 rollout, a capability necessary for the system’s upgrade path. In other words,
 meeting time to market cannot sacrifice the capability to deploy future
 versions of the system with enhanced capabilities.
- 
-\textbf{Source} --- Marketing: analysis of market window for initial release
 
-\textbf{Stimulus} --- Deadline: need to deploy initial set of capabilities
-within a market window.
-
-\textbf{Artifact} --- Initial useful subset of the spam filter.  
-
-\textbf{Environment} --- Development time. 
-
-\textbf{Response} --- Define initial increment and set due date within market
-window.  Develop to schedule and requirements.
-
-\textbf{Response Measure} --- 
-\begin{enumerate}
-\item Spam filter meets functional and quality requirements for the initial
-  release.
-\item Delivery on or before the market due date.
-\end{enumerate}
+\begin{description}
+\item[Source] Marketing: analysis of market window for initial release
+\item[Stimulus] Deadline: need to deploy initial set of capabilities within a
+  market window.
+\item[Artifact] Initial useful subset of the spam filter.
+\item[Environment] Development time.
+\item[Response] Define initial increment and set due date within market
+  window.  Develop to schedule and requirements.
+\item[Response Measure] \hfill
+  \begin{enumerate}
+  \item Spam filter meets functional and quality requirements for the initial
+    release.
+  \item Delivery on or before the market due date.
+  \end{enumerate}
+\end{description}
  
 This scenario assumes that marketing identifies 1) the necessary requirements
 (functional and quality) for an initial release and 2) that marketing defines
