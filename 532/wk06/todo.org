@@ -6,3 +6,5 @@
   - [ ] Exercise 2
         - [[file:SpamFilter2Part.pdf][Terms]]
         - [[file:assignment2_part_1.tex][Work]]
+        - [[file:Gianan_SparmFilter2Part2.pdf][Example 1]]
+        - [[file:Moore_SpamFilter_Part2.2.pdf][Example 2]]

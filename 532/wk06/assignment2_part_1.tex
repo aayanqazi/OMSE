@@ -1,15 +1,19 @@
 \documentclass[letterpaper,11pt]{article}
 
+\usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
+\usepackage[all]{hypcap}
 \usepackage[utf8x]{inputenc}
 \usepackage{ucs}
 \usepackage{graphicx}
-\usepackage[]{todonotes}
+\usepackage[disable]{todonotes}
 
 %\usepackage{times}
 \usepackage{mathpazo}
 
 \setlength{\parindent}{0pt}     % for less indentation
 \setlength{\parskip}{1em}       % for less whitespace
+
+\newcommand{\notdone}{\todo[color=red]{}}
 
 \begin{document}
 
@@ -25,7 +29,18 @@
 % ----------------------------------------------------------------------------
 \section{Overview}
 
-\todo[inline]{Write some overview material.}
+This is the architecture document for the ABC Spam Filter system.  Note that
+this document is intended for several audiences.
+
+\textbf{If you are a developer}, you will be most interested in
+\autoref{sec:mod} (\autopageref{sec:mod}) and \autoref{sec:interop}
+(\autopageref{sec:interop}).  These sections describe the modular structure of
+the system and its externally-visible interfaces.
+
+\textbf{If you are in marketing or project management}, you will be most
+interested in section~\ref{sec:ttm} (page~\pageref{sec:ttm}).  This section
+contains information on creating smaller versions of the system, such that the
+feature set for a given release may be chosen to fit the schedule available.
 
 \subsection{Structures in this document}
 
@@ -37,78 +52,262 @@ and is intended for a specific audience.
   \begin{tabular}[H]{lll}
     \textbf{Driver}  & \textbf{Views} & \textbf{Primary Stakeholder} \\
     \hline \hline                                                    
-    Modifiability    & Module, Uses   & Developers and maintainers   \\
+    Modifiability    & Module, Layer  & Developers and maintainers   \\
     Interoperability & Module         & Developers and maintainers   \\
-    Time to Market   & Uses           & Marketing                    \\
+    Time to Market   & Layer          & Marketing                    \\
   \end{tabular}
 \end{center}
 
 \subsubsection{Module View}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=4in]{ArchModuleDecomp.pdf}
-  \caption{Module Structure}
-  \label{fig:module}
-\end{figure}
 
-\todo[]{More blather.}  The module view shows the decomposition of the system
-into logical modules.  Note that not every node on this type of diagram
-represents a runtime or design-time construct; only the leaf nodes correspond
-to a piece of code.
-
+The module view shows the decomposition of the system into logical modules.
 This structure is used to view the system through the lens of information
-hiding; each module represents some piece of the system that is protecting the
-other modules from knowing its secret.
+hiding.  Each module in this view represents some piece of the system that is
+protecting the other modules from knowing its secret.
 
+Note that most nodes on this type of diagram represents a runtime or
+design-time construct; only the leaf nodes correspond to a piece of code.  The
+goal of this view is not to show all the components of the system; rather, it
+is to provide a logical guide to where changes should be encapsulated.  Things
+about the system that are likely to change should map to a single module.
 
-\subsubsection{Uses View}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=3.5in]{ArchUses.pdf}
-  \caption{Uses Structure}
-  \label{fig:uses}
-\end{figure}
+\subsubsection{Layer View}
+This layer shows a high-level \textit{uses} structure, where the elements are
+logical groups of modules.  Each layer has an external interface that its
+dependents use, rather than referencing the internal modules directly.
 
-\todo[]{More blather.}  The Uses view shows, for each module, which modules it
-is allowed to access at runtime.
+Edges on this graph are interpreted as an ``is allowed to use the interface
+of'' relation; layer A \textit{uses} layer B if the correctness of A requires
+the presence of a correct version of B.  This also implies that B's
+correctness does not depend on any quality of A.
 
 
 % ----------------------------------------------------------------------------
 \section{Driver: Modifiability}
+\label{sec:mod}
 
 \subsection{Overview}
-\todo[inline]{Blather}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{ArchModuleDecomp.pdf}
+  \caption{Module Structure}
+  \label{fig:mod1}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=3.5in]{ArchUses.pdf}
+  \caption{Layer Structure}
+  \label{fig:layer1}
+\end{figure}
+
+In order to support the primary design goal of modifying the set of spam
+classification algorithms (see \autoref{app:mod}), the classifiers have been
+isolated from the rest of the system (and from each other) through the use of
+an abstract interface.  \autoref{fig:mod1} shows the modular decomposition of
+the system.
 
 \subsection{Element Catalog}
-\todo[inline]{Blather}
+\subsubsection{Module Structure}
+\label{sec:modules}
+This section describes the elements of the module structure shown in
+\autoref{fig:mod1}.
+\begin{description}
+\item[Storage/Messages] The primary secret of this module is the storage
+  mechanism for email messages.  The system is expected to store all incoming
+  and outgoing messages in a form that is suitable for analysis by
+  classifiers.
+\item[Storage/Settings] The primary secret of this module is the storage
+  mechanism for configuration settings.  This includes such items as system
+  configuration values, user-specific settings, configuration for classifiers,
+  and so on.
+\item[Storage/Credentials] The primary secret of this module is the storage
+  mechanism for credentials.  This includes such items as per-user login
+  information for external IMAP/POP3/SMTP email services, as well as any
+  credentials that may be necessary for the classifiers.  Credentials are
+  exposed in such a way as sensitive information (e.g. passwords) are exposed
+  in a write-only fashion as much as possible.
+\item[Communication/Protocols] The primary secret of this module's submodules
+  are the details of a particular networking protocol.  
+\item[Communication/Incoming Mail] The primary secret of this module is the
+  details of providing appropriate access to messages to email user-agents.
+\item[Communication/Outgoing Mail] The primary secret of this module is the
+  details of proxying outgoing mail messages to an external SMTP server, and
+  retaining a copy of the outgoing message in the message store.
+\item[Configuration/UI] The primary secret of this module is the details of
+  the interface used by system users to customize available classifier or
+  system settings, or to view messages in the message store.
+\item[Configuration/Install Config] The primary secret of this module is the
+  details of bootstrapping the system from static configuration files.  This
+  is separate from the Storage/Settings module because it contains details at
+  a lower level, such as the location of the settings database.
+\item[Updating/Downloading] The primary secret of this module is the details
+  of checking for updates, and downloading the update package to the local
+  machine.
+\item[Updating/Installing] The primary secret of this module is the details of
+  installing updates.  This includes both ``hot'' and ``cold'' updates;
+  updating a running system, as well installing an update that requires a
+  system restart.
+\item[Classification/Classifiers] The primary secret of each classifier is the
+  details of the algorithm used to identify email as \textit{spam} or
+  \textit{ham}.
+\item[Classification/Scheduler] The primary secret of this module is the
+  details of when to trigger system events, such as the running of classifiers
+  on a set of messages, or checking for system updates.
+\end{description}
+
+\subsubsection{Layer Structure}
+This section describes the elements of the layer structure shown in
+\autoref{fig:layer1}.
+\begin{description}
+\item[Scheduler] This block corresponds with the Classification/Scheduler
+  module in \autoref{fig:mod1}.  It drives periodic system activities, and
+  \textit{uses} all the blocks that have periodic activities to run.
+\item[Incoming / Outgoing] This block corresponds with the incoming and
+  outgoing mail modules in \autoref{fig:mod1}.  It \textit{uses} the following
+  other blocks:
+  \begin{itemize}
+  \item Scheduler --- New messages can trigger classification, as well as
+    other activities.
+  \item Storage/Protocols/Platform --- Message arrival and retrieval requires
+    the use of storage facilities and network protocols.
+  \end{itemize}
+\item[Classification] This block corresponds with the stack of classifiers in
+  \autoref{fig:mod1}.  Each classifier is allowed to use the storage,
+  protocols, and platform services to perform the task of classifying a given
+  message as \textit{spam} or \textit{ham}.
+\item[Updates] The update system (``Updating'' in \autoref{fig:mod1}) is
+  allowed to use the platform and protocol services to perform the task of
+  downloading and installing system updates.
+\item[Storage/Protocols/Platform] This block aggregates a set of system
+  services that are in common use by all the other blocks.  It corresponds to
+  the ``Storage,'' ``Communication/Protocols,'' and
+  ``Updating/Installing/Platform'' blocks in \autoref{fig:mod1}.
+\end{description}
+
 
 \subsection{Interface Definition}
-\todo[inline]{Blather}
+\label{sec:interface}
+% ------------------------------------------------------------
+\subsubsection{\texttt{ISpamClassifier}}
+\begin{description}
+\item[Module] Classifiers
+\item[Service] Determine message class
 
+  Analyze the contents of a message and determine if it is \textit{spam} or
+  \textit{ham}.
+\item[Syntax] \texttt{classify(msg)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[\texttt{msg}] Reference to an email message object.
+  \end{description}
+\item[Return Type] \texttt{EMessageClassification}
 
+  This type indicates the class of message.  It is defined as an enumeration
+  to allow more sophisticated classification in the future.
+\end{description}
+
+% ------------------------------------------------------------
+\subsubsection{\texttt{IScheduler}}
+\begin{description}
+\item[Module] Scheduler
+\item[Service] Schedule a repeating task
+
+  The scheduler allows for both repeating and one-off tasks.
+\item[Syntax] \texttt{schedule\_repeating(task, schedule)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[\texttt{task}] An \texttt{Action} which is to be executed.
+  \item[\texttt{schedule}] An instance of a \texttt{Schedule} object
+
+    This object contains rich information about timing.  See the interface
+    definition for the \texttt{Schedule} type for more information.
+  \end{description}
+\item[Return Type] \texttt{void}
+
+  This method does not return a value, but failures are indicated by throwing
+  an instance of the \texttt{SchedulerException} class.  See its definition
+  for more information.
+\end{description}
 
 % ----------------------------------------------------------------------------
 \section{Driver: Interoperability}
+\label{sec:interop}
 
 \subsection{Overview}
-\todo[inline]{Diagram}
-\todo[inline]{Blather}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{ArchModuleDecomp.pdf}
+  \caption{Module Structure}
+  \label{fig:mod2}
+\end{figure}
+
+The design goal of standards-based interoperability with other systems (see
+\autoref{app:interop}) is satisfied by using standardized protocols for
+external communication.
 
 \subsection{Element Catalog}
-\todo[inline]{Blather}
+The \texttt{Incoming Mail} module communicates with user-agents using POP3 or
+IMAP.  This should allow operation with nearly every email client, both
+current and future.
+
+The \texttt{Outgoing Mail} module proxies an sent message to an external
+server using SMTP, the protocol that all Internet mail servers support.
+Again, this should provide correct operation with most every outgoing server
+product in existence.
+
+See the contents of \autoref{sec:modules} for more details on the elements of
+\autoref{fig:mod2}.
 
 \subsection{Interface Definition}
-\todo[inline]{Blather}
+See the contents of \autoref{sec:interface} for details on the elements of
+\autoref{fig:mod2}.
 
 
 
 % ----------------------------------------------------------------------------
 \section{Driver: Time to Market}
+\label{sec:ttm}
 
 \subsection{Overview}
-\todo[inline]{Diagram}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{ArchModuleDecomp.pdf}
+  \caption{Module Structure}
+  \label{fig:mod3}
+\end{figure}
+
+The goal of bringing a product to market in a timely fashion (see
+\autoref{app:ttm}) is accomplished by defining useful subsets of the full
+system that may be shipped as a complete product.
+
+See the contents of \autoref{sec:modules} for more details on the elements of
+\autoref{fig:mod3}.
+
 \subsection{Element Catalog}
-\subsection{Interface Definition}
+There are several chunks of this architecture that are not strictly necessary
+to its basic functionality.
+
+\subsubsection{Classifiers}
+One obvious point of contraction is the set of message classifiers.  Since the
+system is designed to be able to update this set at any time, it's a
+relatively straightforward matter to ship a minimal set of algorithms for
+version 1, and plan on deploying more on a tight update schedule.  This is
+indicated in \autoref{fig:mod3} by the color-coded subsets of classifiers.
+
+\subsubsection{Host Platforms}
+Another way the system requirements can be shrunk is by supporting a minimal
+set of host platforms in version 1.  This is indicated in \autoref{fig:mod3}
+by the color-coded platform modules under ``Updating/Installing''.  More host
+platforms may be added at a later time.
+
+\subsubsection{Configuration Interface}
+Requirements could be deferred by eliding any runtime configuration.  This is
+indicated by the orange blocks in \autoref{fig:mod3}.
+
+\subsubsection{Outgoing Mail Proxy}
+The system could be reduced by leaving out the inclusion of an outgoing-mail
+SMTP proxy.  This is indicated in \autoref{fig:mod3} by the dark blue blocks.
 
 
 % ----------------------------------------------------------------------------
@@ -117,6 +316,7 @@ is allowed to access at runtime.
 \section{Architectural Drivers}
 
 \subsection{Modify filtering algorithms}
+\label{app:mod}
 A key business goal is to be able to perform hot updates to customer’s spam
 filter applications. This includes being able to modify the algorithms
 implementing spam filtering criteria, add new ones, and remove old ones.
@@ -169,6 +369,7 @@ and that none of the other interfaces will need to change. We may identify
 other types of updates for which one or more of these assumptions are invalid.
 
 \subsection{Interoperability}
+\label{app:interop}
 A key business goal is that the Spam Filter work with the most common email
 clients.
 \begin{description} 
@@ -203,6 +404,7 @@ modifiable to accept new mail clients. This would be specified in a different
 (Modifiability) scenario.
 
 \subsection{Time to Market}
+\label{app:ttm}
 A key business goal is that the Spam Filter utility be deployed quickly to
 establish market share and initiate a revenue stream. However, this business
 goal and accompanying scenario must be addressed concurrently with the
@@ -238,25 +440,5 @@ It actually does not make a lot of sense to define this kind of quality
 requirement as a “scenario” since one cannot execute it except in the general
 course of developing the product. It would be more natural to simply describe
 this in terms of the requirements for the initial increment and its due date.
-
-% Floated figure
-%\begin{figure}[h]
-%  \centering
-%  % \includegraphics[width=4in]{hi.pdf}
-%  Hello!
-%  \caption{The caption}
-%  \label{fig:somefig}
-%\end{figure}
-
-
-% Boxed graphic
-%\setlength\fboxsep{0pt}
-%\setlength\fboxrule{0.5pt}
-%\begin{center}
-%  \fbox{
-%    %\includegraphics[width=4in]{assignment_part_2_diagram.pdf}
-%  }
-%\end{center}
-
 
 \end{document}
