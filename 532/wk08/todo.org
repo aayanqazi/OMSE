@@ -1,0 +1,9 @@
+* Reading [3/4]
+  - [ ] Chapters 9, 11-12
+  - [X] [[file:OMSE532_Lec_8_11.pdf][Slides]]
+  - [X] [[file:Parnas_Families.pdf][Parnas]]
+  - [X] [[file:Weiss%20DefiningFamilie.pdf][Weiss]]
+* Deliverables [1/1]
+  - [X] Commonality analysis
+        - [X] [[file:FWS%20Family.pdf][Read FWS requirements]]
+        - [X] [[https://docs.google.com/a/straubnet.net/document/d/1mfcjByqXhLUiAx3f0FoU61U9otZ7WNMLPMnHJwIYE5Y/edit%3Fhl%3Den_US#][Complete analysis]]

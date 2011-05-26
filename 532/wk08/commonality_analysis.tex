@@ -1,0 +1,193 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
+\usepackage[all]{hypcap}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{graphicx}
+\usepackage[]{todonotes}
+
+%\usepackage{times}
+\usepackage{mathpazo}
+
+\setlength{\parindent}{0pt}     % for less indentation
+\setlength{\parskip}{1em}       % for less whitespace
+
+\newcommand{\notdone}{\todo[color=red]{}}
+
+% Remove numbering from subsections
+\setcounter{secnumdepth}{1}
+
+% Counters for commonalities and variabilities
+\newcounter{type}
+\newcounter{item}[type]
+\newcommand{\com}[1]{\stepcounter{item}\item[\Alph{type}\arabic{item}.]{#1}}
+\begin{document}
+
+\author{Ben Straub\\OMSE 532}
+\title{FWS Commonality Analysis}
+\maketitle
+
+\section{Introduction}
+
+
+Floating Weather Station (FWS) buoys are deployed at sea and periodically
+report the current wind speed via messages sent by radio. Each member of the
+FWS family contains an on-board computer that controls the operation of the
+buoy while it is at sea.
+ 
+The purpose of this analysis is to provide the following capabilities for the
+FWS family of buoys:
+ 
+\begin{itemize}
+\item A way to specify the configuration of a particular buoy. 
+\item A way to generate, for a specified buoy configuration, the software that
+  controls a buoy while it is at sea.
+\end{itemize}
+
+\section{Overview}
+
+This commonality analysis is concerned with the following issues:
+ 
+\begin{itemize}
+\item What equipment configurations should be accommodated?
+\item What computing platforms should be used on buoys?
+\item What capabilities will be needed to make buoys sufficiently reliable to
+  perform their missions?
+\end{itemize}
+ 
+\subsection{Interfaces To Other Domains}
+
+Floating Weather Stations interact with systems that are equipped to receive
+the signals transmitted by the on-board radio transmitter. Such systems may be
+shipboard, ground-based, or satellite-based. The software for the FWS domain
+interfaces with the sensors that the FWS uses to monitor wind speed, and with
+the transmitter that the FWS uses to send messages. \autoref{fig:iface} shows
+theses domains and gives a brief indication of the nature of the
+interface. For example, the Sensor domain receives commands from the FWS
+software and sends data to it.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=4in]{FWSInterfacingDomains.pdf}
+  \label{fig:iface}
+  \caption{FWS Software and Interfacing Domains}
+\end{figure}
+
+\section{Dictionary of Terms}
+
+\begin{description}
+\item[Sensor period] The number of seconds between sensor readings.
+\item[Report period] The number of seconds between message transmissions.
+\item[Sample] A single reading from a single sensor.
+\item[Snapshot] This is calculated from several sensor readings that are taken
+  at the same time, using a weighted average algorithm.  A snapshot relates to
+  a single measure.
+\item[Report measure] A weighted average of several snapshots.
+\item[Report] A collection of report measures, intended to provide information
+  about several aspects of the buoy's environment.
+\item[Weighted average] Given a set of value/weight pairs:
+  \begin{displaymath}
+    \lbrace (v_1,w_1), (v_2,w_2), \ldots, (v_N,w_N) \rbrace
+  \end{displaymath}
+  where $w_i \geq 0$ for all $i$ in $[1..N]$, their \textit{weighted average}
+  is given by
+  \begin{displaymath}
+    {\displaystyle\sum_{i=1}^N v_i \times w_i}
+    \over
+    {\displaystyle\sum_{i=1}^N w_i}
+    \nonumber
+  \end{displaymath}
+\item[Wind speed] The speed of the wind in knots: nautical miles per hour.
+\item[Air Temperature] The temperature of the air surround the buoy: degrees
+  Celsius ($^{\circ}$C).
+\end{description}
+
+\section{Commonalities}
+\setcounter{type}{3} % 'C'
+
+The following statements are basic assumptions about the FWS domain; they are
+true of all FWS systems.
+
+\subsection{Behavior}
+
+\begin{description}
+  \com{At fixed intervals, the FWS transmits a report containing an
+    approximation of the current conditions at its location.}
+
+  \com{The FWS uses a weighted average algorithm to produce a single snapshot
+    from multiple sensor readings.}
+
+  \com{The FWS uses a weighted average algorithm to produce a single report
+    measure from several snapshots.}
+
+  \com{Each FWS report contains data for all measures that FWS has sensors
+    for.}
+
+  \com{FWS samples all sensors with equal frequency.}
+\end{description}
+
+\subsection{Devices}
+
+\begin{description}
+  \com{FWS is powered by an on-board battery.}
+
+  \com{FWS is equipped with one or more types of sensor, each of which
+    can monitor a single measure.}
+
+  \com{For each measure (e.g. wind speed, or air temperature), the FWS is
+    equipped with one or more sensors that monitor it.}
+
+  \com{For each measure, FWS interfaces with one or more classes of sensor,
+    divided by resolution or capability.}
+\end{description}
+
+
+\section{Variabilities}
+\setcounter{type}{22} % 'V'
+\setcounter{item}{0}
+
+The following statements describe how a FWS may vary. 
+ 
+\subsection{Behavior}
+
+\begin{description}
+  \com{The weights used in the weighted average algorithm may vary depending
+    on a variety of factors (e.g. measure, sensor resolution, sensor period,
+    etc.)}
+
+  \com{The number of sensors in each class varies.}
+    
+  \com{The sensor period varies.}
+
+  \com{The report period varies.}
+
+  \com{The number of snapshots that are averaged for a single snapshot
+    varies.}
+  
+  \com{The number of samples used to produce a single report measure varies
+    with the report period and the sensor period.}
+
+  \com{The data size for each report measure varies.}
+
+\end{description}
+
+
+\subsection{Devices}
+
+\begin{description}
+  \com{FWS may be equipped with sensors for a varying number of measures.}
+
+  \com{For each measure, FWS may have varying numbers of sensors.}
+
+  \com{For each measure, FWS may have varying numbers of sensor classes.}
+
+  \com{FWS supports a variety of vendors, families, and models of sensor for
+    any given measure.  Each of these factors will affect the interface and
+    amount of data received from the sensor.}
+
+  \com{FWS may be equipped with on-board batteries of varying capabilities.}
+    
+\end{description}
+
+\end{document}

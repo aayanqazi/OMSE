@@ -1,0 +1,394 @@
+Week 6 discussion
+
+[[https://d2l.pdx.edu/d2l/lms/discussions/messageLists/frame.d2l%3FisShared%3DFalse&fid%3D18350&tid%3D69030&ou%3D41411][Post Here]]
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+* Instructions                                                     :noexport:
+
+This week's exercise will be to conduct an abridged ATAM review of the Spam
+Filter designs of two classmates. We do not have resources for a full ATAM
+review so your short reviews will focus on the basic question: "Does the
+design documentation make the case that the design satisfies the architectural
+design drivers?"
+
+You will conduct your reviews in the following steps:
+
+1. Post your design (zipped Word file) to this thread.
+2. Download the designs from the two students who follow you (circularly) in
+   the class list (see below)
+3. Review the design using this discussion board, chat, Skype or whatever you
+   want to ask and answer questions.
+4. Post your review results under the post containing the design document as
+   described next.
+5. Post your response to the reviews
+
+** Review
+
+You may reference the design document to identify business goals and other
+information provided. However, you need to state your review results by giving
+an overview of:
+
+1. Your understanding of the architectural approach and its rationale
+2. Your understanding the most significant design tradeoffs made
+3. A characterization of where the design adequately addresses the business
+   goals and, where you think it does not, what the deficiencies or risk areas
+   are.  Note that this is a review of the design, not the person. The
+   discussion should focus entirely on how well the design addresses
+   stakeholder goals (and possibly, how well the documentation communicates
+   this). This should be completed by Tuesday to give time for a response.
+
+** Response
+
+Architects who have had their project reviewed should provide a response to
+the reviews where any issues or risks have been identified. In particular:
+
+1. If you feel the issue has been addressed in the design (i.e., you
+   disagree), describe how the design addresses the issue (e.g., walk through
+   a scenario illustrating your point),or
+2. Describe what changes you would make to the design to address the issue and
+   why those changes would work, or 
+3. Describe why you think the issue cannot be addressed in the context of the
+   design assumptions and constraints.  
+
+** Class List
+
+Review the designs of the next two people in the list going back to the top as
+necessary. Thus Sridevi reviews the designs of Nicholas and Juan; Ayellet
+reviews the designs of Sridevi and Nicholas. Note that John Waterbrook is
+travelling and may come into the discussion late. I'll post his design.
+
+- Allam, Sridevi 
+- Atigedewe, Nicholas           
+- Castillejos Lopez, Juan Ignacio           
+- Dontsov, Ivan           
+- Jain, Tanu           
+- Millan, Jesse           
+- Pankani, Dan           
+- Reinhart, Nathaniel           
+- Richardson, Kevin           
+- Ripton, Garth           
+- Rojas, Courtenay           
+- Rottschaefer, Maureen           
+- Schwartz, Matthew           
+- Straub, Benjamin           
+- Thompson, James           
+- Waterbrook, John           
+- Wolman, Ayellet
+
+** DONE [[file:Thompson_SpamFilter2.2.pdf][James Thompson]]
+    - proxy, trades off responsiveness?
+    - divided "quarantine/repository" and "signature repository access routines"?
+    - filter update security: emphasis on being attacked?
+    - Filter comm in update module? wtf?
+    - *Two modules for hiding protocol/comm details* - need to implement https
+      twice?
+    - concurrency as a module, rather than baked into interfaces
+    - Two places where headers are modified - "release" and "message handling
+      logic"
+** Approach
+   It looks like you chose two primary drivers for your architecture.  The
+   first was support for multiple clients, the rationale being that the system
+   will need to support a wide variety of environments.
+
+   The second driver was to identify and isolate the parts of the system that
+   are most likely to change, to make maintenance and extension easier.
+
+** Trade-offs
+   The first trade-off made was the choice of deployment plan.  The choice
+   here was for a proxy-server that speaks over standard protocols.  This
+   involves trading off possible runtime performance and email delivery
+   latency for control over the execution environment and compatibility with
+   a wide variety of user agents.
+
+** Characterization
+   The overall structure looks like it will meet the business goals, but there
+   are several places where it's probably harder than it needs to be.
+
+   You don't include a "uses" structure, so there isn't an easy way to
+   identify a useful subset of functionality to ship earlier.  Time to market
+   was one of the top-priority goals for this project.
+
+   You include a module specifically for securing the communications for
+   updating the filtering algorithms.  What is the threat model you're
+   designing to?
+
+   You've compartmentalized your protocols perhaps a bit too much.  Suppose
+   the spam filtering algorithm needs to use HTTPS as a protocol.  It seems
+   obvious that the maintainer would add an implementation of the HTTPS
+   protocol to the "external services" module.  Now suppose the filter updates
+   need to use HTTPS to tunnel through corporate firewalls.  The way you have
+   your modular decomposition, another implementation of HTTPS would need to
+   be added to the "filter specific communication" module in order to preserve
+   encapsulation.  You haven't provided a "uses" structure, but the naming of
+   these modules suggests that neither should depend heavily on the other.
+
+   I also notice that you have placed concurrency support into a module.  What
+   was the reasoning behind this, as opposed to baking concurrency into the
+   interfaces and assumptions of all the modules?
+
+
+** DONE [[file:SpamFilterExercise2part2_JohnnyWaterbrook.pdf][John Waterbrook]]
+    - No mention of updates
+    - Modules are behavioral; no documentation of their secrets
+    - Per-user filters are separate from all-user filters
+
+** Approach
+   Your design is clearly oriented toward shipping several successive versions
+   of the system, in order to meet the time-to-market needs of the business.
+
+   This architecture also places a high importance on separation of
+   privileges; some parts of the system have access to only a single user's
+   messages, where others have access to all messages.
+
+** Trade-offs
+   One trade-off is the use of network protocols for communication between
+   modules.  This allows the distribution of computation among several
+   physical machines, possibly allowing high throughput, but comes at a
+   latency cost which will need careful balancing.
+
+   Another trade off is the choice of implementation language.  A high-level
+   interpreted language such as Python will mean faster implementation, but
+   will cost more in CPU cycles at run-time.
+
+** Characterization
+
+   Your layer structure clearly outlines what modules are required for a first
+   version, and provides good guidance for how to plan successive releases.
+   However, there is no other mention of how to deliver updates, and the
+   maintainability/hot-update capability was given enough importance that I
+   wonder how your design will accomplish that goal.
+
+   You've expressed a clear preference for Python as the implementation
+   language of this project.  This is (I think) a bit unorthodox for an
+   architectural specification, but given that you intend to use code
+   generation at runtime, it makes sense to specify a language that makes this
+   humanly possible, and this meets the need for regular/constant updates.
+
+   Separating the all-users filters from the single-user filters may pose some
+   problems down the line.  There may be cases where it's not clear where a
+   particular algorithm fits, or you'll find the use of one far outweighs the
+   use of the other.
+   
+   Lastly, you've done a module view, but it's not a classical "modular
+   decomposition."  Your modules appear to be functional units, where an
+   information-hiding modular decomposition results in modules that are
+   oriented toward having a single secret.  This isn't a criticism, just a
+   style note, but it might help if you called this view something a bit
+   different to avoid confusion.
+
+
+* DONE Review from Matthew Schwartz
+** His post                                                        :noexport:
+Architectural Approach for Modifiability
+
+Scenario
+
+Modifying filtering algorithms
+
+Attribute
+
+Modifiability
+
+Environment
+
+Updates must be made to the customer’s system on site while the spam filter
+and mail client are running. If the spam filter software must shut down to
+complete the update then it must automatically re- start itself.
+
+Stimulus
+
+Change the run-time the spam filtering criteria by adding, removing, or
+modifying one of the spam filtering algorithms.
+
+Response
+
+The component is configured for and deployed using the system’s automated
+update capability.
+
+ Measures:
+
+Cost: modifications to the filtering algorithms are easy to make.  Deployment
+does not adversely impact the customer’s email capabilities for a significant
+length of time (say, 3 minutes).  Architectural Understanding
+
+ 
+
+Decision
+
+Risk
+
+Sensitivity
+
+Tradeoffs
+
+Information Hiding
+
+R1
+
+S1
+
+T1
+
+Installation via Updates
+
+ 
+
+ 
+
+ 
+
+Restrict Communication Paths
+
+ 
+
+S2
+
+T2
+
+Adherence to Defined Protocols
+
+ 
+
+ 
+
+ 
+
+ 
+
+  
+
+ 
+
+Modifiability Design Review
+
+Risks:
+
+R1: Too much of information hiding could be counter-productive as it can limit
+the reusability level of the service.  Sensitivities:
+
+S1: Careful not to make interfaces too generic. Sub-sets need to be broken
+down far enough to where their secrets no longer need to be hidden, but at
+that level there needs to be enough detail so that the engineer who design the
+interface service has enough information about the capabilities of the service
+to do so.  S2: Ensure that none of the sub-modules that are children of
+different parent modules need to share any data. This may create coupling and
+adversely affect the goal of modifiability.  Tradeoffs:
+
+T1: Limited re-usability may affect Time To Market.  T2: Interoperability is
+constrained because the platform interface is hidden in the "Updating" module.
+ 
+
+Where the design adequately addresses the business goals:
+
+1) While the architect does not explicitly state this, the module
+   decomposition structure would help reduce costs because it is useful for
+   resource allocation and project planning. The filtering algorithms are easy
+   to make in this case because they would be easy to plan out. A project
+   manager could be confident that the resources that he/she allocates to the
+   task of creating the new filter would be correct and the engineer could
+   freely work on the new filter without worry about any changes that they
+   might be making to other parts of the system.
+
+ 2) Installations / Downloading modules that are hidden by the "Updating"
+    sub-module adequately show that deployment activities are separated on the
+    client machine from other activities that the software performs. While the
+    modular decomposition structure does not really address run-time issues,
+    I'm pretty sure that an update would NOT adversely impact the customer’s
+    email capabilities by looking at this design
+
+ 
+
+Where are the deficiencies:
+
+ 1) While the cost of the of the modifications may be reduced because the
+    architectural design clearly shows how changes are localized, the reader
+    is not offered any alternative approaches so they are left with nothing to
+    compare against. This is deficient in proving that the actual cost will be
+    reduced because there are not enough details. A stake-holder could argue
+    that re-usability would provide more of a cost reduction then information
+    hiding.
+
+ 2) The modular decomposition approach here is a little problematic concerning
+    interoperability. The architect has hidden all the details about the
+    platform in within the "updating module," and it's likely that other parts
+    of the system will need to know how to interoperate with the platform as
+    well. The architect has also not provided any other alternatives for this
+    approach. I think that if he/she did, they may have considered a layered
+    viewed which might have provided the system with enough flexibility to
+    achieve both modifiability AND interoperability as any "sub-set" layer
+    above the portability layer could have had access to it.
+
+ 3) The modular and layered structures are primarily useful for describing
+    design time relationships. The second response measure mentioned length of
+    time for an update which would be difficult to explain using this kind of
+    structure.
+
+ 
+** DONE My post
+   Thanks for your input, I appreciate it.  Since one of the main foci of this
+   architecture is the run-time updates, I'm glad you found my approach
+   satisfactory.
+
+   Your point about cost reduction is well-taken.  However, there was no
+   architectural driver for software re-use; this simply isn't on the
+   business's radar for this project.  As such, I pursued re-use only insofar
+   as it increased the long-term maintainability of /this/ system.
+
+   As for the over-use of modularity, it seems like the particular case you've
+   taken issue with is the hiding of the operating platform under the
+   "Updating" module.  This seemed to make sense, given that the only platform
+   dependency we have is the bootstrapping of the server process.  Most other
+   activity is either contained within the system itself, or is talking to
+   something outside it with standard protocols (probably including any
+   databases).
+
+   I'll agree with you that a view of the system that includes time would help
+   to address the performance and latency requirements.
+   
+
+* DONE Review from Maureen Rottschaefer
+** Her post                                                        :noexport:
+*This was written without the benefit of the week 7 lecture.*
+
+1. I found the architecture a bit difficult to discern.  Namely, I could not
+   determine whether the spam filter was designed as a client-server
+   application or an email proxy or a combination of either.  I think an
+   iteration view or a uses view may have helped to visualize the system
+   better.  The selected drivers were time to market, interoperability and
+   modifiability (runtime).  There was a narrative discussion of how the
+   drivers were realized in the architecture but I found the narrative
+   difficult to follow and wanted to see a view to etter explain the
+   architecture.  From the readings in Bass, et al., it seems apparent that
+   what view you use to show the driver should be carefully selected based on
+   the shareholder you are targeting.  Additionally, it seems that a high
+   level data flow may be useful to get the general idea of the system
+   conveyed to the stakeholder before breaking down into a module or layer
+   view.
+
+2. Information hiding was discussed with the module view.  It seemed the
+   decomposition into modules was illustrative of the tradeoffs selected.
+   Additionally, the iteration releases were shown through colr changes on the
+   module view.
+
+3. As mentioned above, I think a uses or iteration view would have better
+   explained the architecture.  The selected views did not feel as though they
+   were the best views to convey the design to the stakeholders.  Even
+   understanding that a layer or module view would be useful for the chosen
+   stakeholders, in this scenario, I felt that the module and layer views
+   jumped into too detailed of an approach without explaining the high level
+   choices that were made.
+
+Resources: lectures 4 to 6; slides from lecture 7 (no lecture available for
+7); Bass, et al., chapters 4 to 11.
+
+Maureen Rottschaefer
+
+ 
+** DONE My post
+   You're right, this document could use deployment, sequence, and an iterated
+   modular decomposition.  Looking at other people's designs, I can see they
+   didn't see the "two or three views" as a limitation, and perhaps I
+   shouldn't have either.
+
+   Thanks for the input.

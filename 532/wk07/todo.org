@@ -1,0 +1,9 @@
+* Reading [0/3]
+  - [ ] Chapters 8-9, 11-12
+  - [ ] [[file:ATAM.pdf][ATAM]]
+  - [ ] [[file:OMSE532_Lec_7_11.pdf][Slides]]
+* Deliverables [1/2]
+  - [X] Post assignment to thread
+  - [ ] [[file:discussion.org][Discussion]]
+    - [ ] Review James Thompson
+    - [ ] Review John Waterbrook

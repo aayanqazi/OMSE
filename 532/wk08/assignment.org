@@ -1,0 +1,23 @@
+* Instructions
+  Overall goal of the assignment is to develop a common architecture for the
+  FWS family. Products of the exercise will include:
+
+  - Due Week 9: A commonality analysis for the FWS family produced by filling
+    in the missing parts of the CA specification template.
+  - Due Week 10:
+    1. A module guide for the FWS architecture giving a brief prose
+       description of the secret of each module. Produce the module guide by
+       filling in missing parts of the Module Guide template. The guide should
+       describe any design issues that arise
+    2. Interface specifications: a sketch of the leaf module interfaces
+       describing:
+       - The service(s) provided by the module
+       - Secret(s) of the module
+       - Associated variabilities
+
+| Model  | Low-res   | Hi-res    | smpls/rpt | Smpl Rate | Rpt. Rate | Data |
+|--------+-----------+-----------+-----------+-----------+-----------+------|
+| Mark I | 2 (CHU-1) | 2 (CHU-2) |         5 | 4 min     | 20 min    | x1   |
+| Mark V | 5 (CHU-1) | 5 (CHU-2) |         3 | 1 min     | 3 min     | x1   |
+| US5000 | 8 (FX/L)  | 12 (FX/H) |         3 | 20 sec    | 1 min     | x2   |
+  
