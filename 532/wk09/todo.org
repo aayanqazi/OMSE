@@ -1,0 +1,22 @@
+* Reading [1/2]
+  - [ ] Chapters 11-12, 14-15
+  - [X] [[file:OMSE532_Lec_9_11.pdf][Slides]]
+* Deliverables [1/1]
+  - [X] FWSOS Part 2
+        ([[file:moduleguide.tex][work here]])
+
+        Overall goal of the assignment is to develop a common architecture for
+        the FWS family.
+
+        This week, ypu should develop the module structure using the common
+        version of the commonality analysis (dowload). Produce the following;
+
+        - A module guide for the FWS architecture giving a brief prose
+          description of the secret of each module. Produce the module guide
+          by filling in missing parts of the Module Guide template.
+        - The guide should describe any design issues that arise 
+        - Interface specifications: a sketch of the leaf module interfaces
+          describing:
+          - The service(s) provided by the module
+          - Secret(s) of the module
+          - Associated variabilities

@@ -1,0 +1,33 @@
+* Modules
+** Behavior
+*** Averaging
+*** Message format
+** Device Interface
+*** Radio
+*** Sensor
+** Software Design
+*** Scheduling
+*** Sensor management
+
+* Notes
+** Commonalities
+   - Wind speed only
+   - Fixed period for transmission
+   - Weighted average
+   - Device: sensors (1+)
+   - Device: radio
+   - Each sensor has a driver and ID
+   - Each sensor indicates its reliability
+** Variabilities
+   - Weights and sample count for weighted average algorithm
+   - Message format
+   - Transmission period
+   - Scan rate
+   - Count/type of sensor
+   - Resolution of sensor
+   - Sensor hardware
+   - radio hardware
+   - reliability indicator
+** Issues
+   - Message formats: 2 for now, possibly more later
+   - No other sensor types, wind speed only

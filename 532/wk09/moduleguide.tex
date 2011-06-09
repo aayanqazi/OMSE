@@ -1,0 +1,296 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[pdfborder=false]{hyperref} % Remove borders from PDF links
+\usepackage[all]{hypcap}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{graphicx}
+\usepackage[disable]{todonotes}
+
+%\usepackage{times}
+\usepackage{mathpazo}
+
+\setlength{\parindent}{0pt}     % for less indentation
+\setlength{\parskip}{1em}       % for less whitespace
+
+\newcommand{\notdone}{\todo[color=red]{}}
+
+% Remove numbering from subsections
+\setcounter{secnumdepth}{1}
+
+\begin{document}
+
+\author{Ben Straub\\OMSE 532}
+\title{Floating Weather Station\\Module Guide}
+\maketitle
+
+\clearpage
+\setcounter{tocdepth}{2}
+\tableofcontents
+\clearpage
+
+This guide to the modules of the Floating Weather Station Family is patterned after the A-7E Module Guide [6] and uses the structuring principles describe therein and in [41]. Accordingly, we quote, with suitable emendations, including the substitution of FWS for A-7, a section of the A-7 module guide to describe further the purpose of the FWS module guide.
+
+The FWS module guide provides an orientation for software engineers who are new to the FWS family, explains the principles used to design the structure, and shows how responsibilities are allocated among the major modules.
+
+This guide is intended to lead a reader to the module that deals with a particular aspect of the system. It states the criteria used to assign a particular responsibility to a module and arranges the modules in such a way that a reader can find the information relevant to his purpose without searching through unrelated documentation.
+
+This guide describes and prescribes the module structure. Changes in the structure will be promulgated as changes to this document. Changes are not official until they appear in that form. This guide is a rationalization of the structure, not a description of the design process that led to it.
+ 
+Each module consists of a group of closely related programs. The module structure is the decomposition of the program into modules and the assumptions that the team responsible for each module is allowed to make about the other modules.
+
+\subsection{Goals of the Module Structure}
+
+The overall goal of the decomposition into modules is reduction of software cost by allowing modules to be designed, implemented, and revised independently.  Specific goals of the modules decomposition are:
+
+\begin{enumerate}
+\item each module's structure should be simple enough that it can be understood fully;
+\item it should be possible to change the implementation of one module without knowledge of the implementation of other modules and without affecting the behavior of other modules;
+\item the ease of making a change in the design should bear a reasonable relationship to the likelihood of the change being needed; it should be possible to make likely changes without changing any module interfaces; less likely changes may involve interface changes, but only for modules that are small and not widely used. Only very unlikely changes should require changes in the interfaces of widely used modules. There should be few widely used interfaces;
+\item it should be possible to make a major software change as a set of independent changes to individual modules, i.e., except for interface changes, programmers changing the individual modules should not need to communicate. If the interfaces of the modules are not revised, it should be possible to run and test any combination of old and new module versions.
+\end{enumerate}
+
+As a consequence of the goals above, the FWS software is composed of many small modules. They have been organized into a tree-structured hierarchy; each non-terminal node in the tree represents a module that is composed of the modules represented by its descendents. The hierarchy is intended to achieve the following additional goals:
+
+\begin{enumerate}
+\setcounter{enumi}{4}
+\item A software engineer should be able to understand the responsibility of a module without understanding the module's internal design.
+\item A reader with a well-defined concern should easily be able to identify the relevant modules without studying irrelevant modules. This implies that the reader be able to distinguish relevant modules from irrelevant modules without looking at their internal structure.
+\end{enumerate}
+
+\subsection{Design Principle}
+
+The FWS module structure is based on the decomposition criteria known as information hiding. According to this principle, system details that are likely to change independently should be the secrets of separate modules; the only assumptions that should appear in the interfaces between modules are those that are considered unlikely to change. Every data structure is private to one module; it may be directly accessed by one or more programs within the module but not by programs outside the module. Any other program that requires information stored in a module's data structures must obtain it by calling module programs.
+ 
+Applying this principle is not always easy. It is an attempt to minimize the expected cost of software and requires that the designer estimate the likelihood of changes.  Many of the changes that are accommodated by the module structure described in this document are guided by the variabilities described in the Floating Weather Station Commonality Analysis.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Module Description}
+This document describes the module structure by characterizing each module's secrets. Where useful, we also include a brief description of the services provided by the module. Where a module's secret is directly concerned with a variability from the commonality analysis, we also identify the variability.
+ 
+The remainder of this document consists of two parts:
+\begin{itemize}
+\item a top-down overview of the module structure, and
+\item a graphical depiction of the module structure.
+\end{itemize}
+
+\setcounter{secnumdepth}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Behavior Hiding Modules}
+The behavior hiding modules include programs that need to be changed if the required outputs from a FWS and the conditions under which they are produced are changed. Its secret is when (under what conditions) to produce which outputs.  Programs in the behavior hiding module use programs in the Device Interface module to produce outputs and to read inputs. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Averaging Module}
+\begin{description}
+\item[Service] Given a reading, provides a weighted average value based on historical data.
+\item[Secret] The algorithm for generating such an aggregate value.
+\end{description}
+
+This module is associated with variability V1.  It is expected that the algorithm used for generating aggregate values will depend on the number and accuracy of sensors, but will most likely follow the weighted average algorithm:
+
+Given a set of values:
+\begin{displaymath}
+  \lbrace v_1, v_2, \ldots, v_N \rbrace
+\end{displaymath}
+And a set of weights:
+\begin{displaymath}
+  \lbrace w_1, w_2, \ldots, w_N \rbrace
+\end{displaymath}
+where $w_i \geq 0$ for all $i$ in $[1..N]$, their \textit{weighted average}
+is given by
+\begin{displaymath}
+  {\displaystyle\sum_{i=1}^N v_i \times w_i}
+  \over
+  {\displaystyle\sum_{i=1}^N w_i}
+\end{displaymath}
+
+\subsubsection{\texttt{Averaging.SetWeights} method}
+\begin{description}
+\item[Syntax] \texttt{Averaging.SetWeights(weights)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[weights] An \texttt{IEnumerable<double>} representing the $w_i$ values in the formula above.  \texttt{weights.Count()} must return $N$.
+  \end{description}
+\item[Return Type] \texttt{Void}.
+\end{description}
+
+
+
+\subsubsection{\texttt{Averaging.Average} method}
+\begin{description}
+\item[Syntax] \texttt{Averaging.Average(values)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[values] An \texttt{IEnumerable<double>} representing the $v_i$ values in the formula above.  \texttt{values.Count()} must return $N$.
+  \end{description}
+\item[Return Type] \texttt{Void}.
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\subsection{Message Formatting Module}
+\begin{description}
+\item[Service] Produces an array of bytes that represents a \textit{wind speed} reading, in a format suitable for transmitting over radio.
+\item[Secret] The output format, and the details of converting internal values to a message in that format. 
+\end{description}
+
+This module is associated with variability V2.  It is expected that different models of FWS will require varying levels of precision in the message transmission.
+
+%\subsubsection{\texttt{MessageFormat.SetMessageFormat} method}
+%\begin{description}
+%\item[Syntax] \texttt{MessageFormat.SetMessageFormat(format)}
+%\item[Parameters] \hfill
+%  \begin{description}
+%  \item[format] A member of the \texttt{MessageFormat} enumeration.
+%  \end{description}
+%\item[Return Type] \texttt{Void}.
+%\end{description}
+%
+%This is used to set the message format used by this module to transform data into a network-byte-order buffer for transmission.
+
+
+\subsubsection{\texttt{MessageFormat.FormatMessage} method}
+\begin{description}
+\item[Syntax] \texttt{MessageFormat.FormatMessage(value)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[value] A \texttt{double} representing a wind speed measurement.
+  \end{description}
+\item[Return Type] A \texttt{byte} array which contains the formatted message.
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Device Interface Modules}
+The device interface modules consist of those programs that need to be changed if the hardware devices to FWSs or the output to hardware devices from FWSs change. The input from secret of the device interface modules is the interfaces between FWSs and the devices that produce its inputs and that use its output.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Radio Hardware Module}
+\begin{description}
+\item[Service] Provides access to message transmission through the radio hardware.
+\item[Secret] The details of how to interface with the radio hardware.
+\end{description}
+
+This module is associated with variability V7.  It is expected that this module's contents will change if the radio hardware changes.
+
+\subsubsection{\texttt{Radio.TransmitMessage} method}
+\begin{description}
+\item[Syntax] \texttt{r.TransmitMessage(message)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[message] A \texttt{byte} array containing the bytes to be transmitted, in network byte order.
+  \end{description}
+\item[Return Type] \texttt{Void}.
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sensor Hardware Module}
+\begin{description}
+\item[Service] Provides access to sensor data and metadata.
+\item[Secret] The details of how to interface with a specific model of sensor.
+\end{description}
+
+This module is associated with variabilities V6 and V8.  It is expected that this module's contents will change if the set of supported sensor hardware modules changes.
+
+\subsubsection{\texttt{Sensor.GetAccuracy} method}
+\begin{description}
+\item[Syntax] \texttt{s.GetAccuracy()}
+\item[Parameters] None
+\item[Return Type] \texttt{Accuracy}
+\end{description}
+
+This method returns a member of the \texttt{Accuracy} enumeration, which indicates how accurate this sensor is.
+
+\subsubsection{\texttt{Sensor.GetReading} method}
+\begin{description}
+\item[Syntax] \texttt{s.GetReading()}
+\item[Parameters] None
+\item[Return Type] \texttt{double}
+\end{description}
+
+This method takes a reading from the sensor hardware and returns the result.  Sensor accuracy is abstracted away by using \texttt{double} as a data type.
+
+
+\section{Software Design Hiding Modules}
+The software design hiding modules hide software design decisions based upon programming considerations such as algorithmic efficiency. Both the secrets and the interfaces to this module are determined by software designers. Changes in these modules are more likely to be motivated by a desire to improve performance than by externally imposed changes.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Scheduling Module}
+\begin{description}
+\item[Service] Manages periodic activities.
+\item[Secret] The schedule for scanning sensors and transmitting messages.
+\end{description}
+This module is associated with variabilities V3 and V4\footnote{The first ``V4.''}.  It is expected that these variabilities will be driven by the desired latency and accuracy of message transmissions.
+
+\subsubsection{\texttt{GetCurrentActions} method}
+\begin{description}
+\item[Syntax] \texttt{Scheduling.GetCurrentActions()}
+\item[Parameters] None
+\item[Return Type] \texttt{IEnumerable<System.Action>}
+\end{description}
+
+This method returns a collection of actions that are due to be executed according to their schedule.  Repeated calls to this method will return only those actions that have come due since the last call.
+
+\subsubsection{\texttt{ScheduleAction} method}
+\begin{description}
+\item[Syntax] \texttt{Scheduling.ScheduleAction(action, schedule)}
+\item[Parameters] \hfill
+  \begin{description}
+  \item[action] A \texttt{System.Action} object representing the code to be executed.
+  \item[schedule] A \texttt{Schedule} object representing the period or time the action should be triggered on.
+  \end{description}
+\item[Return Type] \texttt{void}.
+\end{description}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Sensor Management Module}
+\begin{description}
+\item[Service] Provides access to and information about the sensor array.
+\item[Secret] The number and type of sensors attached to this particular FWS.
+\end{description}
+This module is associated with variabilities V4\footnote{The second ``V4.''} and V5.  It is expected that this module's contents will vary with the sensor loadout of the FWS.
+
+\subsubsection{\texttt{GetSensors} method}
+
+\begin{description}
+\item[Syntax] \texttt{GetSensorCount()}
+\item[Parameters] None
+\item[Return Type] \texttt{IEnumerable<Sensor>}
+\end{description}
+
+This method returns a collection containing a \texttt{Sensor} object for each sensor currently attached to the FWS.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=4in]{FWSModules.pdf}
+  \caption{Floating Weather Station Module Hierarchy}
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Issues}
+\setcounter{secnumdepth}{1}
+\subsection{Issue 1}
+Should the decisions of how often to read sensors and how many sensors there are be hidden in one module?
+\begin{description}
+\item[A1] Yes, given the current FWS family specification, these are likely to change together.
+\item[A2] No, these are separate concerns, and will not necessarily change at the same time.
+\item[Resolution] It's more important to have concerns separated than to encapsulate all possible changes that might possibly happen together in one module.  Keep them separate.
+\end{description}
+
+\subsection{Issue 2}
+Should the transmission period and sensor scanning period variabilities be encapsulated in the same module?
+\begin{description}
+\item[A1] No, they are completely orthogonal.
+\item[A2] Yes, they are likely to vary together.
+\item[Resolution] In addition to being likely to vary together, these are closely related concerns, so it makes sense to encapsulate them in the same module.
+\end{description}
+
+
+\listoftodos
+
+\end{document}
