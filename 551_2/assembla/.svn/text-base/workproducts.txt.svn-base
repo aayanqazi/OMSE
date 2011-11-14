@@ -1,0 +1,99 @@
+<!-- This document only contains Work Products -->
+<!-- Process documents can include any work product in this document via the <workproduct id="WP-###"> tag -->
+
+<!-- Comments are enclosed in these -->
+
+<!-- Define each work product with the following format
+     Note: Indention is for readability only, tags are not case sensitive
+     <workproduct id="WP-###">
+     <name>A short name for the work product</name>
+     
+     <description>
+     A brief description
+     </description>
+     
+     <details>
+     A detailed description of the work product
+     </details>
+     </workproduct>
+-->
+
+<workproduct id="WP-001">
+  <name>Potentially Shippable Product Increment</name>
+  
+  <description>
+    The outcome of every sprint is a potentially shippable product increment.
+  </description>
+  
+  <details>
+    There is much debate about the difference between "potentially shippable (done)" and "shippable".
+
+    Mike Cohn states:
+
+    ... "potentially shippable" and "shippable" are not the same thing. Some large or complex projects will require the use of "release sprint" or "hardening sprint" at the end of a release cycle (say 6 two-week sprints then a 2-week release sprint). The release sprint is not a dumping ground for sloppy work; rather it is a place where some hardening of the system can occur.
+
+    One thing is clear Scrum teams need to agree on their definition of "potentially shippable" and "shippable" and to come to a shared understanding with the Product Owner.
+  </details>
+</workproduct>
+
+<workproduct id="WP-002">
+  <name>Product Backlog</name>
+  
+  <description>
+    The Product Backlog is the master list of all functionality desired in the product.
+  </description>
+  
+  <details>
+  </details>
+</workproduct>
+
+<workproduct id="WP-003">
+  <name>Release Burndown Chart</name>
+  
+  <description>
+    The release burndown chart tracks a team's progress against its release plan.
+  </description>
+  
+  <details>
+    On a Scrum project, the team tracks its progress against a release plan by updating a release burndown chart at the end of each sprint. The horizontal axis of the release burndown chart shows the sprints; the vertical axis shows the amount of work remaining at the start of each sprint. Work remaining can be shown in whatever unit the team prefers--story points, ideal days, team days, and so on. 
+  </details>
+</workproduct>
+
+
+<workproduct id="WP-004">
+  <name>Sprint Backlog</name>
+  
+  <description>
+    The sprint backlog is the list of tasks that the Scrum team is committing that they will complete in the current sprint.
+  </description>
+  
+  <details>
+  </details>
+</workproduct>
+
+
+
+<workproduct id="WP-005">
+  <name>Sprint Burndown Chart</name>
+  
+  <description>
+    The Sprint Burndown Chart is a graphical representation of the work remaining over the duration of the Sprint.
+  </description>
+  
+  <details>
+    The estimated work remaining in the sprint is calculated daily and graphed, resulting in a Sprint Burndown Chart The vertical axis displays the hours of effort remaining for the Sprint.  The horizontal axis displays the days of the Sprint.  The burndown is supposed to be shown by the line of descent from the start of the Sprint with the starting hours, down to the end of the Sprint with no hours remaining.  
+  </details>
+</workproduct>
+
+<workproduct id="WP-006">
+  <name>Task Board</name>
+  
+  <description>
+    The task board shows all the work the team is doing during a sprint.
+  </description>
+  
+  <details>
+      The task board shows all the work the team is doing during a sprint. It is updated continuously throughout the sprint–if someone thinks of a new task they write a new card and puts it on the board. Either during or before The Daily Scrum, estimates are changed (up or down) and cards are moved around the board.
+  </details>
+</workproduct>
+

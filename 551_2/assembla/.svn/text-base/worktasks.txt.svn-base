@@ -1,0 +1,226 @@
+<!-- This document only contains Work Tasks -->
+<!-- Process documents can include any work task in this document via the <worktask id="WT-###"> tag -->
+
+<!-- Comments are enclosed in these -->
+
+<!-- Define each work task with the following format
+Note: Indention is for readability only, tags are not case sensitive
+<worktask id="WT-###">
+  <name>A short name for the task</name>
+
+  <actor>
+    An actor is anything outside the system that interacts with the system to complete a task.  It could be a user or another system.  The actor "uses" the use case to complete a task.  
+  </actor>
+  
+  <description>
+    Brief description of the work task to be performed by the actor
+  </description>
+  
+  <inputproducts>
+    <!-- Optional: List the input work products from the global Work Products list using the following tag: -->
+    <workproduct id="WP-###">Name</workproduct>
+  </inputproducts>
+  
+  <workproducts>
+    <!-- List the work product outputs from the global Work Products list using the following tag: -->
+    <workproduct id="WP-###">Name</workproduct>
+  </workproducts>
+  
+  <details>
+    Optional: Include a longer description here.
+  </details>
+</worktask>
+-->
+
+<worktask id="WT-001">
+  <name>Sprint Planning Meeting</name>
+  <actor><role id="R-001">Product Owner</role></actor>
+  <actor><role id="R-002">Scrum Master</role></actor>
+  <actor><role id="R-003">Scrum Team</role></actor>
+  
+  <description>
+    The Sprint Planning Meeting is where the Scrum Team and Product owner determine which features and tasks will be attempted in the upcoming sprint.
+
+    The Sprint Planning Meeting is attended by the Product Owner, Scrum Master, the entire Scrum Team, and any interested and appropriate management or customer representatives.
+
+    During the sprint planning meeting the product owner describes the highest priority features to the team. The team asks enough questions during this meeting so that they can go off after the meeting and determine which tasks they will move from the product backlog to the sprint backlog.
+
+    Collectively, the Scrum team and the product owner define a sprint goal, which is a short description of what the sprint will attempt to achieve. The success of the sprint will later be assessed during the Sprint Review Meeting against the sprint goal, rather than against each specific item selected from the product backlog.
+
+    After the sprint planning meeting, the Scrum team meets separately to discuss what they heard and decide how much they can commit to during the coming sprint. In some cases there will be negotiation with the product owner but it will always be up to the team to determine how much they can commit to completing.
+  </description>
+  
+  <inputproducts>
+    <workproduct id="WP-002">Product Backlog</workproduct>
+  </inputproducts>
+
+  <workproducts>
+    <workproduct id="WP-004">Sprint Backlog</workproduct>
+  </workproducts>
+  
+</worktask>
+
+<worktask id="WT-002">
+  <name>Sprint Retrospective</name>
+  <actor><role id="R-001">Product Owner</role></actor>
+  <actor><role id="R-002">Scrum Master</role></actor>
+  <actor><role id="R-003">Scrum Team</role></actor>
+  
+  <description>
+    Following the Sprint Review, the team gets together for the Sprint Retrospective.
+  </description>
+  
+  
+  <details>
+    The Sprint Retrospective is an opportunity for the team to discuss what's working and what's not working, and agree on changes to try.  One approach taken is that the whole team gathers and discusses what they’d like to
+
+    * Start doing
+    * Stop doing
+    * Continue doing    
+  </details>
+</worktask>
+
+<worktask id="WT-003">
+  <name>Sprint Review Meeting</name>
+  <actor><role id="R-003">Scrum Team</role></actor>
+  <actor><role id="R-001">Product Owner</role></actor>
+  <actor><role id="R-002">Scrum Master</role></actor>
+  
+  <description>
+    Each sprint concludes with a Sprint Review where the team demonstrates a potentially shippable product increment.
+  </description>
+  
+  <inputproducts>
+    <workproduct id="WP-004">Sprint Backlog</workproduct>
+  </inputproducts>
+
+  <workproducts>
+    <workproduct id="WP-003">Release Burndown Chart</workproduct>
+    <workproduct id="WP-006">Task Board</workproduct>
+  </workproducts>
+  
+  <details>
+    At the end of each sprint a sprint review meeting is held. During this meeting the Scrum team shows what they accomplished during the sprint. Typically this takes the form of a demo of the new features.
+
+    Participants in the sprint review typically include the Product Owner, the Scrum team, the ScrumMaster, management, customers, and engineers from other projects.
+
+    During the sprint review the project is assessed against the sprint goal determined during the Sprint planning meeting. Ideally the team has completed each product backlog item brought into the sprint, but it is more important that they achieve the overall goal of the sprint.  
+  </details>
+</worktask>
+
+<worktask id="WT-004">
+  <name>The Daily Scrum</name>
+  <actor><role id="R-003">Scrum Team</role></actor>
+  <actor><role id="R-001">Product Owner</role></actor>
+  <actor><role id="R-002">Scrum Master</role></actor>
+  
+  <description>
+    The Daily Scrum is a quick meeting comprised of all members of the Scrum Team and the Scrum Master.
+  </description>
+  
+  <inputproducts>
+    <workproduct id="WP-006">Task Board</workproduct>
+  </inputproducts>
+
+  <workproducts>
+    <workproduct id="WP-004">Sprint Backlog</workproduct>
+    <workproduct id="WP-005">Sprint Burndown Chart</workproduct>
+    <workproduct id="WP-006">Task Board</workproduct>
+  </workproducts>
+  
+  <details>
+    On each day of a sprint, the team holds daily meetings (“the daily scrum”). Meetings are typically held in the same location and at the same time each day. Ideally the daily scrums are held in the morning as they help set the context for the coming day's work.
+
+    All team members are required to attend the daily scrum. Anyone else (for example, a departmental VP, a salesperson, or a developer from another project) is allowed to attend but is there only to listen. This makes the daily scrums an excellent way for a Scrum team to disseminate status information--if you're interested in hearing where things are at, attend that day's meeting.
+
+    The daily scrum is not used as a problem-solving or issue resolution meeting. Issues that are raised are taken offline and usually dealt with by the relevant sub-group immediately after the daily scrum. During the daily scrum each team member provides answers to the following three questions:
+
+    # What did you do yesterday?
+    # What will you do today?
+    # Are there any impediments in your way?
+
+    By focusing on what each person accomplished yesterday and will accomplish today the team gains an excellent understanding of what work has been done and what work remains. The daily scrum is not a status update meeting in which a boss is collecting information about who is behind schedule. Rather, it is a meeting in which team members make commitments to each other. If a programmer stands up and says "Today I will finish the data storage module" everyone knows that in tomorrow's meeting he will say whether or not he did finish. This has the wonderful effect of helping a team realize the significance of these commitments and that their commitments are to each other, not to some far-off customer or salesman.
+
+    In cases where the ScrumMaster cannot remove these impediments directly himself (e.g., usually the more technical issues) he still takes responsibility for making sure someone on the team does quickly resolve the issue.
+  </details>
+</worktask>
+
+<worktask id="WT-005">
+  <name>Estimating the Product Backlog</name>
+  <actor><role id="R-003">Scrum Team</role></actor>
+  <actor><role id="R-001">Product Owner</role></actor>
+  <actor><role id="R-002">Scrum Master</role></actor>
+  
+  <description>
+    Periodically the Scrum Team will estimate the size of each item on the Product Backlog.
+  </description>
+  
+  <inputproducts>
+    <workproduct id="WP-001">Product Backlog</workproduct>
+  </inputproducts>
+
+  <workproducts>
+    <workproduct id="WP-001">Product Backlog</workproduct>
+  </workproducts>
+  
+  <details>
+    Prior to release planning and periodically as the product backlog evolves and the team gains insight through experience the Scrum Team will estimate the size of items on the Product Backlog.   This is key information to help the Product Owner make prioritization decisions (some items may become less of a priority if the Product Owner learns that major effort will be required to deliver them).
+
+    Estimations are relative and are measured in “points” rather than real-world units of effort.  To the uninitiated this may seem unpredicatable but after the first few sprints Scrum teams can empirically derive a velocity that allows them to accurately predict delivery capability. 
+  </details>
+</worktask>
+
+<worktask id="WT-006">
+  <name>Prioritizing the Backlog</name>
+  <actor><role id="R-001">Product Owner</role></actor>
+  
+  <description>
+    The items in the Product Backlog are prioritized by the Product Owner prior to release and sprint planning.
+  </description>
+  
+  <inputproducts>
+    <workproduct id="WP-001">Product Backlog</workproduct>
+  </inputproducts>
+
+  <workproducts>
+    <workproduct id="WP-001">Product Backlog</workproduct>
+  </workproducts>
+  
+  <details>
+    The Product Backlog is a prioritized list of work to be completed by the team.  It is continuously updated by the Product Owner based on feedback from the end-user (as they are exposed to new product increments) and also in response to the evolving technical and business landscape.
+
+    It is important that the team provides the Product Owner with sizing estimates for the Product Backlog items to enable the Product Owner to balance business need with the estimated cost of implementation.
+  </details>
+</worktask>
+
+<worktask id="WT-007">
+  <name>Release Planning</name>
+  <actor><role id="R-003">Scrum Team</role></actor>
+  <actor><role id="R-001">Product Owner</role></actor>
+  <actor><role id="R-002">Scrum Master</role></actor>
+  
+  <description>
+    At the beginning of a project the team will create a high-level release plan.
+  </description>
+  
+  <inputproducts>
+    <workproduct id="WP-001">Product Backlog</workproduct>
+  </inputproducts>
+  
+  <details>
+    At the beginning of a project the team will create a high-level release plan.  The team cannot possibly know everything up front so a detailed plan is not necessary.  The release plan should address:
+
+    * The number and duration of the sprints
+    * How many people or teams should be on this project
+    * The number of releases
+    * The value delivered in each release
+    * The ship date for the releases
+    
+    Key inputs to release planning are:
+
+    * The prioritized Product Backlong
+    * The estimated velocity
+    * Any hard and fast to-market dates the Product Owner must satisfy
+  </details>
+</worktask>
+

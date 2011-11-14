@@ -1,0 +1,7 @@
+* Input [0/2]
+  - [ ] [[http://echo360.pdx.edu/ess/echo/presentation/6258a5b8-ecc8-452b-96c7-7ba268a7c319][Video]] / [[file:L4_Product_Lines_I_11.pptx][Slides]]
+  - [ ] Read:
+    - [ ] Weiss/Lai Chapters 1-3
+    - [ ] Clements/Northrup Chapters 1-3 ([[http://www.sei.cmu.edu/productlines/frame_report/introduction.htm][intro]] and [[http://www.sei.cmu.edu/productlines/frame_report/PL.essential.act.htm][essentials]])
+* Output
+  - [ ] [[file:discussion.org][Discussion]] / [[https://d2l.pdx.edu/d2l/common/dialogs/quickLink/quickLink.d2l%3Fou%3D85543&type%3Ddiscuss&rCode%3DPortland_p-162465][online]]

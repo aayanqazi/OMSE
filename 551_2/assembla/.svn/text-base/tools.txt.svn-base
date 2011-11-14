@@ -1,0 +1,49 @@
+<!-- This document only contains Process Tools -->
+<!-- Process documents can include any tool in this document via the <tool id="PT-###"> tag -->
+
+<!-- Comments are enclosed in these -->
+
+<!-- Define each tool with the following format
+     Note: Indention is for readability only, tags are not case sensitive
+     <tool id="PT-###">
+     <name>A short name for the process tool</name>
+     
+     <description>
+     A brief description
+     </description>
+     
+     <examples>
+     A list of possible tools which meet desired characteristics.
+     </examples>
+     
+     <details>
+     Optional: A detailed description of the work product
+     </details>
+     </tool>
+-->
+
+<tool id="PT-001">
+  <name>Whiteboard</name>
+
+  <description>
+    This is used for planning and collaborative processes.
+  </description>
+  
+  <examples>
+    Chalkboard, whiteboard, large sheets of paper
+  </examples>
+</tool>
+
+<tool id="PT-002">
+  <name>Information Radiator</name>
+  
+  <description>
+    Information is spread through the team through the use of common "dashboard"-like status indicators.  This usually includes a display of the current sprint's task board, and perhaps a burndown chart or two.
+  </description>
+  
+  <examples>
+    Shared Jira dashboard; post-its and printouts on the white board.
+  </examples>
+  
+</tool>
+

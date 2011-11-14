@@ -1,0 +1,12 @@
+* Input [0/2]
+  - [ ] [[http://echo360.pdx.edu/ess/echo/presentation/76cab1ca-6e92-44be-9355-5493c93342b7][Video]] / [[file:L2_Process_I_11.pdf][Slides]]
+  - [ ] Read:
+    - [ ] [[file:KirbyLaiWeiss.pdf][Kirby-Lai-Weiss]]
+    - [ ] [[file:Fake_it.pdf][Fake it]]
+    - [ ] [[file:Paulk_cmm1.pdf][CMM]]
+* Output
+  - [ ] [[file:discussion.org][Discussion]]
+* TODO Process Modeling
+  - [[file:~/Dropbox/omse/551_2/assembla/][Working directory]]
+  - [[http://web.cecs.pdx.edu/~omse551/ProcessModeling/index.php%3Fuser%3Dbenstraub][Test here]]
+  - [[http://epf.eclipse.org/wikis/scrum/][Scrum description]]

@@ -1,0 +1,7 @@
+* Input [3/3]
+  - [X] [[http://echo360.pdx.edu/ess/echo/presentation/59d69457-9565-475c-a546-c2f1a079740f][Video]] / [[file:L1_Overview_11.pptx][Slides]]
+  - [X] [[file:wk1_read_Clements_Brownsword.pdf][Clements]] (CelsiusTech)
+  - [X] [[file:wk1_read_GibbsChronicChrisis.pdf][Gibbs]]
+* Output [1/1]
+  - [X] [[file:discussion.org][Discussion]]
+        - [X] [[https://d2l.pdx.edu/d2l/common/dialogs/quickLink/quickLink.d2l%3Fou%3D85543&type%3Ddiscuss&rCode%3DPortland_p-133280][Turn in here]])

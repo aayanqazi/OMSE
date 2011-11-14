@@ -1,0 +1,8 @@
+* Input [0/2]
+  - [ ] [[http://echo360.pdx.edu/ess/echo/presentation/c7d69c68-ecc0-4bdf-813a-d9db975cacff][Video]] / [[file:L2_Process_I_11.pdf][Slides]]
+  - [ ] Read:
+    - [ ] [[file:KirbyLaiWeiss.pdf][Kirby-Lai-Weiss]]
+    - [ ] [[file:Fake_it.pdf][Fake it]]
+    - [ ] [[file:Paulk_cmm1.pdf][CMM]]
+* Output
+  - [ ] [[file:discussion.org][Discussion]]

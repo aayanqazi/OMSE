@@ -1,0 +1,46 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage[pdfborder={0 0 0}]{hyperref} % Remove borders from PDF links
+\usepackage[all]{hypcap}
+\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage{graphicx}
+\usepackage[]{todonotes}
+
+\usepackage{mathpazo}
+
+\newcommand{\notdone}{\todo[color=red]{}}
+
+% Remove numbering from subsections
+\setcounter{secnumdepth}{0}
+
+\begin{document}
+
+\author{Ben Straub\\OMSE 551, Fall 2011}
+\title{Project Proposal}
+\date{}
+\maketitle
+
+% No page numbers
+\pagestyle{empty}
+\thispagestyle{empty}
+
+\setlength{\parindent}{0pt}     % for less indentation
+\setlength{\parskip}{1em}       % for more whitespace
+
+I propose to develop a commonality analysis of the family of products we produce at Monsoon Commerce.  I've worked on these systems for six months, after which I feel confident in analyzing their product-line qualities.
+
+The introductory material will cover the domain of the systems, with explanations of the problems solved.  This family of systems solves many problems in the specific domain of selling on Internet marketplaces, so this overview will be at a high level.  I will attempt to briefly cover the interfaces to other software systems, though fully documenting the APIs of Amazon and eBay is outside the scope of this project.  There will be visual aids and a glossary.
+
+Once the reader has an idea of the problem domain, I can describe the family itself, and how it addresses the needs of the target markets.  The products we sell are aimed at various segments of a continuum of users, and these segments will be described so as to justify the separate systems that have been developed for them.
+
+Once the background has been documented, I can proceed to analyze the commonalities and variabilities between family members.  Variabilities will be documented with parameters of variation, such that it can be seen what the root cause is of each variation.  The FWS case study uses a table to describe these relationships; I will likely use something of similar form.
+
+The deliverables for this project will be:
+
+\begin{enumerate}
+\item A commonality analysis document.
+\item Slides for a presentation which covers the document.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,117 @@
+Week 1 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+  In the lecture this week, I talked about the "components" of strategic software development.  In particular, the need to adapt the products, the process, and the organization to reflect a strategic development strategy.  I find the Celsius Tech case study valuable, in part, because it gives some insight to the adaptations Celsius Tech made in each of these areas.  
+
+  This week we have one question associated with the changes made to each of the product, process, and organization.  Please answer at least two of the three (parts A, B, and C).  You don't need to go into excruciating detail.  A few paragraphs on each should be adequate 
+
+* Q1
+  Part A.  For the first question, please discuss what kind of changes Celsius Tech made to the set of products it developed.  
+
+  Before adopting a product-line approach, the focus of the development effort was on producing the software command and control system for a particular kind of ship that met a specific customer's behavioral and developmental requirements
+
+  - What is the focus of development after the change?
+  - What products are produced?
+  - How are the requirements different?
+
+** DONE First
+  /What is the focus of development after the change?/
+
+  CelsiusTech decided to bet on a product-line approach to developing these systems.  After this decision was made, the development focus was on maintaining the product line.  Engineers developed the system architecture and modules, such that a subset of the code base could be generated that met the requirements of the current project.
+
+  /What products are produced?/
+
+  From the outside, the company produced ship systems.  Internally, the team produced a flexible process that could generate ship systems with a minimum of rework, and a maximum of reuse.
+
+  /How are the requirements different?/
+
+  Delivering a ship system is different than delivering a machine that produces ship systems.  For instance, large parts of this machine are constructed from people, for which there exists no documentation or version control.  
+
+*** Me / Stuart
+    /Exactly what are you saying did not have documentation or version control?/
+
+    Sorry, this was me trying to be overly clever.  People do not have documentation, and you cannot =git init= your coworkers.  
+
+
+** Johhny / Ivan
+   /In fact, they were separating product line requirements from customer-unique requirements./
+
+   Do you think the line requirements are a strict superset of the customer-system requirements?  For example, the product line must support scenarios A, B, and C, and this customer needs B.
+
+   Or is it more useful to think of a trunk/branch model?  The core code supports scenarios A and B, and customer 372 needs B with a few tweaks, so we'll keep track of the changes.
+
+* Q2
+  For this question, please discuss what kind of changes Celsius Tech made to its software development process.  
+
+  Before adopting a product-line approach, the process was a pretty standard waterfall - focused on developing a particular system to meet a particular customer's requirements.  
+
+  How is the process different after the change?  I.e., what's different about the goals of the process?  The sequence of activities?  Are there different criteria for considering the process a success?  Is there more than one kind of  development process?  Who owns or executes each type of process?
+
+** DONE First
+   /How is the process different after the change?  I.e., what's different about the goals of the process?  The sequence of activities?/
+
+   The new process is more /strategic/, in that it considers more projects than the current one.  Requirements gathering and design are augmented by commonality analysis, where the project is planned as a set of tailorings to the existing code base, rather than as a new system.
+
+   /Are there different criteria for considering the process a success?/
+
+   In addition to producing a suitable system, the work must also be evaluated in terms of the architecture and capability of the process.  Does this work make it easier or more difficult to produce more systems?  How difficult is it to make a system that is different in a likely way?
+
+   /Is there more than one kind of development process?/
+
+   There are at least two described in the paper.  I assume there are others.
+
+   - The system product development process is concerned with the activities necessary to produce a specific system for delivery to a customer.
+   - The system family development process is concerned with creating a new function (or group of functions) that will integrate with the system architecture.
+
+   /Who owns or executes each type of process?/
+
+   The whole organization is responsible for maintaining and executing each of these processes, since the whole organization is committed to this development model.
+
+
+** Johnny
+   /In addition to the above shifts, we also see that the software life-cycle approach shifted from RTL/2-based structured analysis/design and waterfall development to Ada83 with more object-based and iterative development processes.  They also migrated from custom, locally created and maintained development tools to a large, commercially supplied environment./
+
+   It seems like they were betting on a lot of unproven technologies and techniques.  It's interesting to think whether any of our companies would go all-in to something so cutting-edge.  Would your boss okay a 5-year project run [[http://thegeektalk.com/interviews/scott-chacon/][the GitHub way]], and write it all in Haskell?
+
+* Q3
+  For this question, please discuss what kind of changes Celsius Tech made to its organizational structure and the roles people play in that organization. Before moving to product lines, Celsius Tech was organized by project, i.e. a pretty standard stovepipe organization with a distinct group building each product.
+
+  In moving to product lines, Celsius Tech actually went through a couple of reorganizations; first, to develop the original set of reusable assets the subsequently, to exploit the mature product line. In answering the question, you can pick either point in the organization's evolution to answer the following questions: 
+
+
+  - How did the organization have to change to develop a product line?
+  - What roles were introduced or changed and what was the responsibility of the role (e.g., what did the software architect do before and after)?  
+  - How did the organizational structure change? Budgeting? Relationships between different organizational entities (e.g., marketing and engineering)?
+
+** DONE First
+   /How did the organization have to change to develop a product line?/
+
+   The organization was re-jiggered to treat the production of specific systems as a mechanical process.  Where the development used to report to project management, now both disciplines are subordinate to program management, which has a more strategic focus than delivering on the current contract.
+   
+   /What roles were introduced or changed and what was the responsibility of the role (e.g., what did the software architect do before and after)?/
+
+   Before the transition, the architecture team was responsible for the architecture, but didn't have any authority over the disparate functional teams.  During the initial development period, the architecture team was arguable the team with the most authority in the company, since the quality of the overall system design would determine whether this effort would succeed or fail.  Once the initial period was over, the role of architecture changed again, this time toward maintaining conceptual integrity and keeping the design aesthetic.
+
+   /How did the organizational structure change? Budgeting? Relationships between different organizational entities (e.g., marketing and engineering)?/
+
+   Chapter 6 in the Clements paper talks about how the organization had to change to accommodate this new approach.  Marketing had to understand the capabilities of this new process to avoid under- or over-selling, which meant understand some of the system architecture.  In return, they were given a much more marketable system, which is adaptable even to other domains.
+
+   Budgeting changed as well; software development went from 65% of the cost for a given project to only 20%, and each new system ships with an average of 80% of the code being reused.
+*** Ayellet
+    /[...] a key change is that in the new org structure both the Air defense and the Navel groups had their own marketing [...], customer, proposal and system definition [...] groups./
+
+    That's a good point.  Before the transition, the company only had capacity to make naval systems, so there was only one marketing department, one system definition group, and so on.  With these new capabilities and bandwidth, it probably made sense to separate out marketing for the different types of systems, since they take different tactics and the markets don't overlap.
+
+
+*** Stuart
+    /[...] the budgets were no longer allocated to project team [...]. Rather, it goes first to the product line development./
+
+    Is this possible?  How do the accountants figure out how much was spent on project Y for customer Z?  Was it more or less than the $X we charged them?  How does the sales organization figure out how much to charge for a given project?
+
+    Either the R&D budget has to be kept separate from project budgets, or the cost of developing the product line has to be amortized across all the projects.  Either way, every project has to have some sort of budget/cost numbers associated with it.
+
+** Craig / Andy / Craig
+   /In beginning I can only imagine that many people thought they were crazy [...]/
+
+   It's actually kind of amazing they got off the ground at all.  Imagine your current workplace stopping *everything* and switching to a completely sideways workflow, and writing everything in Haskell.

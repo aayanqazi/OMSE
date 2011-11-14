@@ -1,0 +1,8 @@
+Week 3 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+
+* TODO Me 
+
+

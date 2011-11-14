@@ -1,0 +1,13 @@
+* Input [0/2]
+  - [ ] [[http://echo360.pdx.edu/ess/echo/presentation/0837da4d-2880-4972-88d8-d0bc9a27b0e3][Video]]
+  - [ ] Read:
+    - [ ] Clements/Northrop Chapter 5
+    - [ ] DeBaud 99
+    - [ ] Bockle 04
+* Output
+  - [X] FWSOS Exercise
+    - [[file:FWSOS_Domain_Project.doc][document]]
+    - [X] [[file:FWSCA_Start.html][deliverable]]
+  - [ ] Proposal
+    - [[file:Dukart_Proposal.doc][Example proposal]]
+    - [ ] [[file:proposal.tex][WIP]]

@@ -1,0 +1,36 @@
+<!-- The introduction file -->
+
+<Title>OMSE551 - Processes</Title>
+
+<Credits>
+Author: Ben Straub
+</Credits>
+
+<Introduction>
+	<Overview>
+		This document describes the Scrum software development methodology.
+
+		Each process contains a workflow which refers to common process roles, tools, work tasks and work products. In this manner, when reading a process that contains the same role used by another process, you can be certain that the role has the same definition for both processes. For convenience, the definition for all referenced common process roles, tools, work tasks and work products for a given process are included with that process. There are also pages for common process roles, tools, work tasks and work products where you can see which processes reference each definition.
+
+		<a href="roles.html">Roles</a> describe the different responsibilities each person has in a process. In many cases, the same role may be performed by multiple process participants. The opposite is also often true. One participant may perform multiple roles for a given process.
+
+		<a href="worktasks.html">Work tasks</a> are process workflow fragments. These work tasks my explain in more detail a portion of a process workflow, and or may be an abstract workflow fragment that is performed in multiple processes.
+
+		<a href="workproducts.html">Work products</a> are inputs and outputs to work tasks and process work flows. These inputs and outputs may be formal documents, informal documents or transitory items.
+
+		<a href="tools.html">Tools</a> define various classes of tools that are needed for a process without specifying a specific product. Instead, examples are provided and it is up to the reader to choose the best product that meets their needs along with the process. For example, instant messaging may be defined as a tool, with Google Talk and AIM referenced as examples, but feel free to use MSN Messenger or any other product that satisfies the instant messaging tool class.
+
+		Important note: the Definitions, Audience, Scope, and Reasons sections of this Introduction are common to all of the processes on this website. Processes which have their own additional definitions, audience considerations, usage scope, and or reasons specify this their Section 1.
+	</Overview>
+
+	<Audience>
+		The target audience for these processes and guidance are:
+			* Software developers and team leaders
+			* Project managers
+	</Audience>
+	
+	<Scope>
+		These documents are written to cover the Scrum process and its inputs and outputs.  Organizational context, specific technology choices, and other such details are outside the scope of this document.
+   </Scope>
+	
+</Introduction>

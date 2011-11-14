@@ -1,0 +1,58 @@
+<!-- This document only contains Roles -->
+<!-- Process documents can include any role in this document via the <role id="R-###"> tag -->
+
+<!-- Comments are enclosed in these -->
+
+<!-- Define each role with the following format
+     Note: Indention is for readability only, tags are not case sensitive
+<role id="R-###">
+	<name>Role Name</name>
+	
+	<description>
+		Put the description text here. It can be multiple paragraphs.
+		Start lines with a * for unordered lists, and # for ordered lists.
+	</description>
+	
+	<skills>
+		A brief description of the skills needed for this role
+	</skills>
+</role>
+-->
+
+<role id="R-001">
+	<name>Product Owner</name>
+	<Description>
+		The Product Owner represents the interests of all stakeholders, defines the features of the product and prioritizes the Product Backlog.
+	</Description>
+	<skills>
+     * Knowledge of the domain of the system under development
+     * Knowledge of the implementation domain is desirable
+     * Knowledge of the Scrum process is desirable
+	</skills>
+</role>
+
+<role id="R-002">
+	<name>Scrum Master</name>
+	<Description>
+		The ScrumMaster is responsible for making sure a Scrum team lives by the values and practices of Scrum. The ScrumMaster protects the team by making sure they do not overcommit themselves to what they can achieve during a sprint. 
+
+      The ScrumMaster facilitates the daily scrum and becomes responsible for removing any obstacles that are brought up by the team during those meetings.
+	</Description>
+	<skills>
+     * Knowledge of the Scrum process (CSM desirable)
+     * Meeting facilitation
+     * Training skills
+	</skills>
+</role>
+
+<role id="R-003">
+	<name>Scrum Team</name>
+	<Description>
+		The Scrum Team builds the product that the customer is going to consume: the software or website, for example. The team in Scrum is "cross-functional" - it includes all the expertise necessary to deliver the potentially shippable product each Sprint - and it is "self-organizing", with a very high degree of autonomy and accountability.
+	</Description>
+	<skills>
+     * Knowledge of tools used to produce software (source control, programming language, etc.)
+     * Knowledge of the Scrum process is desirable
+	</skills>
+</role>
+

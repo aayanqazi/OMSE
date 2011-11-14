@@ -1,0 +1,65 @@
+body {
+        padding: 50px;
+}
+
+p.error {
+        display: inline;
+        color: red;
+}
+
+table {
+        border-collapse:collapse;
+        border-width: 1px;
+        border-style:solid;
+}
+
+th {
+        padding: 5px;
+        text-align:left;
+        background-color: #cfcfcf;
+}
+
+tr {
+        border-width: 1px;
+        border-style:solid;
+}
+
+td {
+        padding: 5px;
+}
+
+tr.alt td {
+        background-color: #F5F5F5;
+}
+
+div.title {
+        text-align:center;
+}
+
+div.subsection {
+        margin-left: 1em;
+}
+
+table.list {
+        margin-left: 1em;
+        margin-right: auto;
+}
+
+table.detailed {
+        width: 100%;
+        margin-bottom: 10px;
+}
+
+table.detailed th, td {
+        vertical-align: top;
+        text-align: left;
+}
+
+table.detailed th, td {
+        vertical-align: top;
+        text-align: left;
+}
+
+table.detailed th.side {
+        width: 15%;
+}

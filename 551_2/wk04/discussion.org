@@ -1,0 +1,68 @@
+Week 4 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+For this week's discussion, you should identify and describe a program family that you have experience with. Preferably pick a system from your work experience but, if nothing comes to mind, you can choose a commercial software product or something similar. For the set of systems you pick, please discuss the following:
+
+1. Briefly describe the software (what the product is and, if it is not familiar, what it does)
+2. Describe why you believe the software is a family:
+   1. Describe what the systems have in common.
+   2. Describe how they tend to vary from one member of the family to the next.
+   3. Briefly discuss why it "pays" to look first at the common aspects (i.e., what's gained?)
+5. Briefly discuss whether or not you think the family you describe would make a viable product line and why you think so.
+
+* DONE Me 
+1. /Briefly describe the software (what the product is and, if it is not familiar, what it does)/
+
+   Our primary products qualify as a family.  My company produces tools that help people sell things on the Internet, by listing and pricing on various marketplaces (such as Amazon and eBay).  The tools are divided into three editions based on the needs of the customer:
+   * The most basic is available only on the web, and has only the most basic feature set.
+   * The next step up is targeted at larger sellers.  The database is hosted on the customer's machine, and more features and a more powerful UI are available, as well as integration with third-party tools.
+   * The highest is aimed at very-high-volume sellers who have an entire warehouse, and more complex inventory needs.
+
+2. /Describe why you believe the software is a family:/
+
+   /Describe what the systems have in common./
+
+   All of the systems share the same two core features: listing items on marketplaces, and dynamically re-pricing them to remain competitive.
+
+   /Describe how they tend to vary from one member of the family to the next./
+
+   The main differences are in the UI; certain features are hidden or simplified for the lower-end editions.  The lowest-end edition uses a web interface and a database that's hosted on our servers, where the higher-powered tools require a dedicated machine owned by the customer.  
+
+   /Briefly discuss why it "pays" to look first at the common aspects (i.e., what's gained?)/
+
+   The first thing is efficiency.  If these tools had been developed entirely separately, the most valuable piece of technology we've developed would need to be invented again and again.
+
+   Secondly, it provides flexibility in how the company decides its strategy.  If the functionality is to be expanded in a certain direction, this can be done in one codebase, rather than three or more.  
+
+** Ayellet
+   /[...] do you have a team that owns developing the 2 core components and then other teams that develop the 3 diffrenat products?/
+
+   Our team is small -- there are only 7 of us.  As a result, everybody does a little of everything.
+
+   The code is architected such that there's really only one product, one binary package that comes out of a nightly build.  The customer sees different levels of features depending on which license they've purchased, but those decisions are all made at runtime.
+
+** Stuart
+   /[...] do you think this is a product line or could be made into one?/
+
+   As it is, it's not really a product-line.  We only ship one binary package; the decision of which features to expose to the user is made at runtime, based on their license key.
+
+   Now, if we were to split up the various functional pieces into separate services, we could then repackage them with a custom-to-task UI.  *Then* it would be a product line.
+
+** Ivan
+   /[...] create core product which covers functionality for most advanced (or expensive) version and then for use the same core for a "light" or even free version by hiding or disabling some functionality./
+
+   It's not just that, though.  Some of our customers are working out of their living rooms, and some of them have several large warehouses.  The needs of those customers are very different, and the in-my-garage seller would like the product /less/ if it were cluttered with all the "warehouse shelf" fields and extra gunk in the UI.  This is more about a simple experience versus a powerful experience, and ramping users up the curve as their businesses grow.
+
+** Ivan/Craig
+   /It seems people are more accepting of this idea of enabling/disabling certain features with software./
+
+   That's true, but mostly because most people look at software as magic.  Windows 7 is a good example: you have, on your hard drive, all the bits necessary to run Ultimate, but depending on how much money you give Microsoft, you may only be able to run 3 applications at once.  People accept this because they don't know it's there.
+
+   We only produce one binary installer, and the feature set is determined at run-time.  However, the support page for each of our product family members has its /own/ download link, so users are confident they're getting the right bits.
+
+   Also, our product line isn't really about restricting capabilities, it's more about streamlining the experience.  People running businesses in their garage don't need to see multi-warehouse inventory locator stuff, so we don't show it to them.  Once they get big enough to need that stuff, buying the extra features is more than worth it.
+
+* Response 1
+
+* Response 2

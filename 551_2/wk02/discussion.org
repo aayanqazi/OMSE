@@ -1,0 +1,48 @@
+Week 2 discussion
+
+#+OPTIONS: num:nil toc:nil author:nil timestamp:nil creator:nil
+
+This week's lecture discussed the notion of "processes as products." I.e., the idea that processes can and should be one of the things we are able to create when we take a strategic view of software development. The product of the development is some form of transferable representation of the process (e.g., a manual or other written description).
+
+This week, I'd like you to consider what organizational capabilities are needed to develop and deploy processes. If possible, answer the question in the context of your organization. In other words, consider what capabilities you would need in your organization to develop, deploy, maintain, etc. processes that would be used to support its business goals.
+
+Let me narrow this question somewhat so the intent is clear. To help you develop (new) process designs, you need capabilities analogous to those you might want to develop software designs such as a process development group, a development method, a specification/modeling language, and so on. The question is, "What would be useful if you are designing processes rather than software?"
+
+To ground the questions, try to relate it to you own work environment. This means that you should consider what your process development goals would be: for example, one organization might be more interested in process improvement where another is more interested in ensuring compliance with a standardized process. 
+
+Issues to consider would include:
+
+1) Method: 
+    What kinds of questions would a process modeling method answer?
+
+2) Modeling language:
+    Who would use a model in the language?
+    What, specifically, would they do with the language?
+    What kinds of questions should the model be able to answer for a user?
+
+3) Tool support:
+   1. What do I want to capture in a process model (description)?
+   2. What would I analyze one for?
+   3. What kind of simulation capabilities might be useful?
+   4. What kinds of questions would I use simulation to answer?
+
+If the assignment still does not make sense to you, please let me know.
+
+
+* DONE Me 
+  In order to support the development of a software engineering process, an organization must first be aware that the development process is one of the things it is producing.  The idea here is that the organization knows that the very next step is not the last, that the development process will continue beyond that.  This is analogous tohaving architecture or design documents for the system under maintenance, and is signified by the presence (and quality) of process documentation.
+
+  Another thing that must be present is resources.  In order to add functionality to software, people must be assigned to design and write the code; for process engineering, this means that there must be people whose job it is to architect, design, and implement the process, and improvements thereof.  This seems obvious when you say it out loud, but many organizations don't consciously dedicate resources to this.
+
+  Yet another thing is testing.  Any decent software team has on staff at least one person who is paid to find problems in the system, and to ensure the system is fulfilling its requirements.  So it is with process engineering: there must be a way of measuring how close the process is to meeting its goals, or how much it is deviating from the specification, and to log defects and desired improvements somewhere.
+
+** Me / Ian
+   /If your IT staff is large enough, then it makes sense to break responsibilities into dedicated roles, but until the total team size gets large enough, I dont think its feasible to do so./
+
+   Oh, I totally agree.  Having dedicated personnel around to do process engineering is *expensive*, and it's not a full-time job for most companies.
+
+   However, this is akin to making software without doing any design or planning.  The software just /grows/, and nobody knows what its design is.  This approach doesn't scale at all; larger teams need to automate the "how does this thing work" speech from the engineer with the longest tenure.
+
+   So it is with process; a small team can get by with minimal or no process, and improvement happens when one person decides on a better way to do things.  Larger teams need a whole group of people to decide /together/ on which changes to make and when.
+
+

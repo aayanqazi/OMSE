@@ -1,0 +1,85 @@
+<ProcessID>GEN-001</ProcessID>
+<ProcessTitle>Scrum</ProcessTitle>
+
+<Introduction>
+  <Overview>
+    Scrum is a process for iteratively producing software.
+  </Overview>
+
+  <Definitions>
+    Backlog | A prioritized queue of tasks.
+    
+  </Definitions>
+</Introduction>
+
+<ProcessCriteria>
+  <SelectionCriteria>
+    This process is most suited to situations where the system requirements are rapidly changing or emergent.
+  </SelectionCriteria>
+
+  <Performance>
+  </Performance>
+</ProcessCriteria>
+
+<ProcessDefinition>
+  <roles> 
+    <role id="R-001"/>
+    <role id="R-002"/>
+    <role id="R-003"/>
+  </roles>
+  
+  <workTasks>
+    <worktask id="WT-001"/> 
+    <worktask id="WT-002"/> 
+    <worktask id="WT-003"/> 
+    <worktask id="WT-004"/> 
+    <worktask id="WT-005"/> 
+    <worktask id="WT-006"/> 
+    <worktask id="WT-007"/> 
+  </workTasks>
+  
+  <workProducts>
+    <workproduct id="WP-001"/>
+    <workproduct id="WP-002"/>
+    <workproduct id="WP-003"/>
+    <workproduct id="WP-004"/>
+    <workproduct id="WP-005"/>
+    <workproduct id="WP-006"/>
+  </workProducts>
+  
+  <tools>
+    <tool id="PT-001"/>
+    <tool id="PT-002"/>
+  </tools>
+
+  <WorkFlow>
+    This section describes the workflow for a single sprint.
+
+    <Preparation>
+      # <worktask id="WT-005">Estimate</worktask> the <workproduct id="WP-002">backlog</workproduct>.
+      # <worktask id="WT-007">Plan</worktask> for the software release.
+    </Preparation>
+
+    <Setup>
+      # The <role id="R-001">Owner</role> <worktask id="WT-006">prioritizes</worktask> the <workproduct id="WP-002">backlog</workproduct>.
+      # Hold a <worktask id="WT-001">meeting</worktask> to plan the <workproduct id="WP-004">work for the sprint</workproduct>.
+    </Setup>
+
+    <During> 
+      <!-- To include a chart, place the image file in charts named chart### and refer to it via the following chart tag <chart id="###">Caption goes here</chart> -->			
+      <!-- to create an ordered list, put each item on its own line starting with a # -->
+
+      
+      # Hold a <worktask id="WT-004">short meeting</worktask> every day to communicate progress.
+      # Complete tasks and <workproduct id="WP-005">report</workproduct> <workproduct id="WP-006">progress</workproduct>.
+    </During>
+    
+    <WrapUp>
+      # Hold a <worktask id="WT-002">meeting</worktask> to discuss lessons learned, and to improve the process.
+      # Release and <worktask id="WT-003">demo</worktask> <workproduct id="WP-001">some software</workproduct> to the customer.
+      # Report <workproduct id="WP-003">progress</workproduct>.
+
+      <chart id="001">Scrum Workflow</chart>
+    </WrapUp>
+  </WorkFlow>
+</ProcessDefinition>
