@@ -1,1 +1,8 @@
 *.html
+*.aux
+*.dvi
+*.pdf
+*.log
+*.html
+*.toc
+*.out

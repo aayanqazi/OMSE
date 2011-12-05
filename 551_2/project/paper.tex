@@ -1,0 +1,158 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{anysize}
+\marginsize{1.25in}{1.25in}{.75in}{1in}
+
+\usepackage[pdfborder={0 0 0 }]{hyperref} % Remove borders from PDF links
+\usepackage[all]{hypcap}
+\usepackage[utf8x]{inputenc}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[]{todonotes}
+\usepackage{tabularx}
+
+%\usepackage{times}
+\usepackage{mathpazo}
+
+
+\setlength{\parindent}{0pt}     % for less indentation
+\setlength{\parskip}{1em}       % for less whitespace
+
+\newcommand{\notdone}{\todo[color=red]{}}
+
+% Remove numbering from subsections
+\setcounter{secnumdepth}{1}
+
+% Counters for commonalities and variabilities
+\newcounter{type}
+\newcounter{item}[type]
+\newcommand{\com}[1]{\stepcounter{item}\item[\Alph{type}\arabic{item}.]{#1}}
+\begin{document}
+
+\author{Ben Straub\\OMSE 551\\Fall 2011}
+\title{Monsoon Commonality Analysis}
+\date{}
+\maketitle
+
+\vspace{2cm}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+
+Monsoon produces systems that sell things on Internet marketplaces.  These systems have many features, but the primary problems solved are these:
+
+\begin{itemize}
+\item Free market prices change rapidly, especially for used items.  These systems automate the task of determining the list price of a given item.
+\item Listing items is tedious and error-prone.  Our systems support listing items simultaneously on any of a dozen or so marketplaces, and gathers item details automatically from a curated catalog.
+\end{itemize}
+
+These primary features are presented to the user as three tiers of service:
+
+\begin{enumerate}
+\item \textbf{Connect} is the entry-level system.  The UI is accessed through a web browser, the database is hosted in the cloud, and the user is given only the most basic tools and options to proceed with pricing, listing, inventory, and orders.  This system is targeted at new users who want to get started.
+\item \textbf{Professional} is a mid-range solution.  The UI and database are hosted on the user's own machine for better performance, and there are many more tools available for tweaking the behavior of the system and improving volume.  This tier is targeted at more advanced sellers who want more power and control, who have been selling for a while and want to grow their business.
+\item \textbf{Warehouse} is the high-end system.  This system extends the line with multiple-warehouse inventory locators, the ability to run the UI on multiple workstations, and manage multiple users.  This is aimed at the highest-volume customers who have specific needs due to their throughput and specialization.
+\end{enumerate}
+
+
+
+\section{Overview}
+
+This commonality analysis is concerned with the following issues:
+ 
+\begin{itemize}
+\item What configurations should be accommodated?
+\item Which capabilities are available?
+\item How are they assembled into a system?
+\end{itemize}
+ 
+\subsection{Interfaces To Other Domains}
+
+The chief external domain that the Monsoon software interfaces with is that of the marketplace.  Each marketplace that is addressible by Monsoon is expected to have slightly different priorities and foci, but their core domain is the same: matching buyers and sellers of items.  For a given marketplace $A$, the Monsoon $\leftrightarrow A$ interface is governed by the capabilities and protocols of $A$'s publicly-exposed selling API.
+
+Monsoon exposes a user interface to the user.  Input is received and information is displayed using a technology stack that is either installed with Monsoon or provided by the client execution environment.  
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.5in]{Project_ExternalDomains.pdf}
+  \caption{FWS Software and Interfacing Domains}
+\end{figure}
+
+
+
+\section{Dictionary of Terms}
+
+\begin{description}
+\item[Pricing] The process of determining the market price for an item, given information about the item (ISBN, condition, etc.) and contextual information about what the price is for (marketplace, competitive offers, shipping costs, etc.).
+\item[Listing] The process of transmitting item information to marketplaces in order to list items for sale.
+\item[ISBN] International Standard Book Number; a way of identifying a book.
+\end{description}
+
+\section{Commonalities}
+\setcounter{type}{3} % 'C'
+
+The following statements are basic assumptions about the Monsoon domain; they are true of all Mmonsoon systems.
+
+\subsection{Behavior}
+
+\begin{description}
+  \com{Monsoon interfaces with various markets to post and update listings.}
+  \com{Monsoon interfaces with various markets to retrieve orders.}
+  \com{Monsoon uses an algorithm\footnote{Which I am not at liberty to detail, and which is out of scope for this document.} to determine a competitive price for a given item on a given market.}
+\end{description}
+
+\subsection{Devices}
+
+\begin{description}
+  \com{Monsoon uses a flavor of Microsoft SQL Server for data storage.}
+  \com{Monsoon shows an interactive display to the user.}
+\end{description}
+
+
+\section{Variabilities}
+\setcounter{type}{22} % 'V'
+\setcounter{item}{0}
+
+The following statements describe how a Monsoon system may vary.
+ 
+\subsection{Behavior}
+
+\begin{description}
+  \com{The selection of marketplaces supported may vary.}
+  \com{The amount and kinds of data made available to the user may vary.}
+  \com{The options and commands made available to the user may vary.}
+  \com{The number and privilege level of users may vary.}
+\end{description}
+
+
+\subsection{Devices}
+
+\begin{description}
+  \com{The technology used to display the UI may vary.}
+  \com{The location of the data storage may vary.}
+  \com{The number of systems displaying the UI may vary.}
+\end{description}
+
+
+\section{Parameters of Variation}
+{\small
+\begin{tabularx}{\textwidth}{lXll}
+  \textbf{Name}              & \textbf{Description}                        & \textbf{Range}           & \textbf{Default Value} \\
+  \hline\hline
+  \textbf{MktModules} (V1)   & Marketplace support modules to be included. & \{Amazon, eBay, \ldots\} & Amazon, eBay           \\
+  \hline
+  \textbf{UiComplx} (V2, V3) & Complexity of UI.                           & \{connect, pro, wh\}     & connect                \\
+  \hline
+  \textbf{Users} (V4)        & Multiple users are supported.               & \{$true, false$\}        & $false$                \\
+  \hline
+  \textbf{UiTech} (V5)       & UI display technology                       & \{WPF, HTML\}            & WPF                    \\
+  \hline
+  \textbf{DbLoc} (V6)        & Location of database server.                & \{local, cloud, server\} & local                  \\
+  \hline
+  \textbf{SecUi} (V7)        & UI available on other machines              & \{$true, false$\}        & $false$                \\ 
+\end{tabularx}
+}
+
+\end{document}

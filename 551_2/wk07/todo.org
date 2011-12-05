@@ -1,4 +1,6 @@
-* Input [0/2]
-  - [ ] [[http://echo360.pdx.edu/ess/echo/presentation/468ae2fa-601d-4347-8ba8-34118a58f1e8][Video]]
+* Input [1/1]
+  - [X] [[http://echo360.pdx.edu/ess/echo/presentation/468ae2fa-601d-4347-8ba8-34118a58f1e8][Video]] / [[file:L7_Domain_Eng_11.pdf][Slides]]
 * Output
-  - [ ] FWSOS project part II
+  - [X] FWSOS project part II
+        - [[file:CA%20Class%20Answer.doc][CA Class Answer]]
+        - [[file:ModuleGuide.docx][Module Guide]]
